@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		901087F61F5CACC500A4F086 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 901087F51F5CACC500A4F086 /* Foundation.framework */; };
-		90DE50041F4B4C2F00746972 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 90DE50031F4B4C2F00746972 /* main.m */; };
-		90DE500C1F4B502000746972 /* CoreMIDI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90DE500B1F4B502000746972 /* CoreMIDI.framework */; };
+		90C632611F6B02C0001CB7A4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 90C632601F6B02C0001CB7A4 /* main.m */; };
+		90C632691F6B02D3001CB7A4 /* CoreMIDI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90C632681F6B02D3001CB7A4 /* CoreMIDI.framework */; };
+		90C6326B1F6B02DC001CB7A4 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90C6326A1F6B02DC001CB7A4 /* CoreFoundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		90DE4FFE1F4B4C2F00746972 /* CopyFiles */ = {
+		90C6325B1F6B02C0001CB7A4 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = /usr/share/man/man1/;
@@ -25,55 +25,55 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		901087F51F5CACC500A4F086 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		90DE50001F4B4C2F00746972 /* CoreMidiDemo */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CoreMidiDemo; sourceTree = BUILT_PRODUCTS_DIR; };
-		90DE50031F4B4C2F00746972 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		90DE500B1F4B502000746972 /* CoreMIDI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMIDI.framework; path = System/Library/Frameworks/CoreMIDI.framework; sourceTree = SDKROOT; };
+		90C6325D1F6B02C0001CB7A4 /* XMidiSample1 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = XMidiSample1; sourceTree = BUILT_PRODUCTS_DIR; };
+		90C632601F6B02C0001CB7A4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		90C632681F6B02D3001CB7A4 /* CoreMIDI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMIDI.framework; path = System/Library/Frameworks/CoreMIDI.framework; sourceTree = SDKROOT; };
+		90C6326A1F6B02DC001CB7A4 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		90DE4FFD1F4B4C2F00746972 /* Frameworks */ = {
+		90C6325A1F6B02C0001CB7A4 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				901087F61F5CACC500A4F086 /* Foundation.framework in Frameworks */,
-				90DE500C1F4B502000746972 /* CoreMIDI.framework in Frameworks */,
+				90C6326B1F6B02DC001CB7A4 /* CoreFoundation.framework in Frameworks */,
+				90C632691F6B02D3001CB7A4 /* CoreMIDI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		90DE4FF71F4B4C2F00746972 = {
+		90C632541F6B02C0001CB7A4 = {
 			isa = PBXGroup;
 			children = (
-				90DE50021F4B4C2F00746972 /* CoreMidiDemo */,
-				90DE50011F4B4C2F00746972 /* Products */,
-				90DE500A1F4B502000746972 /* Frameworks */,
+				90C6325F1F6B02C0001CB7A4 /* XMidiSample1 */,
+				90C6325E1F6B02C0001CB7A4 /* Products */,
+				90C632671F6B02D2001CB7A4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
-		90DE50011F4B4C2F00746972 /* Products */ = {
+		90C6325E1F6B02C0001CB7A4 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				90DE50001F4B4C2F00746972 /* CoreMidiDemo */,
+				90C6325D1F6B02C0001CB7A4 /* XMidiSample1 */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		90DE50021F4B4C2F00746972 /* CoreMidiDemo */ = {
+		90C6325F1F6B02C0001CB7A4 /* XMidiSample1 */ = {
 			isa = PBXGroup;
 			children = (
-				90DE50031F4B4C2F00746972 /* main.m */,
+				90C632601F6B02C0001CB7A4 /* main.m */,
 			);
-			path = CoreMidiDemo;
+			path = XMidiSample1;
 			sourceTree = "<group>";
 		};
-		90DE500A1F4B502000746972 /* Frameworks */ = {
+		90C632671F6B02D2001CB7A4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				901087F51F5CACC500A4F086 /* Foundation.framework */,
-				90DE500B1F4B502000746972 /* CoreMIDI.framework */,
+				90C6326A1F6B02DC001CB7A4 /* CoreFoundation.framework */,
+				90C632681F6B02D3001CB7A4 /* CoreMIDI.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -81,68 +81,68 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		90DE4FFF1F4B4C2F00746972 /* CoreMidiDemo */ = {
+		90C6325C1F6B02C0001CB7A4 /* XMidiSample1 */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 90DE50071F4B4C2F00746972 /* Build configuration list for PBXNativeTarget "CoreMidiDemo" */;
+			buildConfigurationList = 90C632641F6B02C0001CB7A4 /* Build configuration list for PBXNativeTarget "XMidiSample1" */;
 			buildPhases = (
-				90DE4FFC1F4B4C2F00746972 /* Sources */,
-				90DE4FFD1F4B4C2F00746972 /* Frameworks */,
-				90DE4FFE1F4B4C2F00746972 /* CopyFiles */,
+				90C632591F6B02C0001CB7A4 /* Sources */,
+				90C6325A1F6B02C0001CB7A4 /* Frameworks */,
+				90C6325B1F6B02C0001CB7A4 /* CopyFiles */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = CoreMidiDemo;
-			productName = CoreMidiDemo;
-			productReference = 90DE50001F4B4C2F00746972 /* CoreMidiDemo */;
+			name = XMidiSample1;
+			productName = XMidiSample1;
+			productReference = 90C6325D1F6B02C0001CB7A4 /* XMidiSample1 */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		90DE4FF81F4B4C2F00746972 /* Project object */ = {
+		90C632551F6B02C0001CB7A4 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = "Bradley Ross";
 				TargetAttributes = {
-					90DE4FFF1F4B4C2F00746972 = {
+					90C6325C1F6B02C0001CB7A4 = {
 						CreatedOnToolsVersion = 8.3.3;
 						ProvisioningStyle = Automatic;
 					};
 				};
 			};
-			buildConfigurationList = 90DE4FFB1F4B4C2F00746972 /* Build configuration list for PBXProject "CoreMidiDemo" */;
+			buildConfigurationList = 90C632581F6B02C0001CB7A4 /* Build configuration list for PBXProject "XMidiSample1" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
-			mainGroup = 90DE4FF71F4B4C2F00746972;
-			productRefGroup = 90DE50011F4B4C2F00746972 /* Products */;
+			mainGroup = 90C632541F6B02C0001CB7A4;
+			productRefGroup = 90C6325E1F6B02C0001CB7A4 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				90DE4FFF1F4B4C2F00746972 /* CoreMidiDemo */,
+				90C6325C1F6B02C0001CB7A4 /* XMidiSample1 */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		90DE4FFC1F4B4C2F00746972 /* Sources */ = {
+		90C632591F6B02C0001CB7A4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				90DE50041F4B4C2F00746972 /* main.m in Sources */,
+				90C632611F6B02C0001CB7A4 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		90DE50051F4B4C2F00746972 /* Debug */ = {
+		90C632621F6B02C0001CB7A4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -190,7 +190,7 @@
 			};
 			name = Debug;
 		};
-		90DE50061F4B4C2F00746972 /* Release */ = {
+		90C632631F6B02C0001CB7A4 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -231,14 +231,14 @@
 			};
 			name = Release;
 		};
-		90DE50081F4B4C2F00746972 /* Debug */ = {
+		90C632651F6B02C0001CB7A4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
 		};
-		90DE50091F4B4C2F00746972 /* Release */ = {
+		90C632661F6B02C0001CB7A4 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -248,25 +248,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		90DE4FFB1F4B4C2F00746972 /* Build configuration list for PBXProject "CoreMidiDemo" */ = {
+		90C632581F6B02C0001CB7A4 /* Build configuration list for PBXProject "XMidiSample1" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				90DE50051F4B4C2F00746972 /* Debug */,
-				90DE50061F4B4C2F00746972 /* Release */,
+				90C632621F6B02C0001CB7A4 /* Debug */,
+				90C632631F6B02C0001CB7A4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		90DE50071F4B4C2F00746972 /* Build configuration list for PBXNativeTarget "CoreMidiDemo" */ = {
+		90C632641F6B02C0001CB7A4 /* Build configuration list for PBXNativeTarget "XMidiSample1" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				90DE50081F4B4C2F00746972 /* Debug */,
-				90DE50091F4B4C2F00746972 /* Release */,
+				90C632651F6B02C0001CB7A4 /* Debug */,
+				90C632661F6B02C0001CB7A4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 90DE4FF81F4B4C2F00746972 /* Project object */;
+	rootObject = 90C632551F6B02C0001CB7A4 /* Project object */;
 }

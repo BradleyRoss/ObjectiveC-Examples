@@ -52,46 +52,46 @@ int main(int argc, char *argv[])
                     NSLog(@"       Manufacturer: %@", manufacturer);
                     NSLog(@"       Description: %@", description);
                     NSLog(@"       Endpoint Reference: %d", dest);
-                    }
                 }
+            }
             elapsed();
             NSLog(@"Iterate through sources");
             // Virtual sources and destinations don't have entities
-    
+            
             ItemCount sourceCount = MIDIGetNumberOfSources();
-        for (ItemCount i = 0 ; i < sourceCount ; ++i) {
-        MIDIEndpointRef source = MIDIGetSource(i);
-        // NSLog(@" *** Processing source  %lu", i);
-        if (source != 0) {
-            // NSLog(@"%d", source);
-           MIDIObjectGetStringProperty(source, kMIDIPropertyManufacturer, &manufacturer);
-            // NSLog(@"%@", manufacturer);
-            MIDIObjectGetStringProperty(source, kMIDIPropertyDisplayName, &displayName);
-            // NSLog(@"Point 2");
-            // NSLog(@"  Source: %@", getDisplayName(source));
-            NSLog(@"  Source (Display Name) %lu: %@", i, displayName);
-            MIDIObjectGetIntegerProperty(source,kMIDIPropertyUniqueID, &uniqueId);
-            MIDIObjectGetIntegerProperty(source, kMIDIPropertyDriverVersion, &version);
-            MIDIObjectGetStringProperty(source, kMIDIPropertyManufacturer, &manufacturer);
-            MIDIObjectGetIntegerProperty(source, kMIDIPropertyDeviceID, &deviceID);
-            MIDIObjectGetStringProperty(source, kMIDIPropertyModel, &description);
-            NSLog(@"       Unique ID: %d %08x", uniqueId, uniqueId);
-            NSLog(@"       Device ID: %d", deviceID);
-            NSLog(@"       Version: %d", version);
-            NSLog(@"       Manufacturer: %@", manufacturer);
-            NSLog(@"       Description: %@", description);
-            NSLog(@"       Endpoint Reference: %d", source);
+            for (ItemCount i = 0 ; i < sourceCount ; ++i) {
+                MIDIEndpointRef source = MIDIGetSource(i);
+                // NSLog(@" *** Processing source  %lu", i);
+                if (source != 0) {
+                    // NSLog(@"%d", source);
+                    MIDIObjectGetStringProperty(source, kMIDIPropertyManufacturer, &manufacturer);
+                    // NSLog(@"%@", manufacturer);
+                    MIDIObjectGetStringProperty(source, kMIDIPropertyDisplayName, &displayName);
+                    // NSLog(@"Point 2");
+                    // NSLog(@"  Source: %@", getDisplayName(source));
+                    NSLog(@"  Source (Display Name) %lu: %@", i, displayName);
+                    MIDIObjectGetIntegerProperty(source,kMIDIPropertyUniqueID, &uniqueId);
+                    MIDIObjectGetIntegerProperty(source, kMIDIPropertyDriverVersion, &version);
+                    MIDIObjectGetStringProperty(source, kMIDIPropertyManufacturer, &manufacturer);
+                    MIDIObjectGetIntegerProperty(source, kMIDIPropertyDeviceID, &deviceID);
+                    MIDIObjectGetStringProperty(source, kMIDIPropertyModel, &description);
+                    NSLog(@"       Unique ID: %d %08x", uniqueId, uniqueId);
+                    NSLog(@"       Device ID: %d", deviceID);
+                    NSLog(@"       Version: %d", version);
+                    NSLog(@"       Manufacturer: %@", manufacturer);
+                    NSLog(@"       Description: %@", description);
+                    NSLog(@"       Endpoint Reference: %d", source);
+                }
             }
-        }
-        elapsed();
-        NSLog(@"CLOCKS_PER_SEC: %d", CLOCKS_PER_SEC);
-        NSLog(@"End of pass  %d", j);
+            elapsed();
+            NSLog(@"CLOCKS_PER_SEC: %d", CLOCKS_PER_SEC);
+            NSLog(@"End of pass  %d", j);
         }
     }
 }
 void elapsed() {
     UInt64 micros = clock() - startMicros;
-
+    
     NSLog(@"Elapsed CPU time: %llu  microseconds", micros);
     double microsFloat = (double)micros;
     double seconds = microsFloat / 1000000.0;

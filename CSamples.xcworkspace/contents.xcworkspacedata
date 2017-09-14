@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <FileRef
+      location = "group:XMidiSample2/XMidiSample2.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:XMidiSample1/XMidiSample1.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:CoreMidiSample1/CoreMidiSample1.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:HelloWorld/HelloWorld.xcodeproj">
+   </FileRef>
+</Workspace>

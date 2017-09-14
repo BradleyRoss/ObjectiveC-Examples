@@ -22,7 +22,7 @@ struct timespec wallStart;
  */
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
-            clock_gettime(CLOCK_MONOTONIC, &wallStart);
+        clock_gettime(CLOCK_MONOTONIC, &wallStart);
         // How many MIDI devices do we have?
         ItemCount deviceCount = MIDIGetNumberOfDevices();
         NSLog(@"Number of MIDI Devices: %lu", deviceCount);
@@ -69,7 +69,7 @@ int main(int argc, const char * argv[]) {
         }
         return 0;
     }
-    }
+}
 void elapsed() {
     struct timespec current;
     clock_gettime(CLOCK_MONOTONIC, &current);
@@ -108,24 +108,24 @@ void endpointData(MIDIEndpointRef ref, MIDIDeviceRef device, MIDIEntityRef entit
 }
 
 NSString *getName(MIDIObjectRef object) {
-        // Returns the name of a given MIDIObjectRef as an NSString
-        /*
-         * The original article stated that the bridge clause in the cast was
-         * not required.  However, XCode insisted on it.  I assume that this is a change 
-         * in the API.
-         *
-         * The change is due to Automatic Resource Counting.  The various bridging options
-         * determine which application is responsible for releasing the memory.
-         *
-         *  https://developer.apple.com/library/content/releasenotes/ObjectiveC/RN-TransitioningToARC/Introduction/Introduction.html#//apple_ref/doc/uid/TP40011226-CH1-SW1
-         */
-        CFStringRef name = nil;
-        if (noErr != MIDIObjectGetStringProperty(object, kMIDIPropertyName, &name)) {
-            return nil;
-        }
-        return (__bridge NSString *)name;
-        // return (NSString *) name;
+    // Returns the name of a given MIDIObjectRef as an NSString
+    /*
+     * The original article stated that the bridge clause in the cast was
+     * not required.  However, XCode insisted on it.  I assume that this is a change
+     * in the API.
+     *
+     * The change is due to Automatic Resource Counting.  The various bridging options
+     * determine which application is responsible for releasing the memory.
+     *
+     *  https://developer.apple.com/library/content/releasenotes/ObjectiveC/RN-TransitioningToARC/Introduction/Introduction.html#//apple_ref/doc/uid/TP40011226-CH1-SW1
+     */
+    CFStringRef name = nil;
+    if (noErr != MIDIObjectGetStringProperty(object, kMIDIPropertyName, &name)) {
+        return nil;
     }
+    return (__bridge NSString *)name;
+    // return (NSString *) name;
+}
 
 
 
