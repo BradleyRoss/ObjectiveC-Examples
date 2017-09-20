@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:MIDIConstantStudy/MIDIConstantStudy.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:XMidiSample2/XMidiSample2.xcodeproj">
    </FileRef>
    <FileRef
