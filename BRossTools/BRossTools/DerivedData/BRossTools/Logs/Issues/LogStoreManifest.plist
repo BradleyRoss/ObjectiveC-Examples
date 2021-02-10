@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>logFormatVersion</key>
+	<integer>10</integer>
+	<key>logs</key>
+	<dict>
+		<key>45213B6C-864A-41F4-AFD1-E590E378D7A5</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogMajorGroupSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.target.product-type.application</string>
+			<key>fileName</key>
+			<string>45213B6C-864A-41F4-AFD1-E590E378D7A5.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>W</string>
+			</dict>
+			<key>signature</key>
+			<string>BRossTools-hkpmkadpcttfzqajmrvlesvspivn</string>
+			<key>timeStartedRecording</key>
+			<real>634676217.84847701</real>
+			<key>timeStoppedRecording</key>
+			<real>634676218.18417299</real>
+			<key>title</key>
+			<string>Build target BRossTools</string>
+			<key>uniqueIdentifier</key>
+			<string>45213B6C-864A-41F4-AFD1-E590E378D7A5</string>
+		</dict>
+	</dict>
+	<key>preserveOldLogs</key>
+	<true/>
+</dict>
+</plist>
