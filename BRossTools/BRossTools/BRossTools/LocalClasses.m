@@ -120,3 +120,65 @@ BRossToolsSimpleGridMenu *gridView;
     }
 }
 @end
+@implementation BRossToolsView
++ (void) displayView:(NSString*)name view:(NSView*)target {
+    NSLog(@"Name of view is %@", name );
+    NSLog(@"Bounds represent dimensions in view's coordinate system");
+    NSLog(@"        width %f , height %f", target.bounds.size.width, target.bounds.size.height);
+    NSLog(@"        x %f , y %f", target.bounds.origin.x, target.bounds.origin.y);
+    NSLog(@"Frame respresent dimensions in superview's coordinate system\n");
+    NSLog(@"        width %f , height %f\n", target.frame.size.width, target.frame.size.height);
+    NSLog(@"        x %f , y %f\n", target.frame.origin.x, target.frame.origin.y);
+}
++ (void) displayToLog:(NSString*)name view:(NSView*)target output:(BRossToolsTextWindow *)output {
+    [output appendString:@"\n.....  .....\n"];
+    [output appendFormat:@"Name of view is %@ \n", name ];
+    [output appendFormat:@"Bounds represent dimensions in view's coordinate system \n"];
+    [output appendFormat:@"        width %f , height %f \n", target.bounds.size.width, target.bounds.size.height];
+    [output appendFormat:@"        x %f , y %f \n", target.bounds.origin.x, target.bounds.origin.y];
+    [output appendFormat:@"Frame respresents dimensions in superview's coordinate system \n"];
+    [output appendFormat:@"        width %f , height %f \n", target.frame.size.width, target.frame.size.height];
+    [output appendFormat:@"        x %f , y %f \n", target.frame.origin.x, target.frame.origin.y];
+}
+@end
+@implementation redoMenu
+NSWindow *owningWindow;
+NSGridView *gridView;
+NSView *windowView;
+BRossToolsTextWindow *textWindow;
++ (id) createMainMenu:(NSWindow*)window {
+    textWindow = [BRossToolsTextWindow newWindow];
+    owningWindow = window;
+    NSRect windowFrame = owningWindow.frame;
+
+    gridView = [NSGridView alloc];
+    windowView = window.contentView;
+    NSRect windowViewBounds = windowView.bounds;
+    NSRect windowViewFrame = windowView.frame;
+    NSTextField *t2 = [NSTextField textFieldWithString:@"second line  2"];
+    [t2 isBordered];
+    NSTextField *t1a = [NSTextField textFieldWithString:@"first line  1a"];
+    NSTextField *t1b = [NSTextField textFieldWithString:@"Second half first line  1b"];
+   //
+    // https://stackoverflow.com/questions/1210047/cocoa-whats-the-difference-between-the-frame-and-the-bounds
+    gridView = [gridView initWithFrame:windowViewBounds];
+    // gridView = [NSGridView gridViewWithViews:@[@[t1a, t1b], @[t2]]];
+    // Apply constraints
+    gridView.translatesAutoresizingMaskIntoConstraints = false;
+        gridView.rowAlignment = NSGridRowAlignmentFirstBaseline;
+    // NSPoint NSMakePoint(CGFloat x, CGFloat y);
+    [gridView setBoundsOrigin:NSMakePoint((CGFloat)0.0, (CGFloat)0.0)];
+    // NSSize NSMakeSize(CGFloat w, CGFloat h);
+    // Increasing bounds size makes size of things in region smaller
+    [gridView setBoundsSize:NSMakeSize((CGFloat)1000.0, (CGFloat)500.0)];
+    [gridView addRowWithViews:@[t1a, t1b]];
+    [gridView addRowWithViews:@[t2]];
+    [windowView addSubview:gridView];
+    [gridView setHidden:NO];
+    [BRossToolsView displayToLog:@"gridView" view:gridView output:textWindow];
+    [BRossToolsView displayToLog:@"t1a" view:t1a output:textWindow];
+    [BRossToolsView displayToLog:@"t1b" view:t1b output:textWindow];
+    return gridView;
+}
+
+@end

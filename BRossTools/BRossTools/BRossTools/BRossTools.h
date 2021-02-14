@@ -65,5 +65,6 @@
       Append an NSString object to the panel/window created by the class.
  */
 - (void)appendString:(NSString *)string;
+- (void)appendFormat:(NSString *)format, ...;
 @end
 #endif /* BRossTools_h */

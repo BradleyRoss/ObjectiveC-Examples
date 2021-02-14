@@ -45,7 +45,21 @@
 @interface mainMenu : BRossToolsSimpleGridMenu
 
 
+
 + (void)createMainMenuForWindow:(NSWindow *)aWindow;
+
+@end
+@interface BRossToolsView:NSObject
++ (void)displayView:(NSString*)name view:(NSView*)target;
+@end
+/**
+ Playpen for buiding menu.
+ */
+@interface redoMenu:NSGridView
+/**
+ Trying various approaches for opening window.  Currently places lines way off edge of window.
+ */
++ (id)createMainMenu:(NSWindow*)owningWindow;
 
 @end
 #endif /* LocalClasses_h */

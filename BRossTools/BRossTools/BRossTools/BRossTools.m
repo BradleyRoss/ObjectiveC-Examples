@@ -154,6 +154,22 @@ NSTextStorage *stringContents;
     [aString  initWithString:string];
     [stringContents appendAttributedString:aString];
 }
+- (void)appendFormat:(NSString *)format, ...{
+    NSLog(@"Starting BRossToolsTextWindow appendFormat");
+    /*
+    NSString *formattedString = [NSString alloc];
+    [formattedString  initWithFormat:format];
+    NSAttributedString *aString = [NSAttributedString alloc];
+    [aString initWithString:formattedString];
+     */
+    NSString *formattedString = [[NSString alloc]
+                                 initWithFormat: format];
+    // Somehow formattedString is nil
+    
+    NSAttributedString *aString = [[NSAttributedString alloc]
+    initWithString:formattedString];
+    [stringContents appendAttributedString:aString];
+}
 @end
 
 

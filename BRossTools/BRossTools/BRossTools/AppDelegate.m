@@ -19,7 +19,8 @@
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     NSLog(@"aaa  applicationDidFinishLoading");
     // [test2 runtest];
-   [mainMenu createMainMenuForWindow:_window];
+    [redoMenu createMainMenu:_window];
+   // [mainMenu createMainMenuForWindow:_window];
    // BRossToolsDocument *document =
     
     
