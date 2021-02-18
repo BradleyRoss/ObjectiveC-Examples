@@ -198,6 +198,9 @@
 		906CEEEC25C7AA0900DC5271 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				KnownAssetTags = (
+					New,
+				);
 				LastUpgradeCheck = 1240;
 				TargetAttributes = {
 					906CEEF325C7AA0900DC5271 = {

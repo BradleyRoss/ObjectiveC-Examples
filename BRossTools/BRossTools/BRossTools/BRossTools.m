@@ -8,78 +8,18 @@
 #import <Foundation/Foundation.h>
 #import "BRossTools.h"
 NSWindow *superview;
-@implementation BRossToolsSimpleGridMenu 
-/**
- Allocates and initializes object
- */
-NSWindow *owningWindow;
-BRossToolsSimpleGridMenu *gridView;
-+ (void)createMainMenuForWindow:(NSWindow *)window {
-    gridView = [BRossToolsSimpleGridMenu alloc];
-    owningWindow = window;
-    [gridView setLabels ];
-    [owningWindow.contentView addSubview:gridView];
-    [gridView setFrameSize:owningWindow.frame.size];
-
-   // [owningWindow.contentViewController addChildViewController:gridView];
-    
-}
-/*
-+ (id)start {
-    id pointer;
-    pointer = [[BRossToolsSimpleGridMenu alloc] init];
-    
-    return pointer;
-}
- */
-
-
-/**
-       Take action based on the grid selected.
- 
-               The code below is a dummy entry that will simply post an alert panel indicating which
-            option was selected.  Actual cases will need to subclass and override this method.
- */
-- (void)processAction:(NSString *)caseNumber {
-    NSAlert *alert = [[NSAlert alloc] init];
-    [alert addButtonWithTitle:@"Continue"];
-    [alert setMessageText:caseNumber];
-    [alert setAlertStyle:NSAlertStyleInformational];
-    [alert runModal];
-    //NSModalResponse response = [alert runModal];
-}
-- (void)setLabels {
-   
-       
-    // Create text fields
-        NSTextField *t11 = [NSTextField labelWithString:@"First Field"];
-        t11.bordered = TRUE;
-        NSTextField *t12 = [NSTextField labelWithString:@"Second Half"];
-        NSTextField *t2 = [NSTextField labelWithString:@"Second Field"];
-        t2.bordered = TRUE;
-        NSTextField *t3 = [NSTextField labelWithString:@"Third Field"];
-        t3.bordered = TRUE;
-     
-    // Create the NSGridView object
-        NSGridView *gridView = [NSGridView gridViewWithViews:@[ @[t11, t12], @[t2], @[t3] ] ];
-    // Obtain the content view for the main window of the application
-        
-   
-    // Apply constraints
-        gridView.translatesAutoresizingMaskIntoConstraints = false;
-        gridView.rowAlignment = NSGridRowAlignmentFirstBaseline;
-      
-       
-    
-}
-@end
 
 @implementation BRossToolsTextWindow
-
-NSTextStorage *stringContents;
-+ (id)newWindow {
-    id pointer = [[BRossToolsTextWindow alloc] init];
-
+/*
+ Using a class method that allocates and then an instance method that finishes off the
+ rest of the initialization
+ */
++ (instancetype)newWindow {
+    id  pointer = [BRossToolsTextWindow alloc];
+    [pointer initTextWindow];
+    return pointer;
+}
+-   (void)initTextWindow {
     CGPoint origin;
     CGRect rectangle;
     origin.x = -2000.0;
@@ -93,7 +33,8 @@ NSTextStorage *stringContents;
         but appears in developer documentation
         for [NSWindow initWithContentRect:styleMask:backing:defer ]
      */
-    NSPanel *newPanel = [[NSPanel alloc] initWithContentRect:rectangle
+    newPanel = [NSWindow alloc];
+    [newPanel initWithContentRect:rectangle
             styleMask: NSWindowStyleMaskBorderless
             backing:NSBackingStoreBuffered
             defer:YES];
@@ -101,7 +42,7 @@ NSTextStorage *stringContents;
    //  NSView *windowView = [newPanel contentView];
    /* NSScrollView *scrollview = [NSScrollView frameSizeForContentSize:contentSize
        ]; */
-    NSScrollView *scrollview = [[NSScrollView alloc] initWithFrame:windowFrame];
+    scrollview = [[NSScrollView alloc] initWithFrame:windowFrame];
     // NSSize contentSize = windowFrame.contentSize;
     NSRect contentRect = windowFrame;
     NSSize contentSize = contentRect.size;
@@ -113,8 +54,8 @@ NSTextStorage *stringContents;
     [scrollview setHasHorizontalScroller:NO];
     [scrollview setAutoresizingMask:NSViewWidthSizable |
                 NSViewHeightSizable];
-    NSTextView *theTextView;
-    theTextView = [[NSTextView alloc] initWithFrame:NSMakeRect(0, 0,
+    theTextView = [NSTextView alloc];
+    [theTextView initWithFrame:NSMakeRect(0, 0,
                 contentSize.width, contentSize.height)];
     [theTextView setMinSize:NSMakeSize(0.0, contentSize.height)];
     [theTextView setMaxSize:NSMakeSize(FLT_MAX, FLT_MAX)];
@@ -125,24 +66,33 @@ NSTextStorage *stringContents;
     [[theTextView textContainer]
                 setContainerSize:NSMakeSize(contentSize.width, FLT_MAX)];
     [[theTextView textContainer] setWidthTracksTextView:YES];
-    NSViewController *viewController;
-    viewController = [[NSViewController alloc] init];
+    viewController = [NSViewController alloc];
+    [viewController init];
     viewController.view = scrollview;
     // NSPanel *panel = [NSPanel alloc];
-    NSPanel *panel =[NSPanel windowWithContentViewController:viewController];
+    displayPanel =[NSWindow windowWithContentViewController:viewController];
     
     [scrollview setDocumentView:theTextView];
-    [panel setContentView:scrollview];
-    [panel makeKeyAndOrderFront:nil];
-    [panel makeFirstResponder:theTextView];
+    [displayPanel setContentView:scrollview];
+    [displayPanel makeKeyAndOrderFront:nil];
+    [displayPanel makeFirstResponder:theTextView];
     [[theTextView enclosingScrollView] setHasHorizontalScroller:YES];
     [theTextView setHorizontallyResizable:YES];
     [theTextView setAutoresizingMask:(NSViewWidthSizable | NSViewHeightSizable)];
     [[theTextView textContainer] setContainerSize:NSMakeSize(FLT_MAX, FLT_MAX)];
     [[theTextView textContainer] setWidthTracksTextView:NO];
-    [theTextView setString:@"This is an initial string\rSecond Line"];
-    stringContents = theTextView.textStorage;
-    return pointer;
+    [theTextView setEditable:YES];
+    [theTextView setSelectable:YES];
+    // [theTextView setString:@"This is an initial string\rSecond Line"];
+     stringContents = theTextView.textStorage;
+    
+}
+- (NSString *)getTitle {
+    return displayPanel.title;
+}
+- (void)setTitle:(NSString *)title {
+    NSLog(@"Setting window title to %@", title);
+    displayPanel.title=title;
 }
 /**
       Add some text to the window.
@@ -150,10 +100,20 @@ NSTextStorage *stringContents;
            The xCode system seems to be saying that aString is not being used, but it is used in the next line.
  */
 - (void)appendString:(NSString *)string {
-    NSAttributedString *aString = [NSAttributedString alloc];
-    [aString  initWithString:string];
+    NSAttributedString *aString = [[NSAttributedString alloc] initWithString:string];
+    /*
+     Xcode is saying that aString is not used (Expression result unused)
+     even though it is used in the next line.
+     
+     It appears to depend on whether alloc and init are in same statement
+     Putting them in same statement removed message
+     */
+    // [aString  initWithString:string];
     [stringContents appendAttributedString:aString];
 }
+/*
+ Can't get this to work.
+ */
 - (void)appendFormat:(NSString *)format, ...{
     NSLog(@"Starting BRossToolsTextWindow appendFormat");
     /*
@@ -162,33 +122,49 @@ NSTextStorage *stringContents;
     NSAttributedString *aString = [NSAttributedString alloc];
     [aString initWithString:formattedString];
      */
-    NSString *formattedString = [[NSString alloc]
-                                 initWithFormat: format];
+    /*
+     The following line is giving me the message
+     Format string is not a string literal (potentially insecure
+     However, this is exactly the way that the instance method of intitWithFormat for NSString works.
+     */
+    // NSString *formattedString = [[[NSString alloc] stringWithFormat: format ...] ];
     // Somehow formattedString is nil
-    
+   /*
     NSAttributedString *aString = [[NSAttributedString alloc]
     initWithString:formattedString];
-    [stringContents appendAttributedString:aString];
+    [stringContents appendAttributedString:aString];*/
 }
 @end
 
+//  *****  *****  *****  *****  *****
+//  *****  *****  *****  *****  *****
+//  *****  *****  *****  *****  *****
+//
 
-@implementation BRossToolsButtonView
-/**
- Creates an object contaning vie aw of a button to insert in grid view
- 
- @param targetObject id for object that will receive action from button
- @param selector character string that will identify button to target object
- @param label caption for button
- */
+//  *****  *****  *****  *****  *****
+//  *****  *****  *****  *****  *****
+//  *****  *****  *****  *****  *****
 
-+ (id)CreateButtonViewUsingObject:(id)targetObject  selector:(NSString *)selector caption:(NSString *)label {
-    // SEL *a = NSFunctionFromString(selector);//
-    SEL aSelector = NSSelectorFromString(@"runtest");
-    NSButton *button = [NSButton buttonWithTitle:label target:targetObject action:aSelector];
-    return button;
+@implementation BRossToolsButton
+NSString *identValue;
++ (instancetype)initUsingObject:targetObject  selector:(SEL)select caption:(NSString *)label {
+// SEL *a = NSFunctionFromString(selector);//
+// SEL bleep1 = sel_registerName("bleep:");
+BRossToolsButton *button = [BRossToolsButton buttonWithTitle:label target:targetObject action:select];
+identValue = nil;
+return button;
 }
-
++ (instancetype)initUsingObjectIdent:targetObject  selector:(SEL)select caption:(NSString *)label ident:(NSString *)ident {
+BRossToolsButton *button = [BRossToolsButton buttonWithTitle:label target:targetObject action:select];
+[button setIdent:ident];
+return button;
+}
+- (NSString *)getIdent  {
+return identValue;
+}
+- (void)setIdent:ident {
+identValue = ident;
+}
 @end
 
 

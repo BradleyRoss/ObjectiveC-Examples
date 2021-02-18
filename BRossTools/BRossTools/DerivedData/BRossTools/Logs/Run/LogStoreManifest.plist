@@ -6,7 +6,7 @@
 	<integer>10</integer>
 	<key>logs</key>
 	<dict>
-		<key>C547B4A6-36B7-4BB4-B8F9-D07E4A6DB3B4</key>
+		<key>04446AA3-EA2C-40EA-BFB3-F94178C4A07D</key>
 		<dict>
 			<key>className</key>
 			<string>DBGConsoleLog</string>
@@ -15,7 +15,7 @@
 			<key>domainType</key>
 			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
 			<key>fileName</key>
-			<string>C547B4A6-36B7-4BB4-B8F9-D07E4A6DB3B4.xcactivitylog</string>
+			<string>04446AA3-EA2C-40EA-BFB3-F94178C4A07D.xcactivitylog</string>
 			<key>hasPrimaryLog</key>
 			<true/>
 			<key>primaryObservable</key>
@@ -32,13 +32,897 @@
 			<key>signature</key>
 			<string>Run BRossTools</string>
 			<key>timeStartedRecording</key>
-			<real>634711910.59227097</real>
+			<real>635205407.3046</real>
 			<key>timeStoppedRecording</key>
-			<real>634711917.14284003</real>
+			<real>635205656.84641504</real>
 			<key>title</key>
 			<string>Run BRossTools</string>
 			<key>uniqueIdentifier</key>
-			<string>C547B4A6-36B7-4BB4-B8F9-D07E4A6DB3B4</string>
+			<string>04446AA3-EA2C-40EA-BFB3-F94178C4A07D</string>
+		</dict>
+		<key>0A0E8B04-50FF-4FB1-922A-B19F7F17EB44</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>0A0E8B04-50FF-4FB1-922A-B19F7F17EB44.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>BRossTools project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>BRossTools</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run BRossTools</string>
+			<key>timeStartedRecording</key>
+			<real>635206916.63505995</real>
+			<key>timeStoppedRecording</key>
+			<real>635207211.96446896</real>
+			<key>title</key>
+			<string>Run BRossTools</string>
+			<key>uniqueIdentifier</key>
+			<string>0A0E8B04-50FF-4FB1-922A-B19F7F17EB44</string>
+		</dict>
+		<key>0CCDFDB0-68D2-48BE-9432-6527596C2AF0</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>0CCDFDB0-68D2-48BE-9432-6527596C2AF0.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>BRossTools project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>BRossTools</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run BRossTools</string>
+			<key>timeStartedRecording</key>
+			<real>635202296.471807</real>
+			<key>timeStoppedRecording</key>
+			<real>635202885.54833496</real>
+			<key>title</key>
+			<string>Run BRossTools</string>
+			<key>uniqueIdentifier</key>
+			<string>0CCDFDB0-68D2-48BE-9432-6527596C2AF0</string>
+		</dict>
+		<key>13BA0BEA-7D31-4E9C-BF2C-378A86D47244</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>13BA0BEA-7D31-4E9C-BF2C-378A86D47244.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>BRossTools project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>BRossTools</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run BRossTools</string>
+			<key>timeStartedRecording</key>
+			<real>635367951.36031199</real>
+			<key>timeStoppedRecording</key>
+			<real>635367982.34625494</real>
+			<key>title</key>
+			<string>Run BRossTools</string>
+			<key>uniqueIdentifier</key>
+			<string>13BA0BEA-7D31-4E9C-BF2C-378A86D47244</string>
+		</dict>
+		<key>2712C51F-D8AF-4A81-8D0C-ADC2D9201A45</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>2712C51F-D8AF-4A81-8D0C-ADC2D9201A45.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>BRossTools project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>BRossTools</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run BRossTools</string>
+			<key>timeStartedRecording</key>
+			<real>635203939.70252597</real>
+			<key>timeStoppedRecording</key>
+			<real>635204523.31623805</real>
+			<key>title</key>
+			<string>Run BRossTools</string>
+			<key>uniqueIdentifier</key>
+			<string>2712C51F-D8AF-4A81-8D0C-ADC2D9201A45</string>
+		</dict>
+		<key>3573547E-E295-4FD4-91E5-C094F364897C</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>3573547E-E295-4FD4-91E5-C094F364897C.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>BRossTools project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>BRossTools</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run BRossTools</string>
+			<key>timeStartedRecording</key>
+			<real>635186658.91153395</real>
+			<key>timeStoppedRecording</key>
+			<real>635202294.23682797</real>
+			<key>title</key>
+			<string>Run BRossTools</string>
+			<key>uniqueIdentifier</key>
+			<string>3573547E-E295-4FD4-91E5-C094F364897C</string>
+		</dict>
+		<key>37BFF9E3-35BE-4B41-B913-B6A2CB40C9A1</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>37BFF9E3-35BE-4B41-B913-B6A2CB40C9A1.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>BRossTools project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>BRossTools</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run BRossTools</string>
+			<key>timeStartedRecording</key>
+			<real>635203272.211357</real>
+			<key>timeStoppedRecording</key>
+			<real>635203847.47090101</real>
+			<key>title</key>
+			<string>Run BRossTools</string>
+			<key>uniqueIdentifier</key>
+			<string>37BFF9E3-35BE-4B41-B913-B6A2CB40C9A1</string>
+		</dict>
+		<key>3E8DAB0E-A9F8-4717-8C6A-34AE548A67E2</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>3E8DAB0E-A9F8-4717-8C6A-34AE548A67E2.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>BRossTools project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>BRossTools</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run BRossTools</string>
+			<key>timeStartedRecording</key>
+			<real>635372974.60697997</real>
+			<key>timeStoppedRecording</key>
+			<real>635373400.14403796</real>
+			<key>title</key>
+			<string>Run BRossTools</string>
+			<key>uniqueIdentifier</key>
+			<string>3E8DAB0E-A9F8-4717-8C6A-34AE548A67E2</string>
+		</dict>
+		<key>4A9435EE-4D4D-45DC-B299-0D02503BBF9E</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>4A9435EE-4D4D-45DC-B299-0D02503BBF9E.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>BRossTools project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>BRossTools</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run BRossTools</string>
+			<key>timeStartedRecording</key>
+			<real>635373449.38552999</real>
+			<key>timeStoppedRecording</key>
+			<real>635380067.72377396</real>
+			<key>title</key>
+			<string>Run BRossTools</string>
+			<key>uniqueIdentifier</key>
+			<string>4A9435EE-4D4D-45DC-B299-0D02503BBF9E</string>
+		</dict>
+		<key>50240976-2689-4414-B421-935ECA652658</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>50240976-2689-4414-B421-935ECA652658.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>BRossTools project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>BRossTools</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run BRossTools</string>
+			<key>timeStartedRecording</key>
+			<real>635373409.675349</real>
+			<key>timeStoppedRecording</key>
+			<real>635373447.32178402</real>
+			<key>title</key>
+			<string>Run BRossTools</string>
+			<key>uniqueIdentifier</key>
+			<string>50240976-2689-4414-B421-935ECA652658</string>
+		</dict>
+		<key>58E50E65-1E3C-4CFB-B6BC-5B1AF4B59A48</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>58E50E65-1E3C-4CFB-B6BC-5B1AF4B59A48.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>BRossTools project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>BRossTools</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run BRossTools</string>
+			<key>timeStartedRecording</key>
+			<real>635370428.15663898</real>
+			<key>timeStoppedRecording</key>
+			<real>635370522.64644098</real>
+			<key>title</key>
+			<string>Run BRossTools</string>
+			<key>uniqueIdentifier</key>
+			<string>58E50E65-1E3C-4CFB-B6BC-5B1AF4B59A48</string>
+		</dict>
+		<key>5FDA1EB1-A1EE-4A8E-A084-F37DD1078238</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>5FDA1EB1-A1EE-4A8E-A084-F37DD1078238.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>BRossTools project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>BRossTools</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run BRossTools</string>
+			<key>timeStartedRecording</key>
+			<real>635369950.56136</real>
+			<key>timeStoppedRecording</key>
+			<real>635370073.44967103</real>
+			<key>title</key>
+			<string>Run BRossTools</string>
+			<key>uniqueIdentifier</key>
+			<string>5FDA1EB1-A1EE-4A8E-A084-F37DD1078238</string>
+		</dict>
+		<key>60C50AF8-42E1-4B22-A3E9-28D66BEC553C</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>60C50AF8-42E1-4B22-A3E9-28D66BEC553C.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>BRossTools project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>BRossTools</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run BRossTools</string>
+			<key>timeStartedRecording</key>
+			<real>635202887.14786696</real>
+			<key>timeStoppedRecording</key>
+			<real>635203270.58092201</real>
+			<key>title</key>
+			<string>Run BRossTools</string>
+			<key>uniqueIdentifier</key>
+			<string>60C50AF8-42E1-4B22-A3E9-28D66BEC553C</string>
+		</dict>
+		<key>71A2264B-532F-41EC-8964-238B61B56A04</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>71A2264B-532F-41EC-8964-238B61B56A04.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>BRossTools project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>BRossTools</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run BRossTools</string>
+			<key>timeStartedRecording</key>
+			<real>635370546.81440902</real>
+			<key>timeStoppedRecording</key>
+			<real>635370733.468997</real>
+			<key>title</key>
+			<string>Run BRossTools</string>
+			<key>uniqueIdentifier</key>
+			<string>71A2264B-532F-41EC-8964-238B61B56A04</string>
+		</dict>
+		<key>74FA51D0-7C74-4DE0-AD3F-82E3133DA644</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>74FA51D0-7C74-4DE0-AD3F-82E3133DA644.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>BRossTools project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>BRossTools</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run BRossTools</string>
+			<key>timeStartedRecording</key>
+			<real>635186418.77644706</real>
+			<key>timeStoppedRecording</key>
+			<real>635186657.07471299</real>
+			<key>title</key>
+			<string>Run BRossTools</string>
+			<key>uniqueIdentifier</key>
+			<string>74FA51D0-7C74-4DE0-AD3F-82E3133DA644</string>
+		</dict>
+		<key>7DE04DE7-496F-470F-9F05-FE40227DA1A1</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>7DE04DE7-496F-470F-9F05-FE40227DA1A1.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>BRossTools project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>BRossTools</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run BRossTools</string>
+			<key>timeStartedRecording</key>
+			<real>635207690.55013394</real>
+			<key>timeStoppedRecording</key>
+			<real>635208331.57861805</real>
+			<key>title</key>
+			<string>Run BRossTools</string>
+			<key>uniqueIdentifier</key>
+			<string>7DE04DE7-496F-470F-9F05-FE40227DA1A1</string>
+		</dict>
+		<key>8794F9FB-2622-4AB4-8D3A-DA04A827B364</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>8794F9FB-2622-4AB4-8D3A-DA04A827B364.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>BRossTools project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>BRossTools</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run BRossTools</string>
+			<key>timeStartedRecording</key>
+			<real>635142638.82704198</real>
+			<key>timeStoppedRecording</key>
+			<real>635142726.141783</real>
+			<key>title</key>
+			<string>Run BRossTools</string>
+			<key>uniqueIdentifier</key>
+			<string>8794F9FB-2622-4AB4-8D3A-DA04A827B364</string>
+		</dict>
+		<key>A08A0950-9147-461C-9B3C-FF373CABF5BB</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>A08A0950-9147-461C-9B3C-FF373CABF5BB.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>BRossTools project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>BRossTools</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run BRossTools</string>
+			<key>timeStartedRecording</key>
+			<real>635204525.64549005</real>
+			<key>timeStoppedRecording</key>
+			<real>635204576.169994</real>
+			<key>title</key>
+			<string>Run BRossTools</string>
+			<key>uniqueIdentifier</key>
+			<string>A08A0950-9147-461C-9B3C-FF373CABF5BB</string>
+		</dict>
+		<key>A17ECD59-1929-4EC8-AF89-5450008292B0</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>A17ECD59-1929-4EC8-AF89-5450008292B0.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>BRossTools project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>BRossTools</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run BRossTools</string>
+			<key>timeStartedRecording</key>
+			<real>635204577.32333803</real>
+			<key>timeStoppedRecording</key>
+			<real>635204633.62067795</real>
+			<key>title</key>
+			<string>Run BRossTools</string>
+			<key>uniqueIdentifier</key>
+			<string>A17ECD59-1929-4EC8-AF89-5450008292B0</string>
+		</dict>
+		<key>A490678C-79D7-406D-A444-7A8172B0AC86</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>A490678C-79D7-406D-A444-7A8172B0AC86.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>BRossTools project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>BRossTools</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run BRossTools</string>
+			<key>timeStartedRecording</key>
+			<real>635204635.62837398</real>
+			<key>timeStoppedRecording</key>
+			<real>635205404.53100801</real>
+			<key>title</key>
+			<string>Run BRossTools</string>
+			<key>uniqueIdentifier</key>
+			<string>A490678C-79D7-406D-A444-7A8172B0AC86</string>
+		</dict>
+		<key>A59F4EAD-1756-44AE-B0A5-9B19C4190D97</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>A59F4EAD-1756-44AE-B0A5-9B19C4190D97.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>BRossTools project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>BRossTools</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run BRossTools</string>
+			<key>timeStartedRecording</key>
+			<real>635368085.70434797</real>
+			<key>timeStoppedRecording</key>
+			<real>635369750.66826606</real>
+			<key>title</key>
+			<string>Run BRossTools</string>
+			<key>uniqueIdentifier</key>
+			<string>A59F4EAD-1756-44AE-B0A5-9B19C4190D97</string>
+		</dict>
+		<key>AA3EEC84-2294-48C8-BC3E-56DCCC281E54</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>AA3EEC84-2294-48C8-BC3E-56DCCC281E54.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>BRossTools project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>BRossTools</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run BRossTools</string>
+			<key>timeStartedRecording</key>
+			<real>635370075.24915802</real>
+			<key>timeStoppedRecording</key>
+			<real>635370205.70514202</real>
+			<key>title</key>
+			<string>Run BRossTools</string>
+			<key>uniqueIdentifier</key>
+			<string>AA3EEC84-2294-48C8-BC3E-56DCCC281E54</string>
+		</dict>
+		<key>B5E4FE73-A31F-422A-BE78-C68D95760C52</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>B5E4FE73-A31F-422A-BE78-C68D95760C52.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>BRossTools project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>BRossTools</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run BRossTools</string>
+			<key>timeStartedRecording</key>
+			<real>635203849.23676598</real>
+			<key>timeStoppedRecording</key>
+			<real>635203936.42371595</real>
+			<key>title</key>
+			<string>Run BRossTools</string>
+			<key>uniqueIdentifier</key>
+			<string>B5E4FE73-A31F-422A-BE78-C68D95760C52</string>
+		</dict>
+		<key>BB231C84-4A7C-40E8-9F0D-7E2282270911</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>BB231C84-4A7C-40E8-9F0D-7E2282270911.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>BRossTools project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>BRossTools</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run BRossTools</string>
+			<key>timeStartedRecording</key>
+			<real>635370259.25584698</real>
+			<key>timeStoppedRecording</key>
+			<real>635370395.03680897</real>
+			<key>title</key>
+			<string>Run BRossTools</string>
+			<key>uniqueIdentifier</key>
+			<string>BB231C84-4A7C-40E8-9F0D-7E2282270911</string>
+		</dict>
+		<key>CB33EDA7-3B66-4C7A-A164-DBC2C0F3CCDF</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>CB33EDA7-3B66-4C7A-A164-DBC2C0F3CCDF.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>BRossTools project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>BRossTools</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run BRossTools</string>
+			<key>timeStartedRecording</key>
+			<real>635206557.589028</real>
+			<key>timeStoppedRecording</key>
+			<real>635206914.37839305</real>
+			<key>title</key>
+			<string>Run BRossTools</string>
+			<key>uniqueIdentifier</key>
+			<string>CB33EDA7-3B66-4C7A-A164-DBC2C0F3CCDF</string>
+		</dict>
+		<key>DAB567FF-61CA-4567-AB66-A30305568026</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>DAB567FF-61CA-4567-AB66-A30305568026.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>BRossTools project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>BRossTools</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run BRossTools</string>
+			<key>timeStartedRecording</key>
+			<real>635178126.52895403</real>
+			<key>timeStoppedRecording</key>
+			<real>635186416.34665596</real>
+			<key>title</key>
+			<string>Run BRossTools</string>
+			<key>uniqueIdentifier</key>
+			<string>DAB567FF-61CA-4567-AB66-A30305568026</string>
+		</dict>
+		<key>EA218BC3-CB2B-4F76-BC04-07F6F0145A5B</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>EA218BC3-CB2B-4F76-BC04-07F6F0145A5B.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>BRossTools project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>BRossTools</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run BRossTools</string>
+			<key>timeStartedRecording</key>
+			<real>635205659.47195399</real>
+			<key>timeStoppedRecording</key>
+			<real>635206555.85812902</real>
+			<key>title</key>
+			<string>Run BRossTools</string>
+			<key>uniqueIdentifier</key>
+			<string>EA218BC3-CB2B-4F76-BC04-07F6F0145A5B</string>
 		</dict>
 	</dict>
 </dict>

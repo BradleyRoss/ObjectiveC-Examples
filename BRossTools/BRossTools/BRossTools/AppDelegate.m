@@ -17,11 +17,10 @@
 @implementation AppDelegate
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
-    NSLog(@"aaa  applicationDidFinishLoading");
-    // [test2 runtest];
-    [redoMenu createMainMenu:_window];
-   // [mainMenu createMainMenuForWindow:_window];
-   // BRossToolsDocument *document =
+  
+    NSView *testMenu = [mainMenu menu];
+    NSView *topView = _window.contentView;
+    [topView addSubview:testMenu];
     
     
     // Insert code here to initialize your application
