@@ -13,6 +13,8 @@
 		90C4648225D585DF00588FFB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 90C4648125D585DF00588FFB /* main.m */; };
 		90C4648D25D585DF00588FFB /* experimentsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 90C4648C25D585DF00588FFB /* experimentsTests.m */; };
 		90C4649825D585DF00588FFB /* experimentsUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 90C4649725D585DF00588FFB /* experimentsUITests.m */; };
+		90C464A925D5866700588FFB /* experiments in Resources */ = {isa = PBXBuildFile; fileRef = 90C464A825D5866700588FFB /* experiments */; };
+		90C464AF25D5876A00588FFB /* experimentalClasses.m in Sources */ = {isa = PBXBuildFile; fileRef = 90C464AE25D5876A00588FFB /* experimentalClasses.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +49,9 @@
 		90C4649325D585DF00588FFB /* experimentsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = experimentsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		90C4649725D585DF00588FFB /* experimentsUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = experimentsUITests.m; sourceTree = "<group>"; };
 		90C4649925D585DF00588FFB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		90C464A825D5866700588FFB /* experiments */ = {isa = PBXFileReference; lastKnownFileType = folder; path = experiments; sourceTree = "<group>"; };
+		90C464AD25D586B000588FFB /* experimentalClasses.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = experimentalClasses.h; sourceTree = "<group>"; };
+		90C464AE25D5876A00588FFB /* experimentalClasses.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = experimentalClasses.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,7 +82,10 @@
 		90C4646C25D585DE00588FFB = {
 			isa = PBXGroup;
 			children = (
+				90C464AD25D586B000588FFB /* experimentalClasses.h */,
+				90C464AE25D5876A00588FFB /* experimentalClasses.m */,
 				90C4647725D585DE00588FFB /* experiments */,
+				90C464A825D5866700588FFB /* experiments */,
 				90C4648B25D585DF00588FFB /* experimentsTests */,
 				90C4649625D585DF00588FFB /* experimentsUITests */,
 				90C4647625D585DE00588FFB /* Products */,
@@ -230,6 +238,7 @@
 			files = (
 				90C4647C25D585DF00588FFB /* Assets.xcassets in Resources */,
 				90C4647F25D585DF00588FFB /* MainMenu.xib in Resources */,
+				90C464A925D5866700588FFB /* experiments in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -254,6 +263,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				90C464AF25D5876A00588FFB /* experimentalClasses.m in Sources */,
 				90C4648225D585DF00588FFB /* main.m in Sources */,
 				90C4647A25D585DE00588FFB /* AppDelegate.m in Sources */,
 			);

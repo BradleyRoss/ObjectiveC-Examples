@@ -6,6 +6,7 @@
 //
 
 #import "AppDelegate.h"
+#import "experimentalClasses.h"
 
 @interface AppDelegate ()
 
@@ -16,6 +17,11 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     // Insert code here to initialize your application
+   // NSView *testView = [mainMenu menu];
+    NSView *testMenu = [mainMenu menu];
+    NSView *topView = _window.contentView;
+    [topView addSubview:testMenu];
+    
 }
 
 
