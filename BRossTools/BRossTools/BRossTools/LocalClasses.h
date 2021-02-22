@@ -4,10 +4,14 @@
 //
 //  Created by Bradley Ross on 2/1/21.
 //
-
+/**
+  @file Headers for LocalClasses
+ */
 #ifndef LocalClasses_h
 #define LocalClasses_h
 #import "BRossTools.h"
+#import <Foundation/Foundation.h>
+#import <CoreMIDI/CoreMIDI.h>
 //  *****  *****  *****  *****
 //  *****  *****  *****  *****
 //  *****  *****  *****  *****
@@ -77,7 +81,8 @@
 //  *****  *****  *****  *****
 
 @interface BRossToolsView:NSObject
-+ (void)displayView:(NSString*)name view:(NSView*)target;
+// + (void)displayView:(NSString*)name view:(NSView*)target;
++ (void) displayToLog:(NSString*)name view:(NSView*)target output:(BRossToolsTextWindow *)output;
 @end
 
 //  *****  *****  *****  *****
@@ -147,6 +152,28 @@ Messages from button clicks are sent to this method.
 + (void)bleep:(id)sender;
 @end
 
+//  *****  *****  *****  *****
+//  *****  *****  *****  *****
+//  *****  *****  *****  *****
+//  *****  *****  *****  *****
+
+/**
+ Modified version of CoreMidiSample1 CLI program.
+ */
+@interface CoreMidiSample1:NSObject 
++ (void) runtest;
+
+@end
+
+//  *****  *****  *****  *****
+//  *****  *****  *****  *****
+//  *****  *****  *****  *****
+//  *****  *****  *****  *****
+
+@interface CoreMidiSample2:NSObject
+
+
+@end
 //  *****  *****  *****
 //  *****  *****  *****
 #endif /* LocalClasses_h */

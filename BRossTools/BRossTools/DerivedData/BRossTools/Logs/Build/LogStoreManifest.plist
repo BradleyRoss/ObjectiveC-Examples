@@ -6,7 +6,7 @@
 	<integer>10</integer>
 	<key>logs</key>
 	<dict>
-		<key>789D8F10-8327-48F3-839E-13FB675CB55F</key>
+		<key>02AC0E39-DD3D-45C9-A720-596E2D1411F2</key>
 		<dict>
 			<key>className</key>
 			<string>IDEActivityLogSection</string>
@@ -15,13 +15,13 @@
 			<key>domainType</key>
 			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
 			<key>fileName</key>
-			<string>789D8F10-8327-48F3-839E-13FB675CB55F.xcactivitylog</string>
+			<string>02AC0E39-DD3D-45C9-A720-596E2D1411F2.xcactivitylog</string>
 			<key>hasPrimaryLog</key>
 			<true/>
 			<key>primaryObservable</key>
 			<dict>
 				<key>highLevelStatus</key>
-				<string>W</string>
+				<string>E</string>
 			</dict>
 			<key>schemeIdentifier-containerName</key>
 			<string>BRossTools project</string>
@@ -32,15 +32,15 @@
 			<key>signature</key>
 			<string>Build BRossTools</string>
 			<key>timeStartedRecording</key>
-			<real>635559273.31598496</real>
+			<real>635643397.67644501</real>
 			<key>timeStoppedRecording</key>
-			<real>635559274.56486905</real>
+			<real>635643398.49925601</real>
 			<key>title</key>
 			<string>Build BRossTools</string>
 			<key>uniqueIdentifier</key>
-			<string>789D8F10-8327-48F3-839E-13FB675CB55F</string>
+			<string>02AC0E39-DD3D-45C9-A720-596E2D1411F2</string>
 		</dict>
-		<key>A4E59C0E-0467-4532-91B7-40A69EDBBE04</key>
+		<key>1B2E148D-9B1F-4714-B0EA-7B1A27ECCB69</key>
 		<dict>
 			<key>className</key>
 			<string>IDEActivityLogSection</string>
@@ -49,13 +49,13 @@
 			<key>domainType</key>
 			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
 			<key>fileName</key>
-			<string>A4E59C0E-0467-4532-91B7-40A69EDBBE04.xcactivitylog</string>
+			<string>1B2E148D-9B1F-4714-B0EA-7B1A27ECCB69.xcactivitylog</string>
 			<key>hasPrimaryLog</key>
 			<true/>
 			<key>primaryObservable</key>
 			<dict>
 				<key>highLevelStatus</key>
-				<string>W</string>
+				<string>E</string>
 			</dict>
 			<key>schemeIdentifier-containerName</key>
 			<string>BRossTools project</string>
@@ -66,13 +66,47 @@
 			<key>signature</key>
 			<string>Build BRossTools</string>
 			<key>timeStartedRecording</key>
-			<real>635546826.33406305</real>
+			<real>635644715.08519101</real>
 			<key>timeStoppedRecording</key>
-			<real>635546826.36015701</real>
+			<real>635644715.35087895</real>
 			<key>title</key>
 			<string>Build BRossTools</string>
 			<key>uniqueIdentifier</key>
-			<string>A4E59C0E-0467-4532-91B7-40A69EDBBE04</string>
+			<string>1B2E148D-9B1F-4714-B0EA-7B1A27ECCB69</string>
+		</dict>
+		<key>93EB0545-5537-4DCA-8A86-7C2814CC121D</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>93EB0545-5537-4DCA-8A86-7C2814CC121D.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>BRossTools project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>BRossTools</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Clean BRossTools</string>
+			<key>timeStartedRecording</key>
+			<real>635643367.12950802</real>
+			<key>timeStoppedRecording</key>
+			<real>635643367.18576205</real>
+			<key>title</key>
+			<string>Clean BRossTools</string>
+			<key>uniqueIdentifier</key>
+			<string>93EB0545-5537-4DCA-8A86-7C2814CC121D</string>
 		</dict>
 	</dict>
 </dict>

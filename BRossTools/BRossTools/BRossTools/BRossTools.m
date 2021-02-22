@@ -33,8 +33,7 @@ NSWindow *superview;
         but appears in developer documentation
         for [NSWindow initWithContentRect:styleMask:backing:defer ]
      */
-    newPanel = [NSWindow alloc];
-    [newPanel initWithContentRect:rectangle
+    newPanel = [[NSWindow alloc] initWithContentRect:rectangle
             styleMask: NSWindowStyleMaskBorderless
             backing:NSBackingStoreBuffered
             defer:YES];
@@ -54,8 +53,7 @@ NSWindow *superview;
     [scrollview setHasHorizontalScroller:NO];
     [scrollview setAutoresizingMask:NSViewWidthSizable |
                 NSViewHeightSizable];
-    theTextView = [NSTextView alloc];
-    [theTextView initWithFrame:NSMakeRect(0, 0,
+    theTextView = [[NSTextView alloc] initWithFrame:NSMakeRect(0, 0,
                 contentSize.width, contentSize.height)];
     [theTextView setMinSize:NSMakeSize(0.0, contentSize.height)];
     [theTextView setMaxSize:NSMakeSize(FLT_MAX, FLT_MAX)];
@@ -66,8 +64,7 @@ NSWindow *superview;
     [[theTextView textContainer]
                 setContainerSize:NSMakeSize(contentSize.width, FLT_MAX)];
     [[theTextView textContainer] setWidthTracksTextView:YES];
-    viewController = [NSViewController alloc];
-    [viewController init];
+    viewController = [[NSViewController alloc] init];
     viewController.view = scrollview;
     // NSPanel *panel = [NSPanel alloc];
     displayPanel =[NSWindow windowWithContentViewController:viewController];
