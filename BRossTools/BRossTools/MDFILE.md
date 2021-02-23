@@ -1,8 +1,16 @@
 ## BRossTools
 
-This is a test of code to exercise the Xcode system.
+This is a test of code to exercise the Xcode system.  One of my goals was to avoid the use of Interface Builder except for attaching items in the menu bar to various programs.
+
+####Files
+
+* BRossTools.h and BRossTools.m contain a set of Objective-C classes that are under development that will be used as a library to assist programmers.
+* LocalClasses.h and BRossTools.m contain Objective-C classes that are being used to understand the technologies used in the development of MacOS applications.
+* The file AppDelegate.m has been modified to create a menu upon opening the application that can be used to call the other components contained in the application.  
 
 ####Documentation
+
+The following is a list of documentation from Apple that can be used to create, modify, and understand this code.
 
 * [Documentation - Apple Technologies](https://developer.apple.com/documentation/technologies) - This appears to reprsent the current API's.
 
@@ -20,3 +28,7 @@ This is a test of code to exercise the Xcode system.
 * [String Programming Guide](https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/Strings/Articles/formatSpecifiers.html)
 
 * [Auto Layout Guide](https://developer.apple.com/library/archive/documentation/UserExperience/Conceptual/AutolayoutPG/index.html#//apple_ref/doc/uid/TP40010853)
+
+* [Core MIDI](https://developer.apple.com/documentation/coremidi?language=objc)
+
+* [Core MIDI -- MIDI Services] (https://developer.apple.com/documentation/coremidi/midi_services?language=objc)

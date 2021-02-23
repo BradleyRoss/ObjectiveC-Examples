@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		9015511025C87BA8006DA674 /* LocalClasses.m in Sources */ = {isa = PBXBuildFile; fileRef = 9015510F25C87BA8006DA674 /* LocalClasses.m */; };
+		905212D525E34D9C00DB595E /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 905212D425E34D9C00DB595E /* CoreFoundation.framework */; };
+		905212D725E34DAE00DB595E /* CoreMIDI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 905212D625E34DAE00DB595E /* CoreMIDI.framework */; };
+		905212DC25E34DEF00DB595E /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 905212DB25E34DEF00DB595E /* AppKit.framework */; };
+		905212E525E34ECB00DB595E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 905212E425E34ECB00DB595E /* Foundation.framework */; };
 		906CEEF925C7AA0900DC5271 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 906CEEF825C7AA0900DC5271 /* AppDelegate.m */; };
 		906CEEFB25C7AA0900DC5271 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 906CEEFA25C7AA0900DC5271 /* Assets.xcassets */; };
 		906CEEFE25C7AA0900DC5271 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 906CEEFC25C7AA0900DC5271 /* MainMenu.xib */; };
@@ -34,9 +38,25 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		905212D225E34D6C00DB595E /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 7;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		9015510F25C87BA8006DA674 /* LocalClasses.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocalClasses.m; sourceTree = "<group>"; };
 		9015511425C87BCD006DA674 /* LocalClasses.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocalClasses.h; sourceTree = "<group>"; };
+		905212D425E34D9C00DB595E /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
+		905212D625E34DAE00DB595E /* CoreMIDI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMIDI.framework; path = System/Library/Frameworks/CoreMIDI.framework; sourceTree = SDKROOT; };
+		905212DB25E34DEF00DB595E /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		905212E425E34ECB00DB595E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		906CEEF425C7AA0900DC5271 /* BRossTools.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BRossTools.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		906CEEF725C7AA0900DC5271 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		906CEEF825C7AA0900DC5271 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -60,6 +80,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				905212E525E34ECB00DB595E /* Foundation.framework in Frameworks */,
+				905212DC25E34DEF00DB595E /* AppKit.framework in Frameworks */,
+				905212D725E34DAE00DB595E /* CoreMIDI.framework in Frameworks */,
+				905212D525E34D9C00DB595E /* CoreFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -80,6 +104,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		905212D325E34D9C00DB595E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				905212E425E34ECB00DB595E /* Foundation.framework */,
+				905212DB25E34DEF00DB595E /* AppKit.framework */,
+				905212D625E34DAE00DB595E /* CoreMIDI.framework */,
+				905212D425E34D9C00DB595E /* CoreFoundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		906CEEEB25C7AA0900DC5271 = {
 			isa = PBXGroup;
 			children = (
@@ -87,6 +122,7 @@
 				906CEF0A25C7AA0900DC5271 /* BRossToolsTests */,
 				906CEF1525C7AA0900DC5271 /* BRossToolsUITests */,
 				906CEEF525C7AA0900DC5271 /* Products */,
+				905212D325E34D9C00DB595E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -146,6 +182,7 @@
 				906CEEF025C7AA0900DC5271 /* Sources */,
 				906CEEF125C7AA0900DC5271 /* Frameworks */,
 				906CEEF225C7AA0900DC5271 /* Resources */,
+				905212D225E34D6C00DB595E /* CopyFiles */,
 			);
 			buildRules = (
 			);

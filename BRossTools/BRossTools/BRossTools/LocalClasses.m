@@ -48,6 +48,9 @@
             if ([message isEqualToString:@"b5"]) {
                 [CoreMidiSample1 runtest];
             }
+            if ([message isEqualToString:@"b6"]) {
+                [CoreMidiSample1 runtest2];
+            }
     
         }
 }
@@ -68,7 +71,9 @@
     
     BRossToolsButton *b5 = [BRossToolsButton initUsingObjectIdent:self selector:@selector(bleep:) caption:@"run test4 - CoreMidiTest1" ident:@"b5" ];
     
-    NSStackView *stackView = [NSStackView stackViewWithViews:@[b1, b2, b3, b4, b5]];
+    BRossToolsButton *b6 = [BRossToolsButton initUsingObjectIdent:self selector:@selector(bleep:) caption:@"run test4b - CoreMidiDemo2" ident:@"b6" ];
+    
+    NSStackView *stackView = [NSStackView stackViewWithViews:@[b1, b2, b3, b4, b5, b6]];
     stackView.orientation = NSUserInterfaceLayoutOrientationVertical;
     return stackView;
 }
@@ -282,7 +287,8 @@
 //
 
 struct timespec wallStart;
-void deviceData(MIDIDeviceRef);
+
+void deviceData(MIDIDeviceRef deviceId);
 void elapsed(void);
 /**
  Sends a NSString to a BRossToolsTextWindow
@@ -290,7 +296,8 @@ void elapsed(void);
  @param window BRossTools window to be used
  @param message NSString message to be sent
  */
-void sendMessage(BRossToolsTextWindow *window, NSString *message);
+void sendMessage2(BRossToolsTextWindow *window, NSString *message);
+void sendMessage(NSString *message);
 /**
  List data on an entity belonging to a device
  */
@@ -314,23 +321,40 @@ void logger(NSString* text, SInt32 code);
  */
 OSStatus status;
 NSString *buildMessage;
-BRossToolsTextWindow *textWindow;
+static BRossToolsTextWindow *textWindowStorage = nil;
 
 //  *****  *****  *****  *****  *****
 //  *****  *****  *****  *****  *****
 //  *****  *****  *****  *****  *****
 //  *****  *****  *****  *****  *****
 //  *****  *****  *****  *****  *****
-
+/**
+ First program for getting data on MIDI components.
+ 
+ MIDIGetNumberOfDevices is used to loop through the MIDI devices.
+ MIDIDeviceGetNumberOfEntities and MIDIDeviceGetEntity are then
+ used to look through the entities for a given device.  Finally, MIDIEntityGetNumberOfSources and
+ MIDIEntityGetSource are used to loop through the source endpoints for a given entity and
+ MIDIEntityGetNumberOfDestinations and MIDIEntityGetDestination are used to get the
+ destinations.
+ 
+ */
 + (void) runtest{
 // int main(int argc, const char * argv[]) {
-    BRossToolsTextWindow *textWindow;
-    textWindow = [BRossToolsTextWindow newWindow];
-    textWindow.title=@"test4 -- CoreMidiSample1";
+    // BRossToolsTextWindow *textWindow;
+    // textWindow = [BRossToolsTextWindow newWindow];
+    [[self textWindow] setTitle:@"test4 -- CoreMidiSample1"];
+    // [self setTextWindow:textWindow];
+    buildMessage = [NSString alloc];
+    [[self textWindow] appendString:@"Starting CoreMidiSample1"] ;
+    // buildMessage = @"xxx";
+    // sendMessage(buildMessage);
+    // sendMessage( buildMessage);
         clock_gettime(CLOCK_MONOTONIC, &wallStart);
         ItemCount deviceCount = MIDIGetNumberOfDevices();
     buildMessage = [[NSString alloc] initWithFormat:@"Number of MIDI Devices: %lu", deviceCount];
-        sendMessage(textWindow, @"-----");
+        sendMessage( @"-----");
+    sendMessage(buildMessage);
         for (ItemCount i = 0 ; i < deviceCount ; ++i) {
             // Grab a reference to curent device
             MIDIDeviceRef device = MIDIGetDevice(i);
@@ -341,7 +365,7 @@ BRossToolsTextWindow *textWindow;
             if (status != 0) {
                 buildMessage = [[NSString alloc]
                                 initWithFormat:@"Error %d: kMIDIPropertyOffline", status];
-                sendMessage(textWindow, buildMessage);
+                sendMessage(buildMessage);
                 
             }
             deviceData(device);
@@ -356,8 +380,8 @@ BRossToolsTextWindow *textWindow;
                 
                 // Iterate through this device's source endpoints (MIDI In)
                 ItemCount sourceCount = MIDIEntityGetNumberOfSources(entity);
-                sendMessage(textWindow, @"     *****");
-                sendMessage(textWindow, @"     Sources");
+                sendMessage( @"     *****");
+                sendMessage( @"     Sources endpoints");
                 for (ItemCount k = 0 ; k < sourceCount ; ++k) {
                     // Grab a reference to a source endpoint
                     MIDIEndpointRef source = MIDIEntityGetSource(entity, k);
@@ -365,8 +389,8 @@ BRossToolsTextWindow *textWindow;
                 }
                 // Iterate through this device's destination endpoints
                 ItemCount destCount = MIDIEntityGetNumberOfDestinations(entity);
-                sendMessage(textWindow, @"     *****");
-                sendMessage(textWindow, @"     Destinations");
+                sendMessage( @"     *****");
+                sendMessage(@"      Destination endpoints");
                 for (ItemCount k = 0 ; k < destCount ; ++k) {
                     
                     // Grab a reference to a destination endpoint
@@ -375,13 +399,149 @@ BRossToolsTextWindow *textWindow;
                 }
             }
             buildMessage = [[NSString alloc ] initWithFormat:@"------\n"];
-            sendMessage(textWindow, buildMessage);
+            sendMessage( buildMessage);
             }
         elapsed();
-    
+
     
 }
+NSString *getDisplayName(MIDIObjectRef object)
+{
+    // Returns the display name of a given MIDIObjectRef as an NSString
+    CFStringRef name = nil;
+    if (noErr != MIDIObjectGetStringProperty(object, kMIDIPropertyDisplayName, &name))
+        return nil;
+    return (__bridge NSString *)name;
+}
+/**
+ This is the second example of obtaining information on MIDI components.
+ 
+ runtest2 is based on CoreMidiDemo2.
+ 
+ It uses MIDIGetNumberOfDestinations MIDIGetDestination to loop through the
+ MIDI destinations.  It then uses MIDIGetNumberOfSources and MIDIGetSource
+ to loop through the MIDI sources.
+ */
++ (void) runtest2 {
+    clock_gettime(CLOCK_MONOTONIC, &wallStart);
+    sendMessage(@"CoreMidiDemo2");
+        for (int j = 0; j < 1; j++) {
+            SInt32 uniqueId = 0;
+            SInt32 version = 0;
+            CFStringRef description = NULL;
+            CFStringRef manufacturer = NULL;
+            CFStringRef displayName = NULL;
+            SInt32 deviceID = 0;
+            sendMessage(@"Iterate through destinations");
+            ItemCount destCount = MIDIGetNumberOfDestinations();
+            for (ItemCount i = 0 ; i < destCount ; ++i) {
+                // Grab a reference to a destination endpoint
+                MIDIEndpointRef dest = MIDIGetDestination(i);
+                /*  Should this be compared to 0 instead of NULL? */
+                if (dest != 0) {
+                    buildMessage = [[NSString alloc] initWithFormat:@"  Destination %lu: %@", i, getDisplayName(dest)];
+                    sendMessage(buildMessage);
+                    /*
+                     * Code past this point in block was added to provide additional examples.
+                     */
+                    MIDIObjectGetIntegerProperty(dest,kMIDIPropertyUniqueID, &uniqueId);
+                    MIDIObjectGetIntegerProperty(dest, kMIDIPropertyDriverVersion, &version);
+                    MIDIObjectGetStringProperty(dest, kMIDIPropertyManufacturer, &manufacturer);
+                    MIDIObjectGetIntegerProperty(dest, kMIDIPropertyDeviceID, &deviceID);
+                    MIDIObjectGetStringProperty(dest, kMIDIPropertyModel, &description);
+                    buildMessage = [[NSString alloc] initWithFormat:@"       Unique ID: %d %08x", uniqueId, uniqueId];
+                    sendMessage(buildMessage);
+                    buildMessage = [[NSString alloc] initWithFormat:@"       Device ID: %d", deviceID];
+                    sendMessage(buildMessage);
+                    buildMessage = [[NSString alloc] initWithFormat:@"       Version: %d", version];
+                    sendMessage(buildMessage);
+                    buildMessage = [[NSString alloc] initWithFormat:@"       Manufacturer: %@", manufacturer];
+                    sendMessage(buildMessage);
+                    buildMessage = [[NSString alloc] initWithFormat:@"       Description: %@", description];
+                    sendMessage(buildMessage);
+                    buildMessage = [[NSString alloc] initWithFormat:@"       Endpoint Reference: %d", dest];
+                    sendMessage(buildMessage);
+                    }
+                }
+            elapsed();
+            sendMessage(@"Iterate through sources");
+            // Virtual sources and destinations don't have entities
+    
+            ItemCount sourceCount = MIDIGetNumberOfSources();
+        for (ItemCount i = 0 ; i < sourceCount ; ++i) {
+        MIDIEndpointRef source = MIDIGetSource(i);
+        // NSLog(@" *** Processing source  %lu", i);
+        if (source != 0) {
+            // NSLog(@"%d", source);
+           MIDIObjectGetStringProperty(source, kMIDIPropertyManufacturer, &manufacturer);
+            // NSLog(@"%@", manufacturer);
+            MIDIObjectGetStringProperty(source, kMIDIPropertyDisplayName, &displayName);
+            // NSLog(@"Point 2");
+            // NSLog(@"  Source: %@", getDisplayName(source));
+            buildMessage = [[NSString alloc] initWithFormat:@"  Source (Display Name) %lu: %@", i, displayName];
+            sendMessage(buildMessage);
+            MIDIObjectGetIntegerProperty(source,kMIDIPropertyUniqueID, &uniqueId);
+            MIDIObjectGetIntegerProperty(source, kMIDIPropertyDriverVersion, &version);
+            MIDIObjectGetStringProperty(source, kMIDIPropertyManufacturer, &manufacturer);
+            MIDIObjectGetIntegerProperty(source, kMIDIPropertyDeviceID, &deviceID);
+            MIDIObjectGetStringProperty(source, kMIDIPropertyModel, &description);
+            buildMessage = [[NSString alloc] initWithFormat:@"       Unique ID: %d %08x", uniqueId, uniqueId];
+            sendMessage(buildMessage);
+            buildMessage = [[NSString alloc] initWithFormat:@"       Device ID: %d", deviceID];
+            sendMessage(buildMessage);
+            buildMessage = [[NSString alloc] initWithFormat:@"       Version: %d", version];
+            sendMessage(buildMessage);
+            buildMessage = [[NSString alloc] initWithFormat:@"       Manufacturer: %@", manufacturer];
+            sendMessage(buildMessage);
+            buildMessage = [[NSString alloc] initWithFormat:@"       Description: %@", description];
+            sendMessage(buildMessage);
+            buildMessage = [[NSString alloc] initWithFormat:@"       Endpoint Reference: %d", source];
+            sendMessage(buildMessage);
+            }
+        }
+        elapsed();
+            buildMessage = [[NSString alloc] initWithFormat:@"CLOCKS_PER_SEC: %d", CLOCKS_PER_SEC];
+            sendMessage(buildMessage);
+            buildMessage = [[NSString alloc] initWithFormat:@"End of pass  %d", j];
+            sendMessage(buildMessage);
+        }
+    }
 
+
++ (void)setTextWindow:textWindow {
+    textWindowStorage = textWindow;
+}
++ (BRossToolsTextWindow *)getTextWindow {
+    return (BRossToolsTextWindow *) textWindowStorage;
+    
+}
++ (BRossToolsTextWindow *)textWindow {
+    if (textWindowStorage == nil) {
+        textWindowStorage = [BRossToolsTextWindow newWindow];
+        return textWindowStorage;
+        
+    } else {
+        return textWindowStorage;
+    }
+}
+
+void sendMessage2 (BRossToolsTextWindow *window, NSString *string) {
+    NSLog(@"STARTING");
+    NSLog(@"sendMessage sending message to log %@", string);
+    
+    [[CoreMidiSample1 getTextWindow] appendString:string];
+    [[CoreMidiSample1 getTextWindow] appendString:@"\n"];
+}
+void sendMessage (NSString *string) {
+    // NSLog(@"STARTING");
+    // NSLog(@"sendMessage sending message to log %@", string);
+    if ([CoreMidiSample1 textWindow] == nil) {
+        textWindowStorage = [BRossToolsTextWindow newWindow];
+        [[CoreMidiSample1 textWindow] setTitle:@"test4 -- CoreMidiSample1"];
+    }
+    [[CoreMidiSample1 getTextWindow] appendString:string];
+    [[CoreMidiSample1 getTextWindow] appendString:@"\n"];
+}
 //  *****  *****  *****  *****  *****
 //  *****  *****  *****  *****  *****
 //  *****  *****  *****  *****  *****
@@ -398,7 +558,7 @@ void elapsed() {
     elapsed = (current.tv_sec - wallStart.tv_sec);
     elapsed += (current.tv_nsec - wallStart.tv_nsec)/1000000000.0;
     buildMessage = [[NSString alloc]  initWithFormat:@"Elapsed Wall Time: %f seconds\n", elapsed];
-    sendMessage(textWindow, buildMessage);
+    sendMessage(buildMessage);
 }
 /**
  *    Returns a string value based on the error code.
@@ -431,7 +591,7 @@ void logger(NSString* text, SInt32 code) {
             comment = @" ? ";
         }
         buildMessage = [[NSString alloc] initWithFormat:@"Error %d: %@ %@\n", code, text, comment ];
-        sendMessage(textWindow, buildMessage);
+        sendMessage(buildMessage);
     }
 }
 
@@ -450,10 +610,15 @@ void logger(NSString* text, SInt32 code) {
 /**
  *    Display information on MIDI devices.
  *
- *    <p>The constants indicating the desired properties are listed in MidiServices.h.</p>
+ *    @brief Displays MIDI device information.
+ *
+ *    The constants indicating the desired properties are listed in MidiServices.h.
+ *
+ *    @param device refeference to device
  */
 void deviceData(MIDIDeviceRef device) {
-    sendMessage(textWindow, @"*****");
+    sendMessage(@"*****");
+    // [[CoreMidiSample1 getTextWindow] appendString:@"*****"];
     OSStatus status = 0;
     CFStringRef deviceDisplayName = NULL;
     CFStringRef deviceName = NULL;
@@ -469,78 +634,85 @@ void deviceData(MIDIDeviceRef device) {
     logger(@"device,kMIDIPropertyName", status);
     status = 0;
     buildMessage = [[NSString alloc] initWithFormat:@"Device: %@", deviceName];
-    sendMessage(textWindow, buildMessage);
-    sendMessage(textWindow,@"     Device Properties:");
+    sendMessage(buildMessage);
+    sendMessage(@"     Device Properties:");
     status = MIDIObjectGetStringProperty(device, kMIDIPropertyDisplayName, &deviceDisplayName);
     if (status == 0) {
-        NSLog(@"     Device Display Name: %@", deviceDisplayName);
-        sendMessage(textWindow, buildMessage);
+        buildMessage = [[NSString alloc] initWithFormat:@"     Device Display Name: %@", deviceDisplayName];
+        sendMessage(buildMessage);
     } else if (status == -10835) {
-        sendMessage(textWindow,@"     Device Display Name: property not supported");
+        sendMessage(@"     Device Display Name: property not supported");
     } else {
         logger(@"device,kMIDIPropertyDisplayName", status);
-        sendMessage(textWindow, buildMessage);
+        sendMessage(buildMessage);
     }
     status = MIDIObjectGetIntegerProperty(device, kMIDIPropertyReceivesNotes, &deviceReceivesNotes);
     if (status == 0) {
-        NSLog(@"     Receives Notes: %d", deviceReceivesNotes);
+        buildMessage = [[NSString alloc] initWithFormat:@"     Receives Notes: %d", deviceReceivesNotes];
+        sendMessage(buildMessage);
     } else if (status == -10835) {
-        NSLog(@"     Receives Notes: property not supported");
+        sendMessage(@"     Receives Notes: property not supported");
     } else {
         logger(@"device,kMIDIPropertyReceivesNotes", status);
     }
     status = MIDIObjectGetIntegerProperty(device, kMIDIPropertyTransmitsNotes, &deviceTransmitsNotes);
     if (status == 0) {
-        NSLog(@"     Transmits Notes: %d", deviceTransmitsNotes);
+        buildMessage = [[NSString alloc] initWithFormat:@"     Transmits Notes: %d", deviceTransmitsNotes];
+        sendMessage(buildMessage);
     } else if (status == -10835) {
-        sendMessage(textWindow, @"     Transmits Notes: property not supported");
+        sendMessage(@"     Transmits Notes: property not supported");
     } else {
         logger(@"device,kMIDIPropertyTransmitsNotes", status);
     }
     status = MIDIObjectGetIntegerProperty(device,kMIDIPropertyUniqueID, &uniqueID);
     logger(@"device,kMIDIPropertyUniqueID", status);
-    NSLog(@"     Unique ID:  %08x", uniqueID);
+    buildMessage = [[NSString alloc] initWithFormat:@"     Unique ID:  %08x", uniqueID];
+    sendMessage(buildMessage);
     SInt32 isOffline = 0;
     MIDIObjectGetIntegerProperty(device, kMIDIPropertyOffline, &isOffline);
-    NSLog(@"     isOffline: %d", isOffline);
+    buildMessage = [[NSString alloc] initWithFormat:@"     isOffline: %d", isOffline];
+    sendMessage(buildMessage);
     status = MIDIObjectGetIntegerProperty(device, kMIDIPropertyDeviceID, &deviceID);
     if (status == 0) {
-        NSLog(@"     Device ID: %d", deviceID);
-        sendMessage(textWindow, buildMessage);
+        buildMessage = [[NSString alloc] initWithFormat:@"     Device ID: %d", deviceID];
+        sendMessage(buildMessage);
     } else if (status == -10835) {
         buildMessage = [[NSString alloc] initWithFormat:@"     Device ID: property not supported"];
-        sendMessage(textWindow, buildMessage);
+        sendMessage(buildMessage);
     } else {
         logger(@"device,kMIDIPropertyDeviceID", status);
     }
     status = MIDIObjectGetIntegerProperty(device, kMIDIPropertyDriverVersion, &version);
     if (status == 0) {
-            NSLog(@"     Version: %d", version);
+        buildMessage = [[NSString alloc]  initWithFormat:@"     Version: %d", version];
+        sendMessage(buildMessage);
     } else if (status == -10835) {
-            sendMessage(textWindow, @"     Version: property not supported");
+            sendMessage(@"     Version: property not supported");
     } else {
         logger(@"device,kMIDIPropertyDriverVersion", status);
     }
     status = MIDIObjectGetStringProperty(device, kMIDIPropertyManufacturer, &deviceManufacturer);
     buildMessage = [[NSString alloc] initWithFormat:@"     Manufacturer: %@", deviceManufacturer];
-    sendMessage(textWindow, buildMessage);
+    sendMessage(buildMessage);
     logger(@"device,kMIDIPropertyManufacturer", status);
     status = MIDIObjectGetStringProperty(device, kMIDIPropertyModel, &deviceModel);
     if (status == 0) {
-        NSLog(@"     Model: %@", deviceModel);
+        buildMessage = [[NSString alloc] initWithFormat:@"     Model: %@", deviceModel];
+        sendMessage(buildMessage);
     } else if (status == -10835) {
-        sendMessage(textWindow, @"     Model: property not supported");
+        sendMessage(@"     Model: property not supported");
     } else {
         logger(@"device,kMIDIPropertyModel", status);
     }
     status = MIDIObjectGetIntegerProperty(device, kMIDIPropertySupportsGeneralMIDI, &supportsGeneralMIDI);
     if (status == 0) {
-        NSLog(@"     Supports General MIDI: %d", supportsGeneralMIDI);
+        buildMessage = [[NSString alloc]  initWithFormat:@"     Supports General MIDI: %d", supportsGeneralMIDI];
+        sendMessage(buildMessage);
     } else if (status == -10835) {
-        sendMessage(textWindow,@"     Supports General MIDI: property not supported");
+        sendMessage(@"     Supports General MIDI: property not supported");
     } else {
         logger(@"device,kMIDIPropertySupportsGeneralMIDI", status);
-        sendMessage(textWindow, buildMessage);
+        sendMessage(buildMessage);
     }
     objectDictionary(device);
 }
@@ -553,11 +725,12 @@ void deviceData(MIDIDeviceRef device) {
 
 /**
  *    Display information on MIDI entities.
+ *    @brief Displays MIDI entity information.
  *    @param device object for MIDI device
  *    @param entity object for MIDI entity
  */
 void entityData(MIDIDeviceRef device, MIDIEntityRef entity) {
-    sendMessage(textWindow, @"*****");
+    sendMessage(@"*****");
     OSStatus status = 0;
     CFStringRef deviceName = NULL;
     CFStringRef entityDisplayName = NULL;
@@ -565,30 +738,35 @@ void entityData(MIDIDeviceRef device, MIDIEntityRef entity) {
     SInt32 entityReceivesNotes = 0;
     SInt32 entityTransmitsNotes = 0;
     MIDIObjectGetStringProperty(device, kMIDIPropertyName, &deviceName);
-    NSLog(@"Device: %@", deviceName);
+    buildMessage = [[NSString alloc] initWithFormat:@"Device: %@", deviceName];
+    sendMessage(buildMessage);
     MIDIObjectGetStringProperty(entity, kMIDIPropertyName, &entityName);
-    NSLog(@"Entity: %@", entityName);
+    buildMessage = [[NSString alloc] initWithFormat:@"Entity: %@", entityName];
+    sendMessage(buildMessage);
     status = MIDIObjectGetStringProperty(entity, kMIDIPropertyDisplayName, &entityDisplayName);
     if (status == 0) {
-        NSLog(@"               Entity Display Name: %@", entityDisplayName);
+        buildMessage = [[NSString alloc]  initWithFormat:@"               Entity Display Name: %@", entityDisplayName];
+        sendMessage(buildMessage);
     } else if (status == -10835) {
-        NSLog(@"               Entity Display Name: property not supported");
+        sendMessage(@"               Entity Display Name: property not supported");
     } else {
         logger(@"entity,kMIDIPropertyDisplayName", status);
     }
     status = MIDIObjectGetIntegerProperty(entity, kMIDIPropertyReceivesNotes, &entityReceivesNotes);
     if (status == 0) {
-        NSLog(@"               Receives Notes: %d", entityReceivesNotes);
+        buildMessage = [[NSString alloc] initWithFormat:@"               Receives Notes: %d", entityReceivesNotes];
+        sendMessage(buildMessage);
     } else if (status == -10835) {
-        sendMessage(textWindow, @"               Receives Notes: property not supported");
+        sendMessage(@"               Receives Notes: property not supported");
     } else {
         logger(@"endpoint,kMIDIPropertyReceivesNotes", status);
     }
     status = MIDIObjectGetIntegerProperty(entity, kMIDIPropertyTransmitsNotes, &entityTransmitsNotes);
     if (status == 0) {
-        NSLog(@"               Transmits Notes: %d", entityTransmitsNotes);
+        buildMessage =[[NSString alloc] initWithFormat:@"               Transmits Notes: %d", entityTransmitsNotes];
+        sendMessage(buildMessage);
     } else if (status == -10835) {
-        sendMessage(textWindow, @"               Transmits Notes: property not supported");
+        sendMessage(@"               Transmits Notes: property not supported");
     } else {
         logger(@"entity,kMIDIPropertyTransmitsNotes", status);
     }
@@ -602,8 +780,9 @@ void entityData(MIDIDeviceRef device, MIDIEntityRef entity) {
 //  *****  *****  *****  *****  *****
 
 /**
- *    List property information for a MIDI object.
- *
+ *    List property information for a MIDI object using MIDIObjectGetProperties.  The
+ *           properties list is contained in a CFDictionary structure
+ *    @brief Displays the properties list for a MIDI object
  *    @param object MIDI object
  */
 void objectDictionary(MIDIObjectRef object) {
@@ -623,38 +802,8 @@ void objectDictionary(MIDIObjectRef object) {
 //  *****  *****  *****  *****  *****
 //  *****  *****  *****  *****  *****
 
-/**
- *   Displays the property list associated with a MIDIObject (Older Version).
- *
- *   @param object MIDIObject whose property list is to be displayed.
- */
-void objectDictionary2(MIDIObjectRef object) {
-    // https://crowd.cs.umass.edu/citizen/proxy/CFPropertyList/docs/plist/CFPropertyList.html
-    CFPropertyListRef propertyList = NULL;
-    OSStatus status = 0;
-    status = MIDIObjectGetProperties(object, &propertyList, TRUE);
-    if (status != 0) {
-        logger(@"object MIDIObjectGetProperties", status);
-    }
-    listDictionaryLevel(0, propertyList);
-    // CFStringRef * comment = NULL;
-    CFTypeID  typeCode = CFGetTypeID(propertyList);
-    NSLog(@"Type of property list: %@", CFCopyTypeIDDescription(typeCode));
-    // CFComparisonResult result;
-    // https://developer.apple.com/documentation/corefoundation/1516741-cfdictionarygetcount?language=objc
-    if (CFStringCompare(CFCopyTypeIDDescription(typeCode), CFSTR("CFDictionary"), 0) == kCFCompareEqualTo) {
-    CFIndex count = CFDictionaryGetCount(propertyList);
-        NSLog(@"There are %ld entries", count);
-        CFStringRef keys[count];
-        CFTypeRef values[count];
-         CFDictionaryGetKeysAndValues(propertyList, (const void *) &keys, (const void *) &values);
-        // CFDictionaryGetKeysAndValues(propertyList, (const void **) keys, (const void **) values);
-        int i;
-        for (i=0; i < count; i++) {
-            NSLog(@"     %@  %@", keys[i], CFCopyTypeIDDescription(CFGetTypeID(values[i])));
-        }
-    }
-}
+
+
 
 //  *****  *****  *****  *****  *****
 //  *****  *****  *****  *****  *****
@@ -673,21 +822,57 @@ void objectDictionary2(MIDIObjectRef object) {
  *
  *   https://developer.apple.com/documentation/corefoundation/cfarray?language=objc
  *   https://developer.apple.com/documentation/corefoundation/cfdictionary?language=objc
+ *
+ *    Since this can   be callled recursively, there is a problem with recursion erasing data.  So there needs to be a version
+ *          that has data that can be associated with the level of recursion.
+ *
  */
     void listDictionaryLevel(int level, CFTypeRef dictionary) {
+        buildMessage = [[NSString alloc]initWithFormat:@"listDictionaryLevel level %d", level];
+        sendMessage(buildMessage);
         CFTypeID dictionaryType = CFDictionaryGetTypeID();
         CFTypeID arrayType = CFArrayGetTypeID();
         CFTypeID stringType = CFStringGetTypeID();
         CFTypeID numberType = CFNumberGetTypeID();
         int currentLevel = level;
+        CFStringRef *keysByLevel[20];
+        CFTypeRef *valuesByLevel[20];
         CFTypeID typeID = CFGetTypeID(dictionary);
+        /*
+         https://stackoverflow.com/questions/2283466/how-to-enumerate-cfproperylist-cfdictionary-keys
+
+         CFDictionaryRef dict = CFDictionaryCreate(...)
+         size size = CFDictionaryGetCount(dict);
+         CFTypeRef *keysTypeRef = (CFTypeRef *) malloc( size * sizeof(CFTypeRef) );
+         CFDictionaryGetKeysAndValues(dict, (const void **) keysTypeRef, NULL);
+         const void **keys = (const void **) keysTypeRef;
+         */
+        NSString *spacer;
+        if (currentLevel % 5 == 0 ) { spacer = @" ";} else
+        if (currentLevel % 5 == 1 ) { spacer = @"    ";} else
+        if (currentLevel % 5 == 2 ) { spacer = @"       ";} else
+        if (currentLevel % 5 == 3 ) { spacer = @"          ";} else
+        if (currentLevel % 5 == 4 ) { spacer = @"             ";} else
+        if (currentLevel % 5 == 5 ) { spacer = @"                ";}
         if (typeID == dictionaryType) {
             CFIndex count = CFDictionaryGetCount(dictionary);
-            CFStringRef keys[count];
-            CFTypeRef values[count];
-            /*  The line with ^ and & was the original line but xCode doesn't like it.  */
-            //CFDictionaryGetKeysAndValues(dictionary, (const void *) &keys, (const void *) &values);
-            // CFDictionaryGetKeysAndValues(dictionary, (const void **) &keys, (const void **) values);
+            CFStringRef *keysTypeRef = (CFStringRef *) malloc(count*sizeof(CFStringRef*) );
+                if (keysTypeRef == NULL) { NSLog(@"keysTypeRef not allocated"); }
+                keysByLevel[currentLevel] = keysTypeRef;
+            CFTypeRef *valuesTypeRef = (CFTypeRef *) malloc (count*sizeof(CFTypeRef*));
+                if (valuesTypeRef == NULL) { NSLog(@"valuesTypeRef not allocated");}
+                valuesByLevel[currentLevel] = valuesTypeRef;
+            CFDictionaryGetKeysAndValues(dictionary, (const void **)keysTypeRef, (const void **)valuesTypeRef);
+            const void **keys  = (const void **) keysTypeRef;
+            const void **values = (const void **) valuesTypeRef;
+            /*
+             * The line calling the CFDictionaryGetKeys and Values is shown below.  This was
+             * rejected by the current version of Xcode, possibly because Xcode is now
+             * applying additional type checking, and the original line was a hack with
+             * implied casts.
+             *
+             * CFDictionaryGetKeysAndValues(dictionary, (const void *) &keys, (const void *) &values);
+             */
             int position = 0;
             for (position = 0; position < count; position++) {
                 CFTypeRef element = values[position];
@@ -697,22 +882,36 @@ void objectDictionary2(MIDIObjectRef object) {
                     SInt32 numericValue;
                     CFNumberGetValue(element,kCFNumberSInt32Type, &numericValue);
                     // NSLog (@"%d", result);
-                    NSLog(@"%3d %3d number %@  %d", level, position, keys[position], numericValue);
+                    buildMessage = [[NSString alloc] initWithFormat:@"%@%3d %3d number %@  %d", spacer, level, position, keys[position], numericValue];
+                    sendMessage(buildMessage);
                 } else if (elementTypeID == stringType) {
-                    NSLog(@"%3d %3d string %@  %@", level, position, keys[position], (CFStringRef) values[position]);
-                    sendMessage(textWindow, buildMessage);
+                    NSString *buildMessage = [[NSString alloc]
+                            initWithFormat:@"%@%3d %3d string %@  %@", spacer, level, position, keys[position], (CFStringRef) values[position]];
+                    sendMessage(buildMessage);
                 } else if (elementTypeID == dictionaryType) {
-                    NSLog(@"%3d %3d dictionary %@", level, position, keys[position]);
-                    sendMessage(textWindow, buildMessage);
+                    NSString *buildMessage = [[NSString alloc]
+                        initWithFormat:@"%@%3d %3d dictionary %@", spacer, level, position, keys[position]];
+                    sendMessage(buildMessage);
                     listDictionaryLevel(currentLevel+1,  values[position]);
                 } else if (elementTypeID == arrayType) {
-                    NSLog(@"%3d %3d array %@", level, position, keys[position]);
-                    sendMessage(textWindow, buildMessage);
+                    NSString *buildMessage = [[NSString  alloc] initWithFormat:@"%@%3d %3d array %@", spacer, level, position, keys[position] ];
+                    sendMessage(buildMessage);
                     listDictionaryLevel(currentLevel+1,  values[position]);
                 }
+                /*
+                 * The code that I copied this from didn't dealloc the
+                 * allocated memory.  I therefore added the two
+                 * free statements in the code below
+                 * to prevent memory leaks.
+                 *
+                 * When I put the code in, the program failed.
+                 */
+                // free(keysByLevel[currentLevel]);
+                // free(valuesByLevel[currentLevel]);
             }
         } else if (typeID == arrayType) {
             CFIndex count = CFArrayGetCount(dictionary);
+            
             int position;
             for (position = 0; position < count; position++) {
                 CFTypeRef element = CFArrayGetValueAtIndex(dictionary, position);
@@ -721,28 +920,30 @@ void objectDictionary2(MIDIObjectRef object) {
                     SInt32 numericValue;
                     CFNumberGetValue(element,kCFNumberSInt32Type, &numericValue);
                     buildMessage = [[NSString alloc]
-                            initWithFormat:@"%3d %3d number   %d", level, position, numericValue];
-                    sendMessage(textWindow, buildMessage);
+                            initWithFormat:@"%@%3d %3d number   %d", spacer, level, position, numericValue];
+                    sendMessage(buildMessage);
                 } else if (elementTypeID == stringType) {
                     buildMessage = [[NSString alloc]
-                            initWithFormat:@"%3d %3d string %@  ", level, position, (CFStringRef) element];
-                    sendMessage(textWindow, buildMessage);
+                            initWithFormat:@"%@%3d %3d string %@  ", spacer, level, position, (CFStringRef) element];
+                    sendMessage(buildMessage);
                 } else if (elementTypeID == dictionaryType) {
                     buildMessage = [[NSString alloc]
-                            initWithFormat:@"%3d %3d dictionary ", level, position];
-                    sendMessage(textWindow, buildMessage);
+                            initWithFormat:@"%@%3d %3d dictionary ", spacer, level, position];
+                    sendMessage(buildMessage);
                     listDictionaryLevel(currentLevel+1,  element);
                 } else if (elementTypeID == arrayType) {
                     buildMessage = [[NSString alloc]
-                        initWithFormat:@"%3d %3d array ", level, position];
-                    sendMessage(textWindow, buildMessage);
+                        initWithFormat:@"%@%3d %3d array ", spacer, level, position];
+                    sendMessage(buildMessage);
                     listDictionaryLevel(currentLevel+1,  element);
                 }
             }
         } else {
-            buildMessage = [[NSString alloc] initWithFormat:@"%@ not valid for parameter of listDictionaryLevel",CFCopyTypeIDDescription(typeID)];
-            sendMessage(textWindow, buildMessage);
+            buildMessage = [[NSString alloc] initWithFormat:@"%@%@ not valid for parameter of listDictionaryLevel",spacer, CFCopyTypeIDDescription(typeID)];
+            sendMessage(buildMessage);
         }
+       
+        
     }
 
 //  *****  *****  *****  *****  *****
@@ -753,6 +954,7 @@ void objectDictionary2(MIDIObjectRef object) {
 
 /**
  *  Display information on a MIDI endpoint.
+ *  @brief Display MIDI endpoint information.
  *
  *  @param device MIDI device object
  *  @param entity MIDI entity object
@@ -766,37 +968,43 @@ void endpointData(MIDIDeviceRef device, MIDIEntityRef entity, MIDIEndpointRef en
     CFStringRef endpointDisplayName = NULL;
     SInt32 endpointReceivesNotes = 0;
     SInt32 endpointTransmitsNotes = 0;
-    NSLog(@"     *****");
+    sendMessage(@"     *****");
     status = MIDIObjectGetStringProperty(device, kMIDIPropertyName, &deviceName);
         logger(@"device,kMIDIPropertyName", status);
     status = MIDIObjectGetStringProperty(entity, kMIDIPropertyName, &entityName);
     logger(@"entity,kMIDIPropertyName", status);
     status = MIDIObjectGetStringProperty(endpoint, kMIDIPropertyName, &endpointName);
         logger(@"endpoint,kMIDIPropertyName", status);
-    NSLog(@"          Device: %@", deviceName);
-    NSLog(@"          Entity: %@", entityName);
-    NSLog(@"          Endpoint: %@", endpointName);
+    buildMessage = [[NSString alloc] initWithFormat:@"          Device: %@", deviceName];
+    sendMessage(buildMessage);
+    buildMessage = [[NSString alloc] initWithFormat:@"          Entity: %@", entityName];
+    sendMessage(buildMessage);
+    buildMessage = [[NSString alloc] initWithFormat:@"          Endpoint: %@", endpointName];
+    sendMessage(buildMessage);
     status = MIDIObjectGetStringProperty(endpoint, kMIDIPropertyDisplayName, &endpointDisplayName);
     if (status == 0) {
-         NSLog(@"               Endpoint Display Name: %@", endpointDisplayName);
+        buildMessage = [[NSString alloc] initWithFormat:@"               Endpoint Display Name: %@", endpointDisplayName];
+        sendMessage(buildMessage);
     } else if (status == -10835) {
-        NSLog(@"                Endpoint Display Name: property not supported");
+        sendMessage(@"                Endpoint Display Name: property not supported");
     } else {
         logger(@"endpoint,kMIDIPropertyDisplayName", status);
     }
     status = MIDIObjectGetIntegerProperty(endpoint, kMIDIPropertyReceivesNotes, &endpointReceivesNotes);
     if (status == 0) {
-        NSLog(@"               Receives Notes: %d", endpointReceivesNotes);
+        buildMessage = [[NSString alloc] initWithFormat:@"               Receives Notes: %d", endpointReceivesNotes];
+        sendMessage(buildMessage);
     } else if (status == -10835) {
-        NSLog(@"               Receives Notes: property not supported");
+        sendMessage(@"               Receives Notes: property not supported");
     } else {
     logger(@"endpoint,kMIDIPropertyReceivesNotes", status);
     }
     status = MIDIObjectGetIntegerProperty(endpoint, kMIDIPropertyTransmitsNotes, &endpointTransmitsNotes);
     if (status == 0) {
-        NSLog(@"               Transmits Notes: %d", endpointTransmitsNotes);
+        buildMessage = [[NSString alloc] initWithFormat:@"               Transmits Notes: %d", endpointTransmitsNotes];
+        sendMessage(buildMessage);
     } else if (status == -10835) {
-        NSLog(@"               Transmits Notes: property not supported");
+        sendMessage(@"               Transmits Notes: property not supported");
     } else {
         logger(@"endpoint,kMIDIPropertyTransmitsNotes", status);
     }

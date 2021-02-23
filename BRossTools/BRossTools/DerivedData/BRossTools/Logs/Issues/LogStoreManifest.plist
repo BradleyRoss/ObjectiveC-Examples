@@ -6,7 +6,7 @@
 	<integer>10</integer>
 	<key>logs</key>
 	<dict>
-		<key>DF9AEF0B-80C2-4B65-94CA-2D193D30A977</key>
+		<key>2656B1E5-8059-412D-B21C-519F8B973F37</key>
 		<dict>
 			<key>className</key>
 			<string>IDEActivityLogMajorGroupSection</string>
@@ -15,24 +15,24 @@
 			<key>domainType</key>
 			<string>Xcode.IDEActivityLogDomainType.target.product-type.application</string>
 			<key>fileName</key>
-			<string>DF9AEF0B-80C2-4B65-94CA-2D193D30A977.xcactivitylog</string>
+			<string>2656B1E5-8059-412D-B21C-519F8B973F37.xcactivitylog</string>
 			<key>hasPrimaryLog</key>
 			<true/>
 			<key>primaryObservable</key>
 			<dict>
 				<key>highLevelStatus</key>
-				<string>E</string>
+				<string>S</string>
 			</dict>
 			<key>signature</key>
 			<string>BRossTools-govbgynexqmkbidppbuvgxukllvw</string>
 			<key>timeStartedRecording</key>
-			<real>635644715.12596095</real>
+			<real>635809255.73023105</real>
 			<key>timeStoppedRecording</key>
-			<real>635644715.34092104</real>
+			<real>635809256.06526601</real>
 			<key>title</key>
 			<string>Build target BRossTools</string>
 			<key>uniqueIdentifier</key>
-			<string>DF9AEF0B-80C2-4B65-94CA-2D193D30A977</string>
+			<string>2656B1E5-8059-412D-B21C-519F8B973F37</string>
 		</dict>
 	</dict>
 	<key>preserveOldLogs</key>

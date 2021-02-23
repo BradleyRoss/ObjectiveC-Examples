@@ -12,6 +12,8 @@
 #import "BRossTools.h"
 #import <Foundation/Foundation.h>
 #import <CoreMIDI/CoreMIDI.h>
+#import <stdio.h>
+#import <time.h>
 //  *****  *****  *****  *****
 //  *****  *****  *****  *****
 //  *****  *****  *****  *****
@@ -160,9 +162,16 @@ Messages from button clicks are sent to this method.
 /**
  Modified version of CoreMidiSample1 CLI program.
  */
-@interface CoreMidiSample1:NSObject 
+@interface CoreMidiSample1:NSObject
+@property(class) BRossToolsTextWindow *textWindow;
 + (void) runtest;
-
+/**
+ * This is taken from http://xmidi.com/how-to-access-midi-devices-with-coremidi/
+ * See https://developer.apple.com/documentation/coremidi/midi_services
+ */
++ (void) runtest2;
++ (void) setTextWindow:(BRossToolsTextWindow *)window;
++ (BRossToolsTextWindow *) getTextWindow;
 @end
 
 //  *****  *****  *****  *****
@@ -170,10 +179,7 @@ Messages from button clicks are sent to this method.
 //  *****  *****  *****  *****
 //  *****  *****  *****  *****
 
-@interface CoreMidiSample2:NSObject
 
-
-@end
 //  *****  *****  *****
 //  *****  *****  *****
 #endif /* LocalClasses_h */
