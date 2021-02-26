@@ -1,6 +1,6 @@
 .DS_Store
-DerivedData
-Build
-html
-latex
+DerivedData/
+Build/
+htm/l
+latex/
 

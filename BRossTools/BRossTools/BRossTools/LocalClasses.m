@@ -812,7 +812,7 @@ void objectDictionary(MIDIObjectRef object) {
 //  *****  *****  *****  *****  *****
 
 /**
- *   Display contents of a CFArray or CFDictionry object.
+ *   Display contents of a CFArray or CFDictionary object.
  *
  *   @param level This is the depth within the tree structure.  The value for the
  *                initial call should be zero.
@@ -825,6 +825,8 @@ void objectDictionary(MIDIObjectRef object) {
  *
  *    Since this can   be callled recursively, there is a problem with recursion erasing data.  So there needs to be a version
  *          that has data that can be associated with the level of recursion.
+ *
+ *          Called by objectDictionary
  *
  */
     void listDictionaryLevel(int level, CFTypeRef dictionary) {
