@@ -4,16 +4,17 @@
 //
 //  Created by Bradley Ross on 1/31/21.
 //
-
+/**
+ \file BRossTools.m
+ Code for BRossTools items.
+ @brief BRossTools implementation
+ */
 #import <Foundation/Foundation.h>
 #import "BRossTools.h"
 NSWindow *superview;
 
 @implementation BRossToolsTextWindow
-/*
- Using a class method that allocates and then an instance method that finishes off the
- rest of the initialization
- */
+
 + (instancetype)newWindow {
     id  pointer = [BRossToolsTextWindow alloc];
     [pointer initTextWindow];

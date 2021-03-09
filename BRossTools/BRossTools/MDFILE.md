@@ -6,9 +6,10 @@ This is a test of code to exercise the Xcode system.  One of my goals was to avo
 
 * BRossTools.h and BRossTools.m contain a set of Objective-C classes that are under development that will be used as a library to assist programmers.
 * LocalClasses.h and BRossTools.m contain Objective-C classes that are being used to understand the technologies used in the development of MacOS applications.
-* The file AppDelegate.m has been modified to create a menu upon opening the application that can be used to call the other components contained in the application.  
+* The file AppDelegate.m has been modified to create a menu upon opening the application that can be used to call the other components contained in the application. 
+* The files MIKMIDIsamples.h and MIKMIDIsamples.m contain examples for using MIKMIDI from Andrew Marsden
 
-####Documentation
+####Apple Documentation
 
 The following is a list of documentation from Apple that can be used to create, modify, and understand this code.
 
@@ -29,6 +30,20 @@ The following is a list of documentation from Apple that can be used to create, 
 
 * [Auto Layout Guide](https://developer.apple.com/library/archive/documentation/UserExperience/Conceptual/AutolayoutPG/index.html#//apple_ref/doc/uid/TP40010853)
 
+####  MIDI documentation
+
 * [Core MIDI](https://developer.apple.com/documentation/coremidi?language=objc)
 
 * [Core MIDI -- MIDI Services] (https://developer.apple.com/documentation/coremidi/midi_services?language=objc)
+* https://developer.audiob.us/doc/_working-_with-_m_i_d_i.html
+* Andrew Madsen has developed an Objective-C library named mikmidi.  There is a [GitHub repository](https://github.com/mixedinkey-opensource/MIKMIDI).  He also has [blog](https://blog.andrewmadsen.com/2014/05/19/mikmidi-a-new.html) and [tumblr](https://armadsen.tumblr.com/post/86220316345/mikmidi-a-new-objective-c-midi-library) entries for the package.  Documentation can be found on [CocoaDocs.org](http://cocoadocs.org/docsets/MIKMIDI/1.6.1/)  
+    * MIKMIDI uses the following packages
+         * LibXML2
+         * Audio Unit
+         * Audio Toolbox
+         * AppKit
+         * CoreData
+         * CoreMIDI
+         * Cocoa
+         * Foundation 
+* https://stackoverflow.com/questions/8795749/coremidi-logging-received-midi-messages-to-an-nstextfield

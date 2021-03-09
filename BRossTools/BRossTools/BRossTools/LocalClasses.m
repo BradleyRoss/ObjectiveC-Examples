@@ -6,11 +6,14 @@
 //
 
 /**
- @file  Implementation code for LocalClasses
+ \file LocalClasses.m
+ @brief implementation file LocalClasses.
+ Implementation code for LocalClasses.
  */
 #import <Foundation/Foundation.h>
 # import "BRossTools.h"
 # import "LocalClasses.h"
+# import "MIKMIDIsamples.h"
 
 
 //  *****  *****  *****  *****  *****
@@ -47,11 +50,15 @@
             }
             if ([message isEqualToString:@"b5"]) {
                 [CoreMidiSample1 runtest];
-            }
-            if ([message isEqualToString:@"b6"]) {
+            } else if ([message isEqualToString:@"b6"]) {
                 [CoreMidiSample1 runtest2];
+            } else if ([message isEqualToString:@"b7"]) {
+                [test5 runtest];
+            } else if ([message isEqualToString:@"b8"]) {
+                [test4 runtest];
+            } else if ([message isEqualToString:@"b9"]){
+                [playMIDI runtest];
             }
-    
         }
 }
 /**
@@ -60,7 +67,7 @@
      @returns pointer to NSStackView object.
  https://stackoverflow.com/questions/36020540/why-is-instancetype-used
  */
-+ (NSView *)menu {
++ (NSView *) menu {
     // NSStackView *stackView = [NSStackView alloc]
     
     BRossToolsButton *b1 = [BRossToolsButton initUsingObjectIdent:self selector:@selector(bleep:) caption:@"This will trigger the e2 test which opens a window, colors it, and inserts a few text fields and buttons" ident:@"b1" ];
@@ -73,7 +80,12 @@
     
     BRossToolsButton *b6 = [BRossToolsButton initUsingObjectIdent:self selector:@selector(bleep:) caption:@"run test4b - CoreMidiDemo2" ident:@"b6" ];
     
-    NSStackView *stackView = [NSStackView stackViewWithViews:@[b1, b2, b3, b4, b5, b6]];
+    BRossToolsButton *b7 = [BRossToolsButton initUsingObjectIdent:self selector:@selector(bleep:) caption:@"run test5 - CFDictionary, CFArray, etc." ident:@"b7" ];
+    
+    BRossToolsButton *b8 = [BRossToolsButton initUsingObjectIdent:self selector:@selector(bleep:) caption:@"run test4 - Playing with pointers" ident:@"b8" ];
+    
+    BRossToolsButton *b9 = [BRossToolsButton initUsingObjectIdent:self selector:@selector(bleep:) caption:@"Display menu for MIKMIDI samples" ident:@"b9" ];
+    NSStackView *stackView = [NSStackView stackViewWithViews:@[b1, b2, b3, b4, b5, b6, b7, b8, b9]];
     stackView.orientation = NSUserInterfaceLayoutOrientationVertical;
     return stackView;
 }
@@ -168,7 +180,129 @@
 + (void) runtest {
     BRossToolsTextWindow *textWindow;
     textWindow = [BRossToolsTextWindow newWindow];
-    textWindow.title=@"test4 immutable/mutable";
+    textWindow.title=@"test4 immutable/mutable and void";
+   // NSString  *actualArray[] = {@"first", @"second", @"third"};
+    // void *ptr1 = &actualArray;
+    
+    // void **voidSample  = (void **) actualArray;
+    // void *temp = @"first item";
+    // void* ptr1 =  &temp;
+    // NSString *temp2 =  ptr1;
+    int x1 = 2;
+    void *ptr2 = &x1;
+    void *ptr3 = ptr2;
+    int *x2 = (int *) ptr3;
+    NSString * build = [[NSString alloc] initWithFormat:@"  %d  %d  %lu \n", x1, *x2, sizeof(ptr3)];
+    [textWindow appendString:build];
+    
+}
+@end
+
+@implementation test5
+/*
+ * Try using the context variable as a level counter.
+ */
+/**
+  *   @brief Parse CFDictionary
+  *    Goes through key/value pairs in a CFDictionary object;
+  * @param key Key belonging to key/value pair.
+  * @param value Value belonging to a key/value pair.  Type of parameter will
+  *      a subtype of CFTypeRef.
+  * @param context Context value for CFDictionary.  In this case, it is the
+  *        nesting depth.
+ */
+void applier(const void *key, const void *value, void *context);
+static BRossToolsTextWindow *textWindowStorage5;
++ (void) setTextWindow:thisWindow {
+    textWindowStorage5 = thisWindow;
+}
++ (BRossToolsTextWindow *) textWindow{
+    return textWindowStorage5;
+}
+void applier(const void *key, const void *value, void *context) {
+    int *level = (int *) context;
+    
+    CFTypeID dictionaryType = CFDictionaryGetTypeID();
+    CFTypeID arrayType = CFArrayGetTypeID();
+    CFTypeID stringType = CFStringGetTypeID();
+    CFTypeID numberType = CFNumberGetTypeID();
+    NSString *working;
+    working = [[NSString alloc] initWithFormat:@"Level %d  ", *level];
+    [[test5 textWindow] appendString:working];
+    /*
+     CFDictionaryApplyFunction
+     CFDictionaryApplierFunction
+     */
+    CFTypeID elementTypeID = CFGetTypeID(value);
+    if (elementTypeID == numberType) {
+        CFNumberRef element = (CFNumberRef) value;
+        SInt32 numericValue;
+        CFNumberGetValue(element,kCFNumberSInt32Type, &numericValue);
+        // key and numericValue are the key/value pair
+        // NSLog (@"%d", result);
+        working = [[NSString alloc] initWithFormat:@" number type, key \"%@\", value %d \n", key, numericValue];
+        [[test5 textWindow] appendString:working];
+    } else if (elementTypeID == stringType) {
+        working = [[NSString alloc] initWithFormat:@"string type, key \"%@\", value \"%@\" \n", key, value];
+        [[test5 textWindow] appendString:working];
+        // key and (CFStringRef)value are the key/value pair
+    } else if (elementTypeID == dictionaryType) {
+        //key is the value of the key and value is the reference to the dictionary
+        working = [[NSString alloc]initWithFormat:@"Dictionary:  key is %@\n", key];
+        [[test5 textWindow] appendString:working];
+        // listDictionaryLevel(currentLevel+1,  values[position]);
+    } else if (elementTypeID == arrayType) {
+//key is the value of the key and value is the reference to the array
+        
+        // listDictionaryLevel(currentLevel+1,  values[position]);
+    }
+    
+    /*
+     * The code that I copied this from didn't dealloc the
+     * allocated memory.  I therefore added the two
+     * free statements in the code below
+     * to prevent memory leaks.
+     *
+     * When I put the code in, the program failed.
+     */
+    // free(keysByLevel[currentLevel]);
+    // free(valuesByLevel[currentLevel]);
+}
+
++ (void) runtest {
+    BRossToolsTextWindow * thisWindow = [BRossToolsTextWindow newWindow];
+    [test5 setTextWindow:thisWindow];
+    [[test5 textWindow] appendString:@"Starting test5\n"];
+    NSString *string1 = [[NSString alloc] initWithFormat:@"abc123 %d", 5];
+    NSArray *array1 = @[string1, @"Hello, World", @42];
+    NSLog(@"%@", array1[0]);
+    NSLog(@"%@", [array1 objectAtIndex:1]);
+    NSLog(@"Item 2 - %@", [array1 objectAtIndex:2]);
+
+    CFStringRef keys[10];
+    keys[0] = CFSTR("first");
+    keys[1] = CFSTR("second");
+    
+    
+    CFTypeRef values[10];
+    int tempInt = 5;
+    CFNumberRef number = CFNumberCreate (
+                                         kCFAllocatorDefault,
+                                         kCFNumberSInt32Type,
+                                         &tempInt);
+    values[0] = number;
+    values[1] = CFSTR("second value");
+    // values[1] not set
+    CFDictionaryRef firstDictionary = CFDictionaryCreate(kCFAllocatorDefault, (const void **) keys, (const void **) values, 2, &kCFTypeDictionaryKeyCallBacks, &kCFTypeDictionaryValueCallBacks);
+    [[self textWindow] appendString:@"Dictionary has been built\n"];
+    CFRelease(number);
+    tempInt = 1;
+    CFDictionaryApplyFunction(firstDictionary, applier, &tempInt);
+    [thisWindow appendString:@"Starting second parse\n"];
+    BRossToolsCFDictionaryArray *walker = [[BRossToolsCFDictionaryArray alloc] init];
+    [walker setDestination:[test5 textWindow]];
+    [walker showDictionaryContents:firstDictionary];
+    return;
 }
 @end
 //  *****  *****  *****  *****  *****
@@ -770,6 +904,7 @@ void entityData(MIDIDeviceRef device, MIDIEntityRef entity) {
     } else {
         logger(@"entity,kMIDIPropertyTransmitsNotes", status);
     }
+
         objectDictionary(entity);
 }
 
@@ -787,13 +922,17 @@ void entityData(MIDIDeviceRef device, MIDIEntityRef entity) {
  */
 void objectDictionary(MIDIObjectRef object) {
     // https://crowd.cs.umass.edu/citizen/proxy/CFPropertyList/docs/plist/CFPropertyList.html
+    BRossToolsCFDictionaryArray *tempTool = [[BRossToolsCFDictionaryArray alloc] init];
+    [tempTool setDestination:[CoreMidiSample1 getTextWindow]];
+
     CFPropertyListRef propertyList = NULL;
     OSStatus status = 0;
     status = MIDIObjectGetProperties(object, &propertyList, TRUE);
+    [tempTool showDictionaryContents:propertyList];
     if (status != 0) {
         logger(@"object MIDIObjectGetProperties", status);
     }
-    listDictionaryLevel(0, propertyList);
+    // listDictionaryLevel(0, propertyList);
 }
 
 //  *****  *****  *****  *****  *****
@@ -812,13 +951,17 @@ void objectDictionary(MIDIObjectRef object) {
 //  *****  *****  *****  *****  *****
 
 /**
- *   Display contents of a CFArray or CFDictionary object.
+ *   Display contents of a CFArray or CFDictionary object (deprecated).
  *
  *   @param level This is the depth within the tree structure.  The value for the
  *                initial call should be zero.
  *   @param dictionary The CFArray or CFDictionary object to be listed
  *
- *   <p>The method is called recursively to process the entire tree structure.</p>
+ *   <p>Since this metjhod uses malloc and CFDictionaryGetKeysAndValues, there is a problem in that using free
+ *              caused the method to fail.  When added to the fact that thismethod is called recursively to
+ *              process the entire tree structure., it would appear that modifying the mehod to avoid memory
+ *              leaks would be very difficult.  I am therefore goin to other methods that don't require
+ *              malloc and free.</p>
  *
  *   https://developer.apple.com/documentation/corefoundation/cfarray?language=objc
  *   https://developer.apple.com/documentation/corefoundation/cfdictionary?language=objc
@@ -1010,8 +1153,250 @@ void endpointData(MIDIDeviceRef device, MIDIEntityRef entity, MIDIEndpointRef en
     } else {
         logger(@"endpoint,kMIDIPropertyTransmitsNotes", status);
     }
-    objectDictionary(endpoint);
+    // objectDictionary(endpoint);
 }
 
 
+@end
+
+
+//  *****  *****  *****  *****  *****
+//  *****  *****  *****  *****  *****
+//  *****  *****  *****  *****  *****
+//  *****  *****  *****  *****  *****
+//  *****  *****  *****  *****  *****
+
+@implementation BRossToolsCFDictionaryArray
+
+BRossToolsTextWindow *textWindowB;
+/**
+ @brief Type id values set?
+ YES if values set, NO otherwise.
+ */
+static Boolean valuesSet = NO;
+/**
+ @brief print diagnostic messages?
+ Determines whether to print additional messages.  YES means to
+ print messages.  NO means don't print.
+ */
+static Boolean debugMessages = NO;
+static CFTypeID dictionaryType = 0;
+static CFTypeID arrayType = 0;
+static CFTypeID numberType = 0;
+static CFTypeID stringType = 0;
+/**
+ @brief Enumerator for key-value pairs
+ @param key Key for key/value pair
+ @param value for key/value pair
+ @param context In this instance, context is the address of an integer which stores the depth
+            in the tree of key/value pairs.  It can be used for any purpose so long as it is used
+            consistently  between parseDictionApplier and CFDictionaryApplyFunction and
+            this function.  This function must use CFDictionaryApplierFunction as the function signature.
+ */
+void parseDictionaryApplier(const void *key, const void *value, void *context);
+/**
+ Construct a NSString spacer based on the depth into tree of key/value pairs.
+ @brief build spacer based on level
+ @param level depth in tree
+ @returns spacer
+ */
+NSString *buildSpacer(int level);
+/**
+  @brief Set initial values.
+ 
+    That are seme static variables that only need to be set once.  This function
+    initializes the values and then changes the value of  valuesSet so that the
+    initialization won't be repeated.
+ */
+void initValues(void);
+void initValues() {
+    if ( !valuesSet ) {
+        dictionaryType = CFDictionaryGetTypeID();
+        arrayType = CFArrayGetTypeID();
+        stringType = CFStringGetTypeID();
+        numberType = CFNumberGetTypeID();
+        valuesSet = YES;
+    }
+}
+    /*
+    Defined in header file.
+    */
+- (void) showDictionaryContents:(CFTypeRef) startingNode {
+    if (debugMessages) {
+    [textWindowB appendString:@"*** Starting showDictionaryContents\n"];
+    }
+    BRossToolsCFDictionaryArray *temp = [[BRossToolsCFDictionaryArray alloc] init];
+    
+    [temp showDictionaryContents:startingNode atLevel:1];
+}
+/*
+ Defined in header file.
+ */
+- (void) showDictionaryContents:(CFTypeRef) startingNode atLevel:(int)levelValue {
+    if (debugMessages) {
+    [textWindowB appendString:@"*** Starting showDictionaryContents:atLevel\n"];
+    }
+    int level = levelValue;
+    initValues();
+    NSString* spacer = buildSpacer(level);
+/*
+    if (level % 6 == 0) { spacer = @" "; } else
+    if (level % 6 == 1) { spacer = @"    "; } else
+    if (level % 6 == 2) { spacer = @"       "; } else
+    if (level % 6 == 3) { spacer = @"          "; } else
+    if (level % 6 == 4) { spacer = @"             "; } else
+    if (level % 6 == 5) { spacer = @"                "; } else
+    if (level % 6 == 6) { spacer = @"                   "; }
+ */
+    /*
+     Determine if the top node is a dictionary node or an array node.  If
+     it is neither, then there is an error.
+     
+     https://developer.apple.com/library/archive/documentation/CoreFoundation/Conceptual/CFDesignConcepts/Articles/tollFreeBridgedTypes.html
+     */
+    CFTypeRef topValue = startingNode;
+    CFTypeID type = CFGetTypeID(topValue);
+    if ( type == dictionaryType ) {
+        /*
+         If top node for this call is a dictionaryType use
+         enumeration function to process nodes on this level.
+         */
+        if (debugMessages) {
+        NSString *tempString = [[NSString alloc] initWithFormat:@"*** top node for level %d is dictionary\n", level];
+        [textWindowB appendString:tempString];
+        }
+        CFDictionaryApplyFunction(startingNode, parseDictionaryApplier, &levelValue);
+    } else if (type == arrayType ) {
+        /*
+         If top node for this call is array type, use itrerator to go through
+         members of array.
+         */
+        if (debugMessages) {
+        NSString *tempString = [[NSString alloc] initWithFormat:@"*** top node for level %d is array\n", level];
+        [textWindowB appendString:tempString];
+        }
+        CFIndex size = CFArrayGetCount(topValue);
+        for (int i = 0; i < size; i++) {
+            CFTypeRef node = CFArrayGetValueAtIndex(topValue, i);
+            CFTypeID nodeType = CFGetTypeID(node);
+            NSString *working;
+            if (nodeType == numberType) {
+                CFNumberRef element = (CFNumberRef) node;
+                SInt32 numericValue;
+                CFNumberGetValue(element,kCFNumberSInt32Type, &numericValue);
+                // key and numericValue are the key/value pair
+                // NSLog (@"%d", result);
+                working = [[NSString alloc] initWithFormat:@"%2d %@    numberType, position %d, value %d \n", level, spacer, i, numericValue];
+                [textWindowB appendString:working];
+            } else if (nodeType == stringType) {
+                CFStringRef element = (CFStringRef) node;
+                NSString *stringValue =  (__bridge NSString *)element;
+                working = [[NSString alloc] initWithFormat:@"%2d %@    stringType, position %d, value \"%@\" \n",level, spacer, i, stringValue];
+                [textWindowB appendString:working];
+                // key and (CFStringRef)value are the key/value pair
+            } else if (nodeType == dictionaryType) {
+                //key is the value of the key and value is the reference to the dictionary
+                CFDictionaryRef value = (CFDictionaryRef)node;
+                working = [[NSString alloc]initWithFormat:@"%2d %@ dictionaryType:  position %d\n", level, spacer, i];
+                [textWindowB appendString:working];
+                BRossToolsCFDictionaryArray *dictionaryHandler = [[BRossToolsCFDictionaryArray alloc] init];
+                [dictionaryHandler setDestination:textWindowB];
+                [dictionaryHandler showDictionaryContents:value atLevel:level+1];
+                // listDictionaryLevel(currentLevel+1,  values[position]);
+            } else if (nodeType == arrayType) {
+                CFIndex arraySize = CFArrayGetCount(node);
+                working = [[NSString alloc]initWithFormat:@"%2d, %@ arrayType:  position %d, size %lu\n", level, spacer, i, arraySize];
+                [textWindowB appendString:working];
+                if (arraySize > 0) {
+                BRossToolsCFDictionaryArray *arrayHandler = [[BRossToolsCFDictionaryArray alloc] init];
+                [arrayHandler setDestination:textWindowB];
+                [arrayHandler showDictionaryContents:node atLevel:level+1];
+                }
+            }
+        }
+        
+    } else {
+        NSLog(@"*** Unprocessable type in array");
+    }
+}
+
+- (void) setDestination:(BRossToolsTextWindow *) destination {
+    textWindowB = destination;
+}
+- (BRossToolsTextWindow *) destination {
+    if (textWindowB == NULL) {
+        textWindowB = [BRossToolsTextWindow newWindow];
+        textWindowB.title = @"BRossToolsCFDictionaryArray";
+        return textWindowB;
+    } else {
+        return textWindowB;
+    }
+    
+}
+NSString *buildSpacer(int currentLevel) {
+    NSString *spacer;
+    if (currentLevel % 6 == 0 ) { spacer = @" ";} else
+    if (currentLevel % 6 == 1 ) { spacer = @"    ";} else
+    if (currentLevel % 6 == 2 ) { spacer = @"       ";} else
+    if (currentLevel % 6 == 3 ) { spacer = @"          ";} else
+    if (currentLevel % 6 == 4 ) { spacer = @"             ";} else
+    if (currentLevel % 6 == 5 ) { spacer = @"                ";}
+    return spacer;
+}
+void parseDictionaryApplier(const void *key, const void *value, void *context) {
+    int *Level = (int *) context;
+    int currentLevel = *Level;
+
+    
+    // CFStringRef *keysByLevel[20];
+    // CFTypeRef *valuesByLevel[20];
+   
+
+    NSString *spacer = buildSpacer(currentLevel);
+    
+
+    NSString *working;
+    // working = [[NSString alloc] initWithFormat:@"Level %d  ", currentLevel];
+    // [textWindowB appendString:working];
+    /*
+     T/he method of using the enumerator involves the following two items:
+     
+     CFDictionaryApplyFunction applies the enumberator.
+     
+     CFDictionaryApplierFunction specifies the signature for the applier function.
+     */
+    CFTypeID elementTypeID = CFGetTypeID(value);
+    if (elementTypeID == numberType) {
+        CFNumberRef element = (CFNumberRef) value;
+        SInt32 numericValue;
+        CFNumberGetValue(element,kCFNumberSInt32Type, &numericValue);
+        // key and numericValue are the key/value pair
+        // NSLog (@"%d", result);
+        working = [[NSString alloc] initWithFormat:@"%2d %@ numberType, key \"%@\", value %d \n", currentLevel, spacer, key, numericValue];
+        [textWindowB appendString:working];
+    } else if (elementTypeID == stringType) {
+        working = [[NSString alloc] initWithFormat:@"%2d %@ stringType, key \"%@\", value \"%@\" \n", currentLevel,  spacer, key, value];
+        [textWindowB appendString:working];
+        // key and (CFStringRef)value are the key/value pair
+    } else if (elementTypeID == dictionaryType) {
+        //key is the value of the key and value is the reference to the dictionary
+        working = [[NSString alloc]initWithFormat:@"%2d %@ dictionaryType:  key is \"%@\"\n", currentLevel, spacer, key];
+        [textWindowB appendString:working];
+        BRossToolsCFDictionaryArray *dictionaryHandler = [[BRossToolsCFDictionaryArray alloc] init];
+        [dictionaryHandler setDestination:textWindowB];
+        [dictionaryHandler showDictionaryContents:value atLevel:currentLevel+1];
+        // listDictionaryLevel(currentLevel+1,  values[position]);
+    } else if (elementTypeID == arrayType) {
+        CFIndex arrayCount = CFArrayGetCount(value);
+        working = [[NSString alloc]initWithFormat:@"%2d %@ arrayType:  key is \"%@\", size is %lu\n", currentLevel, spacer, key, arrayCount];
+        [textWindowB appendString:working];
+        if (arrayCount > 0) {
+        BRossToolsCFDictionaryArray *arrayHandler = [[BRossToolsCFDictionaryArray alloc] init];
+        [arrayHandler setDestination:textWindowB];
+        [arrayHandler showDictionaryContents:value atLevel:currentLevel+1];
+        }
+//key is the value of the key and value is the reference to the array
+       
+    }
+}
 @end

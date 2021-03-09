@@ -5,7 +5,10 @@
 //  Created by Bradley Ross on 2/1/21.
 //
 /**
-  @file Headers for LocalClasses
+  \file LocalClasses.h
+ @brief LocalClasses headers.
+ The code in this section is either specific to tests, samples or requires more work before it can
+ moved to BRossTools classes.
  */
 #ifndef LocalClasses_h
 #define LocalClasses_h
@@ -19,6 +22,10 @@
 //  *****  *****  *****  *****
 //  *****  *****  *****  *****
 
+/**
+ Some examples of create some items in a window.
+ @brief Sample code test1.
+ */
 @interface test1 : NSObject
 /**
  Runs test1 which runs a snippet of code that creates an array of NSString objects and then sends it to the log.
@@ -33,6 +40,7 @@
 //  *****  *****  *****  *****
 /**
    Test case for reusable panel for handling text.
+    @brief Sample code test2.
  */
 @interface test2 : NSObject
 /**
@@ -48,6 +56,8 @@
 //  *****  *****  *****  *****
 /**
    Test case  trest3 for some operations with arrays.
+ 
+ @brief Sample code test3.
  */
 @interface test3 : NSObject
 /**
@@ -62,6 +72,7 @@
 //  *****  *****  *****  *****
 /**
  Demonstration code for immutable/mutable strings.
+ @brief Sample code test4
  */
 @interface test4:NSObject
 + (void) runtest;
@@ -70,18 +81,33 @@
 //  *****  *****  *****  *****
 //  *****  *****  *****  *****
 //  *****  *****  *****  *****
+/**
+ Sample code for CFDictionary / CFArray
+ @brief CFDictionary/CFArray example
+ 
+ https://stackoverflow.com/questions/2283466/how-to-enumerate-cfproperylist-cfdictionary-keys
+ 
+ https://gist.github.com/macmade/9434900  CoreFoundation example
+ 
+ https://opensource.apple.com/source/CF/CF-744/CFString.c
+ */
+@interface test5:NSObject
++ (void) runtest;
++ (void) setTextWindow:(BRossToolsTextWindow *) thisWindow;
++ (BRossToolsTextWindow *) textWindow;
+@end
+
 //  *****  *****  *****  *****
+//  *****  *****  *****  *****
+//  *****  *****  *****  *****
+//  *****  *****  *****  *****
+
+
+
 /**
      Place a menu on the main window of the application
           to select running of other programs.
  */
-
-
-//  *****  *****  *****  *****
-//  *****  *****  *****  *****
-//  *****  *****  *****  *****
-//  *****  *****  *****  *****
-
 @interface BRossToolsView:NSObject
 // + (void)displayView:(NSString*)name view:(NSView*)target;
 + (void) displayToLog:(NSString*)name view:(NSView*)target output:(BRossToolsTextWindow *)output;
@@ -108,6 +134,7 @@
 
 /**
    Object for creating main menu
+ @brief creates menu of sample code snippets.
  */
 @interface mainMenu:NSView
 /**
@@ -131,7 +158,7 @@
 
 /**
    Test case e2.  This is a subclass of NSObject.
- 
+      @brief Sample code e2.
        It opens a window, changes the color and inserts some text fields and buttons.
  */
 @interface e2:NSObject
@@ -161,6 +188,7 @@ Messages from button clicks are sent to this method.
 
 /**
  Modified version of CoreMidiSample1 CLI program.
+ @brief MIDI tools.
  */
 @interface CoreMidiSample1:NSObject
 @property(class) BRossToolsTextWindow *textWindow;
@@ -179,7 +207,50 @@ Messages from button clicks are sent to this method.
 //  *****  *****  *****  *****
 //  *****  *****  *****  *****
 
-
+/**
+ Tools for processing CFDictionary and CFArray objects.
+ @brief CFDictionary/CFArray tools.
+ 
+ Thkere will have to be a few types of tools.
+ 
+  Parse dictionary/array and store ab set of nodes.
+ 
+    Walker that will go through nodes
+  
+ */
+@interface BRossToolsCFDictionaryArray:NSObject {
+    int *level;
+    NSString *spacer;
+}
+/**
+ Start displaying contents of CFDictionary/CFArray starting with depth of zero.
+ @brief Show contents
+ @param startingNode top node of dictionary/array tree
+ */
+- (void) showDictionaryContents:(CFTypeRef) startingNode;
+/**
+ Start displaying contents of CFDictionary/CFArray starting with depth of zero.
+ 
+ This method is called recursively to go down through the tree.
+ 
+ @brief Show contents
+ @param startingNode top node of dictionary/array tree.
+ @param level depth in tree for this top node
+ */
+- (void) showDictionaryContents:(CFTypeRef) startingNode  atLevel:(int)level;
+/**
+ Sets the BRossToolsTextWindow to be used to display results.
+ @brief Set destination for text.
+ @param destination to be used
+ */
+- (void) setDestination:(BRossToolsTextWindow *) destination;
+/**
+ Get id for BRossToolsTextWindow object to be used.
+ @brief Get destination for output
+ @returns id for destination
+ */
+- (BRossToolsTextWindow *) destination;
+@end
 //  *****  *****  *****
 //  *****  *****  *****
 #endif /* LocalClasses_h */

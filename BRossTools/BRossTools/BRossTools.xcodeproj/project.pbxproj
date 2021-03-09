@@ -3,11 +3,14 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		9015511025C87BA8006DA674 /* LocalClasses.m in Sources */ = {isa = PBXBuildFile; fileRef = 9015510F25C87BA8006DA674 /* LocalClasses.m */; };
+		902C70DD25F6C880000C75F7 /* MIKMIDI.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 902C70D725F6C6D9000C75F7 /* MIKMIDI.xcframework */; };
+		902C70DE25F6C880000C75F7 /* MIKMIDI.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 902C70D725F6C6D9000C75F7 /* MIKMIDI.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		9032806D25F564BF0096BD56 /* MIKMIDIsamples.m in Sources */ = {isa = PBXBuildFile; fileRef = 9032806C25F564BF0096BD56 /* MIKMIDIsamples.m */; };
 		905212D525E34D9C00DB595E /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 905212D425E34D9C00DB595E /* CoreFoundation.framework */; };
 		905212D725E34DAE00DB595E /* CoreMIDI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 905212D625E34DAE00DB595E /* CoreMIDI.framework */; };
 		905212DC25E34DEF00DB595E /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 905212DB25E34DEF00DB595E /* AppKit.framework */; };
@@ -39,6 +42,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		902C70C025F6BBAC000C75F7 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				902C70DE25F6C880000C75F7 /* MIKMIDI.xcframework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		905212D225E34D6C00DB595E /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -53,6 +67,9 @@
 /* Begin PBXFileReference section */
 		9015510F25C87BA8006DA674 /* LocalClasses.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocalClasses.m; sourceTree = "<group>"; };
 		9015511425C87BCD006DA674 /* LocalClasses.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocalClasses.h; sourceTree = "<group>"; };
+		902C70D725F6C6D9000C75F7 /* MIKMIDI.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = MIKMIDI.xcframework; sourceTree = "<group>"; };
+		9032806C25F564BF0096BD56 /* MIKMIDIsamples.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MIKMIDIsamples.m; sourceTree = "<group>"; };
+		9032807125F5653C0096BD56 /* MIKMIDIsamples.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MIKMIDIsamples.h; sourceTree = "<group>"; };
 		905212D425E34D9C00DB595E /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		905212D625E34DAE00DB595E /* CoreMIDI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMIDI.framework; path = System/Library/Frameworks/CoreMIDI.framework; sourceTree = SDKROOT; };
 		905212DB25E34DEF00DB595E /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -81,6 +98,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				905212E525E34ECB00DB595E /* Foundation.framework in Frameworks */,
+				902C70DD25F6C880000C75F7 /* MIKMIDI.xcframework in Frameworks */,
 				905212DC25E34DEF00DB595E /* AppKit.framework in Frameworks */,
 				905212D725E34DAE00DB595E /* CoreMIDI.framework in Frameworks */,
 				905212D525E34D9C00DB595E /* CoreFoundation.framework in Frameworks */,
@@ -107,6 +125,7 @@
 		905212D325E34D9C00DB595E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				902C70D725F6C6D9000C75F7 /* MIKMIDI.xcframework */,
 				905212E425E34ECB00DB595E /* Foundation.framework */,
 				905212DB25E34DEF00DB595E /* AppKit.framework */,
 				905212D625E34DAE00DB595E /* CoreMIDI.framework */,
@@ -150,6 +169,8 @@
 				906CEF2825C7AC3D00DC5271 /* BRossTools.m */,
 				9015510F25C87BA8006DA674 /* LocalClasses.m */,
 				9015511425C87BCD006DA674 /* LocalClasses.h */,
+				9032806C25F564BF0096BD56 /* MIKMIDIsamples.m */,
+				9032807125F5653C0096BD56 /* MIKMIDIsamples.h */,
 			);
 			path = BRossTools;
 			sourceTree = "<group>";
@@ -183,6 +204,7 @@
 				906CEEF125C7AA0900DC5271 /* Frameworks */,
 				906CEEF225C7AA0900DC5271 /* Resources */,
 				905212D225E34D6C00DB595E /* CopyFiles */,
+				902C70C025F6BBAC000C75F7 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -308,6 +330,7 @@
 				906CEF0125C7AA0900DC5271 /* main.m in Sources */,
 				9015511025C87BA8006DA674 /* LocalClasses.m in Sources */,
 				906CEEF925C7AA0900DC5271 /* AppDelegate.m in Sources */,
+				9032806D25F564BF0096BD56 /* MIKMIDIsamples.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

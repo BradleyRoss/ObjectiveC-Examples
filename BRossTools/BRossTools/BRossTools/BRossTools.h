@@ -4,7 +4,11 @@
 //
 //  Created by Bradley Ross on 1/31/21.
 //
-
+/**
+ \file
+ BRossTools header file.
+ @brief BRossTools header.
+ */
 #ifndef BRossTools_h
 #define BRossTools_h
 #import <AppKit/AppKit.h>
@@ -110,7 +114,7 @@
  */
 @interface BRossToolsButtonView : NSView
 /**
- Creates an object contaning vie aw of a button to insert in grid view
+ Creates an object contaning view of a button to insert in grid view
  
  @param targetObject id for object that will receive action from button
  @param selector character string that will identify button to target object
@@ -163,8 +167,7 @@
 }
 /**
       Allocates a new text window and then calls initTextWindow to finish the initialization..
- 
-            @returns identifier for text window
+    @returns identifier for text window
  */
 +(id)newWindow;
 - (void)initTextWindow;
