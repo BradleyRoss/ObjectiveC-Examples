@@ -3,13 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		9015511025C87BA8006DA674 /* LocalClasses.m in Sources */ = {isa = PBXBuildFile; fileRef = 9015510F25C87BA8006DA674 /* LocalClasses.m */; };
-		902C70DD25F6C880000C75F7 /* MIKMIDI.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 902C70D725F6C6D9000C75F7 /* MIKMIDI.xcframework */; };
-		902C70DE25F6C880000C75F7 /* MIKMIDI.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 902C70D725F6C6D9000C75F7 /* MIKMIDI.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9032806D25F564BF0096BD56 /* MIKMIDIsamples.m in Sources */ = {isa = PBXBuildFile; fileRef = 9032806C25F564BF0096BD56 /* MIKMIDIsamples.m */; };
 		905212D525E34D9C00DB595E /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 905212D425E34D9C00DB595E /* CoreFoundation.framework */; };
 		905212D725E34DAE00DB595E /* CoreMIDI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 905212D625E34DAE00DB595E /* CoreMIDI.framework */; };
@@ -22,6 +20,8 @@
 		906CEF0C25C7AA0900DC5271 /* BRossToolsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 906CEF0B25C7AA0900DC5271 /* BRossToolsTests.m */; };
 		906CEF1725C7AA0900DC5271 /* BRossToolsUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 906CEF1625C7AA0900DC5271 /* BRossToolsUITests.m */; };
 		906CEF2925C7AC3D00DC5271 /* BRossTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 906CEF2825C7AC3D00DC5271 /* BRossTools.m */; };
+		90EAFF1E25F7EC5C004EDB8D /* MIKMIDI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90EAFF1D25F7EC5C004EDB8D /* MIKMIDI.framework */; };
+		90EAFF1F25F7EC5C004EDB8D /* MIKMIDI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 90EAFF1D25F7EC5C004EDB8D /* MIKMIDI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,7 +48,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				902C70DE25F6C880000C75F7 /* MIKMIDI.xcframework in Embed Frameworks */,
+				90EAFF1F25F7EC5C004EDB8D /* MIKMIDI.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -90,6 +90,7 @@
 		906CEF1825C7AA0900DC5271 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		906CEF2725C7ABE100DC5271 /* BRossTools.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BRossTools.h; sourceTree = "<group>"; };
 		906CEF2825C7AC3D00DC5271 /* BRossTools.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BRossTools.m; sourceTree = "<group>"; };
+		90EAFF1D25F7EC5C004EDB8D /* MIKMIDI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MIKMIDI.framework; path = "MIKMIDI.xcframework/macos-x86_64/MIKMIDI.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,8 +99,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				905212E525E34ECB00DB595E /* Foundation.framework in Frameworks */,
-				902C70DD25F6C880000C75F7 /* MIKMIDI.xcframework in Frameworks */,
 				905212DC25E34DEF00DB595E /* AppKit.framework in Frameworks */,
+				90EAFF1E25F7EC5C004EDB8D /* MIKMIDI.framework in Frameworks */,
 				905212D725E34DAE00DB595E /* CoreMIDI.framework in Frameworks */,
 				905212D525E34D9C00DB595E /* CoreFoundation.framework in Frameworks */,
 			);
@@ -125,6 +126,7 @@
 		905212D325E34D9C00DB595E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				90EAFF1D25F7EC5C004EDB8D /* MIKMIDI.framework */,
 				902C70D725F6C6D9000C75F7 /* MIKMIDI.xcframework */,
 				905212E425E34ECB00DB595E /* Foundation.framework */,
 				905212DB25E34DEF00DB595E /* AppKit.framework */,
@@ -428,7 +430,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -481,7 +483,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = macosx;
@@ -498,6 +500,10 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = HW548B6FET;
 				ENABLE_HARDENED_RUNTIME = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/MIKMIDI.xcframework/macos-x86_64",
+				);
 				INFOPLIST_FILE = BRossTools/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -518,6 +524,10 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = HW548B6FET;
 				ENABLE_HARDENED_RUNTIME = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/MIKMIDI.xcframework/macos-x86_64",
+				);
 				INFOPLIST_FILE = BRossTools/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

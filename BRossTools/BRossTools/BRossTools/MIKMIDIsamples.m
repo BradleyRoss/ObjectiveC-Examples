@@ -99,17 +99,17 @@
      use NSModalResponseCancel
      */
     NSURL *theDoc;
-    // NSError *error;
+    NSError *error;
     if (response == NSModalResponseOK) {
         NSLog(@"OK button clicked");
         theDoc = [[panel URLs] objectAtIndex:0];
         NSLog(@"%@", theDoc);
-        /*
+        
         MIKMIDISequence *sequence = [MIKMIDISequence sequenceWithFileAtURL:theDoc error:&error];
         NSLog(@"Error code is %lu", (long) error.code);
         MIKMIDISequencer *sequencer = [MIKMIDISequencer sequencerWithSequence:sequence];
         [sequencer startPlayback];
-         */
+         
     } else if (response == NSModalResponseCancel) {
         NSLog(@"Cancel button clicked");
     } else {
@@ -127,8 +127,8 @@
      MIKMIDISequencer *sequencer = [MIKMIDISequencer sequencerWithSequence:sequence];
      [sequencer startPlayback];
      */
-    // MIKMIDISequence *sequence = [MIKMIDISequence sequenceWithFileAtURL: error:&error];
-    // NSWindow* window = [[[self windowControllers] objectAtIndex:0] window];
+ //   MIKMIDISequence *sequence = [MIKMIDISequence sequenceWithFileAtURL: error:&error];
+//    NSWindow* window = [[[self windowControllers] objectAtIndex:0] window];
 }
 
 
