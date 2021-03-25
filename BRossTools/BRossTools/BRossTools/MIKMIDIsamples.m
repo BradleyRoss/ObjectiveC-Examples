@@ -100,12 +100,11 @@
      use NSModalResponseCancel
      */
     NSURL *theDoc;
-    // NSError *error;
+    NSError *error;
     if (response == NSModalResponseOK) {
         NSLog(@"OK button clicked");
         theDoc = [[panel URLs] objectAtIndex:0];
         NSLog(@"%@", theDoc);
-       
 #if TARGET_CPU_ARM64
         NSAlert *alert = [[NSAlert alloc] init];
         alert.messageText = @"MIKMIDI not usable with MacOS ARM";
@@ -118,7 +117,6 @@
         MIKMIDISequencer *sequencer = [MIKMIDISequencer sequencerWithSequence:sequence];
         [sequencer startPlayback];
 #endif
-         
     } else if (response == NSModalResponseCancel) {
         NSLog(@"Cancel button clicked");
     } else {
@@ -136,8 +134,8 @@
      MIKMIDISequencer *sequencer = [MIKMIDISequencer sequencerWithSequence:sequence];
      [sequencer startPlayback];
      */
-    // MIKMIDISequence *sequence = [MIKMIDISequence sequenceWithFileAtURL: error:&error];
-    // NSWindow* window = [[[self windowControllers] objectAtIndex:0] window];
+ //   MIKMIDISequence *sequence = [MIKMIDISequence sequenceWithFileAtURL: error:&error];
+//    NSWindow* window = [[[self windowControllers] objectAtIndex:0] window];
 }
 
 

@@ -13,7 +13,7 @@
  */
 #import "BRossTools.h"
 #import "LocalClasses.h"
-#import "MIKMIDI/MIKMIDI.h"
+#import <MIKMIDI/MIKMIDI.h>
 @interface MIDIsampleMenu:NSView
 /**
  
