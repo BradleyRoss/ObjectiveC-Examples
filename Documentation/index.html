@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>CoreMIDI, BRossTools and Related Items</title>
+<meta charset="UTF-8">
+<meta name="author" content="Bradley Ross">
+<meta name="keywords" content="CoreMIDI, CoreAudio, MIDI">
+
+</head>
+<body>
+<h2>CoreMIDI, BRossTools, and Related Items</h2>
+<p>The project BRossTools is part of the GitHub repository 
+   <a href="https://github.com/BradleyRoss/ObjectiveC-Examples" target="_blank">BradleyRoss/ObjectiveC-Examples</a>
+   and keeps a number of samples of Objective-C code.  The Doxygen documentation for this project can be found
+   <a href="BRossTools/html/index.html" target="_blank">here</a>.</p>
+<h2>CoreMIDI</h2>
+<p>I ran the C header file for the CoreMIDI framework through Doxygen and posted the results
+    <a href="CoreMIDI/html/index.html" target="_blank">here</a>.  I have been comparing the information with thePart of the 
+    <a href="https://developer.apple.com/documentation/coremidi?language=objc" target="_blank">
+    Developer Documentation for Core MIDI</a>.  This needs to be examined further.</p>
+<ul>
+</ul>
+<p>Some items are used in the examples I found on the internet, but are currently deprecated.  The articles on the internet are old, but I can't find newer examples.</p>
+<ul>
+<li>GetMacOSStatusCommentString</li>
+<li>GetMacOSStatusErrorString</li>
+</ul>
+<p>In the header file defining structs for MIDIEventList and MIDIPacketList, it states</p>
+<ul>
+<li> typedef struct MIDIEventList            MIDIEventList;          // Universal MIDI Packet</li>
+<li> typedef struct MIDIPacketList           MIDIPacketList;         // Legacy MIDI 1.0 Packets (deprecated)</li>
+</ul>
+<p>However, MIDIPacketList is not listed as deprecated in the developer documentation.  (search for "API_DEPRECATED" in the header files for other items
+   to be reviewed.</p>
+
+<h2>CoreMIDI Examples from Internet</h2>
+<p>I have been searching the internet for examples of Objective-C code using the CoreMIDI library. The biggest
+   is that I have had a problem finding examples newer that ten years old.  It appears that many of these
+   examples use API's that are deprecated and it appears that I will have to review all of the samples that I
+   find </p>
+
+<ul>
+<li>"Reading from external controllers with CoreMIDI", <i>Yet Another Learn Cocoa With Me Blog</i>, 21-August-2011, 
+    <a href="http://comelearncocoawithme.blogspot.com/2011/08/reading-from-external-controllers-with.html"
+    target="_blank">http://comelearncocoawithme.blogspot.com/2011/08/reading-from-external-controllers-with.html</a></li>
+<li><a href="https://gist.github.com/jemmons/847cdc494eb332ba1b9f50f18ee8616a" target="_blank">jemmons/Create Input with Block.swift</a>, GitHub Gist.
+<li><a href="https://stackoverflow.com/questions/47660597/using-osx-core-midi-in-a-c-project" target="_blank">Using (OSX) Core MIDI in a c++ project</a>,
+    Stack Overflow.</li>
+<li><a href="https://github.com/Reiszecke/CoreMIDI-example" target=_blank">RieszecleCoreMIDI-example</a>, GitHub.
+<li><a href="https://github.com/DerekCook/CoreMidi4J" target="_blank"> DerekCook/CoreMidi4J - Core MIDI Service provider Interface (SPI) 
+    for Java 1.7 and abov on OS X</a> - This package uses JNI (Java Native Interface) to allow CoreMidi C code 
+    to be used by Java in place of its default libraries.  Reading the code
+    should enable a better understanding of CoreMIDI.</li>
+
+<li><a href=" " target="_blank">volter9/CoreMIDI-Wrapper</a> GitHub project</a></li>
+<li>"Roadmap for a MIDI Cocoa app", Apple Developer Forums,
+    <a href="https://developer.apple.com/forums/thread/85199" target="_blank">
+    https://developer.apple.com/forums/thread/85199</a></li>
+<li>"CoreMIDI CFRunLoop Question", Apple Developer Forums, <a href="https://lists.apple.com/archives/coreaudio-api/2003/Jun/msg00180.html" target="_blank">
+    https://lists.apple.com/archives/coreaudio-api/2003/Jun/msg00180.html</a></li>
+<li>MIKMIDI </li>
+
+</ul>
+<p>Some general information about MIDI can be found at the following locations.</p>
+<ul>
+<li>"Details about MIDI 2.0&trade;,MIDI-CI, Profiles and Property Exchange", <i>The MIDI&trade; Association</i>
+    <a href="https://https://www.midi.org/midi-articles/details-about-midi-2-0-midi-ci-profiles-and-property-exchange" target="_blank">
+    https://www.midi.org/midi-articles/details-about-midi-2-0-midi-ci-profiles-and-property-exchange</a>  This should help understand the changes for MIDI 2.0,
+    which were adopted 19-January-2020.</li> 
+<li>"Looking for Project Ideas: is there MIDI 2.0 software or programming language support?", The MIDI Association Forum, 14-January-2021,
+    <a href="https://www.midi.org/forum/7601-looking-for-project-ideas-is-there-midi-2-0-software-or-programming-language-support#reply-7639" target="_blank">
+    https://www.midi.org/forum/7601-looking-for-project-ideas-is-there-midi-2-0-software-or-programming-language-support#reply-7639</a>.  - There is mention
+    of an unofficial guide at <a href="https://imitone.com/discover-midi" target="_blank">https://imitone.com/discover-midi</a></li>
+</ul>
+<h2>Current Bugs</h2>
+<p>BRossTools[2569]: BUG IN CLIENT OF LIBDISPATCH: Assertion failec: Block was expected to run on queue [com.apple.main-thread]</p>
+</body>
+</html>
