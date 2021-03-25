@@ -58,6 +58,8 @@
                 [test4 runtest];
             } else if ([message isEqualToString:@"b9"]){
                 [playMIDI runtest];
+            } else if ([message isEqualToString:@"b10"]) {
+                [BRossToolsMidiListenForKey runTest];
             }
         }
 }
@@ -84,8 +86,9 @@
     
     BRossToolsButton *b8 = [BRossToolsButton initUsingObjectIdent:self selector:@selector(bleep:) caption:@"run test4 - Playing with pointers" ident:@"b8" ];
     
-    BRossToolsButton *b9 = [BRossToolsButton initUsingObjectIdent:self selector:@selector(bleep:) caption:@"Display menu for MIKMIDI samples" ident:@"b9" ];
-    NSStackView *stackView = [NSStackView stackViewWithViews:@[b1, b2, b3, b4, b5, b6, b7, b8, b9]];
+    BRossToolsButton *b9 = [BRossToolsButton initUsingObjectIdent:self selector:@selector(bleep:) caption:@"Play MIDI file with MIKMIDI" ident:@"b9" ];
+    BRossToolsButton *b10 = [BRossToolsButton initUsingObjectIdent:self selector:@selector(bleep:) caption:@"BRossToolsMidiListenForKey" ident:@"b10"];
+    NSStackView *stackView = [NSStackView stackViewWithViews:@[b1, b2, b3, b4, b5, b6, b7, b8, b9, b10]];
     stackView.orientation = NSUserInterfaceLayoutOrientationVertical;
     return stackView;
 }
@@ -480,7 +483,8 @@ static BRossToolsTextWindow *textWindowStorage = nil;
     [[self textWindow] setTitle:@"test4 -- CoreMidiSample1"];
     // [self setTextWindow:textWindow];
     buildMessage = [NSString alloc];
-    [[self textWindow] appendString:@"Starting CoreMidiSample1"] ;
+    [[self textWindow] appendString:@"Starting CoreMidiSample1\n"] ;
+    [[self textWindow] appendString:@"Iterate through devices, entities, endpoints in sequence\n"];
     // buildMessage = @"xxx";
     // sendMessage(buildMessage);
     // sendMessage( buildMessage);
@@ -559,6 +563,7 @@ NSString *getDisplayName(MIDIObjectRef object)
 + (void) runtest2 {
     clock_gettime(CLOCK_MONOTONIC, &wallStart);
     sendMessage(@"CoreMidiDemo2");
+    sendMessage(@"Iterate through destinations, then through sources");
         for (int j = 0; j < 1; j++) {
             SInt32 uniqueId = 0;
             SInt32 version = 0;
@@ -966,7 +971,7 @@ void objectDictionary(MIDIObjectRef object) {
  *   https://developer.apple.com/documentation/corefoundation/cfarray?language=objc
  *   https://developer.apple.com/documentation/corefoundation/cfdictionary?language=objc
  *
- *    Since this can   be callled recursively, there is a problem with recursion erasing data.  So there needs to be a version
+ *    Since this can  be callled recursively, there is a problem with recursion erasing data.  So there needs to be a version
  *          that has data that can be associated with the level of recursion.
  *
  *          Called by objectDictionary
@@ -1397,6 +1402,127 @@ void parseDictionaryApplier(const void *key, const void *value, void *context) {
         }
 //key is the value of the key and value is the reference to the array
        
+    }
+}
+@end
+
+//  *****  *****  *****  *****  *****
+//  *****  *****  *****  *****  *****
+//  *****  *****  *****  *****  *****
+//  *****  *****  *****  *****  *****
+//  *****  *****  *****  *****  *****
+
+@implementation BRossToolsMidiListenForKey
+/**
+ Status value returned by some functions in the CoreMidi library
+ */
+OSStatus status;
+NSString *buildMessage;
+/*
+ This appears to be defined as MIDIReadProc
+ */
+static void midiInputCallback (const MIDIPacketList *list, void *procRef, void *srcRef) {
+    NSLog(@"midiInputCallback was called");
+}
+static BRossToolsTextWindow *textWindowStorage2 = nil;
++ (void) runTest {
+    if (textWindowStorage2 == nil) {
+        textWindowStorage2 = [BRossToolsTextWindow newWindow];
+        textWindowStorage2.title = @"BRossToolsMidiListenForKey";
+    }
+        [textWindowStorage2 appendString:@"BRossToolsMidiListenForKey \n"];
+        ItemCount sourceCount = MIDIGetNumberOfSources();
+        if (sourceCount < 1) {
+            [textWindowStorage2 appendString:@"There are no MIDI sources -- aborting \n"];
+            return;
+        }
+        MIDIEndpointRef source = MIDIGetSource(0);
+    if (source == 0) {
+        [textWindowStorage2 appendString:@"Invalid address for source - aborting"];
+        return;
+    }
+        CFStringRef description = NULL;
+        CFStringRef manufacturer = NULL;
+        CFStringRef displayName = NULL;
+        MIDIObjectGetStringProperty(source, kMIDIPropertyManufacturer, &manufacturer);
+        MIDIObjectGetStringProperty(source, kMIDIPropertyModel, &description);
+        MIDIObjectGetStringProperty(source, kMIDIPropertyDisplayName, &displayName);
+        NSString *message = [[NSString alloc] initWithFormat:@" Manufacturer: %@ \n Description  %@ \n  Display Name:  %@\n", manufacturer, description, displayName];
+        [textWindowStorage2 appendString:message];
+        /*
+         See MIDIInputPortCreateWithProtocol
+         MIDIClientRef
+         MIDIProtocolID
+         MIDIPortRef
+         MIDIReceiveBlock
+         MIDIPortConnectSource
+         Google  core midi reading midi packets
+         */
+    MIDIClientRef midiClient;
+    OSStatus result;
+    
+
+   
+    /*
+     GetMacOSStatusErrorString and GetMacOSStatusCommentString are both deprecated.
+     */
+    result = MIDIClientCreate(CFSTR("MIDI client"), NULL, NULL, &midiClient);
+    if (result != noErr) {
+        NSString *message = [NSString stringWithFormat:@"Error creating MIDI client: %s - %s\n", GetMacOSStatusErrorString(result), GetMacOSStatusCommentString(result) ];
+        [textWindowStorage2 appendString:message];
+              return;
+    }
+    [textWindowStorage2 appendString:@"MIDI client created\n"];
+    
+    MIDIPortRef inputPort;
+    result = MIDIInputPortCreate(midiClient, CFSTR("Input"), midiInputCallback, NULL, &inputPort);
+    if (result != noErr) {
+        NSString *message = [NSString stringWithFormat:@"Error crreating MIDI client: %s - %s\n", GetMacOSStatusErrorString(result), GetMacOSStatusCommentString(result) ];
+        [textWindowStorage2 appendString:message];
+        return;
+    }
+    [textWindowStorage2 appendString:@"MIDI input port cereated\n"];
+    result = 0;
+    /*
+     At this point
+        source MIDI source
+        inputPort    inputPort to client
+        midiClient   MIDI client
+     */
+    result = MIDIPortConnectSource(inputPort, source, NULL );
+    if (result != noErr) {
+        NSString *message = [NSString stringWithFormat:@"Error connecting source: %s - %s\n", GetMacOSStatusErrorString(result), GetMacOSStatusCommentString(result) ];
+        [textWindowStorage2 appendString:message];
+        return;
+    }
+    [textWindowStorage2 appendString:@"source connected\n"];
+    
+    NSLog(@"All structures built for BRossTools");
+    
+    
+    
+    /*
+     Add CFRunLoop to process input events
+     This apparently sets up a loop to process input events and keep
+        the application open, but I don't know where it's supposed to go.
+     */
+    // CFRunLoopRun();
+   
+}
++ (void)setTextWindow:textWindow {
+    textWindowStorage2 = textWindow;
+}
++ (BRossToolsTextWindow *)getTextWindow {
+    return (BRossToolsTextWindow *) textWindowStorage2;
+    
+}
++ (BRossToolsTextWindow *)textWindow {
+    if (textWindowStorage2 == nil) {
+        textWindowStorage2 = [BRossToolsTextWindow newWindow];
+        return textWindowStorage2;
+        
+    } else {
+        return textWindowStorage2;
     }
 }
 @end

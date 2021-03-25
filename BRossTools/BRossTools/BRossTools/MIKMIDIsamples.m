@@ -11,6 +11,7 @@
  */
 #import <Foundation/Foundation.h>
 #import "MIKMIDIsamples.h"
+#include <TargetConditionals.h>
 @implementation MIDIsampleMenu
 
 + (void)bleep:(id)sender {
@@ -104,12 +105,20 @@
         NSLog(@"OK button clicked");
         theDoc = [[panel URLs] objectAtIndex:0];
         NSLog(@"%@", theDoc);
-        /*
+       
+#if TARGET_CPU_ARM64
+        NSAlert *alert = [[NSAlert alloc] init];
+        alert.messageText = @"MIKMIDI not usable with MacOS ARM";
+        alert.alertStyle = NSAlertStyleInformational;
+        [alert runModal];
+#elif TARGET_CPU_X86_64
+        NSError *error;
         MIKMIDISequence *sequence = [MIKMIDISequence sequenceWithFileAtURL:theDoc error:&error];
-        NSLog(@"Error code is %lu", (long) error.code);
+        NSLog(@"Error code is %lu", (NSInteger) error.code);
         MIKMIDISequencer *sequencer = [MIKMIDISequencer sequencerWithSequence:sequence];
         [sequencer startPlayback];
-         */
+#endif
+         
     } else if (response == NSModalResponseCancel) {
         NSLog(@"Cancel button clicked");
     } else {
