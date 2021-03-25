@@ -11,7 +11,6 @@
  */
 #import <Foundation/Foundation.h>
 #import "MIKMIDIsamples.h"
-#include <TargetConditionals.h>
 @implementation MIDIsampleMenu
 
 + (void)bleep:(id)sender {
@@ -100,7 +99,7 @@
      use NSModalResponseCancel
      */
     NSURL *theDoc;
-    NSError *error;
+    
     if (response == NSModalResponseOK) {
         NSLog(@"OK button clicked");
         theDoc = [[panel URLs] objectAtIndex:0];
@@ -112,11 +111,15 @@
         [alert runModal];
 #elif TARGET_CPU_X86_64
         NSError *error;
+
+        
+
         MIKMIDISequence *sequence = [MIKMIDISequence sequenceWithFileAtURL:theDoc error:&error];
-        NSLog(@"Error code is %lu", (NSInteger) error.code);
+        NSLog(@"Error code is %lu", (long) error.code);
         MIKMIDISequencer *sequencer = [MIKMIDISequencer sequencerWithSequence:sequence];
         [sequencer startPlayback];
 #endif
+         
     } else if (response == NSModalResponseCancel) {
         NSLog(@"Cancel button clicked");
     } else {

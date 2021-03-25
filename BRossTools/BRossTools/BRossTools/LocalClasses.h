@@ -207,9 +207,6 @@ Messages from button clicks are sent to this method.
 //  *****  *****  *****  *****
 //  *****  *****  *****  *****
 
-
-
-
 /**
  Tools for processing CFDictionary and CFArray objects.
  @brief CFDictionary/CFArray tools.
@@ -256,31 +253,4 @@ Messages from button clicks are sent to this method.
 @end
 //  *****  *****  *****
 //  *****  *****  *****
-//  *****  *****  *****  *****
-//  *****  *****  *****  *****
-//  *****  *****  *****  *****
-//  *****  *****  *****  *****
-
-@interface BRossToolsMidiListenForKey:NSObject
-/**
- @brief Listen to MIDI events.
- Run sample code for listening for MIDI events from first MIDI source.
- */
-+ (void) runTest;
-/**
- @brief get text window id.
- @returns address of text window object
- */
-+ (BRossToolsTextWindow *) getTextWindow;\
-/**
- @brief get text window id.
- @returns address of text window object
- */
-+ (BRossToolsTextWindow *) textWindow;
-/**
- @brief set address of text window object
- @param window address of object
- */
-+ (void) setTextWindow:(BRossToolsTextWindow *) window;
-@end
 #endif /* LocalClasses_h */
