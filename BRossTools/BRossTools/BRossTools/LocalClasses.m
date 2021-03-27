@@ -56,8 +56,10 @@
                 [test5 runtest];
             } else if ([message isEqualToString:@"b8"]) {
                 [test4 runtest];
-            } else if ([message isEqualToString:@"b9"]){
+            } else if ([message isEqualToString:@"m1"]){
                 [playMIDI runtest];
+            }else if ([message isEqualToString:@"m2"]){
+                [BRossToolsMIDIListenForInput runtest];
             }
         }
 }
@@ -84,8 +86,14 @@
     
     BRossToolsButton *b8 = [BRossToolsButton initUsingObjectIdent:self selector:@selector(bleep:) caption:@"run test4 - Playing with pointers" ident:@"b8" ];
     
-    BRossToolsButton *b9 = [BRossToolsButton initUsingObjectIdent:self selector:@selector(bleep:) caption:@"Display menu for MIKMIDI samples" ident:@"b9" ];
-    NSStackView *stackView = [NSStackView stackViewWithViews:@[b1, b2, b3, b4, b5, b6, b7, b8, b9]];
+    BRossToolsButton *m1 = [BRossToolsButton initUsingObjectIdent:self selector:@selector(bleep:) caption:@"Play MIDI file using MIKMIDI samples" ident:@"m1" ];
+    
+    BRossToolsButton *m2 = [BRossToolsButton initUsingObjectIdent:self selector:@selector(bleep:)
+        caption:@"Listen for keystrokes using CoreMIDI"
+        ident:@"m2"];
+    
+    NSStackView *stackView = [NSStackView
+        stackViewWithViews:@[m1, m2, b5, b6, b1, b2, b3, b4, b7, b8]];
     stackView.orientation = NSUserInterfaceLayoutOrientationVertical;
     return stackView;
 }

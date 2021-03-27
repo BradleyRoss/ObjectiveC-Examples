@@ -12,6 +12,8 @@
  */
 #ifndef LocalClasses_h
 #define LocalClasses_h
+#import "CoreMIDIsamples.h"
+#import "MIKMIDIsamples.h"
 #import "BRossTools.h"
 #import <Foundation/Foundation.h>
 #import <CoreMIDI/CoreMIDI.h>

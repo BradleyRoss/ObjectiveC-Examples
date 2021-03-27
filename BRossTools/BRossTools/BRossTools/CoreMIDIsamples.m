@@ -6,3 +6,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "CoreMIDIsamples.h"
+#import "BRossTools.h"
+#import "LocalClasses.h"
+
+@implementation BRossToolsMIDIListenForInput
++ (void) runtest {
+    
+}
+@end
