@@ -1,4 +1,0 @@
-var searchData=
-[
-  ['kmikmidimappingfileextension_1477',['kMIKMIDIMappingFileExtension',['../dd/dbb/ios-armv7__arm64_2_m_i_k_m_i_d_i_8framework_2_headers_2_m_i_k_m_i_d_i_mapping_manager_8h.html#aa77408158043caf878a8351fb5924858',1,'kMIKMIDIMappingFileExtension():&#160;MIKMIDIMappingManager.h'],['../df/dfb/ios-i386__x86__64-simulator_2_m_i_k_m_i_d_i_8framework_2_headers_2_m_i_k_m_i_d_i_mapping_manager_8h.html#aa77408158043caf878a8351fb5924858',1,'kMIKMIDIMappingFileExtension():&#160;MIKMIDIMappingManager.h'],['../db/d55/ios-x86__64-maccatalyst_2_m_i_k_m_i_d_i_8framework_2_versions_2_a_2_headers_2_m_i_k_m_i_d_i_mapping_manager_8h.html#aa77408158043caf878a8351fb5924858',1,'kMIKMIDIMappingFileExtension():&#160;MIKMIDIMappingManager.h'],['../da/df4/macos-x86__64_2_m_i_k_m_i_d_i_8framework_2_versions_2_a_2_headers_2_m_i_k_m_i_d_i_mapping_manager_8h.html#aa77408158043caf878a8351fb5924858',1,'kMIKMIDIMappingFileExtension():&#160;MIKMIDIMappingManager.h']]]
-];
