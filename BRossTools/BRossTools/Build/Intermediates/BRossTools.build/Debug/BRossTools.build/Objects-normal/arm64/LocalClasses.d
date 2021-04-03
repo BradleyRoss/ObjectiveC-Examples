@@ -4,7 +4,7 @@ dependencies: \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/usr/include/mach-o/dyld.modulemap \
   /Users/bradleyross/Documents/GitHub/ObjectiveC-Examples/BRossTools/BRossTools/BRossTools/BRossTools.h \
   /Users/bradleyross/Documents/GitHub/ObjectiveC-Examples/BRossTools/BRossTools/BRossTools/LocalClasses.h \
-  /Users/bradleyross/Documents/GitHub/ObjectiveC-Examples/BRossTools/BRossTools/BRossTools/CoreMIDIsamples.h \
+  /Users/bradleyross/Documents/GitHub/ObjectiveC-Examples/BRossTools/BRossTools/BRossTools/BRossToolsMIDI.h \
   /Users/bradleyross/Documents/GitHub/ObjectiveC-Examples/BRossTools/BRossTools/BRossTools/MIKMIDIsamples.h \
   /Users/bradleyross/Documents/GitHub/ObjectiveC-Examples/BRossTools/BRossTools/MIKMIDI.xcframework/macos-x86_64/MIKMIDI.framework/Modules/module.modulemap \
   /Users/bradleyross/Documents/GitHub/ObjectiveC-Examples/BRossTools/BRossTools/MIKMIDI.xcframework/macos-x86_64/MIKMIDI.framework/Headers/MIKMIDIMetaEvent_SubclassMethods.h \

@@ -1,0 +1,574 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		90F551772618EBAF00EE85A8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 90F551762618EBAF00EE85A8 /* AppDelegate.m */; };
+		90F551792618EBB000EE85A8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 90F551782618EBB000EE85A8 /* Assets.xcassets */; };
+		90F5517C2618EBB000EE85A8 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90F5517A2618EBB000EE85A8 /* MainMenu.xib */; };
+		90F5517F2618EBB000EE85A8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 90F5517E2618EBB000EE85A8 /* main.m */; };
+		90F5518A2618EBB000EE85A8 /* MIKMIDIExamplesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 90F551892618EBB000EE85A8 /* MIKMIDIExamplesTests.m */; };
+		90F551952618EBB000EE85A8 /* MIKMIDIExamplesUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 90F551942618EBB000EE85A8 /* MIKMIDIExamplesUITests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		90F551862618EBB000EE85A8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 90F5516A2618EBAF00EE85A8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 90F551712618EBAF00EE85A8;
+			remoteInfo = MIKMIDIExamples;
+		};
+		90F551912618EBB000EE85A8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 90F5516A2618EBAF00EE85A8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 90F551712618EBAF00EE85A8;
+			remoteInfo = MIKMIDIExamples;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		90F551722618EBAF00EE85A8 /* MIKMIDIExamples.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MIKMIDIExamples.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		90F551752618EBAF00EE85A8 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		90F551762618EBAF00EE85A8 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		90F551782618EBB000EE85A8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		90F5517B2618EBB000EE85A8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		90F5517D2618EBB000EE85A8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		90F5517E2618EBB000EE85A8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		90F551802618EBB000EE85A8 /* MIKMIDIExamples.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MIKMIDIExamples.entitlements; sourceTree = "<group>"; };
+		90F551852618EBB000EE85A8 /* MIKMIDIExamplesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MIKMIDIExamplesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		90F551892618EBB000EE85A8 /* MIKMIDIExamplesTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MIKMIDIExamplesTests.m; sourceTree = "<group>"; };
+		90F5518B2618EBB000EE85A8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		90F551902618EBB000EE85A8 /* MIKMIDIExamplesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MIKMIDIExamplesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		90F551942618EBB000EE85A8 /* MIKMIDIExamplesUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MIKMIDIExamplesUITests.m; sourceTree = "<group>"; };
+		90F551962618EBB000EE85A8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		90F5516F2618EBAF00EE85A8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		90F551822618EBB000EE85A8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		90F5518D2618EBB000EE85A8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		90F551692618EBAF00EE85A8 = {
+			isa = PBXGroup;
+			children = (
+				90F551742618EBAF00EE85A8 /* MIKMIDIExamples */,
+				90F551882618EBB000EE85A8 /* MIKMIDIExamplesTests */,
+				90F551932618EBB000EE85A8 /* MIKMIDIExamplesUITests */,
+				90F551732618EBAF00EE85A8 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		90F551732618EBAF00EE85A8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				90F551722618EBAF00EE85A8 /* MIKMIDIExamples.app */,
+				90F551852618EBB000EE85A8 /* MIKMIDIExamplesTests.xctest */,
+				90F551902618EBB000EE85A8 /* MIKMIDIExamplesUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		90F551742618EBAF00EE85A8 /* MIKMIDIExamples */ = {
+			isa = PBXGroup;
+			children = (
+				90F551752618EBAF00EE85A8 /* AppDelegate.h */,
+				90F551762618EBAF00EE85A8 /* AppDelegate.m */,
+				90F551782618EBB000EE85A8 /* Assets.xcassets */,
+				90F5517A2618EBB000EE85A8 /* MainMenu.xib */,
+				90F5517D2618EBB000EE85A8 /* Info.plist */,
+				90F5517E2618EBB000EE85A8 /* main.m */,
+				90F551802618EBB000EE85A8 /* MIKMIDIExamples.entitlements */,
+			);
+			path = MIKMIDIExamples;
+			sourceTree = "<group>";
+		};
+		90F551882618EBB000EE85A8 /* MIKMIDIExamplesTests */ = {
+			isa = PBXGroup;
+			children = (
+				90F551892618EBB000EE85A8 /* MIKMIDIExamplesTests.m */,
+				90F5518B2618EBB000EE85A8 /* Info.plist */,
+			);
+			path = MIKMIDIExamplesTests;
+			sourceTree = "<group>";
+		};
+		90F551932618EBB000EE85A8 /* MIKMIDIExamplesUITests */ = {
+			isa = PBXGroup;
+			children = (
+				90F551942618EBB000EE85A8 /* MIKMIDIExamplesUITests.m */,
+				90F551962618EBB000EE85A8 /* Info.plist */,
+			);
+			path = MIKMIDIExamplesUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		90F551712618EBAF00EE85A8 /* MIKMIDIExamples */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 90F551992618EBB000EE85A8 /* Build configuration list for PBXNativeTarget "MIKMIDIExamples" */;
+			buildPhases = (
+				90F5516E2618EBAF00EE85A8 /* Sources */,
+				90F5516F2618EBAF00EE85A8 /* Frameworks */,
+				90F551702618EBAF00EE85A8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MIKMIDIExamples;
+			productName = MIKMIDIExamples;
+			productReference = 90F551722618EBAF00EE85A8 /* MIKMIDIExamples.app */;
+			productType = "com.apple.product-type.application";
+		};
+		90F551842618EBB000EE85A8 /* MIKMIDIExamplesTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 90F5519C2618EBB000EE85A8 /* Build configuration list for PBXNativeTarget "MIKMIDIExamplesTests" */;
+			buildPhases = (
+				90F551812618EBB000EE85A8 /* Sources */,
+				90F551822618EBB000EE85A8 /* Frameworks */,
+				90F551832618EBB000EE85A8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				90F551872618EBB000EE85A8 /* PBXTargetDependency */,
+			);
+			name = MIKMIDIExamplesTests;
+			productName = MIKMIDIExamplesTests;
+			productReference = 90F551852618EBB000EE85A8 /* MIKMIDIExamplesTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		90F5518F2618EBB000EE85A8 /* MIKMIDIExamplesUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 90F5519F2618EBB000EE85A8 /* Build configuration list for PBXNativeTarget "MIKMIDIExamplesUITests" */;
+			buildPhases = (
+				90F5518C2618EBB000EE85A8 /* Sources */,
+				90F5518D2618EBB000EE85A8 /* Frameworks */,
+				90F5518E2618EBB000EE85A8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				90F551922618EBB000EE85A8 /* PBXTargetDependency */,
+			);
+			name = MIKMIDIExamplesUITests;
+			productName = MIKMIDIExamplesUITests;
+			productReference = 90F551902618EBB000EE85A8 /* MIKMIDIExamplesUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		90F5516A2618EBAF00EE85A8 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1240;
+				TargetAttributes = {
+					90F551712618EBAF00EE85A8 = {
+						CreatedOnToolsVersion = 12.4;
+					};
+					90F551842618EBB000EE85A8 = {
+						CreatedOnToolsVersion = 12.4;
+						TestTargetID = 90F551712618EBAF00EE85A8;
+					};
+					90F5518F2618EBB000EE85A8 = {
+						CreatedOnToolsVersion = 12.4;
+						TestTargetID = 90F551712618EBAF00EE85A8;
+					};
+				};
+			};
+			buildConfigurationList = 90F5516D2618EBAF00EE85A8 /* Build configuration list for PBXProject "MIKMIDIExamples" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 90F551692618EBAF00EE85A8;
+			productRefGroup = 90F551732618EBAF00EE85A8 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				90F551712618EBAF00EE85A8 /* MIKMIDIExamples */,
+				90F551842618EBB000EE85A8 /* MIKMIDIExamplesTests */,
+				90F5518F2618EBB000EE85A8 /* MIKMIDIExamplesUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		90F551702618EBAF00EE85A8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				90F551792618EBB000EE85A8 /* Assets.xcassets in Resources */,
+				90F5517C2618EBB000EE85A8 /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		90F551832618EBB000EE85A8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		90F5518E2618EBB000EE85A8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		90F5516E2618EBAF00EE85A8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				90F5517F2618EBB000EE85A8 /* main.m in Sources */,
+				90F551772618EBAF00EE85A8 /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		90F551812618EBB000EE85A8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				90F5518A2618EBB000EE85A8 /* MIKMIDIExamplesTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		90F5518C2618EBB000EE85A8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				90F551952618EBB000EE85A8 /* MIKMIDIExamplesUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		90F551872618EBB000EE85A8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 90F551712618EBAF00EE85A8 /* MIKMIDIExamples */;
+			targetProxy = 90F551862618EBB000EE85A8 /* PBXContainerItemProxy */;
+		};
+		90F551922618EBB000EE85A8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 90F551712618EBAF00EE85A8 /* MIKMIDIExamples */;
+			targetProxy = 90F551912618EBB000EE85A8 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		90F5517A2618EBB000EE85A8 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				90F5517B2618EBB000EE85A8 /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		90F551972618EBB000EE85A8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		90F551982618EBB000EE85A8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		90F5519A2618EBB000EE85A8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = MIKMIDIExamples/MIKMIDIExamples.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = HW548B6FET;
+				ENABLE_HARDENED_RUNTIME = YES;
+				INFOPLIST_FILE = MIKMIDIExamples/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = BradleyRoss.MIKMIDIExamples;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		90F5519B2618EBB000EE85A8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = MIKMIDIExamples/MIKMIDIExamples.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = HW548B6FET;
+				ENABLE_HARDENED_RUNTIME = YES;
+				INFOPLIST_FILE = MIKMIDIExamples/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = BradleyRoss.MIKMIDIExamples;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		90F5519D2618EBB000EE85A8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = HW548B6FET;
+				INFOPLIST_FILE = MIKMIDIExamplesTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				PRODUCT_BUNDLE_IDENTIFIER = BradleyRoss.MIKMIDIExamplesTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MIKMIDIExamples.app/Contents/MacOS/MIKMIDIExamples";
+			};
+			name = Debug;
+		};
+		90F5519E2618EBB000EE85A8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = HW548B6FET;
+				INFOPLIST_FILE = MIKMIDIExamplesTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				PRODUCT_BUNDLE_IDENTIFIER = BradleyRoss.MIKMIDIExamplesTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MIKMIDIExamples.app/Contents/MacOS/MIKMIDIExamples";
+			};
+			name = Release;
+		};
+		90F551A02618EBB000EE85A8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = HW548B6FET;
+				INFOPLIST_FILE = MIKMIDIExamplesUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = BradleyRoss.MIKMIDIExamplesUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = MIKMIDIExamples;
+			};
+			name = Debug;
+		};
+		90F551A12618EBB000EE85A8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = HW548B6FET;
+				INFOPLIST_FILE = MIKMIDIExamplesUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = BradleyRoss.MIKMIDIExamplesUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = MIKMIDIExamples;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		90F5516D2618EBAF00EE85A8 /* Build configuration list for PBXProject "MIKMIDIExamples" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				90F551972618EBB000EE85A8 /* Debug */,
+				90F551982618EBB000EE85A8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		90F551992618EBB000EE85A8 /* Build configuration list for PBXNativeTarget "MIKMIDIExamples" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				90F5519A2618EBB000EE85A8 /* Debug */,
+				90F5519B2618EBB000EE85A8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		90F5519C2618EBB000EE85A8 /* Build configuration list for PBXNativeTarget "MIKMIDIExamplesTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				90F5519D2618EBB000EE85A8 /* Debug */,
+				90F5519E2618EBB000EE85A8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		90F5519F2618EBB000EE85A8 /* Build configuration list for PBXNativeTarget "MIKMIDIExamplesUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				90F551A02618EBB000EE85A8 /* Debug */,
+				90F551A12618EBB000EE85A8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 90F5516A2618EBAF00EE85A8 /* Project object */;
+}

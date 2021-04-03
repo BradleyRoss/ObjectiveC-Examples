@@ -1,6 +1,10 @@
 ## BRossTools
 
-This is a test of code to exercise the Xcode system.  One of my goals was to avoid the use of Interface Builder except for attaching items in the menu bar to various programs.
+This is a test of code to exercise the Xcode system.  One of my goals was to avoid the use of Interface Builder except for attaching items in the menu bar to various programs.  The GitHub documentation for BRossTools is located at  [https://bradleyross.github.io/ObjectiveC-Examples/BRossTools](This is a test of code to exercise the Xcode system.  One of my goals was to avoid the use of Interface Builder except for attaching items in the menu bar to various programs.  The GitHub documentation for BRossTools is located at  
+[https://bradleyross.github.io/ObjectiveC-Examples/Documentation](https://bradleyross.github.io/ObjectiveC-Examples/Documentation/)
+
+
+
 
 ####Files
 
@@ -9,7 +13,7 @@ This is a test of code to exercise the Xcode system.  One of my goals was to avo
 * The file AppDelegate.m has been modified to create a menu upon opening the application that can be used to call the other components contained in the application. 
 * The files MIKMIDIsamples.h and MIKMIDIsamples.m contain examples for using MIKMIDI from Andrew Marsden
 
-####Apple Documentation
+#### Apple Documentation
 
 The following is a list of documentation from Apple that can be used to create, modify, and understand this code.
 
@@ -30,13 +34,17 @@ The following is a list of documentation from Apple that can be used to create, 
 
 * [Auto Layout Guide](https://developer.apple.com/library/archive/documentation/UserExperience/Conceptual/AutolayoutPG/index.html#//apple_ref/doc/uid/TP40010853)
 
-####  MIDI documentation
+#### MIDI programming using CoreMIDI
 
 * [Core MIDI](https://developer.apple.com/documentation/coremidi?language=objc)
 
 * [Core MIDI -- MIDI Services] (https://developer.apple.com/documentation/coremidi/midi_services?language=objc)
-* https://developer.audiob.us/doc/_working-_with-_m_i_d_i.html
+
+* ["Reading from external controllers with CoreMIDI", Yet Another Learn Cocoa With Me Blog, 21- August-2011](http://comelearncocoawithme.blogspot.com/2011/08/reading-from-external-controllers-with.html) -- The contents of this blog entry have been implemented in the class BRossToolsMIDIListenForInput2.
+
 * Andrew Madsen has developed an Objective-C library named mikmidi.  There is a [GitHub repository](https://github.com/mixedinkey-opensource/MIKMIDI).  He also has [blog](https://blog.andrewmadsen.com/2014/05/19/mikmidi-a-new.html) and [tumblr](https://armadsen.tumblr.com/post/86220316345/mikmidi-a-new-objective-c-midi-library) entries for the package.  Documentation can be found on [CocoaDocs.org](http://cocoadocs.org/docsets/MIKMIDI/1.6.1/)  
+
+
     * MIKMIDI uses the following packages
          * LibXML2
          * Audio Unit
@@ -45,5 +53,20 @@ The following is a list of documentation from Apple that can be used to create, 
          * CoreData
          * CoreMIDI
          * Cocoa
-         * Foundation 
+         * Foundation   
+
+
+####  MIDI documentation
+
+* [Details about MIDI 2.0&trade;, MIDI-CI, Profiles and Property Exchange", MIDI ](https://www.midi.org/midi-articles/details-about-midi-2-0-midi-ci-profiles-and-property-exchange) -- Although this article describes the MIDI 2.0 standard, the full set of specifications has not yet been released to the general public, but only to corporate members of the Association.
+
+* "Official MIDI Specifications", MIDI&trade; Association, [https://www.midi.org/specifications/midi1-specifications](https://www.midi.org/specifications/midi1-specifications)  -- You will need to join the MIDI&trade; Association before you can download the files.  However, there is a free membership level. 
+
+* "MIDI Tutorial For Programmers", Carnegie Mellon University [https://www.cs.cmu.edu/~music/cmsip/readings/MIDI%20tutorial%20for%20programmers.html](https://www.cs.cmu.edu/~music/cmsip/readings/MIDI%20tutorial%20for%20programmers.html) -- Warning: Files with URL's like this have a habit of vanishing without warning.
+
+
+* ["Working With MIDI", Audiobus](https://developer.audiob.us/doc/_working-_with-_m_i_d_i.html)
+
+ 
+         
 * https://stackoverflow.com/questions/8795749/coremidi-logging-received-midi-messages-to-an-nstextfield
