@@ -191,11 +191,34 @@ Messages from button clicks are sent to this method.
 /**
  Modified version of CoreMidiSample1 CLI program.
  @brief MIDI tools.
+ 
+ The purpose of this code is to use the CoreMIDI library to collect information
+  on the MIDI objects (device, entity, endpoint).
  */
 @interface CoreMidiSample1:NSObject
 @property(class) BRossToolsTextWindow *textWindow;
+/**
+ @brief First program for getting data on MIDI components.
+ 
+ MIDIGetNumberOfDevices is used to loop through the MIDI devices.
+ MIDIDeviceGetNumberOfEntities and MIDIDeviceGetEntity are then
+ used to look through the entities for a given device.  Finally, MIDIEntityGetNumberOfSources and
+ MIDIEntityGetSource are used to loop through the source endpoints for a given entity and
+ MIDIEntityGetNumberOfDestinations and MIDIEntityGetDestination are used to get the
+ destinations.
+ 
+ */
 + (void) runtest;
 /**
+ 
+  @briefThis is the second example of obtaining information on MIDI components.
+  
+  runtest2 is based on CoreMidiDemo2.
+  
+  It uses MIDIGetNumberOfDestinations MIDIGetDestination to loop through the
+  MIDI destinations.  It then uses MIDIGetNumberOfSources and MIDIGetSource
+  to loop through the MIDI sources.
+  
  * This is taken from http://xmidi.com/how-to-access-midi-devices-with-coremidi/
  * See https://developer.apple.com/documentation/coremidi/midi_services
  */

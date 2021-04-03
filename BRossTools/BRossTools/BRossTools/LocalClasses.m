@@ -59,7 +59,9 @@
             } else if ([message isEqualToString:@"m1"]){
                 [playMIDI runtest];
             }else if ([message isEqualToString:@"m2"]){
-                [BRossToolsMIDIListenForInput runtest];
+                [[BRossToolsMIDIListenForInput alloc] runtest];
+            }else if ([message isEqualToString:@"m3"]){
+                [[BRossToolsMIDIListenForInput2 alloc] runtest];
             }
         }
 }
@@ -92,8 +94,11 @@
         caption:@"Listen for keystrokes using CoreMIDI"
         ident:@"m2"];
     
+    BRossToolsButton *m3 = [BRossToolsButton initUsingObjectIdent:self selector:@selector(bleep:)
+        caption:@"Listen for keystrokes using CoreMIDI (Original version)"
+        ident:@"m3"];
     NSStackView *stackView = [NSStackView
-        stackViewWithViews:@[m1, m2, b5, b6, b1, b2, b3, b4, b7, b8]];
+        stackViewWithViews:@[m1, m2, m3, b5, b6, b1, b2, b3, b4, b7, b8]];
     stackView.orientation = NSUserInterfaceLayoutOrientationVertical;
     return stackView;
 }
@@ -471,7 +476,7 @@ static BRossToolsTextWindow *textWindowStorage = nil;
 //  *****  *****  *****  *****  *****
 //  *****  *****  *****  *****  *****
 /**
- First program for getting data on MIDI components.
+ @brief First program for getting data on MIDI components.
  
  MIDIGetNumberOfDevices is used to loop through the MIDI devices.
  MIDIDeviceGetNumberOfEntities and MIDIDeviceGetEntity are then
@@ -556,7 +561,7 @@ NSString *getDisplayName(MIDIObjectRef object)
     return (__bridge NSString *)name;
 }
 /**
- This is the second example of obtaining information on MIDI components.
+ @briefThis is the second example of obtaining information on MIDI components.
  
  runtest2 is based on CoreMidiDemo2.
  
@@ -960,7 +965,7 @@ void objectDictionary(MIDIObjectRef object) {
 
 /**
  *   Display contents of a CFArray or CFDictionary object (deprecated).
- *
+ *   @deprecated
  *   @param level This is the depth within the tree structure.  The value for the
  *                initial call should be zero.
  *   @param dictionary The CFArray or CFDictionary object to be listed
@@ -980,7 +985,7 @@ void objectDictionary(MIDIObjectRef object) {
  *          Called by objectDictionary
  *
  */
-    void listDictionaryLevel(int level, CFTypeRef dictionary) {
+__attribute__((deprecated)) void listDictionaryLevel(int level, CFTypeRef dictionary) {
         buildMessage = [[NSString alloc]initWithFormat:@"listDictionaryLevel level %d", level];
         sendMessage(buildMessage);
         CFTypeID dictionaryType = CFDictionaryGetTypeID();

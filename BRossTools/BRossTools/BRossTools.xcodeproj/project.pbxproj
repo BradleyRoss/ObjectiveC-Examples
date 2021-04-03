@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		90077A592616A6CB00C7B0E4 /* Doxyfile in Resources */ = {isa = PBXBuildFile; fileRef = 90077A582616A6CB00C7B0E4 /* Doxyfile */; };
+		90077A5D2616A73D00C7B0E4 /* MDFILE.md in Resources */ = {isa = PBXBuildFile; fileRef = 90077A5C2616A73D00C7B0E4 /* MDFILE.md */; };
 		9015511025C87BA8006DA674 /* LocalClasses.m in Sources */ = {isa = PBXBuildFile; fileRef = 9015510F25C87BA8006DA674 /* LocalClasses.m */; };
-		902530112603C548008BAF23 /* CoreMIDIsamples.m in Sources */ = {isa = PBXBuildFile; fileRef = 902530102603C548008BAF23 /* CoreMIDIsamples.m */; };
 		9032806D25F564BF0096BD56 /* MIKMIDIsamples.m in Sources */ = {isa = PBXBuildFile; fileRef = 9032806C25F564BF0096BD56 /* MIKMIDIsamples.m */; };
 		905212D525E34D9C00DB595E /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 905212D425E34D9C00DB595E /* CoreFoundation.framework */; };
 		905212D725E34DAE00DB595E /* CoreMIDI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 905212D625E34DAE00DB595E /* CoreMIDI.framework */; };
@@ -23,6 +24,8 @@
 		906CEF2925C7AC3D00DC5271 /* BRossTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 906CEF2825C7AC3D00DC5271 /* BRossTools.m */; };
 		90A0CCA025FA8F9A0055B1C6 /* MIKMIDI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90A0CC9E25FA8F940055B1C6 /* MIKMIDI.framework */; };
 		90A0CCA125FA8F9A0055B1C6 /* MIKMIDI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 90A0CC9E25FA8F940055B1C6 /* MIKMIDI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		90F551652618DE1700EE85A8 /* BRossToolsMIDIListenForInput2.m in Sources */ = {isa = PBXBuildFile; fileRef = 90F551622618DE1700EE85A8 /* BRossToolsMIDIListenForInput2.m */; };
+		90F551662618DE1700EE85A8 /* BRossToolsMIDIListenForInput.m in Sources */ = {isa = PBXBuildFile; fileRef = 90F551642618DE1700EE85A8 /* BRossToolsMIDIListenForInput.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,10 +69,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		90077A582616A6CB00C7B0E4 /* Doxyfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Doxyfile; sourceTree = SOURCE_ROOT; };
+		90077A5C2616A73D00C7B0E4 /* MDFILE.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = MDFILE.md; sourceTree = SOURCE_ROOT; };
 		9015510F25C87BA8006DA674 /* LocalClasses.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocalClasses.m; sourceTree = "<group>"; };
 		9015511425C87BCD006DA674 /* LocalClasses.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocalClasses.h; sourceTree = "<group>"; };
-		9025300F2603C4E0008BAF23 /* CoreMIDIsamples.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CoreMIDIsamples.h; sourceTree = "<group>"; };
-		902530102603C548008BAF23 /* CoreMIDIsamples.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CoreMIDIsamples.m; sourceTree = "<group>"; };
 		902C70D725F6C6D9000C75F7 /* MIKMIDI.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = MIKMIDI.xcframework; sourceTree = "<group>"; };
 		9032806C25F564BF0096BD56 /* MIKMIDIsamples.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MIKMIDIsamples.m; sourceTree = "<group>"; };
 		9032807125F5653C0096BD56 /* MIKMIDIsamples.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MIKMIDIsamples.h; sourceTree = "<group>"; };
@@ -95,6 +98,9 @@
 		906CEF2825C7AC3D00DC5271 /* BRossTools.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BRossTools.m; sourceTree = "<group>"; };
 		90A0CC9E25FA8F940055B1C6 /* MIKMIDI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MIKMIDI.framework; path = BRossTools/MIKMIDI.framework; sourceTree = "<group>"; };
 		90B3F16325F80995009A5023 /* MIKMIDI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MIKMIDI.framework; path = "MIKMIDI.xcframework/macos-x86_64/MIKMIDI.framework"; sourceTree = "<group>"; };
+		90F551622618DE1700EE85A8 /* BRossToolsMIDIListenForInput2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRossToolsMIDIListenForInput2.m; sourceTree = "<group>"; };
+		90F551632618DE1700EE85A8 /* BRossToolsMIDI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRossToolsMIDI.h; sourceTree = "<group>"; };
+		90F551642618DE1700EE85A8 /* BRossToolsMIDIListenForInput.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRossToolsMIDIListenForInput.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +133,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		90077A512616A46300C7B0E4 /* Documentation */ = {
+			isa = PBXGroup;
+			children = (
+				90077A5C2616A73D00C7B0E4 /* MDFILE.md */,
+			);
+			name = Documentation;
+			sourceTree = "<group>";
+		};
 		905212D325E34D9C00DB595E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -175,11 +189,14 @@
 				906CEF2725C7ABE100DC5271 /* BRossTools.h */,
 				906CEF2825C7AC3D00DC5271 /* BRossTools.m */,
 				9015510F25C87BA8006DA674 /* LocalClasses.m */,
+				90F551632618DE1700EE85A8 /* BRossToolsMIDI.h */,
+				90F551642618DE1700EE85A8 /* BRossToolsMIDIListenForInput.m */,
+				90F551622618DE1700EE85A8 /* BRossToolsMIDIListenForInput2.m */,
 				9015511425C87BCD006DA674 /* LocalClasses.h */,
+				90077A582616A6CB00C7B0E4 /* Doxyfile */,
 				9032806C25F564BF0096BD56 /* MIKMIDIsamples.m */,
 				9032807125F5653C0096BD56 /* MIKMIDIsamples.h */,
-				9025300F2603C4E0008BAF23 /* CoreMIDIsamples.h */,
-				902530102603C548008BAF23 /* CoreMIDIsamples.m */,
+				90077A512616A46300C7B0E4 /* Documentation */,
 			);
 			path = BRossTools;
 			sourceTree = "<group>";
@@ -309,6 +326,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				90077A592616A6CB00C7B0E4 /* Doxyfile in Resources */,
+				90077A5D2616A73D00C7B0E4 /* MDFILE.md in Resources */,
 				906CEEFB25C7AA0900DC5271 /* Assets.xcassets in Resources */,
 				906CEEFE25C7AA0900DC5271 /* MainMenu.xib in Resources */,
 			);
@@ -336,9 +355,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				906CEF2925C7AC3D00DC5271 /* BRossTools.m in Sources */,
+				90F551652618DE1700EE85A8 /* BRossToolsMIDIListenForInput2.m in Sources */,
+				90F551662618DE1700EE85A8 /* BRossToolsMIDIListenForInput.m in Sources */,
 				906CEF0125C7AA0900DC5271 /* main.m in Sources */,
 				9015511025C87BA8006DA674 /* LocalClasses.m in Sources */,
-				902530112603C548008BAF23 /* CoreMIDIsamples.m in Sources */,
 				906CEEF925C7AA0900DC5271 /* AppDelegate.m in Sources */,
 				9032806D25F564BF0096BD56 /* MIKMIDIsamples.m in Sources */,
 			);
