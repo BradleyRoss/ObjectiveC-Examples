@@ -74,6 +74,8 @@ The following is a list of documentation from Apple that can be used to create, 
 
 * "Official MIDI Specifications", MIDI&trade; Association, [https://www.midi.org/specifications/midi1-specifications](https://www.midi.org/specifications/midi1-specifications)  -- You will need to join the MIDI&trade; Association before you can download the files.  However, there is a free membership level. 
 
+* ["Discover MIDI", imitone](https://imitone.com/discover-midi/) -- This appears to be the best laid-out guide to MIDI that I have seen to this date.  The amount of information on programming is limited, but should help to explain the Apple documentation for CoreMidi.
+
 * "MIDI Tutorial For Programmers", Carnegie Mellon University [https://www.cs.cmu.edu/~music/cmsip/readings/MIDI%20tutorial%20for%20programmers.html](https://www.cs.cmu.edu/~music/cmsip/readings/MIDI%20tutorial%20for%20programmers.html) -- Warning: Files with URL's like this have a habit of vanishing without warning.
 
 
