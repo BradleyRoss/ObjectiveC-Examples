@@ -5,7 +5,7 @@
 //  Created by Bradley Ross on 3/7/21.
 //
 /**
- \file
+ \file MIKMIDIsamples.m
  @brief MIKMIDI example files.
  MIKMIDI is an Objective-C library for MIDI
  */

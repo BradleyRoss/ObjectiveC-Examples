@@ -11,20 +11,20 @@
 #import "LocalClasses.h"
 static BRossToolsTextWindow *textWindow = NULL;
 /**
- \file CoreMIDISamples.m
+ \file BRossToolsMIDIListenForInput.m
  */
 @implementation BRossToolsMIDIListenForInput {
     
    
-    OSStatus result;
+    OSStatus result2;
     /**
            @brief Identifier for MIDI client software.
      */
-    MIDIClientRef midiClient;
+    MIDIClientRef midiClient2;
     /**
            @brief Identifier for external MIDI device (keyboard)
      */
-    MIDIEndpointRef sourceRef;
+    MIDIEndpointRef sourceRef2;
     /**
      @brief MIDIObjectRef for Input Port.
      
@@ -33,27 +33,37 @@ static BRossToolsTextWindow *textWindow = NULL;
      so that it can be processed by the client
      indicated by midiClient.
      */
-    MIDIPortRef inputPort;
+    MIDIPortRef inputPort2;
     /**
      @brief MIDI protocol to be used
      */
-    MIDIProtocolID midiProtocol;
+    MIDIProtocolID midiProtocol2;
     /**
      @brief name of source device (keyboard)
      */
-    CFStringRef sourceName;
+    CFStringRef sourceName2;
     /**
      @brief name of client
      */
-    CFStringRef clientName;
+    CFStringRef clientName2;
     /**
      @brief name of input port
      */
-    CFStringRef portName;
-
-    
-    
-    
+    CFStringRef portName2;
+    /**
+    @brief Pointer to BRossToolsTextWindow.
+         
+    The object becomes eligible for deletion by ARC when runtest ends.   However, the object
+    is still used by the client object after runtest ends.  You therefore have to do
+    something to keep the object from closing and deletion.
+    */
+    BRossToolsTextWindow *textWindow;
+    }
+    - (BRossToolsTextWindow *) getTextWindow {
+        return textWindow;
+    }
+    - (void) setTextWindow:(BRossToolsTextWindow *) value {
+        textWindow = value;
 }
 
 
@@ -65,23 +75,23 @@ static BRossToolsTextWindow *textWindow = NULL;
     }
     NSLog(@"BRossToolsMIDIListenForInput - use newest versions of subroutines");
     [textWindow appendString:@"BRossToolsMIDIListenForInput - use newest versions of subroutines"];
-    midiProtocol = kMIDIProtocol_1_0;
+    midiProtocol2 = kMIDIProtocol_1_0;
     ItemCount numberOfSources = MIDIGetNumberOfSources();
 if (numberOfSources == 0) {
     [textWindow appendString:@"No sources found -- aborting \n"];
     return;
 }
 
-    sourceRef = MIDIGetSource(0);
+    sourceRef2 = MIDIGetSource(0);
 
-    result = MIDIObjectGetStringProperty(sourceRef, kMIDIPropertyName, &sourceName);
-    if (result == noErr) {
+    result2 = MIDIObjectGetStringProperty(sourceRef2, kMIDIPropertyName, &sourceName2);
+    if (result2 == noErr) {
         NSString *message = [[NSString alloc]
-                initWithFormat:@"Name of source is %@ \n", sourceName];
+                initWithFormat:@"Name of source is %@ \n", sourceName2];
         [textWindow appendString:message];
     } else {
         NSString *message = [[NSString alloc]
-            initWithFormat:@"Error obtaining source name - code: %d \n", result];
+            initWithFormat:@"Error obtaining source name - code: %d \n", result2];
         [textWindow appendString:message];
     }
     /*
@@ -117,14 +127,14 @@ if (numberOfSources == 0) {
              GetMacOSStatusCommentString(result));
              return;
      */
-    result = MIDIClientCreateWithBlock((CFStringRef)@"client", &midiClient, notifyBlock);
-    if (result != noErr) {
-        NSString *message = [[NSString alloc]initWithFormat:@"MIDIClientCreateWithBlock failed with code of %d \n ", result];
+    result2 = MIDIClientCreateWithBlock((CFStringRef)@"client", &midiClient2, notifyBlock);
+    if (result2 != noErr) {
+        NSString *message = [[NSString alloc]initWithFormat:@"MIDIClientCreateWithBlock failed with code of %d \n ", result2];
         [textWindow appendString:message];
     } else {
-        result = MIDIObjectGetStringProperty(midiClient, kMIDIPropertyName, &clientName);
+        result2 = MIDIObjectGetStringProperty(midiClient2, kMIDIPropertyName, &clientName2);
         NSString *message = [[NSString alloc]
-            initWithFormat:@"Client created with name of %@ \n", clientName];
+            initWithFormat:@"Client created with name of %@ \n", clientName2];
         [textWindow appendString:message];
     }
     /*
@@ -136,25 +146,25 @@ if (numberOfSources == 0) {
      /*
       *  create input port
       */
-    result = MIDIInputPortCreateWithProtocol(midiClient,
-            (CFStringRef)@"InputPort", midiProtocol, &inputPort, receiveBlock);
-    if (result != noErr) {
+    result2 = MIDIInputPortCreateWithProtocol(midiClient2,
+            (CFStringRef)@"InputPort", midiProtocol2, &inputPort2, receiveBlock);
+    if (result2 != noErr) {
         NSString *message = [[NSString alloc]
-            initWithFormat:@"MIDIClientCreateWithBlock failed with code of %d \n ", result];
+            initWithFormat:@"MIDIClientCreateWithBlock failed with code of %d \n ", result2];
         [textWindow appendString:message];
     } else {
-        result = MIDIObjectGetStringProperty(inputPort, kMIDIPropertyName, &portName);
+        result2 = MIDIObjectGetStringProperty(inputPort2, kMIDIPropertyName, &portName2);
         NSString *message = [[NSString alloc]
-            initWithFormat:@"Input port created with name of %@ \n", portName];
+            initWithFormat:@"Input port created with name of %@ \n", portName2];
         [textWindow appendString:message];
     }
     /*
      *  Connect input port to keyboard.
      */
-    result = MIDIPortConnectSource(inputPort, sourceRef, NULL);
-    if (result != noErr) {
+    result2 = MIDIPortConnectSource(inputPort2, sourceRef2, NULL);
+    if (result2 != noErr) {
         NSString *message = [[NSString alloc]
-            initWithFormat:@"MIDIPortConnectSource failed with code of %d \n ", result];
+            initWithFormat:@"MIDIPortConnectSource failed with code of %d \n ", result2];
         [textWindow appendString:message];
     } else {
         [textWindow appendString:@"Port connected to source"];

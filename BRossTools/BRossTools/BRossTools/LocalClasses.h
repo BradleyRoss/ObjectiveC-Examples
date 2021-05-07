@@ -25,8 +25,8 @@
 //  *****  *****  *****  *****
 
 /**
- Some examples of create some items in a window.
- @brief Sample code test1.
+ 
+ @brief Creates an array of NSString and dispays them.
  */
 @interface test1 : NSObject
 /**
@@ -41,13 +41,14 @@
 //  *****  *****  *****  *****
 //  *****  *****  *****  *****
 /**
-   Test case for reusable panel for handling text.
-    @brief Sample code test2.
+   @brief Test for BRossToolsTextWindow
+ 
+    BRossToolTextWindow opens a window that can be used for entering
+       and displaying plain text.
  */
 @interface test2 : NSObject
 /**
- Runs a test case test2 for a new panel that can be used to
- process text.
+ @brief Runs test case test2 .
  */
 + (void)runtest;
 @end
@@ -135,20 +136,35 @@
 //  *****  *****  *****  *****
 
 /**
-   Object for creating main menu
- @brief creates menu of sample code snippets.
+  
+ @brief Generates initial menu for selecting tasks from a list.
+ 
+ The purpose of this class is to create a graphical main menu that
+ contains a list of tasks that can be run.
  */
 @interface mainMenu:NSView
 /**
-          Responds to button clicks.
-                     @param sender object sending message to method when button clicked.
+@brief  Responds to button clicks.
+                   
+ Responds to button clicks and carries out operation based on which
+ button ws clicked.  The objects that process the clicks send the identifier for an
+ object whose class contains a getIent Method  having the signature
+ (NSString)  getIdent.
+ 
+ @param sender object that sent the message for the button click.
  */
 + (void)bleep:(id)sender;
-/*
-     Creates a view containing the main menu.  This is the new
-    menu that appears when the application is first started.
+
+/**
+ @brief Creates initial menu
+Creates a view containing the main menu.  This is the new
+menu that appears when the application is first started.  The view
+actually belongs to NSStackView which is a subclass of NSView.
+,The buttons actually belong to the class BRossToolsButton, which uses
+ Foundation classes to build the view.  The view is inserted in the main
+ window by the AppDelegate object.
  
-     @returns view
+@returns NSView object containing menu.
  */
 + (NSView *)menu;
 @end
@@ -198,7 +214,7 @@ Messages from button clicks are sent to this method.
 @interface CoreMidiSample1:NSObject
 @property(class) BRossToolsTextWindow *textWindow;
 /**
- @brief First program for getting data on MIDI components.
+ @brief Show MIDI configuration.
  
  MIDIGetNumberOfDevices is used to loop through the MIDI devices.
  MIDIDeviceGetNumberOfEntities and MIDIDeviceGetEntity are then
@@ -211,7 +227,7 @@ Messages from button clicks are sent to this method.
 + (void) runtest;
 /**
  
-  @briefThis is the second example of obtaining information on MIDI components.
+  @brief Show MIDI sources and destinations.
   
   runtest2 is based on CoreMidiDemo2.
   
@@ -238,7 +254,7 @@ Messages from button clicks are sent to this method.
  
  Thkere will have to be a few types of tools.
  
-  Parse dictionary/array and store ab set of nodes.
+  Parse dictionary/array and store a set of nodes.
  
     Walker that will go through nodes
   

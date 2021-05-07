@@ -11,9 +11,14 @@
  */
 #import <Foundation/Foundation.h>
 #import "BRossTools.h"
-NSWindow *superview;
 
-@implementation BRossToolsTextWindow
+//  *****  *****  *****  *****  *****
+//  *****  *****  *****  *****  *****
+//  *****  *****  *****  *****  *****
+//  *****  *****  *****  *****  *****
+
+
+@implementation BRossToolsTextWindow 
 
 + (instancetype)newWindow {
     id  pointer = [BRossToolsTextWindow alloc];
@@ -107,9 +112,20 @@ NSWindow *superview;
      Putting them in same statement removed message
      */
     // [aString  initWithString:string];
+    /*
+     -[NSTextView textStorage] must be used from main thread only
+     */
+    // NSTextStorage *temp222 =theTextView.textStorage;
+    if (NSThread.isMainThread) {
     [stringContents appendAttributedString:aString];
+    } else {
+        dispatch_async(dispatch_get_main_queue(), ^() {
+            [self->stringContents appendAttributedString:aString];
+        });
+    }
 }
-/*
+/**
+ @brief does not work
  Can't get this to work.
  */
 - (void)appendFormat:(NSString *)format, ...{

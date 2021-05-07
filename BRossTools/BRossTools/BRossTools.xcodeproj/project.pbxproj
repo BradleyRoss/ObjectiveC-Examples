@@ -10,7 +10,6 @@
 		90077A592616A6CB00C7B0E4 /* Doxyfile in Resources */ = {isa = PBXBuildFile; fileRef = 90077A582616A6CB00C7B0E4 /* Doxyfile */; };
 		90077A5D2616A73D00C7B0E4 /* MDFILE.md in Resources */ = {isa = PBXBuildFile; fileRef = 90077A5C2616A73D00C7B0E4 /* MDFILE.md */; };
 		9015511025C87BA8006DA674 /* LocalClasses.m in Sources */ = {isa = PBXBuildFile; fileRef = 9015510F25C87BA8006DA674 /* LocalClasses.m */; };
-		9032806D25F564BF0096BD56 /* MIKMIDIsamples.m in Sources */ = {isa = PBXBuildFile; fileRef = 9032806C25F564BF0096BD56 /* MIKMIDIsamples.m */; };
 		905212D525E34D9C00DB595E /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 905212D425E34D9C00DB595E /* CoreFoundation.framework */; };
 		905212D725E34DAE00DB595E /* CoreMIDI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 905212D625E34DAE00DB595E /* CoreMIDI.framework */; };
 		905212DC25E34DEF00DB595E /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 905212DB25E34DEF00DB595E /* AppKit.framework */; };
@@ -22,8 +21,9 @@
 		906CEF0C25C7AA0900DC5271 /* BRossToolsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 906CEF0B25C7AA0900DC5271 /* BRossToolsTests.m */; };
 		906CEF1725C7AA0900DC5271 /* BRossToolsUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 906CEF1625C7AA0900DC5271 /* BRossToolsUITests.m */; };
 		906CEF2925C7AC3D00DC5271 /* BRossTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 906CEF2825C7AC3D00DC5271 /* BRossTools.m */; };
-		90A0CCA025FA8F9A0055B1C6 /* MIKMIDI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90A0CC9E25FA8F940055B1C6 /* MIKMIDI.framework */; };
-		90A0CCA125FA8F9A0055B1C6 /* MIKMIDI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 90A0CC9E25FA8F940055B1C6 /* MIKMIDI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		90A7F976262646130033B494 /* BRossToolsMIDISendMIDI.m in Sources */ = {isa = PBXBuildFile; fileRef = 90A7F975262646130033B494 /* BRossToolsMIDISendMIDI.m */; };
+		90A7F97C26275BAB0033B494 /* BRossToolsMIDIPacketListRead.m in Sources */ = {isa = PBXBuildFile; fileRef = 90A7F97B26275BAB0033B494 /* BRossToolsMIDIPacketListRead.m */; };
+		90A7F98026275DF10033B494 /* BRossToolsMIDIPacketListBuild.m in Sources */ = {isa = PBXBuildFile; fileRef = 90A7F97F26275DF00033B494 /* BRossToolsMIDIPacketListBuild.m */; };
 		90F551652618DE1700EE85A8 /* BRossToolsMIDIListenForInput2.m in Sources */ = {isa = PBXBuildFile; fileRef = 90F551622618DE1700EE85A8 /* BRossToolsMIDIListenForInput2.m */; };
 		90F551662618DE1700EE85A8 /* BRossToolsMIDIListenForInput.m in Sources */ = {isa = PBXBuildFile; fileRef = 90F551642618DE1700EE85A8 /* BRossToolsMIDIListenForInput.m */; };
 /* End PBXBuildFile section */
@@ -61,7 +61,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				90A0CCA125FA8F9A0055B1C6 /* MIKMIDI.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 1;
@@ -97,6 +96,9 @@
 		906CEF2725C7ABE100DC5271 /* BRossTools.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BRossTools.h; sourceTree = "<group>"; };
 		906CEF2825C7AC3D00DC5271 /* BRossTools.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BRossTools.m; sourceTree = "<group>"; };
 		90A0CC9E25FA8F940055B1C6 /* MIKMIDI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MIKMIDI.framework; path = BRossTools/MIKMIDI.framework; sourceTree = "<group>"; };
+		90A7F975262646130033B494 /* BRossToolsMIDISendMIDI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRossToolsMIDISendMIDI.m; sourceTree = "<group>"; };
+		90A7F97B26275BAB0033B494 /* BRossToolsMIDIPacketListRead.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BRossToolsMIDIPacketListRead.m; sourceTree = "<group>"; };
+		90A7F97F26275DF00033B494 /* BRossToolsMIDIPacketListBuild.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BRossToolsMIDIPacketListBuild.m; sourceTree = "<group>"; };
 		90B3F16325F80995009A5023 /* MIKMIDI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MIKMIDI.framework; path = "MIKMIDI.xcframework/macos-x86_64/MIKMIDI.framework"; sourceTree = "<group>"; };
 		90F551622618DE1700EE85A8 /* BRossToolsMIDIListenForInput2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRossToolsMIDIListenForInput2.m; sourceTree = "<group>"; };
 		90F551632618DE1700EE85A8 /* BRossToolsMIDI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRossToolsMIDI.h; sourceTree = "<group>"; };
@@ -111,7 +113,6 @@
 				905212E525E34ECB00DB595E /* Foundation.framework in Frameworks */,
 				905212DC25E34DEF00DB595E /* AppKit.framework in Frameworks */,
 				905212D725E34DAE00DB595E /* CoreMIDI.framework in Frameworks */,
-				90A0CCA025FA8F9A0055B1C6 /* MIKMIDI.framework in Frameworks */,
 				905212D525E34D9C00DB595E /* CoreFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -190,8 +191,11 @@
 				906CEF2825C7AC3D00DC5271 /* BRossTools.m */,
 				9015510F25C87BA8006DA674 /* LocalClasses.m */,
 				90F551632618DE1700EE85A8 /* BRossToolsMIDI.h */,
+				90A7F97B26275BAB0033B494 /* BRossToolsMIDIPacketListRead.m */,
+				90A7F97F26275DF00033B494 /* BRossToolsMIDIPacketListBuild.m */,
 				90F551642618DE1700EE85A8 /* BRossToolsMIDIListenForInput.m */,
 				90F551622618DE1700EE85A8 /* BRossToolsMIDIListenForInput2.m */,
+				90A7F975262646130033B494 /* BRossToolsMIDISendMIDI.m */,
 				9015511425C87BCD006DA674 /* LocalClasses.h */,
 				90077A582616A6CB00C7B0E4 /* Doxyfile */,
 				9032806C25F564BF0096BD56 /* MIKMIDIsamples.m */,
@@ -355,12 +359,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				906CEF2925C7AC3D00DC5271 /* BRossTools.m in Sources */,
+				90A7F98026275DF10033B494 /* BRossToolsMIDIPacketListBuild.m in Sources */,
 				90F551652618DE1700EE85A8 /* BRossToolsMIDIListenForInput2.m in Sources */,
+				90A7F976262646130033B494 /* BRossToolsMIDISendMIDI.m in Sources */,
 				90F551662618DE1700EE85A8 /* BRossToolsMIDIListenForInput.m in Sources */,
 				906CEF0125C7AA0900DC5271 /* main.m in Sources */,
 				9015511025C87BA8006DA674 /* LocalClasses.m in Sources */,
+				90A7F97C26275BAB0033B494 /* BRossToolsMIDIPacketListRead.m in Sources */,
 				906CEEF925C7AA0900DC5271 /* AppDelegate.m in Sources */,
-				9032806D25F564BF0096BD56 /* MIKMIDIsamples.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

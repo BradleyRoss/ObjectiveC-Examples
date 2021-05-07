@@ -12,6 +12,8 @@
  */
 #import <Foundation/Foundation.h>
 # import "BRossTools.h"
+
+# import "BRossToolsMIDI.h"
 # import "LocalClasses.h"
 # import "MIKMIDIsamples.h"
 
@@ -23,8 +25,28 @@
 
 /**
   * Creates the main menu for display on the first window.
+ <table>
+ <tr><th>code</th> <th> Caption</th><th>ObjectiveC Method </th></tr>
+ <tr><td> m3 </td><td>Listen for keystrokes using CoreMIDI (Ver 2)</td><td> [listener runTestWithWindow] </td></tr>
+ <tr><td>m4</td>  <td>Kill CoreMIDI Client (Ver 2)</td><td> [listener killClient]   </td></tr>
+ <tr><td>m5 </td><td>Read a dummy MIDIPacketList </td><td> [TestReadDummy runtest]   </td></tr>
+ <tr><td>b5</td><td>CoreMIDI - Show Configuration </td><td>[CoreMidiSample1 runTest]</td></tr>
+ <tr><td>b6 </td><td>CoreMIDI - Show sources/destinations</td><td>[CoreMidiSample1 runTest2]</td></tr>
+ <tr><td>b1</td><td>Opens a window, colors, text fields, buttons</td> <td>[e2 runtest]</td></tr>
+ <tr><td>b2</td><td>new window plus fields </td><td>[test1 runtest]</td></tr>
+ <tr><td>b3</td><td>Text handling window BRossToolsTextWindow</td><td>[test2 runtest]</td></tr>
+ <tr><td>b4</td><td>test3</td><td>[test3 runtest]</td></tr>
+ <tr><td>b7</td><td>run test5 - CFDictionary, CFArray, etc. </td><td>[test5 runtest]</td></tr>
+ <tr><td>b8</td><td>run test4 - Playing with pointers</td><td>[test4 runtest]</td></tr>
+  </table>
+ 
+ * listener is an instance of BRossToolsMIDIListenForInput2
+ * The method [mainMenu menu] creates the menu
  */
 @implementation mainMenu
+static BRossToolsTextWindow *window;
+static BRossToolsMIDIListenForInput2 *listener;
+
 + (void)bleep:(id)sender {
 
     NSString *message = [sender getIdent];
@@ -56,12 +78,26 @@
                 [test5 runtest];
             } else if ([message isEqualToString:@"b8"]) {
                 [test4 runtest];
+         /*
             } else if ([message isEqualToString:@"m1"]){
                 [playMIDI runtest];
+          */
             }else if ([message isEqualToString:@"m2"]){
                 [[BRossToolsMIDIListenForInput alloc] runtest];
             }else if ([message isEqualToString:@"m3"]){
-                [[BRossToolsMIDIListenForInput2 alloc] runtest];
+                window = [BRossToolsTextWindow newWindow];
+                window.title=@"Listen for notes";
+                 listener = [BRossToolsMIDIListenForInput2 alloc];
+                  [listener    runtestWithWindow:window];
+            } else if ([message isEqualToString:@"m4"]) {
+                [listener killClient];
+            } else if ([message isEqualToString:@"m5"]) {
+                [[TestReadDummy alloc] runtest];
+            } else if ([message isEqualToString:@"m6"]) {
+                BRossToolsTextWindow *sendWindow = [BRossToolsTextWindow newWindow];
+                [[TestSendDummy alloc] runtestWithWindow:sendWindow];
+            } else {
+                NSLog(@"invalid code");
             }
         }
 }
@@ -80,25 +116,38 @@
 
     BRossToolsButton *b4 = [BRossToolsButton initUsingObjectIdent:self selector:@selector(bleep:) caption:@"run test3" ident:@"b4" ];
     
-    BRossToolsButton *b5 = [BRossToolsButton initUsingObjectIdent:self selector:@selector(bleep:) caption:@"run test4 - CoreMidiTest1" ident:@"b5" ];
+    BRossToolsButton *b5 = [BRossToolsButton initUsingObjectIdent:self selector:@selector(bleep:) caption:@"CoreMIDI - Show configuration" ident:@"b5" ];
     
-    BRossToolsButton *b6 = [BRossToolsButton initUsingObjectIdent:self selector:@selector(bleep:) caption:@"run test4b - CoreMidiDemo2" ident:@"b6" ];
+    BRossToolsButton *b6 = [BRossToolsButton initUsingObjectIdent:self selector:@selector(bleep:) caption:@"CoreMIDI - Show sources/destinations" ident:@"b6" ];
     
     BRossToolsButton *b7 = [BRossToolsButton initUsingObjectIdent:self selector:@selector(bleep:) caption:@"run test5 - CFDictionary, CFArray, etc." ident:@"b7" ];
     
     BRossToolsButton *b8 = [BRossToolsButton initUsingObjectIdent:self selector:@selector(bleep:) caption:@"run test4 - Playing with pointers" ident:@"b8" ];
     
+    /*
     BRossToolsButton *m1 = [BRossToolsButton initUsingObjectIdent:self selector:@selector(bleep:) caption:@"Play MIDI file using MIKMIDI samples" ident:@"m1" ];
-    
+     */
+    /*
     BRossToolsButton *m2 = [BRossToolsButton initUsingObjectIdent:self selector:@selector(bleep:)
-        caption:@"Listen for keystrokes using CoreMIDI"
+        caption:@"Listen for keystrokes using CoreMIDI  (not working)"
         ident:@"m2"];
-    
+     */
     BRossToolsButton *m3 = [BRossToolsButton initUsingObjectIdent:self selector:@selector(bleep:)
-        caption:@"Listen for keystrokes using CoreMIDI (Original version)"
+        caption:@"Listen for keystrokes using CoreMIDI Ver 2(Original version)"
         ident:@"m3"];
+    BRossToolsButton *m4 = [BRossToolsButton initUsingObjectIdent:self selector:@selector(bleep:)
+        caption:@"Kill CoreMIDI Client (Ver 2) "
+        ident:@"m4"];
+    BRossToolsButton *m5 = [BRossToolsButton initUsingObjectIdent:self
+        selector:@selector(bleep:)
+        caption:@"Read a dummy MIDIPacketList"
+        ident:@"m5"];
+    BRossToolsButton *m6 = [BRossToolsButton initUsingObjectIdent:self
+        selector:@selector(bleep:)
+        caption:@"Send a dummy MIDIPacketList"
+        ident:@"m6"];
     NSStackView *stackView = [NSStackView
-        stackViewWithViews:@[m1, m2, m3, b5, b6, b1, b2, b3, b4, b7, b8]];
+        stackViewWithViews:@[ m3, m4, m5, m6, b5, b6, b1, b2, b3, b4, b7, b8]];
     stackView.orientation = NSUserInterfaceLayoutOrientationVertical;
     return stackView;
 }
@@ -189,6 +238,11 @@
    }
 @end
 
+//  *****  *****  *****  *****  *****
+//  *****  *****  *****  *****  *****
+//  *****  *****  *****  *****  *****
+//  *****  *****  *****  *****  *****
+
 @implementation test4
 + (void) runtest {
     BRossToolsTextWindow *textWindow;
@@ -211,12 +265,31 @@
 }
 @end
 
+//  *****  *****  *****  *****  *****
+//  *****  *****  *****  *****  *****
+//  *****  *****  *****  *****  *****
+//  *****  *****  *****  *****  *****
+
+/**
+ @brief Sample code for CFArray/CFDictionary parsing.
+ There are better ways.
+ */
 @implementation test5
 /*
  * Try using the context variable as a level counter.
  */
+
+void applier(const void *key, const void *value, void *context);
+static BRossToolsTextWindow *textWindowStorage5;
++ (void) setTextWindow:thisWindow {
+    textWindowStorage5 = thisWindow;
+    textWindowStorage5.title = @"MIDI Configuration";
+}
++ (BRossToolsTextWindow *) textWindow{
+    return textWindowStorage5;
+}
 /**
-  *   @brief Parse CFDictionary
+  *   @brief Sample code applied to nodes of CFDictuonary/CFType
   *    Goes through key/value pairs in a CFDictionary object;
   * @param key Key belonging to key/value pair.
   * @param value Value belonging to a key/value pair.  Type of parameter will
@@ -224,14 +297,6 @@
   * @param context Context value for CFDictionary.  In this case, it is the
   *        nesting depth.
  */
-void applier(const void *key, const void *value, void *context);
-static BRossToolsTextWindow *textWindowStorage5;
-+ (void) setTextWindow:thisWindow {
-    textWindowStorage5 = thisWindow;
-}
-+ (BRossToolsTextWindow *) textWindow{
-    return textWindowStorage5;
-}
 void applier(const void *key, const void *value, void *context) {
     int *level = (int *) context;
     
@@ -285,6 +350,7 @@ void applier(const void *key, const void *value, void *context) {
 + (void) runtest {
     BRossToolsTextWindow * thisWindow = [BRossToolsTextWindow newWindow];
     [test5 setTextWindow:thisWindow];
+    thisWindow.title = @"Dictionary/Array Demo";
     [[test5 textWindow] appendString:@"Starting test5\n"];
     NSString *string1 = [[NSString alloc] initWithFormat:@"abc123 %d", 5];
     NSArray *array1 = @[string1, @"Hello, World", @42];
@@ -476,7 +542,7 @@ static BRossToolsTextWindow *textWindowStorage = nil;
 //  *****  *****  *****  *****  *****
 //  *****  *****  *****  *****  *****
 /**
- @brief First program for getting data on MIDI components.
+ @brief List MIDI Configuration..
  
  MIDIGetNumberOfDevices is used to loop through the MIDI devices.
  MIDIDeviceGetNumberOfEntities and MIDIDeviceGetEntity are then
@@ -490,7 +556,7 @@ static BRossToolsTextWindow *textWindowStorage = nil;
 // int main(int argc, const char * argv[]) {
     // BRossToolsTextWindow *textWindow;
     // textWindow = [BRossToolsTextWindow newWindow];
-    [[self textWindow] setTitle:@"test4 -- CoreMidiSample1"];
+    [[self textWindow] setTitle:@"test4 -- MIDI Configuration"];
     // [self setTextWindow:textWindow];
     buildMessage = [NSString alloc];
     [[self textWindow] appendString:@"Starting CoreMidiSample1"] ;
@@ -561,7 +627,7 @@ NSString *getDisplayName(MIDIObjectRef object)
     return (__bridge NSString *)name;
 }
 /**
- @briefThis is the second example of obtaining information on MIDI components.
+ @briefT List MIDI sources and destinations.
  
  runtest2 is based on CoreMidiDemo2.
  

@@ -41,10 +41,12 @@ typedef void (^MIDIReceiveBlock)(const MIDIEventList *evtList, void *srcConnRefC
 typedef void (^MIDINotifyBlock)(const MIDINotification *message);
 // void *blockAddress1;
 // void *blockAddress2;
-
+void testing(void);
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
         printf("Start of program\n");
+        testing();
+        NSLog(@"Start of samples for blocks/closures");
         int dummy1 = 5;
         int dummy2 = 9999;
         float (^oneFrom)(float) = ^(float aFloat) {
@@ -87,6 +89,40 @@ int main(int argc, const char * argv[]) {
         };
     printf(" ***** ***** ***** \n");
     return 0;
+}
+/*
+ CFStringCreateWithFormat
+ */
+    void testing() {
+
+        /*
+         CFStringRef CFStringCreateByCombiningStrings(CFAllocator alloc, CFArrayRef theArray, CFSTRingRef separatorString);
+         CFArrayRef CFArrayCreate(CFAllocatorRef allocator, const void **values, CFIndex numValues, const CFArrayCallBacks *callBacks);
+         use &kCFTypeArrayCallBacks for *callBacks
+         
+         
+         CFStringGetCString(CFStringRef theString, char *buffer, CFIndex bufferSize, CFStringEncoding encoding)
+         */
+       // CFStringRef CFStringCreateByCombiningStrings(kCFAllocatorDefault)
+     
+   
+        CFStringRef l1 = CFSTR("first line\n");
+        CFStringRef l2 = CFSTR("second line\n");
+        CFStringRef l3 = CFSTR("third line\n");
+        CFStringRef args[3] = {l1, l2, l3};
+        CFArrayRef array = CFArrayCreate(kCFAllocatorDefault, (const void**)args, 3, &kCFTypeArrayCallBacks);
+        
+        CFStringRef combined =CFStringCreateByCombiningStrings(kCFAllocatorDefault, array, CFSTR(" "));
+        // Boolean result;
+        char buffer[512];
+    
+        NSLog(@"%@", combined);
+
+        Boolean result = CFStringGetCString(combined, buffer, 512, kCFStringEncodingUTF8);
+        printf("Did creation of C String succeed %d \n", result);
+        printf("1 for true, 0 for false\n");
+        printf("\n %s \n", buffer);
+    return;
 }
 void nextFunction() {
     printf("\n\nStarting nextFunction \n");

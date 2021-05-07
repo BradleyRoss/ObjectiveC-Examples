@@ -13,6 +13,9 @@ This is a test of code to exercise the Xcode system.  One of my goals was to avo
 * The file AppDelegate.m has been modified to create a menu upon opening the application that can be used to call the other components contained in the application. 
 * The files MIKMIDIsamples.h and MIKMIDIsamples.m contain examples for using MIKMIDI from Andrew Marsden
 
+####  Mapping to main menu
+
+
 #### Apple Documentation
 
 The following is a list of documentation from Apple that can be used to create, modify, and understand this code.
@@ -26,13 +29,22 @@ The following is a list of documentation from Apple that can be used to create, 
 
 * [Document-Based App Programming Guide](https://developer.apple.com/library/archive/documentation/DataManagement/Conceptual/DocBasedAppProgrammingGuideForOSX/Introduction/Introduction.html#//apple_ref/doc/uid/TP40011179)
 
+*  [Concurrency Programming Guide](https://developer.apple.com/library/archive/documentation/General/Conceptual/ConcurrencyProgrammingGuide/Introduction/Introduction.html#//apple_ref/doc/uid/TP40008091)
+
+*  [Migrating away from threads](https://developer.apple.com/library/archive/documentation/General/Conceptual/ConcurrencyProgrammingGuide/ThreadMigration/ThreadMigration.html#//apple_ref/doc/uid/TP40008091-CH105-SW1)
+
+
+*  [Thread Programming Guide](https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/Multithreading/Introduction/Introduction.html#//apple_ref/doc/uid/10000057)
+
 * [Text System User Interface Layer Programming Guide](https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/TextUILayer/Tasks/TextInScrollView.html)
 
-* [Cocoa Core Competencies](https://developer.apple.com/library/archive/documentation/General/Conceptual/DevPedia-CocoaCore/Introduction.html#//apple_ref/doc/uid/TP40008195-CH68-DontLinkElementID_2) - Some parts may requiire updating in order to represent current best practices.
+* [Cocoa Core Competencies](https://developer.apple.com/library/archive/documentation/General/Conceptual/DevPedia-CocoaCore/Introduction.html#//apple_ref/doc/uid/TP40008195-CH68-DontLinkElementID_2) - Some parts may require updating in order to represent current best practices.
 
 * [String Programming Guide](https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/Strings/Articles/formatSpecifiers.html)
 
 * [Auto Layout Guide](https://developer.apple.com/library/archive/documentation/UserExperience/Conceptual/AutolayoutPG/index.html#//apple_ref/doc/uid/TP40010853)
+
+*  [Blocks Programming Topics](https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/Blocks/Articles/00_Introduction.html#//apple_ref/doc/uid/TP40007502-CH1-SW1)
 
 #### MIDI programming using CoreMIDI
 

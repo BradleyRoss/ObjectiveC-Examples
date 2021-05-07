@@ -12,16 +12,13 @@
 #ifndef BRossTools_h
 #define BRossTools_h
 #import <AppKit/AppKit.h>
-/*
-   The purpose of this class is to create a NSGridView object that can
-            be linked to NSPanel and NSWindow objects that will
-            create a simple menu involving a list
-            of clickable text fields that will trigger pieces of code.
+
  
- *//**
-      This protocol will enable an object to carry out an action based
-             on a string received in an action from another  object
-    */
+ /**
+  * @brief Receives identifying string from a responder
+  * This protocol will enable an object to carry out an action based on a string
+  * received in an action from another  object
+  */
 @protocol BRossToolsActionReceiver
 /**
    Receives action to be carried out from another object
@@ -34,6 +31,7 @@
 //  *****  *****  *****  *****
 //  *****  *****  *****  *****
 /**
+ * @brief Creates a grid based menu
  This is the class for NSGridView object to be created.
  */
 @interface BRossToolsSimpleGridMenu : NSGridView
@@ -55,12 +53,12 @@
 //  *****  *****  *****  *****
 //  *****  *****  *****  *****
 /**
-   Subclass of NSButton that provides additional capability.
- 
- There is one instance variable named ident which is an NSString object
-  containing an identifier for the button.
- 
-  NSButton is a subclass of NSControl which is a subclass of NSView which is a class of NSResponder.
+ * @brief  Subclass of NSButton that provides additional capability.
+ *
+ * There is one instance variable named ident which is an NSString object
+ * containing an identifier for the button.
+ *
+ * NSButton is a subclass of NSControl which is a subclass of NSView which is a class of NSResponder.
  */
 @interface BRossToolsButton:NSButton
 /*
@@ -131,37 +129,38 @@
 //  *****  *****  *****  *****  *****
 
 /**
-    Creates a scrolling window that can be used by other classes to display information.
- 
-       There is still a problem that it is difficult to select regions of text without the system
-       trying to go to the menu for googling the section or looking it up in the dictionary.
-
+ * @brief Creates a scrolling window for handling text.
  */
 
 @interface BRossToolsTextWindow:NSTextView {
     @protected
     /**
-        Instance variable containing the storqge object for the window.
+     @brief pointer to the object for the instance.
+     */
+    BRossToolsTextWindow *pointer;
+    /**
+       @brief Instance variable containing the storqge object for the window.
      */
     NSTextStorage *stringContents;
     /**
-     Instance variablw containing scroll view for the text window.
+    @brief Instance variable containing scroll view for the text window.
      */
     NSScrollView *scrollview;
     /**
-          Instance variable pointing to NSTextView object for window.
+       @brief   Instance variable pointing to NSTextView object for window.
      */
     NSTextView *theTextView;
+    
     /**
-           Instance variable pointing to NSViewController for window.
+    @brief Instance variable pointing to NSViewController for window.
      */
     NSViewController *viewController;
     /**
-     Window layer containing NSText object.
+   @brief  Window layer containing NSText object.
      */
     NSWindow *newPanel;
     /**
-     Window actually visible to user.
+    @brief  Window actually visible to user.
      */
     NSWindow *displayPanel;
 }
