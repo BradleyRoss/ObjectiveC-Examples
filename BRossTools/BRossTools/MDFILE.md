@@ -78,9 +78,6 @@ The following is a list of documentation from Apple that can be used to create, 
 
 * "MIDI Tutorial For Programmers", Carnegie Mellon University [https://www.cs.cmu.edu/~music/cmsip/readings/MIDI%20tutorial%20for%20programmers.html](https://www.cs.cmu.edu/~music/cmsip/readings/MIDI%20tutorial%20for%20programmers.html) -- Warning: Files with URL's like this have a habit of vanishing without warning.
 
+*  ["Working With MIDI", Audiobus](https://developer.audiob.us/doc/_working-_with-_m_i_d_i.html)
 
-* ["Working With MIDI", Audiobus](https://developer.audiob.us/doc/_working-_with-_m_i_d_i.html)
-
- 
-         
 * https://stackoverflow.com/questions/8795749/coremidi-logging-received-midi-messages-to-an-nstextfield
