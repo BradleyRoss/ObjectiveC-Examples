@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['newpanel_1345',['newPanel',['../d0/d85/interface_b_ross_tools_text_window.html#a246e45b5b02ab214c6068bb760eb47b1',1,'BRossToolsTextWindow']]],
-  ['numerator_1346',['numerator',['../d9/d16/struct_m_i_k_m_i_d_i_time_signature.html#a6dfcdae2e5c313b9bde086d6fe0c9fb6',1,'MIKMIDITimeSignature']]]
+  ['keysbylevel_341',['keysByLevel',['../d6/d41/_local_classes_8m.html#a8f6fa69ac5e5809837f260d86f28cc65',1,'LocalClasses.m']]]
 ];

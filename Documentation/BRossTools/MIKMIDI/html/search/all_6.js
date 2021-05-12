@@ -1,0 +1,19 @@
+var searchData=
+[
+  ['filenameformapping_3a_201',['fileNameForMapping:',['../d5/d68/interface_m_i_k_m_i_d_i_mapping_manager.html#a652b3a341d15f323442fe85d82b40548',1,'MIKMIDIMappingManager']]],
+  ['fileurlformapping_3ashouldbeunique_3a_202',['fileURLForMapping:shouldBeUnique:',['../d5/d68/interface_m_i_k_m_i_d_i_mapping_manager.html#a033addcc146b80fd6067f5757e76fd5f',1,'MIKMIDIMappingManager']]],
+  ['fileurlwithbasefilename_3a_203',['fileURLWithBaseFilename:',['../d5/d68/interface_m_i_k_m_i_d_i_mapping_manager.html#aefc4cc614066169fdb128f430650fea9',1,'MIKMIDIMappingManager']]],
+  ['fillinabsoluteknobslidermappingitem_3afrommessages_3a_204',['fillInAbsoluteKnobSliderMappingItem:fromMessages:',['../df/dec/interface_m_i_k_m_i_d_i_mapping_generator.html#a84d1170ac1be5bad10009bd9e91ccc5b',1,'MIKMIDIMappingGenerator']]],
+  ['fillinbuttonmappingitem_3afrommessages_3a_205',['fillInButtonMappingItem:fromMessages:',['../df/dec/interface_m_i_k_m_i_d_i_mapping_generator.html#a13a221158ce27fcf04e212508c9d622f',1,'MIKMIDIMappingGenerator']]],
+  ['fillinrelativeabsoluteknobslidermappingitem_3afrommessages_3a_206',['fillInRelativeAbsoluteKnobSliderMappingItem:fromMessages:',['../df/dec/interface_m_i_k_m_i_d_i_mapping_generator.html#a0617f05557279223659a06d57a99c1b9',1,'MIKMIDIMappingGenerator']]],
+  ['fillinrelativeknobmappingitem_3afrommessages_3a_207',['fillInRelativeKnobMappingItem:fromMessages:',['../df/dec/interface_m_i_k_m_i_d_i_mapping_generator.html#a6ace2a850cd3ba2cd115a87d95809b98',1,'MIKMIDIMappingGenerator']]],
+  ['fillinturntableknobmappingitem_3afrommessages_3a_208',['fillInTurntableKnobMappingItem:fromMessages:',['../df/dec/interface_m_i_k_m_i_d_i_mapping_generator.html#a9d83603e63b61df0505ecb67eb463ee4',1,'MIKMIDIMappingGenerator']]],
+  ['finishmappingitem_3aerror_3a_209',['finishMappingItem:error:',['../df/dec/interface_m_i_k_m_i_d_i_mapping_generator.html#a23233bcbb65b6166cfe918b8dd29412d',1,'MIKMIDIMappingGenerator']]],
+  ['firstavailabledevicewithname_3a_210',['firstAvailableDeviceWithName:',['../d4/d80/interface_m_i_k_m_i_d_i_connection_manager.html#ac4818526a3d64e4b6cde459fef30d579',1,'MIKMIDIConnectionManager']]],
+  ['flipped_211',['flipped',['../d1/db0/interface_m_i_k_m_i_d_i_mapping_item.html#a819422285419ccfc5c1d2cfbcb5fd4b5',1,'MIKMIDIMappingItem']]],
+  ['forwardinvocation_3a_212',['forwardInvocation:',['../d6/de1/interface_m_i_k_m_i_d_i_synced_clock_proxy.html#a03ae4aa1608b55ca0ba5de191b8985d9',1,'MIKMIDISyncedClockProxy']]],
+  ['fourteenbitcommand_213',['fourteenBitCommand',['../dc/d75/interface_m_i_k_m_i_d_i_control_change_command.html#abc3a500326170a45e0a8f94b09a27c32',1,'MIKMIDIControlChangeCommand::fourteenBitCommand()'],['../db/dca/interface_m_i_k_mutable_m_i_d_i_control_change_command.html#a5d55fbac188cd9f935d6146b82595ae3',1,'MIKMutableMIDIControlChangeCommand::fourteenBitCommand()']]],
+  ['fourteenbitcontrolchangecommandwithcontrollernumber_3avalue_3a_214',['fourteenBitControlChangeCommandWithControllerNumber:value:',['../dc/d75/interface_m_i_k_m_i_d_i_control_change_command.html#ac0ef357fabfb26f1be37a5b1e5e181c9',1,'MIKMIDIControlChangeCommand']]],
+  ['fourteenbitvalue_215',['fourteenBitValue',['../dc/d75/interface_m_i_k_m_i_d_i_control_change_command.html#a9e1cd321acb1e23018f3feb0419864ff',1,'MIKMIDIControlChangeCommand::fourteenBitValue()'],['../db/dca/interface_m_i_k_mutable_m_i_d_i_control_change_command.html#a7474948e59d00f4e575daa1e6d4539f3',1,'MIKMutableMIDIControlChangeCommand::fourteenBitValue()']]],
+  ['frequency_216',['frequency',['../d7/d3c/interface_m_i_k_m_i_d_i_note_event.html#a0ce50606b156026718db924a1810709f',1,'MIKMIDINoteEvent']]]
+];

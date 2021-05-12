@@ -62,13 +62,14 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#pub-static-methods">Class Methods</a>  </div>
+<a href="#pub-static-methods">Class Methods</a> &#124;
+<a href="../../d8/d50/interfacemain_menu-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">mainMenu Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>creates menu of sample code snippets.  
+<p>Generates initial menu for selecting tasks from a list.  
  <a href="../../d0/d9c/interfacemain_menu.html#details">More...</a></p>
 
 <p><code>#import &lt;<a class="el" href="../../de/d97/_local_classes_8h_source.html">LocalClasses.h</a>&gt;</code></p>
@@ -85,16 +86,44 @@ Inheritance diagram for mainMenu:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Class Methods</h2></td></tr>
 <tr class="memitem:af0fdbd899be90cda359dbb3979446d4a"><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">+ <a class="el" href="../../d0/d9c/interfacemain_menu.html#af0fdbd899be90cda359dbb3979446d4a">bleep:</a></td></tr>
+<tr class="memdesc:af0fdbd899be90cda359dbb3979446d4a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Responds to button clicks.  <a href="../../d0/d9c/interfacemain_menu.html#af0fdbd899be90cda359dbb3979446d4a">More...</a><br /></td></tr>
 <tr class="separator:af0fdbd899be90cda359dbb3979446d4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acfe883b4d10f3a71e115acfa1bfbfca1"><td class="memItemLeft" align="right" valign="top">(<a class="el" href="../../d2/dcc/class_n_s_view.html">NSView</a> *)&#160;</td><td class="memItemRight" valign="bottom">+ <a class="el" href="../../d0/d9c/interfacemain_menu.html#acfe883b4d10f3a71e115acfa1bfbfca1">menu</a></td></tr>
+<tr class="memdesc:acfe883b4d10f3a71e115acfa1bfbfca1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates initial menu Creates a view containing the main menu. This is the new menu that appears when the application is first started. The view actually belongs to NSStackView which is a subclass of <a class="el" href="../../d2/dcc/class_n_s_view.html">NSView</a>. ,The buttons actually belong to the class <a class="el" href="../../d8/dcc/interface_b_ross_tools_button.html" title="Subclass of NSButton that provides additional capability.">BRossToolsButton</a>, which uses Foundation classes to build the view. The view is inserted in the main window by the <a class="el" href="../../dd/d52/interface_app_delegate.html">AppDelegate</a> object.  <a href="../../d0/d9c/interfacemain_menu.html#acfe883b4d10f3a71e115acfa1bfbfca1">More...</a><br /></td></tr>
 <tr class="separator:acfe883b4d10f3a71e115acfa1bfbfca1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>creates menu of sample code snippets. </p>
-<p>Object for creating main menu</p>
-<p>Creates the main menu for display on the first window. </p>
+<div class="textblock"><p>Generates initial menu for selecting tasks from a list. </p>
+<p>The purpose of this class is to create a graphical main menu that contains a list of tasks that can be run.</p>
+<p>Creates the main menu for display on the first window. </p><table class="doxtable">
+<tr>
+<th>code </th><th>Caption</th><th>ObjectiveC Method  </th></tr>
+<tr>
+<td>m3 </td><td>Listen for keystrokes using CoreMIDI (Ver 2)</td><td>[listener runTestWithWindow]  </td></tr>
+<tr>
+<td>m4 </td><td>Kill CoreMIDI Client (Ver 2)</td><td>[listener killClient]  </td></tr>
+<tr>
+<td>m5 </td><td>Read a dummy MIDIPacketList </td><td>[<a class="el" href="../../d6/d3d/interface_test_read_dummy.html" title="create a dummy MIDIPacketList and parse it.">TestReadDummy</a> runtest]  </td></tr>
+<tr>
+<td>b5</td><td>CoreMIDI - Show Configuration </td><td>[<a class="el" href="../../d6/d7e/interface_core_midi_sample1.html" title="MIDI tools.">CoreMidiSample1</a> runTest] </td></tr>
+<tr>
+<td>b6 </td><td>CoreMIDI - Show sources/destinations</td><td>[<a class="el" href="../../d6/d7e/interface_core_midi_sample1.html" title="MIDI tools.">CoreMidiSample1</a> runTest2] </td></tr>
+<tr>
+<td>b1</td><td>Opens a window, colors, text fields, buttons </td><td>[<a class="el" href="../../de/d14/interfacee2.html" title="Sample code e2. It opens a window, changes the color and inserts some text fields and buttons.">e2</a> runtest] </td></tr>
+<tr>
+<td>b2</td><td>new window plus fields </td><td>[<a class="el" href="../../d6/d5f/interfacetest1.html" title="Creates an array of NSString and dispays them.">test1</a> runtest] </td></tr>
+<tr>
+<td>b3</td><td>Text handling window <a class="el" href="../../d0/d85/interface_b_ross_tools_text_window.html" title="Creates a scrolling window for handling text.">BRossToolsTextWindow</a></td><td>[<a class="el" href="../../d1/d05/interfacetest2.html" title="Test for BRossToolsTextWindow.">test2</a> runtest] </td></tr>
+<tr>
+<td>b4</td><td><a class="el" href="../../db/df5/interfacetest3.html" title="Sample code test3.">test3</a></td><td>[<a class="el" href="../../db/df5/interfacetest3.html" title="Sample code test3.">test3</a> runtest] </td></tr>
+<tr>
+<td>b7</td><td>run <a class="el" href="../../dd/d3c/interfacetest5.html" title="CFDictionary/CFArray example.">test5</a> - CFDictionary, CFArray, etc. </td><td>[<a class="el" href="../../dd/d3c/interfacetest5.html" title="CFDictionary/CFArray example.">test5</a> runtest] </td></tr>
+<tr>
+<td>b8</td><td>run <a class="el" href="../../da/d7b/interfacetest4.html" title="Sample code test4.">test4</a> - Playing with pointers</td><td>[<a class="el" href="../../da/d7b/interfacetest4.html" title="Sample code test4.">test4</a> runtest] </td></tr>
+</table>
+<p>listener is an instance of <a class="el" href="../../d6/ddb/interface_b_ross_tools_m_i_d_i_listen_for_input2.html" title="Read keyboard presses using the legacy apis.">BRossToolsMIDIListenForInput2</a> The method [<a class="el" href="../../d0/d9c/interfacemain_menu.html" title="Generates initial menu for selecting tasks from a list.">mainMenu</a> menu] creates the menu </p>
 
-<p class="definition">Definition at line <a class="el" href="../../de/d97/_local_classes_8h_source.html#l00139">139</a> of file <a class="el" href="../../de/d97/_local_classes_8h_source.html">LocalClasses.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/d97/_local_classes_8h_source.html#l00145">145</a> of file <a class="el" href="../../de/d97/_local_classes_8h_source.html">LocalClasses.h</a>.</p>
 </div><h2 class="groupheader">Method Documentation</h2>
 <a id="af0fdbd899be90cda359dbb3979446d4a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af0fdbd899be90cda359dbb3979446d4a">&#9670;&nbsp;</a></span>bleep:</h2>
@@ -111,14 +140,17 @@ Class Methods</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Responds to button clicks. </p><dl class="params"><dt>Parameters</dt><dd>
+
+<p>Responds to button clicks. </p>
+<p>Responds to button clicks and carries out operation based on which button ws clicked. The objects that process the clicks send the identifier for an object whose class contains a getIent Method having the signature (NSString) getIdent.</p>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">sender</td><td>object sending message to method when button clicked. </td></tr>
+    <tr><td class="paramname">sender</td><td>object that sent the message for the button click. </td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d6/d41/_local_classes_8m_source.html#l00001">1</a> of file <a class="el" href="../../d6/d41/_local_classes_8m_source.html">LocalClasses.m</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d6/d41/_local_classes_8m_source.html#l00048">48</a> of file <a class="el" href="../../d6/d41/_local_classes_8m_source.html">LocalClasses.m</a>.</p>
 
 </div>
 </div>
@@ -136,16 +168,19 @@ Class Methods</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Creates initial menu Creates a view containing the main menu. This is the new menu that appears when the application is first started. The view actually belongs to NSStackView which is a subclass of <a class="el" href="../../d2/dcc/class_n_s_view.html">NSView</a>. ,The buttons actually belong to the class <a class="el" href="../../d8/dcc/interface_b_ross_tools_button.html" title="Subclass of NSButton that provides additional capability.">BRossToolsButton</a>, which uses Foundation classes to build the view. The view is inserted in the main window by the <a class="el" href="../../dd/d52/interface_app_delegate.html">AppDelegate</a> object. </p>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="../../d2/dcc/class_n_s_view.html">NSView</a> object containing menu.</dd></dl>
 <p>Builds view containing main menu.</p>
 <dl class="section return"><dt>Returns</dt><dd>pointer to NSStackView object. <a href="https://stackoverflow.com/questions/36020540/why-is-instancetype-used">https://stackoverflow.com/questions/36020540/why-is-instancetype-used</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d6/d41/_local_classes_8m_source.html#l00001">1</a> of file <a class="el" href="../../d6/d41/_local_classes_8m_source.html">LocalClasses.m</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d6/d41/_local_classes_8m_source.html#l00048">48</a> of file <a class="el" href="../../d6/d41/_local_classes_8m_source.html">LocalClasses.m</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>BRossTools/<a class="el" href="../../de/d97/_local_classes_8h_source.html">LocalClasses.h</a></li>
-<li>BRossTools/<a class="el" href="../../d6/d41/_local_classes_8m_source.html">LocalClasses.m</a></li>
+<li>/Users/bradleyross/Documents/GitHub/ObjectiveC-Examples/BRossTools/BRossTools/BRossTools/<a class="el" href="../../de/d97/_local_classes_8h_source.html">LocalClasses.h</a></li>
+<li>/Users/bradleyross/Documents/GitHub/ObjectiveC-Examples/BRossTools/BRossTools/BRossTools/<a class="el" href="../../d6/d41/_local_classes_8m_source.html">LocalClasses.m</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

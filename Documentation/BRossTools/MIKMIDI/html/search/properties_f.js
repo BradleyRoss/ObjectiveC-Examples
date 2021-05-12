@@ -1,0 +1,21 @@
+var searchData=
+[
+  ['scale_2264',['scale',['../da/dd1/interface_m_i_k_m_i_d_i_meta_key_signature_event.html#a0497cd9d81f364313dbd7f74a2702847',1,'MIKMIDIMetaKeySignatureEvent::scale()'],['../d6/d87/interface_m_i_k_mutable_m_i_d_i_meta_key_signature_event.html#a92d763d1ad5af0beacc22a279517419f',1,'MIKMutableMIDIMetaKeySignatureEvent::scale()']]],
+  ['sendmidicommand_2265',['sendMIDICommand',['../df/deb/interface_m_i_k_m_i_d_i_synthesizer.html#a26c7abff1618f2d66e78c953aaf427ab',1,'MIKMIDISynthesizer']]],
+  ['sequence_2266',['sequence',['../d5/d18/interface_m_i_k_m_i_d_i_sequencer.html#a995d84ffb936b8db88579ddf0db70c4b',1,'MIKMIDISequencer::sequence()'],['../db/dce/interface_m_i_k_m_i_d_i_track.html#a8acbd4f69696e7c92e75636c7fdda645',1,'MIKMIDITrack::sequence()']]],
+  ['sequencer_2267',['sequencer',['../dd/d88/interface_m_i_k_m_i_d_i_sequence.html#a99eebb835e31cef2b8dec09a681c8029',1,'MIKMIDISequence']]],
+  ['shareddevicemanager_2268',['sharedDeviceManager',['../d4/d32/interface_m_i_k_m_i_d_i_device_manager.html#a3872c196efeaaf3505aee30facaa17d6',1,'MIKMIDIDeviceManager']]],
+  ['shouldcachemikmidisubresponders_2269',['shouldCacheMIKMIDISubresponders',['../dd/d5b/category_m_i_k___a_p_p_l_i_c_a_t_i_o_n___c_l_a_s_s_07_m_i_k_m_i_d_i_08.html#a99f57cb14d45d649831bcd14eb4c7d7f',1,'MIK_APPLICATION_CLASS(MIKMIDI)::shouldCacheMIKMIDISubresponders()'],['../da/dbf/interface_m_i_k_m_i_d_i_responder_hierarchy_manager.html#a566a3f443b50be75275f5e6afe3e68c7',1,'MIKMIDIResponderHierarchyManager::shouldCacheMIKMIDISubresponders()']]],
+  ['solo_2270',['solo',['../db/dce/interface_m_i_k_m_i_d_i_track.html#ac8d03a656e5a07df9d2d4ed7a0318f5f',1,'MIKMIDITrack']]],
+  ['sortedeventscache_2271',['sortedEventsCache',['../db/dce/interface_m_i_k_m_i_d_i_track.html#a9e635d972f0b40264f571bd550edfb2e',1,'MIKMIDITrack']]],
+  ['startingtimestamp_2272',['startingTimeStamp',['../d5/d18/interface_m_i_k_m_i_d_i_sequencer.html#af2bbc8b3ac58108540a5c51dbabc58e7',1,'MIKMIDISequencer']]],
+  ['statusbyte_2273',['statusByte',['../d4/daa/interface_m_i_k_m_i_d_i_command.html#a8d4286f8eb5a4e1b4bf3c6334645dd52',1,'MIKMIDICommand']]],
+  ['string_2274',['string',['../d7/d53/interface_m_i_k_m_i_d_i_meta_text_event.html#a328f708624868ef87fc87b54d25463d6',1,'MIKMIDIMetaTextEvent::string()'],['../da/d03/interface_m_i_k_mutable_m_i_d_i_meta_text_event.html#a9612b6d6a2ecba20854d10ba4ba63010',1,'MIKMutableMIDIMetaTextEvent::string()'],['../dc/dc2/interface_m_i_k_mutable_m_i_d_i_meta_track_sequence_name_event.html#aacfe86342f394696d0d78c02d819e24f',1,'MIKMutableMIDIMetaTrackSequenceNameEvent::string()']]],
+  ['subresponderscache_2275',['subrespondersCache',['../da/dbf/interface_m_i_k_m_i_d_i_responder_hierarchy_manager.html#abd10eb0efc999e7f6f963417b3fa79bd',1,'MIKMIDIResponderHierarchyManager']]],
+  ['syncedclock_2276',['syncedClock',['../d5/d18/interface_m_i_k_m_i_d_i_sequencer.html#ad6e3884620822182680a8e62453c988c',1,'MIKMIDISequencer']]],
+  ['sysexchannel_2277',['sysexChannel',['../d4/d62/interface_m_i_k_m_i_d_i_system_exclusive_command.html#aa695a57ed72c62fc546078ef8d572ad0',1,'MIKMIDISystemExclusiveCommand::sysexChannel()'],['../d7/df3/interface_m_i_k_mutable_m_i_d_i_system_exclusive_command.html#af8a64440a9ab2ab59ced60689266c6a3',1,'MIKMutableMIDISystemExclusiveCommand::sysexChannel()']]],
+  ['sysexdata_2278',['sysexData',['../d4/d62/interface_m_i_k_m_i_d_i_system_exclusive_command.html#ad0d83b3696945851b5a9cc4add63e454',1,'MIKMIDISystemExclusiveCommand::sysexData()'],['../d7/df3/interface_m_i_k_mutable_m_i_d_i_system_exclusive_command.html#a733394338bddd7c9eae13223f08f840a',1,'MIKMutableMIDISystemExclusiveCommand::sysexData()'],['../d3/da0/interface_m_i_k_m_i_d_i_input_port.html#a13dceaef6939dfc5b799465f89f3dd6a',1,'MIKMIDIInputPort::sysexData()']]],
+  ['sysexstarttimestamp_2279',['sysexStartTimeStamp',['../d3/da0/interface_m_i_k_m_i_d_i_input_port.html#a5eebd89417559dd6e04d74e6020fac26',1,'MIKMIDIInputPort']]],
+  ['sysextimeout_2280',['sysexTimeOut',['../d3/da0/interface_m_i_k_m_i_d_i_input_port.html#acd38068009f77a55d79104589cdebd0f',1,'MIKMIDIInputPort']]],
+  ['sysextimeouttimer_2281',['sysexTimeOutTimer',['../d3/da0/interface_m_i_k_m_i_d_i_input_port.html#ab76ec48273067cb925777304ac0aff45',1,'MIKMIDIInputPort']]]
+];

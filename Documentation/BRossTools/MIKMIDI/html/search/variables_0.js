@@ -1,0 +1,19 @@
+var searchData=
+[
+  ['_5fclockqueue_2060',['_clockQueue',['../d0/d11/interface_m_i_k_m_i_d_i_clock.html#a10efcb11ba6305b9583172492cd9a7da',1,'MIKMIDIClock']]],
+  ['_5fcurrenttempo_2061',['_currentTempo',['../d0/d11/interface_m_i_k_m_i_d_i_clock.html#a07e6be777f81a35e1b060d7602d2bca7',1,'MIKMIDIClock']]],
+  ['_5fhistoricalclockmiditimestampsarray_2062',['_historicalClockMIDITimeStampsArray',['../d0/d11/interface_m_i_k_m_i_d_i_clock.html#a2966e75f87e6c38bb34edcf63e65d49b',1,'MIKMIDIClock']]],
+  ['_5fhistoricalclockmiditimestampsset_2063',['_historicalClockMIDITimeStampsSet',['../d0/d11/interface_m_i_k_m_i_d_i_clock.html#a1de079cf07d025eede5688c8a536ce34',1,'MIKMIDIClock']]],
+  ['_5fhistoricalclocks_2064',['_historicalClocks',['../d0/d11/interface_m_i_k_m_i_d_i_clock.html#af33b238b9198aa041ad5b6322b313b96',1,'MIKMIDIClock']]],
+  ['_5flastsyncedmiditimestamp_2065',['_lastSyncedMIDITimeStamp',['../d0/d11/interface_m_i_k_m_i_d_i_clock.html#a9a1743e5f6e6e9ed3c5d857f95592fb1',1,'MIKMIDIClock']]],
+  ['_5flastsyncedmusictimestamp_2066',['_lastSyncedMusicTimeStamp',['../d0/d11/interface_m_i_k_m_i_d_i_clock.html#aec39ef95e111366f17ad1a062daed861',1,'MIKMIDIClock']]],
+  ['_5fmiditimestampspermusictimestamp_2067',['_midiTimeStampsPerMusicTimeStamp',['../d0/d11/interface_m_i_k_m_i_d_i_clock.html#a9a455508ea9a42988d835d02a8b415a6',1,'MIKMIDIClock']]],
+  ['_5fmusictimestampspermiditimestamp_2068',['_musicTimeStampsPerMIDITimeStamp',['../d0/d11/interface_m_i_k_m_i_d_i_clock.html#a0dd7d2e28bb27059f18c56de3c8e0875',1,'MIKMIDIClock']]],
+  ['_5fprocessingqueuecontext_2069',['_processingQueueContext',['../d5/d18/interface_m_i_k_m_i_d_i_sequencer.html#a74fd882fb2fa3476bc043b307f58947c',1,'MIKMIDISequencer']]],
+  ['_5fprocessingqueuekey_2070',['_processingQueueKey',['../d5/d18/interface_m_i_k_m_i_d_i_sequencer.html#a5e7b8fbd06aa81bffc581b826901bd35',1,'MIKMIDISequencer']]],
+  ['_5fscheduledcommandqueue_2071',['_scheduledCommandQueue',['../df/deb/interface_m_i_k_m_i_d_i_synthesizer.html#aed42d8885177d09714eae5df81d2fa3d',1,'MIKMIDISynthesizer']]],
+  ['_5fscheduledcommandsbytimestamp_2072',['_scheduledCommandsByTimeStamp',['../df/deb/interface_m_i_k_m_i_d_i_synthesizer.html#a666cfe28b93f930cf5a93dedd2b8cea5',1,'MIKMIDISynthesizer']]],
+  ['_5fscheduledcommandtimestampsarray_2073',['_scheduledCommandTimeStampsArray',['../df/deb/interface_m_i_k_m_i_d_i_synthesizer.html#a2794ab693a35b38f6d677ba0667aa2d7',1,'MIKMIDISynthesizer']]],
+  ['_5fscheduledcommandtimestampsset_2074',['_scheduledCommandTimeStampsSet',['../df/deb/interface_m_i_k_m_i_d_i_synthesizer.html#adb9d4040dbbef10cd8603361ab788ce2',1,'MIKMIDISynthesizer']]],
+  ['_5ftimestampzero_2075',['_timeStampZero',['../d0/d11/interface_m_i_k_m_i_d_i_clock.html#ab61ec940799483acc5bdbe09874f1609',1,'MIKMIDIClock']]]
+];

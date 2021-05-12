@@ -8,14 +8,41 @@
 
 </head>
 <body>
-<h2>CoreMIDI, BRossTools, and Related Items</h2>
+<h1>CoreMIDI, BRossTools, and Related Items</h1>
+<h2>BRossToolsa</h2>
 <p>The project BRossTools is part of the GitHub repository 
    <a href="https://github.com/BradleyRoss/ObjectiveC-Examples" target="_blank">BradleyRoss/ObjectiveC-Examples</a>
    and keeps a number of samples of Objective-C code.  The Doxygen documentation for this project can be found
    <a href="BRossTools/html/index.html" target="_blank">here</a>.</p>
+<p>When the BRossTools.app executable is run, it displays a menu whose options are listed below.  There are in the
+   order they appear in the window together with the caption for each menu item.  The item before the caption
+   is the internal code for the menu item.  After the caption, some of the classes, methods, and functions
+   that are used in the case are listed.  The code for creating the button and their actions can be found
+   in the class mainMenu.</p>
+<ul>
+<li>m3:"Listen for keystrokes using CoreMIDI Ver 2 (original version)" The system listens to the
+    first source returned by MIDIGetNumberOfSources, presumably a MIDI keyboard.</li>
+<li>m4:"Kill CoreMIDI Client (ver 2)" -- This halts the MIDI client software that was started with
+    button m3 and the software will no longer listen for keystrokes.</li>
+<li>m5:"Read a dummy MIDIPacketList" After creating the dummy list, it then parses it.</li>
+<li>m6:"Send a dummy MIDIPacketList" The client sends the contents of the list to the first
+    destination returned by MIDIGetNumberOfDestinations.  This should be some form of MIDI
+    synthesizer.</li>
+<li>b5:"CoreMIDI - Show configuration"  A list is displayed of the MIDI devices, entities, and
+    endpoints together with their endpoints.</li>
+<li>b6:"CoreMIDI - Show sources/destinations" List MIDI sources and destinations.  This list may
+    differ from the soures and destinations shown by button b5.</li>
+<li>b1:"This will trigger the e2 test which opens a window, colors it, and inserts 
+    a few text fields and buttons.</li>
+<li>b2:"Run test1 new window plus fields"</li>
+<li>b3:"Run  test2 text handling window"</li>
+<li>b4:"Run test3"</li>
+<li>b7:"Run test5 - CFDictionary, CFArray, etc."</li>
+<li>b8:"Run test4 - Playing with pointers"</li>
+</ul>
 <h2>CoreMIDI</h2>
 <p>I ran the C header file for the CoreMIDI framework through Doxygen and posted the results
-    <a href="CoreMIDI/html/index.html" target="_blank">here</a>.  I have been comparing the information with thePart of the 
+    <a href="CoreMIDI/html/index.html" target="_blank">here</a>.  I have been comparing the information with the
     <a href="https://developer.apple.com/documentation/coremidi?language=objc" target="_blank">
     Developer Documentation for Core MIDI</a>.  This needs to be examined further.  
     <a href="CoreMIDI.html" target="_blank">An annotated list

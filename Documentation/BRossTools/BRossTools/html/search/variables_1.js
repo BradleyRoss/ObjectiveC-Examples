@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['denominator_1322',['denominator',['../d9/d16/struct_m_i_k_m_i_d_i_time_signature.html#a83b1078afa74b6a31f0bab7511e2d19f',1,'MIKMIDITimeSignature']]],
-  ['displaypanel_1323',['displayPanel',['../d0/d85/interface_b_ross_tools_text_window.html#ab08fcdb000cec2182ee8af9990e3e574',1,'BRossToolsTextWindow']]]
+  ['bufferlength_320',['bufferLength',['../d4/d56/_b_ross_tools_m_i_d_i_packet_list_build_8m.html#a531f0bd9e74eefbf7c443859804c4827',1,'BRossToolsMIDIPacketListBuild.m']]],
+  ['buildmessage_321',['buildMessage',['../d6/d41/_local_classes_8m.html#a3b6bcfe1706996b8d7ad97a9094d5604',1,'LocalClasses.m']]]
 ];
