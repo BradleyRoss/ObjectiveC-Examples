@@ -12,11 +12,12 @@
    https://www.github.com/BradleyRoss/ObjectiveC-Examples</a> while this page
    is located at <a href="https://BradleyRoss.github.io/ObjectiveC-Examples" target="_blank">
    https://BradleyRoss.github.io/ObjectiveC-Examples</a></p>
-<h2>BRossTools</h2>
+<h3>BRossTools</h3>
 <p>This package displays some menus and allows the selection of a number of demonstration
-   pieces of code.  At this time, it is not fully functional on ARM architectures because of
-   problems with the MIKMIDI framework.</p>
-<p>See <a href="Documentation/index.html" target="_blank">here</a> for more information.</p>
+   pieces of code for CoreMIDI and manipulation of windows.  The code for working with MIKMIDI
+   had to be deactivated because the MIKMIDI libraries don't appear to work with the ARM architecture.
+</p>
+<p>See <a href="Documentation/BRossTools/index.html" target="_blank">here</a> for more information.</p>
 <h2>HelloWorld</h2>
 <p>The classic HelloWorld example from the XCode samples.</p>
 
@@ -27,25 +28,25 @@
 <p>These are some projects that are no longer supported because of problems with the code.  The functionality
    has been moved to the <a href="BRossTools/BRossTools/html/" target="_blank">BRossTools project.</a></p>
 <ul>
-<li>CoreMidiDemo</br />
+<li>CoreMidiDemo (deprecated)</br />
    This is the first example from
    <a href="http://xmidi.com/how-to-access-midi-devices-with-coremidi/" target="_blank">
    http://xmidi.com/how-to-access-midi-devices-with-coremidi/</a> and shows an example of 
    getting a list of MIDI devices from the MIDI server on OS X.  Please note that this
    software tracks all devices that have ever been attached, so it may include several
    units that are not currently in use.</li>
-<li>CoreMidiDemo2</br />
+<li>CoreMidiDemo2 (deprecated)</br />
    This is the second example from the article <i>How to Access MIDI Devices with CoreMidi</i>.
    This example uses a different API and only lists devices that are currently connected.  It should 
    be noted that this program requires over three seconds to run.  However, this appears to be mainly due 
    to the time spent loading the dynamically linked libraries.</li>
-<li>XMidiSample1<br />
+<li>XMidiSample1(deprecated)<br />
    This is a modified version of CoreMidiDemo that has been stored as a project inside a
    workspace.</li>
-<li>XMidiSample2<br />
+<li>XMidiSample2(deprecated)<br />
    This is a modified version of CoreMidiDemo2 that has been stored as a project inside a
    workspace.</li>
-<li>CoreMidiSample1<br />
+<li>CoreMidiSample1(deprecated)<br />
    This is an Objective-C program that I wrote to examine many of the components of the
    Apple CoreMidi framework.  It is stored as a project inside the workspace.  In addition to 
    demonstrating the CoreMidi methods, it also demonstrates the use of return codes
