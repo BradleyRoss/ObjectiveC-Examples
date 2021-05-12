@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<title>Architecture Topics</title>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="pages.css">
+<head>
+</head>
+<body>
+<!-- Documentation/BRossTools/FunctionalArea.html  -->
+<h1>Architecture Topics</h1>
+<p>The following are some related pages.</p>
+<ul>
+<li><a href="CoreMidi.html" target="CoreMidi">CoreMidi Frameowrk</a> A list of functiouns, 
+    classes, and data structures. This
+    page also contains some information on parts of the Core Foundation Framework used with CoreMIDI.</li>
+<li><a href="CoreMIDI/html/index.html">CoreMIDI header information</a> This section used 
+    Doxygen to extract information
+    from the header files belonging to the CoreMIDI framework.</li>
+<li><a href="BRossTools/html/index.html">BRossTools Doxygen autodocumentation files</a> This set of documentation
+    was created by running Doxygen against the BRossTools Xcode project.</li>
+<li><a href="index.html">Root page for documentaton on BRossTools Xcode project.</a></li>
+    
+</ul>
+<h2>MIDI 2.0</h2>
+<p>In order to support MIDI 2.0, there had to be a number of changes 
+   to the <a href="CoreMidi.html" target="CoreMidi">CoreMIDI</a> library.  In the table below, 
+   <i>Old Architecture</i> refers to the software items associated with MIDI 1.0 while 
+   <i>New Architecture</i> refers to the functions that can support 
+   both MIDI 1.0 and MIDI 2.0 systems.  The term Universal MIDI Packet (UMP) refers 
+   to a method for encoding data for use both MIDI 1.0 and MIDI 2.0, 
+   with the software making the appropriate transformations to the information sent 
+   to and received from the MIDI devices.</p>
+
+<table class="sized">
+<tr><td>Function</td><td>Old Architecture</td><td>New Architecture</td></tr>
+
+<tr><td>Creates a virtual destination to a client.</td>
+    <td><a href="CoreMidi.html#MIDIDestinationCreateWithBlock" target="CoreMidi">MIDIDestinationCreateWithBlock</a></td>
+    <td><a href="CoreMidi.html#MIDIDestinationCreateWithProtocol" target="CoreMidi">MIDIDestinationCreateWithProtocol</a></td></tr>
+<tr><td>Creates a virtual source for a client.</td>
+    <td><a href="CoreMidi.html#MIDISourceCreate" target="CoreMidi">MIDISourceCreate</a></td>
+    <td><a href="CoreMidi.html#MIDISourceCreateWithProtocol" target="CoreMidi">MIDISourceCreateWithProtocol</a></td><tr>
+<tr><td>Creates an input port for a client through which the client can receive incoming MIDI messages from any MIDI source.</td>
+    <td><a href="CoreMidi.html#MIDIInputPortCreateWithBlock" target="CoreMidi">MIDIInputPortCreateWithBlock</a></td>
+    <td><a href="CoreMidi.html#MIDIInputPortCreateWithProtocol" target="CoreMidi">MIDIInputPortCreateWithProtocol</a></td><tr>
+<tr><td>Creates an output port through which a client sends outgoing MIDI messages to any MIDI destination.</td>
+    <td><a href="CoreMidi.html#MIDIOutputPortCreate" target="CoreMidi">MIDIOutputPortCreate</a></td>
+    <td><a href="CoreMidi.html#MIDIOutputPortCreateWithProtocol" target="CoreMidi">MIDIOutputPortCreateWithProtocol</a></td><tr>
+<tr><td>Send a MIDIPacketList (legacy) or MIDIEventList (UMP) to a destination.</td>
+    <td><a href="CoreMidi.html#MIDISend" target="CoreMidi">MIDISend</a></td>
+    <td><a href="CoreMidi.html#MIDISendEventList" target="CoreMidi">MIDISendEventList</a></td></tr>
+<tr><td>A set of packets.</td>
+    <td><a href="CoreMidi.html#MIDIPacketList" target="CoreMidi">MIDIPacketList</a></td>
+    <td><a href="CoreMidi.html#MIDIEventList" target="CoreMidi">MIDIEventList</a></td></tr>
+<tr><td>Initialize the packet list structure.</td>
+    <td><a href="CoreMidi.html#MIDIPacketListInit" target="CoreMidi">MIDIPacketListInit</a></td>
+    <td><a href="CoreMidi.html#MIDIEventListInit" target="CoreMidi">MIDIEventListInit</a></td></tr>
+<tr><td>Add a MIDI packet or event packet to the packet list or event packet list.</td>
+    <td><a href="CoreMidi.html#MIDIPacketListAdd" target="CoreMidi">MIDIPacketListAdd</a></td>
+    <td><a href="CoreMidi.html#MIDIEventListAdd" target="CoreMidi">MIDIEventListAdd</a></td></tr>
+<tr><td>A group of MIDI commands with the same time stamp.</td>
+    <td><a href="CoreMidi.html#MIDIPacket" target="CoreMidi">MIDIPacket</a></td>
+    <td><a href="CoreMidi.html#MIDIEventPacket" target="CoreMidi">MIDIEventPacket</a></td></tr>
+<tr><td>Move the pointer to the packet or event packet to the next one in the list.</td>
+    <td><a href="CoreMidi.html#MIDIPacketNext" target="CoreMidi">MIDIPacketNext</a></td>
+    <td><a href="CoreMidi.html#MIDIEventPacketNext" target="CoreMidi">MIDIEventPacketNext</a></td></tr>
+<tr><td>Structure presenting incoming MIDI information.</td>
+    <td><a href="CoreMidi.html#MIDIReadBlock" target="CoreMidi">MIDIReadBlock</a></td>
+    <td><a href="CoreMidi.html#MIDIReceiveBlock" target="CoreMidi">MIDIReceiveBlock</a></td></tr>
+
+</table>
+
+<h2>Devices with USB Drivers</h2>
+<p>When a piece of hardware is connected via a USB (Universal Serial Bus) cable to a computer, it initiates a process known as "handshaking".  In this process the device shares information with the computer and the computer connects the device using the most appropriate driver the operating system looks for an associated piece of software known as a <i>driver</i>.  Some types of devices such as mice, keyboards, ethernet connections, and telephone connections, there are default drivers that are part of the operating system and will be used unless a more appropriate driver is found.  These drivers are usually supplied by the vendor on their website and will provide additional capability for the vendor's products.  As part of the <i>handshake</i>, the device sends some information about itself.  The result is that the CoreMIDI software always knows how to exchange
+information with the MIDI devices.</p>
+
+<h2>External Devices</h2>
+<p>If the MIDI device is conneced with 5 pin MIDI cables, the CoreMIDI software can't identify the attached equipment.  Hoeever, you can use CoreMIDI to 
+   set up <i>external devices</i> using <a href="CoreMidi.html#MIDIExternalDeviceCreate" target="CoreMidi">MIDIExternalDevcesCreate</a>,
+   <a target="CoreMidi" href="CoreMidi.html#MIDISetupAddExternalDevice">MIDISetupAddExternalDevice</a>, and
+   <a target="CoreMidi" href="CoreMidi.html#MIDISetupRemoveExternalDevice">MIDISetupRemoveExternalDevice</a>.</li>
+
+<h2>Virtual Ports and Endpoints</h2>
+
+<p>The software components that send and receive MIDI information with other devices are known as MIDI clients.</p>
+
+<h2>Non-Musical MIDI Commands</h2>
+<p>There are a number of MIDI commands where the status byte is in the range 0xF0 to 0xFF.  These are known
+   as non musical commands.</p>
+<table class="border">
+
+<tr><td>0xF0</td><td>
+    <a href="https://www.recordingblogs.com/wiki/midi-system-exclusive-message" target="_blank">
+    MIDI System Exclusive message (start)</a>This status byte indicates the first byte of
+    the system exclusive message and there can be any number of data bytes.  A data byte containing the 
+    value 0xF7 indicates the last byte for the message. (system common)</td></tr>
+
+<tr><td>0xF1</td><td><a href="" target="_blank">MIDI Quarter Frame message</a>  There is  one data byte.
+    (system common)</td>
+    </tr>
+
+<tr><td>0xF2</td><td>
+    <a href="https://www.recordingblogs.com/wiki/midi-song-position-pointer-message" target="_blank">
+    MIDI Song Position Pointer message</a> There are two data bits that are combined to
+    form a 14 bit integer. (system common)</td></tr>
+
+<tr><td>0xF3</td><td><a href="" target="_blank">MIDI Song Request message</a> There is one data byte
+    (range 0x00 to 0x7F) that contains the number of the song to be played. (system common)
+  </td></tr>
+
+<tr><td>0xF4</td><td>???</td></tr>
+
+<tr><td>0xF5</td><td>???</td></tr>
+
+<tr><td>0xF6</td><td><a href="" target="_blank">MIDI Tune Request message</a>  There are no
+    data bytes for this messaage. (system common)</td></tr>
+
+<tr><td>0xF7</td><td><a href="http://midi.teragonaudio.com/tech/midifile/evts.htm" target="_blank">SysEX Continuation</a>  If this is the first status byte in a packet, it is SysEx Continuation, meaning that the 
+following bytes are a continuation of the SysEX message from the previous packet.  If it is the last
+byte in a packet, it indicates the end of the SysEx message.</td></tr>
+
+<tr><td>0xF8</td><td><a href="https://www.recordingblogs.com/wiki/midi-clock-message" target="_blank">MIDI Clock message</a>  There are no data bytes.  (system realtime)</td></tr>
+
+<tr><td>0xF9</td><td>???</td><td>???</td></tr>
+
+<tr><td>0xFA</td><td><a href="https://www.recordingblogs.com/wiki/midi-start-message" target="_blank">
+    MIDI Start message</a> 
+    There are no data bytes. (system realtime)</td></tr>
+
+<tr><td>0xFB</td><td><a href="https://www.recordingblogs.com/wiki/midi-continue-message" target="_blank">MIDI Continue message</a>  There are no data bytes (system realtime)</td></tr>
+
+<tr><td>0xFC</td><td><a href="https://www.recordingblogs.com/wiki/midi-stop-message" 
+     target="_blank">MIDI Stop message</a>  There are no data bytes. (system realtime)</td></tr>
+
+<tr><td>0xFD</td><td>???</td></tr>
+
+<tr><td>0xFE</td><td><a href="https://www.recordingblogs.com/wiki/midi-active-sense-message" 
+    target="_blank">MIDI Active Sense message</a> There
+    are no data bytes.   The purpose of this message is to demonstrate to the receiver that the
+    transmitting device is still alive. (system realtime)</td></tr>
+
+<tr><td>0xFF</td><td><a href="" target="_blank">MIDI Reset Message</a> There are no data bytes.
+    (system realtime)</td></tr>
+<table>
+</body>
+</html>

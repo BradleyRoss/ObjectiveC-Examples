@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<meta charset="UTF-8">
+<title>CoreMIDI/MIKMIDI Mapping</title>
+</head>
+<body>
+<h1>CoreMIDI/MIKMIDI Mapping</h1>
+
+<p>When writing code, there is always a temptation to skimp on documentation and people will find ways to justify it.  However, when you are selling
+   software, you are selling the usability of the software, and the usability is limited without adequate documentation.  However, by the
+   time you realize this, the people who know enough to write the documetation are no longer available.  The question then arises as to how
+   you will do the impossible and comprehend and document the incomprehensible.  Documentation requires the writing of understandable examples, which
+   would be a lot easier if the examples you had were understandable.</p>
+
+<p>Fortunately, mankind has developed ways of extracting information from hostile enemy forces.  I know they aren't the
+   enemy, but it sure feels that way when they don't document.  The first thing to do is to find examples of code that uses the 
+   undocumented material.  You take the API and create a list of the various functions, named structs, classes, constants, and other items.
+   (In this case <a href="CoreMidi.html" target="_blank">CoreMIDI.html</a> represents a work in progress.  You then get whatever information
+   you can from existing documentation and autodocumentation tools such as HeaderDocs and Doxygen.  It's a little bit like solving a 
+   murder mystery or cracking a cipher.</p>
+<p>Xcode allows you to locate all occurences of a character string in a project or a set of files.  So if I want to know how to 
+   use MIDIDestinationCreate ( along with MIDIDestinationCreateWithBlock and MIDIDestinationCreateWithProtocol) I can look for all of the
+   occurences of these strings in a sample project, preferably open source where I can access all of the code.  For studying CoreMIDI, I
+   chose MIKMIDI to aid in my attack upon the forces of chaos.  I found the locations of names from the CoreMIDI API, and this 
+   page represents a listing of the appearances that I have found up to now.</p>
+<p>I like tto write my notes in the form of HTML documents because it allows me to create documents that link all of the
+   information together.  Think of it as the scene in the police shows where they put all of the facts on a big corkboard and then stretch
+   colored strings to connect the related pieces of information.  I can also link the information on the Apple developer website.</p>
+
+<h2><a href="CoreMIDI.html#MIDIDestinationCreate" name="MIDIDestinationCreate">MIDIDestinationCreate</a></h2>
+<p>This is referenced in the file DeviceSupport/MIKMIDIClientDestinationEndpoint(.h and .m)</p>
+
+<h2><a href="CoreMIDI.html#MIDIDestinationCreateWithBlock" name="MIDIDestinationCreateWithBlock">MIDIDestinationCreateWithBlock</a></h2>
+    <p>Not used in MIKMIDI (TBR)</p>
+
+<h2><a href="CoreMidi.html#MIDIReadProc" name="MIDIReadProc">MIDIReadProc</a></h2>
+<p>This maps to MIKMIDIDestinationReadProc (used and implemented
+    in DeviceSupport/MIKMIDIClientDestinationEndpoint) and MIKMIDIPortReadCallback (referenced and implemented in
+    DeviceSupport/MIKMIDIInputPort.m)</p>
+
+<h2><a href="CoreMIDI.html#MIDISend"  name="MIDISend">MIDISend</a></h2>
+<p>This is referenced in the file DeviceSupport/MIKMIDIOutputPort.h</p>
+
+<h2><a name="MIDISourceCreate" href="CoreMIDI.html#MIDISourceCreate">MIDISourceCreate</a></h2>
+<p>This is referenced in DeviceSupport/ClientSourceEndpoint(.h and .m)</p>
+
+</body>
+</html>

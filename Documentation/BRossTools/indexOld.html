@@ -1,29 +1,31 @@
 <!DOCTYPE html>
 <html>
 <head>
+<!-- Documentation/BRossTools/index.html  -->
 <title>CoreMIDI, BRossTools and Related Items</title>
 <meta charset="UTF-8">
 <meta name="author" content="Bradley Ross">
-<meta name="keywords" content="CoreMIDI, CoreAudio, MIDI">
+<meta name="keywords" content="CoreMIDI, CoreAudio, MIDI, Examples">
 
 </head>
 <body>
-<h2>CoreMIDI, BRossTools, and Related Items</h2>
+<h1>CoreMIDI, BRossTools, and Related Items</h1>
 <p>The project BRossTools is part of the GitHub repository 
    <a href="https://github.com/BradleyRoss/ObjectiveC-Examples" target="_blank">BradleyRoss/ObjectiveC-Examples</a>
    and keeps a number of samples of Objective-C code.  The Doxygen documentation for this project can be found
    <a href="BRossTools/html/index.html" target="_blank">here</a>.</p>
 <h2>CoreMIDI</h2>
 <p>I ran the C header file for the CoreMIDI framework through Doxygen and posted the results
-    <a href="CoreMIDI/html/index.html" target="_blank">here</a>.  I have been comparing the information with thePart of the 
+    <a href="CoreMIDI/html/index.html" target="_blank">here</a>.  I have 
+    been comparing the Doxygen information with the Apple
     <a href="https://developer.apple.com/documentation/coremidi?language=objc" target="_blank">
-    Developer Documentation for Core MIDI</a>.  This needs to be examined further.</p>
+    Developer Documentation for Core MIDI</a>.  It appears that understnding the CoreMIDI framework
+    requires looking at multiple reference sources.</p>
 <ul>
 </ul>
 <p>Some items are used in the examples I found on the internet, but are currently deprecated.  The articles on the internet are old, but I can't find newer examples.</p>
 <ul>
-<li>GetMacOSStatusCommentString</li>
-<li>GetMacOSStatusErrorString</li>
+<!--  GetMacOSStatusCommentString and GetMacOSStatusErrorString   are deprecated  -->
 </ul>
 <p>In the header file defining structs for MIDIEventList and MIDIPacketList, it states</p>
 <ul>
@@ -35,9 +37,9 @@
 
 <h2>CoreMIDI Examples from Internet</h2>
 <p>I have been searching the internet for examples of Objective-C code using the CoreMIDI library. The biggest
-   is that I have had a problem finding examples newer that ten years old.  It appears that many of these
-   examples use API's that are deprecated and it appears that I will have to review all of the samples that I
-   find </p>
+   problem is that I have had a problem finding recent examples, with most of them 
+   being over ten years old.  It appears that many of these
+   examples use API's that are deprecated and will require updating.</p>
 
 <ul>
 <li>"Reading from external controllers with CoreMIDI", <i>Yet Another Learn Cocoa With Me Blog</i>, 21-August-2011, 
@@ -46,8 +48,9 @@
 <li><a href="https://gist.github.com/jemmons/847cdc494eb332ba1b9f50f18ee8616a" target="_blank">jemmons/Create Input with Block.swift</a>, GitHub Gist.
 <li><a href="https://stackoverflow.com/questions/47660597/using-osx-core-midi-in-a-c-project" target="_blank">Using (OSX) Core MIDI in a c++ project</a>,
     Stack Overflow.</li>
-<li><a href="https://github.com/Reiszecke/CoreMIDI-example" target=_blank">RieszecleCoreMIDI-example</a>, GitHub.
-<li><a href="https://github.com/DerekCook/CoreMidi4J" target="_blank"> DerekCook/CoreMidi4J - Core MIDI Service provider Interface (SPI) 
+<li><a href="https://github.com/Reiszecke/CoreMIDI-example" target=_blank">RieszecleCoreMIDI-example</a>, 
+    GitHub.</li>
+<li><a href="https://github.com/DerekCook/CoreMidi4J" target="_blank"> DerekCook/CoreMidi4J - Core MIDI Service    provider Interface (SPI) 
     for Java 1.7 and abov on OS X</a> - This package uses JNI (Java Native Interface) to allow CoreMidi C code 
     to be used by Java in place of its default libraries.  Reading the code
     should enable a better understanding of CoreMIDI.</li>
@@ -72,7 +75,6 @@
     https://www.midi.org/forum/7601-looking-for-project-ideas-is-there-midi-2-0-software-or-programming-language-support#reply-7639</a>.  - There is mention
     of an unofficial guide at <a href="https://imitone.com/discover-midi" target="_blank">https://imitone.com/discover-midi</a></li>
 </ul>
-<h2>Current Bugs</h2>
-<p>BRossTools[2569]: BUG IN CLIENT OF LIBDISPATCH: Assertion failec: Block was expected to run on queue [com.apple.main-thread]</p>
+
 </body>
 </html>

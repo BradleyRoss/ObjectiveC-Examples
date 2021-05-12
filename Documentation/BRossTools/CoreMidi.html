@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>CoreMIDI Framework</title>
+<link rel="spreadsheet" href="pages.css">
+<meta charset="utf-8">
+</head>
+<body>
+<!-- Documentation/BRossTools/CoreMIDI.html   -->
+<h1>CoreMIDI Framework</h1>
+<p>This is a partially annotated list of some of the struct, typeref, function, and enum items contained in the CoreMIDI framework.  In addition, there 
+   are also some references to classes and methods from other frameworks that are used with CoreMIDI.  
+   <a href="index.html">Click here to return to root page for BRossTools.</a>).</p>
+<p>The root of the CoreMIDI framework documention is at <a href="https://developer.apple.com/documentation/coremidi?language=objc" target="_blank">
+   https://developer.apple.com/documentation/coremidi?language=objc</a>.  I also ran the CoreMIDI headers through Doxygen and the results
+   are at <a href="CoreMIDI/html/index.html" target="_blank">CoreMIDI/html/index.html</a>.  </p>
+<p>The legacy MIDI protocols are known as MIDI 1.  MIDI 2 is in the process of being adopted and some of the changes to CoreMIDI are
+   <a href="FunctionalArea.html"  target="functional"> described here</a>.</p>
+<p>Many of the header files contain little or no documentation.  Since the documentation contained in these headers are apparently the
+   source of the documentation on the <a href-"https://developer.apple.com" target="_blank".developer.apple.com</a> site, many of the 
+   functions are very poorly defined. See <a href="CoreMidiMapping.html" target="_blank">CoreMidiMapping.html</a> for some ideas
+   in using code from other applications to aid in documentating CoreMIDI.</p>
+<p>For some information on  various topics and related frameworks, see 
+<ul>
+<li><a href="AVFAudio.html" target="_blank">AVFAudio Framework</a></li>
+<li><a href="AVFoundation.html" target="_blank">AVFoundation Framework</a></li>
+<li><a href="CoreAudio.html" target="_blank">CoreAudio Framework</a></li>
+<li><a href="FunctionalArea.html" target="_blank">Some information on the changes for MIDI 2.0,external devices, and virtual endpoints.</a></li>
+
+
+</ul>
+<h2>Core Foundation Framework</h2>
+<p>The documentation for the Core Foundation Framework is located on the 
+   <a href="https://developer.apple.com/documentation/corefoundation?language=objc" target="_blank">Apple Developer Website</a>.
+  The names of the functions, classes, structs, etc.
+  start with the letters <b>NS</b>, which stands for <i>NextStep</i> </p>
+<p>Core Foundation functions, types, enums, and blocks: CF... : <a href="#cfa">A</a>
+   <a href="#cfd">D</a></p>
+<h2>CoreMIDI Framework</h2>
+<p>The documentation for the Core MIDI Framework is located on the 
+   <a href="https://developer.apple.com/documentation/coremidi?language=objc" target="_blank">Apple Developer Website</a>.
+  The names of the functions, classes, structs, etc.
+  start with the letters <b>NS</b>, which stands for <i>NextStep</i> </p>
+<p>Constants: kMIDI... : <a href="#kmidic">C</a>  <a href="#kmidii">I</a> <a href="#kmidim">M</a> <a href="#kmidin">N</a> <a href="#kmidio">O</a>  <a href="#kmidip">P</a> 
+    <a href="#kmidiu">U</a> <a href="#kmidiw">W</a>  </p>
+
+<p>CoreMIDI functions,types, enums, and blocks: MIDI... : 
+   <a href="#midi1">1</a>
+   <a href="#midic">C</a>  <a href="#midid">D</a>   <a href="#midie">E</a>   <a href="#midig">G</a>
+   <a href="#midii">I</a>  <a href="#midim">M</a>   <a href="#midin">N</a>   <a href="#midio">O</a>
+   <a href="#midip">P</a>  <a href="#midir">R</a>   <a href="#midis">S</a>
+   <a href="#midit">T</a>
+   </p>
+<h2>Foundation Framework</h2>
+<p>The documentation for the Foundation Framework is located on the 
+   <a href="https://developer.apple.com/documentation/foundation?language=objc" target="_blank">Apple Developer Website</a>.
+  The names of the functions, classes, structs, etc.
+  start with the letters <b>NS</b>, which stands for <i>NextStep</i> </p>
+<p>Foundation software Components: NS... : <a href="#nss">S</a>
+   </p>
+<hr />
+
+
+<h2>CoreMIDI constants</h2>
+<p><a name="kmidic">Start of kMIDIC,,,</a></p>
+<ul>
+
+
+<li><a name="kMIDICVStatusNoteOff" href="https://developer.apple.com/documentation/coremidi/midicvstatus/kmidicvstatusnoteoff?language=objc" target="_blank">kMIDICVStatusNoteOff</a> This is an enumeration case of <a href="#MIDICVStatus">MIDICVStatus</a> and the value is 0x8</li>
+
+<li><a name="kMIDICVStatusNoteOn" target="_blank" href="https://developer.apple.com/documentation/coremidi/midicvstatus/kmidicvstatusnoteon?language=objc">kMIDICVStatusNoteOn</a> This is an enumeration case of <a href="#MIDICVStatus">MIDICVStatus</a> and the value is 0x9</li>
+
+<li><a name="kMIDICVStatusPolyPressure" href="https://developer.apple.com/documentation/coremidi/midicvstatus/kmidicvstatuspolypressure?language=objc" target="_blank" >kMIDICVStatusPolyPressure</a> This is an enumeration case of <a href="#MIDICVStatus">MIDICVStatus</a> and the value is 0xA</li>
+
+<li><a name="kMIDICVStatusControlChange" href="https://developer.apple.com/documentation/coremidi/midicvstatus/kmidicvstatuscontrolchange?language=objc%20target%3D"  target="_blank" >kMIDICVControlChange</a> This is an enumeration case of <a href="#MIDICVStatus">MIDICVStatus</a> and the value is 0xB</li>
+
+<li><a name="kMIDICVStatusProgramChange" href="https://developer.apple.com/documentation/coremidi/midicvstatus/kmidicvstatusprogramchange?language=objc" target="_blank" >kMIDICVStatusProgramChange</a> This is an enumeration case of <a href="#MIDICVStatus">MIDICVStatus</a> and the value is 0xC</li>
+
+<li><a name="kMIDICVStatusChannelPressure" href="https://developer.apple.com/documentation/coremidi/midicvstatus/kmidicvstatuschannelpressure?language=objc%20target%3D" target="_blank" >kMIDICVStatusChannelPressure</a> This is an enumeration case of <a href="#MIDICVStatus">MIDICVStatus</a> and the value is 0xD</li>
+
+<li><a name="kMIDICVStatusPitchBend" href="https://developer.apple.com/documentation/coremidi/midicvstatus/kmidicvstatuspitchbend?language=objc%20target%3D" target="_blank" >kMIDICVStatusPitchBend</a> This is an enumeration case of <a href="#MIDICVStatus">MIDICVStatus</a> and the value is 0xE</li>
+</ul>
+
+<p><a name="kmidii">Start of kMIDII...</a></p>
+
+<ul>
+<li><a name="kMIDIInvalidClient">kMIDIInvalidClient</a>  Value is -10830</li>
+<li>kMIDIInvalidPort</li>
+</ul>
+<p><a name="kmidim">Start of kMIDIM...</a></p>
+<ul>
+
+<li><a name="kMIDIMessageTypeData128" "target="_blank"
+    href="https://developer.apple.com/documentation/coremidi/midimessagetype/kmidimessagetypedata128?language=objc">
+    kMIDIMessageTypeData128</a> (macOS 11.0+)</li>
+
+<li><a name="kMIDIMessageTypeChannelVoice2" "target="_blank"
+    href="https://developer.apple.com/documentation/coremidi/midimessagetype/kmidimessagetypechannelvoice2?language=objc">
+    kMIDIMessageTypeChannelVoice2</a>  (mac OS 11.0+)</li>
+
+<li><a name="kMIDIMessageTypeChannelVoice1" "target="_blank"
+    href="https://developer.apple.com/documentation/coremidi/midimessagetype/kmidimessagetypechannelvoice1?language=objc">
+    kMIDIMessageTypeChannelVoice1</a> (mac OS 11.0+) </li>
+
+</ul>
+<p><a name="kmidin">Start of kMIDIN...</a></p>
+<ul>
+<li>kMIDINoConnection</li>
+</ul>
+<p><a name="kmidio">Start of kMIDIO...</a></p>
+<ul>
+    <li>kMIDIObjectType_ExternalEntity</li>
+    <li>kMIDIObjectType_ExternalDestination</li>
+    <li>kMIDIObjectType_ExternalMask -- This actually appears twice in the 
+        documentation page for <a href="#MIDIObjectType">MIDIObjectType</a></li>
+    <li>kMIDIObjectType_ExternalSource</li>
+    <li>kMIDIObjectType_Other</li>
+    <li>kMIDIObjectType_Entity</li>
+    <li>kMIDIObjectType_Destination</li>
+    <li>kMIDIObjectType_Source</li>
+
+</ul>
+<p><a name="kmidip">Start of kMIDIP...</a></p>
+<ul>
+<li>kMIDIPropertyDeviceID</li>
+<li>kMIDIPropertyDisplayNamme</li>
+<li>kMIDIPropertyDriverVersion</li>
+<li><a name="kMIDIPropertyName"
+    href="https://developer.apple.com/documentation/coremidi/kmidipropertyname?language=objc" target="_blank">
+    kMIDIPropertyName</a>  Declaration: const CFStringRef kMIDIPropertyName; Indicates that the property is the name of a MIDI Object.</li>
+
+
+
+<li>kMIDIPropertyManufacturer</li>
+<li>kMIDIPropertyModel</li>
+<li>kMIDIPropertyOffline</li>
+<li><a name="kMIDIPropertyUniqueID" href="https://developer.apple.com/documentation/coremidi/kmidipropertyuniqueid?language=objc" target="_blank">
+    kMIDIPropertyUniqueID</a>
+    Declaration: const CFStringRef kMIDIPropertyUniqueID;</li>
+<li><a name="kMIDIProtocol_1_0" href="https://developer.apple.com/documentation/coremidi/midiprotocolid/kmidiprotocol_1_0?language=objc" target="_blank">
+        kMIDIProtocol_1_0</a>  Enumeration Case of <a href="#MIDIProtocolID">MIDIProtocolID</a></li>
+<li><a name="kMIDIProtocol_2_0" href="https://developer.apple.com/documentation/coremidi/midiprotocolid/kmidiprotocol_2_0?language=objc" target="_blank">
+        kMIDIProtocol_2_0</a> Enumeration Case of <a href="#MIDIProtocolID">MIDIProtocolID</a></li>
+</ul>
+<p><a name="kmidiu">Start of kMIDIU...</a></p>
+<ul>
+<li>kMIDIUnknownEndpoint</li>
+<li>kMIDIUnknownPropertyType</li>
+</ul>
+<p><a name="kmidiw">Start of kMIDIW...</a></p>
+<ul>
+<li>kMIDIWrongEndpointType</li>
+
+
+<li>kMIDIWrongPropertyType</li>
+</ul>
+<h2>Start of Core Foundation...</h2>
+<p><a name ="cfa">Start of CFA...</a></p>
+<ul>
+<li><a name="CFAllocator" target="_blank" href="https://developer.apple.com/documentation/corefoundation/cfallocator?language=objc">CFAllocator</a>
+    This class is used to allocate (malloc) memory without the need for an explicit call to the deallocation (free) function. </li>
+
+<li><a name="CFAllocatorAllocate" target="_blank" 
+    href="https://developer.apple.com/documentation/corefoundation/1521250-cfallocatorallocate?language=objc">
+    CFAllocatorAllocate</a></li>
+
+<li><a name="CFAllocatorContext" target="_blank" 
+    href="https://developer.apple.com/documentation/corefoundation/cfallocatorcontext?language=objc">CFAllocatorContext</a> 
+    (<a href="https://developer.apple.com/library/archive/documentation/CoreFoundation/Conceptual/CFMemoryMgmt/Tasks/UsingAllocatorContext.html#//apple_ref/doc/uid/20001153-CJBEHAAG" target="_blank">
+    More Information</a>) The value used for CFAllocatorContext indicates the procedures to be used for allocating, 
+    deallocating, and reallocating blocks of  memory.  There are a number of  <a target="_blank" 
+    href="https://developer.apple.com/documentation/corefoundation/cfallocator/predefined_allocators?language=objc">
+    predefined allocators</a>  with kCFAllocatorDefault being the default 
+    allocator which should be used unless special circumstances exist.</li>
+
+<li><a name="CFAllocatorReallocate" target="_blank" 
+    href="https://developer.apple.com/documentation/corefoundation/1521324-cfallocatorreallocate?language=objc">
+    CFAllocatorReallocate</a></li>
+
+<li><a name="CFArray">CFArray</a></li>
+</ul>
+<p><a name="cfd">Start of CFD...</a></p>
+<ul>
+<li><a name="CFDictionary">CFDictionary</a></li>
+</ul>
+<h2>CoreMIDI function, typedef, struct, enum, etc.</h2>
+
+<p><a niame=midi1">Start of MIDI1...</p>
+<ul>
+<li><a name="MIDI1UPNoteOn" target="_blank" href="https://developer.apple.com/documentation/coremidi/3667330-midi1upnoteon?language=objc">
+    MIDI1UPNoteOn</a> This is a function that creates a MIDI packet for a NoteOn Message.  It returns a MIDIMessage32 format 
+    packet.  What does the UP stand for? (Universal Packet? Groups appears to be a MIDI 2 concept.)
+</ul>
+<p><a name="midic">Start of MIDIC...</a></p>
+<ul>
+<li><a name="MIDIClientCreate" target="_blank"
+    href="https://developer.apple.com/documentation/coremidi/1495360-midiclientcreate?language=objc">MIDIClientCreate</a></li>
+
+<li><a name="MIDIClientCreateWithBlock" 
+    href="https://developer.apple.com/documentation/coremidi/1495330-midiclientcreatewithblock?language=objc" target="_blank">
+    MIDIClientCreateWithBlock</a> -- See <a href="#MIDINotifyBlock">MIDINotifyBlock</a>  </li>
+
+<li><a href="https://developer.apple.com/documentation/coremidi/1495335-midiclientdispose?language=objc"
+     target="_blank" name="MIDIClientDispose">MidiClientDispose</a></li>
+
+<li><a name="MIDIClientRef" target="_blank"
+    href="https://developer.apple.com/documentation/coremidi/midiclientref?language=objc">MIDIClientRef</a></li>
+<li><a name="MIDICVStatus" target="_blank" href="https://developer.apple.com/documentation/coremidi/midicvstatus?language=objc">MIDICVStatus</a>
+    only available with MacOS 11.0+, iOS 14.0+</li>
+</ul>
+<p><a name="midid">Start of MIDID...</a></p>
+<ul>
+<li><a name="MIDIDestinationCreate" target=_blank"
+    href="https://developer.apple.com/documentation/coremidi/1495347-mididestinationcreate?language=objc">
+    MIDIDestinationCreate</a>
+    (<a href="CoreMIDIMapping.html#MIDIDestinationCreate">MIKMIDI Mapping</a>)
+    It is marked as deprecated and is on the deprecated symbols page.</li>
+
+<li><a name="MIDIDestinationCreateWithBlock" target="_blank"
+    href="https://developer.apple.com/documentation/coremidi/1495247-mididestinationcreatewithblock?language=objc">
+    MIDIDestinationCreateWithBlock</a>
+    (<a href="CoreMIDIMapping.html#CoreMIDIDestinationCreateWithBlock">MIKMIDI Mapping<a>) 
+    -- This function creates a virtual destinationavailable.  Although the documentation says that this is deprecated
+    and <a href="#MIDIDestinationCreateWithProtocol">MIDIDestinationCreateWithProtocol<a> should be 
+    used instead, MIDIDestinationCreateWithProtocol is only available for macOS 11.0 and higher,
+    the propriety of being deprecated is doubtful.  See <a href="#MIDIReadBlock">MIDIReadBlock</a></li>
+
+<li><a name="MIDIDestinationCreateWithProtocol"
+     href="https://developer.apple.com/documentation/coremidi/3566476-mididestinationcreatewithprotoco?language=objc"
+     
+     target="_blank">MIDIDestinationCreateWithProtocol</a> -- Creates a
+     virtual destination for the client. See <a href="#MIDIReceiveBlock">MIDIReceiveBlock</a>.  The
+     URL for this page does not have the final letter l at the end of protocol.  This is part of the additions for <b>MIDI 2.0</b>.</li>
+
+<li><a name="MIDIDeviceGetEntity" target="_blank"
+    href="https://developer.apple.com/documentation/coremidi/1495261-mididevicegetentity?language=objc">
+    MIDIDeviceGetEntity</a></li>
+
+<li><a href="https://developer.apple.com/documentation/coremidi/1495354-mididevicegetnumberofentities?language=objc"
+    target="_blank" name="MIDIDeviceGetNumberOfEntities">MIDIDeviceGetNumberOfEntities</a></li>
+
+<li><a href="https://developer.apple.com/documentation/coremidi/midideviceref?language=objc"
+    name="MIDIDeviceRef" target="_blank">MIDIDeviceRef</li>
+</ul>
+<p><a name="midie">Start of MIDIE...</a></p>
+<ul>
+
+<!-- MIDIEndpointDispose -->
+<li><a name="MIDIEndpointDispose" target="_blank">MIDIEndpointDispose</a></li>
+
+<!-- MIDIEndpointGetEntity -->
+<li><a name="MIDIEndpointGetEntity" target="_blank">MIDIEndpointGetEntity</a></li>
+
+<!-- MIDIEndpointGetRefCons -->
+<li><a name="MIDIEndpointGetRefCons" target="_blamk">MIDIEndpointGetRefCons</a></li>
+
+<!-- MIDIEndpointRef -->
+<li><a href="https://developer.apple.com/documentation/coremidi/midiendpointref?language=objc" name="MIDIEndpointRef" target="_blank">MIDIEndpointRef</a></li>
+
+<!-- MIDIEndpointSetRefCons -->
+<li><a name="MIDIEndpointSetRefCons" target=_blank">MIDIEndpointSetRefCons</a></li>
+
+<li><a href="https://developer.apple.com/documentation/coremidi/1495223-midientitygetdestination?language=objc" name="MIDIEntityGetDestination" target="_blank">MIDIEntityGetDestination</a></li>
+
+<li><a href="https://developer.apple.com/documentation/coremidi/1495210-midientitygetdevice?language=objc" name="MIDIEntityGetDevice" target="_blank">MIDIEntityGetDevice</a></li>
+
+<li><a href="https://developer.apple.com/documentation/coremidi/1495188-midientitygetnumberofdestination?language=objc" name="MIDIEntityGetNumberOfDestinations" target="_blank">MIDIEntityGetNumberOfDestinations</a></li>
+
+<li><a href="https://developer.apple.com/documentation/coremidi/1495284-midientitygetnumberofsources?language=objc" name="MIDIEntityGetNumberOfSources" target="_blank">MIDIEntityGetNumberOfSources</a></li>
+
+<li><a href="https://developer.apple.com/documentation/coremidi/1495236-midientitygetsource?language=objc" name="MIDIEntityGetSource" target="_blank">MIDIEntityGetSource</a></li>
+
+<!-- MIDIEntityRef -->
+<li><a href="https://developer.apple.com/documentation/coremidi/midientityref?language=objc" name="MIDIEntityRef" target="_blank">MIDIEntityRef</a></li>
+
+
+<!-- MIDIEventList -->
+<li><a name="MIDIEventList" target="_blank" href="https://developer.apple.com/documentation/coremidi/midieventlist?language=objc">MIDIEventList</a>  - This is part of the additions for <b>MIDI 2.0.</b>
+<ul>
+<li>MIDIProtocolID  protocol</li>
+<li>UInt32 numPackets</li>
+<li>MIDIEventPacket packet[1]</li>
+</ul>
+</li>
+
+
+<!-- MIDIEventListAdd -->
+<li><a name="MIDIEventListAdd" target="_blank" href="https://developer.apple.com/documentation/coremidi/3566481-midieventlistadd?language=objc">MIDIEventListAdd</a> - This is part of the additions for <b>MIDI 2.0</b>.</li>
+
+<!-- MIDIEventListInit -->
+<li><a name="MIDIEventListInit" target="_blank" href="https://developer.apple.com/documentation/coremidi/3566482-midieventlistinit?language=objc">MIDIEventListInit</a> - This is part of the additions for <b>MIDI 2.0</b>.</li>
+
+
+
+
+
+<!-- MIDIEventPacket -->
+<li><a name="MIDIEventPacket" href="https://developer.apple.com/documentation/coremidi/midieventpacket?language=objc"
+    target="_blank">
+    MIDIEventPacket</a>  -- (macOS 11.0+) This is a set of events having the same timestamp with the events 
+    using the UMP (Universal MIDI Packets) 
+    format.  This is part of the additions for the <b>MIDI 2.0</b> standard.  It appears that there can be multiple MIDI messages in the 
+    same packet.  Compare with <a href="#MIDIPacket">MIDIPacket</a>
+<ul>
+<li>MIDITimeStamp  timeStamp  (UInt64)</li>
+<li>UInt32  wordCount</li>
+<li>UInt32  words[64]</li>
+</ul>
+</li>
+
+<!-- MIDIEventPacketNext -->
+<li><a name="MIDIEventPacketNext" target="_blank" href="https://developer.apple.com/documentation/coremidi/3566487-midieventpacketnext?language=objc
+">MIDIEventPacketNext</a> - This is part of the additions for <b>MIDI 2.0</b>.</li>
+
+<li><a name="MIDIExternalDeviceCreate" href="https://developer.apple.com/documentation/coremidi/1508456-midiexternaldevicecreate?language=objc" target="_blank">MIDIExternalDeviceCreate</a> This is associated with the following.
+<ul>
+<li><a href="#MIDISetupAddExternalDevice">MIDISetupAddExternalDevice</a></li>
+<li><a href="#MIDISetupRemoveExternalDevice">MIDISetupRemoveExternalDevice</a></li>
+</ul></li>
+
+</ul>
+<p><a name="midif">Start of MIDIF...</a></p>
+<ul>
+<!-- MIDIFlushOutput -->
+<li><a name="MIDIFlushOutput" target="_blank" href="https://developer.apple.com/documentation/coremidi/1495312-midiflushoutput?language=objc">MIDIFlushOutput</a></li>
+</ul>
+
+<p><a name="midig">Start of MIDIG...</a></p>
+<ul>
+
+<li><a name=MIDIGetDestination" href="https://developer.apple.com/documentation/coremidi/1495108-midigetdestination?language=objc"
+    target="_blank">MIDIGetDestination</a></li>
+
+<li><a href="https://developer.apple.com/documentation/coremidi/1495164-midigetnumberofdevices?language=objc"
+    target="_blank">MIDIGetDevice</a></li>
+
+<!-- MIDIGetNumberOfDestinations -->
+<li><a name="MIDIGetNumberOfDestinations" target="_blank"
+    href="https://developer.apple.com/documentation/coremidi/1495309-midigetnumberofdestinations?language=objc">
+    MIDIGetNumberOfDestinations</a> </li>
+
+<!-- MIDIGetNumberOfDevices -->
+<li><a href="https://developer.apple.com/documentation/coremidi/1495164-midigetnumberofdevices?language=objc"
+    target="_blank" name="MIDIGetNumberOfDevices">MIDIGetNumberOfDevices</a></li>
+
+<li><a href="https://developer.apple.com/documentation/coremidi/1495354-mididevicegetnumberofentities?language=objc" name="MIDIDeviceGetNumberOfEntities" target="_blank">MIDIDeviceGetNumberOfEntities</a></li>
+
+<li><a href="https://developer.apple.com/documentation/coremidi/1495171-midigetnumberofexternaldevices?language=objc" name="MIDIGetNumberOfExternalDevices" target="_blank">MIDIGetNumberOfExternalDevicea</a>
+<ul>
+<li>Confusion over CoreMIDI Destinations, stackOverflow <a href="https://stackoverflow.com/questions/42301373/confusion-over-coremidi-destinations" target="_blank">https://stackoverflow.com/questions/42301373/confusion-over-coremidi-destinations</a> - Discusses virtual and external devices.</li>
+</ul>
+</li>
+
+<li><a href="https://developer.apple.com/documentation/coremidi/1495149-midigetexternaldevice?language=objc" name="MIDIGetExternalDevice" target="_blank">MIDIGetExternalDevice</a></li>
+
+<!-- MIDIGetNumberOfSources -->
+<li><a name="MIDIGetNumberOfSources" 
+    href="https://developer.apple.com/documentation/coremidi/1495116-midigetnumberofsources?language=objc" 
+    target="_blank">
+    MIDIGetNumberOfSources
+    </a></li>
+
+<!-- MIDIGetSource -->
+<li><a name="MIDIGetSource" target="_blank" 
+    href="https://developer.apple.com/documentation/coremidi/1495168-midigetsource?language=objc">
+    MIDIGetSource</a></li>
+
+</ul>
+<p><a name="midii">Start of MIDII...</a></p>
+<ul>
+<!--  MIDI Input Port Create -->
+<li><a name="MIDIInputPortCreate" 
+     href="https://developer.apple.com/documentation/coremidi/1495225-midiinputportcreate?language=objc" 
+    target="_blank">MIDIInputPortCreate</a>  According to the developer documentation page, this function
+    is deprecated.  Use 
+    <a href="https://developer.apple.com/documentation/coremidi/3566488-midiinputportcreatewithprotocol?language=objc" target="_blank">
+    MIDIInputPortCreateWithProtocol</a> instead.</li>
+
+<li><a name="MIDIInputPortCreateWithBlock" 
+    href="https://developer.apple.com/documentation/coremidi/1495333-midiinputportcreatewithblock?language=objc"
+    target="_blank">MIDIInputPortCreateWithBlock</a> This is listed as deprecated, MIDIInputPortCreateWithProtocol is only listed
+    as being available in macOS 11.0 and above.  This function adds an input port to a client.</li>
+
+<li><a name="MIDIInputPortCreateWithProtocol" 
+    href="https://developer.apple.com/documentation/coremidi/3566488-midiinputportcreatewithprotocol?language=objc" target="_blank">
+    MIDIInputPortCreateWithProtocol</a>  (macOS 11.0+)  See <a href="#MIDIReceiveBlock">MIDIReceiveBlock</a>.  Part of the additions for 
+    <b>MIDI 2.0</b>.</li>
+
+<!-- MIDIIOErrorNotification -->
+<li><a name="MIDIIOErrorNotification" target="_blank" 
+    href="https://developer.apple.com/documentation/coremidi/midiioerrornotification?language=objc">
+    MIDIIOErrorNotification</a></li>
+
+</ul>
+<p><a name="midim">Start of MIDIM...</a></p>
+<ul>
+<li><a name="MIDIMessage_128" target="_blank">MIDIMessage_128</a></l
+i>
+</ul>
+<p><a name="midin">Start of MIDIN...</a></p>
+<ul>
+
+<li><a name="MIDINotifyBlock" target="_blank"
+    href="https://developer.apple.com/documentation/coremidi/midinotifyblock?language=objc">
+    MIDINotifyBlock</a> The address of this block is a parameter in    
+    <a href="#MIDIClientCreateWithBlock">MIDIClientCreateWithBlock</a></li>
+
+
+<!-- MIDI Notify Proc -->
+<li><a name="MIDINotifyProc" target="_blank"
+    href="https://developer.apple.com/documentation/coremidi/midinotifyproc?language=objc">MIDINotifyProc</a>   
+    The address of this block is a parameter in  
+    <a href="#MIDIClientCreate">MIDIClientCreate</a></li>
+</ul>
+<p><a name="midio">Start of MIDIO...</a></p>
+<ul>
+<li><a name="MIDIObjectFindByUniqueID"
+     href="https://developer.apple.com/documentation/coremidi/1495191-midiobjectfindbyuniqueid?language=objc"
+     target="_blank">
+     MIDIObjectFindByUniqueID</a></li>
+
+<li><a name="MIDIObjectGetIntegerProperty"
+    href="https://developer.apple.com/documentation/coremidi/1495364-midiobjectgetintegerproperty?language=objc"
+    target="_blank">MIDIObjectGetIntegerProperty</a></li>
+
+<li><a name="MIDIObjectGetStringProperty" 
+    href="https://developer.apple.com/documentation/coremidi/1495282-midiobjectgetstringproperty?language=objc"
+    target="_blank">MIDIObjectGetStringProperty</a></li>
+
+<!-- MIDI Object Ref -->
+<li><a href="https://developer.apple.com/documentation/coremidi/midiobjectref?language=objc" 
+    target="_blank">MIDIObjectRef</a>   This is a generic pointer to a MIDI object.  
+    There are several subclasses, such as MIDIDeviceRef, MIDIEntityRef, and MIDIPortRef, etc.</li>
+
+<!-- MIDIObject Type -->
+<li><a name="MIDIObjectType" 
+     href="https://developer.apple.com/documentation/coremidi/midiobjecttype?language=objc" 
+     target="_blank">MIDIObjectType</a>
+    <ul>
+        
+    <li>kMIDIObjectType_ExternalEntity</li>
+    <li>kMIDIObjectType_ExternalDestination</li>
+    <li>kMIDIObjectType_ExternalMask -- This actually appears twice 
+        in the documentation page for MIDIObjectType</li>
+    <li>kMIDIObjectType_ExternalSource</li>
+    <li>kMIDIObjectType_Other</li>
+    <li>kMIDIObjectType_Entity</li>
+    <li>kMIDIObjectType_Destination</li>
+    <li>kMIDIObjectType_Source</li>
+    </ul>
+    </li>
+
+<!-- MIDIOutputPortCreate -->
+<li><a name="MIDIOutputPortCreate" target="_blank" href="https://developer.apple.com/documentation/coremidi/1495166-midioutputportcreate?language=objc="https://developer.apple.com/documentation/coremidi/1495166-midioutputportcreate?language=objc">MIDIOutputPortCreate</a> Creates an output port through which a client sends outgoing MIDI messages to any MIDI destination.  </li>
+
+<!-- MIDIOutputPortCreateWithProtocol -->
+<li><a name="MIDIOutputPortCreateWithProtocol" target="_blank" href="https://developer.apple.com/documentation/coremidi/3566488-midiinputportcreatewithprotocol?language=objc">MIDIOutputPortCreateWithProtocol</a> - Creates an output port through which a client sends outgoing MIDI messages to any MIDI destination. Part of
+    the additions for <b>MIDI 2.0</b></li>
+</ul>
+
+<p><a name="midip">Start of MIDIP...</a></p>
+
+<ul>
+<!-- MIDIPacket -->
+<li><a href="" name="MIDIPacket" target="_blank">MIDIPacket</a>
+Compare to <a href="#MIDIEventPacket">MIDIEventPacket</a>
+
+
+<ul>
+<li>MIDITimeStamp  timeStamp</li>
+<li>UInt16  lngth</li>
+<li>Byte data[256]</li>
+</ul>
+</li>
+
+<!-- MIDIPacketList -->
+<li><a href="https://developer.apple.com/documentation/coremidi/midipacketlist?language=objc" name="MIDIPacketList" target="_blank">MIDIPacketList</a>
+    There appears to be a 32 bit unsigned integer at the start of the PacketList, with the rest of the PacketList structure being taken
+    up by a number of variable length packets.  With the total number of packets given by the integer in the first four bytes.  This structure is 
+    only for use with MIDI 1 packets.  Each packet can have multiple MIDI messages.</li>
+
+<li><a name="MIDIPacketListAdd" target="_blank" href="https://developer.apple.com/documentation/coremidi/1495128-midipacketlistadd?language=objc">MIDIPacketListAdd</a>  Replacement will be MIDIEventListAdd.</li>
+
+
+
+<li><a name="MIDIPacketListInit" target="_blank" href=https://developer.apple.com/documentation/coremidi/1495218-midipacketlistinit?language=objc">MIDIPacketListInit</a></li>
+
+<!-- MIDIPacketNext -->
+<li><a name="MIDIPacketNext" target="_blank" 
+    href="https://developer.apple.com/documentation/coremidi/1495178-midipacketnext?language=objc">
+    MIDIPacketNext</a></li>
+
+
+<li><a name="MIDIPortConnectSource" 
+    href="https://developer.apple.com/documentation/coremidi/1495278-midiportconnectsource?language=objc"
+    target="_blank">
+    MIDIPortConnectSource</a>  The Apple documentation needs some reworking.  For <i>connRefCon</i>, the text 
+    reads "The data passed to the port's MIDIReadProc or MIDIReadBlock to identify the source" 
+    where the list of items should read "MIDIReadProc, MIDIReadBlock, or MIDIReceiveBlock".  For 
+    <i>port</i>, only MIDIReadProc is mentioned.</li>
+
+<!-- MIDIPortDisconnectSource -->
+<li><a name="MIDIPortDisconnectSource">MIDIPortDisconnectSource</a></li>
+
+<!-- MIDIPortDispose -->
+<li><a name="MIDIPortDispose" target="_blank">MIDIPortDispose</a></li>
+
+<!-- MIDIPortRef -->
+<li><a name="MIDIPortRef" target="_blank">MIDIPortRef</a></li>
+
+<!-- MIDIProtocolID -->
+<li><a name="MIDIProtocolID"
+    href="https://developer.apple.com/documentation/coremidi/midiprotocolid?language=objc" 
+    target="_blank">MIDIProtocolID</a>  There are two possible values in this enum:
+    <ul>
+    <li><a href="#kMIDIProtocol_1_0" target="_blank">
+        kMIDIProtocol_1_0</a> MIDI 1.0</li>
+    <li><a href="#kMIDIProtocol_2_0" target="_blank">
+        kMIDIProtocol_2_0</a> MIDI 2.0</li>
+    </ul>
+
+</li>
+
+
+</ul>
+<p><a name="midir">Start of MIDIR...</a></p>
+<ul>
+<!-- MIDIReadBlock -->
+<li><a name="MIDIReadBlock"a href="https://developer.apple.com/documentation/coremidi/midireadblock?language=objc" target="_blank">MIDIReadBlock</a> 
+    Although the documentation is in the <i>Deprecated Symbols</i>
+    section of the web site, it was not marked as deprecated, although imany of the other items used 
+    with it are marked as deprecated.     There 
+    seems to be some confusion with the connections between the MIDIReadBlock, MIDIReadProc, and 
+    MIDIReceiveBlock.  The following items
+    have the suffix <i>WithBlock</i> and seem to be associated with the MIDIReadBlock.
+    <ul>
+    <li><a href="#MIDIDestinationCreateWithBlock">MIDIDestinationCreateWithBlock</a></li>
+    <li><a href="#MIDIInputPortCreateWithBlock">MIDIInputPortCreateWithBlock</a></li>
+    </ul>  <br /><br />
+    It may be that C functions called by MIDIReadBlock have to be defined in
+    header files so thar the client knows how to get to them.  It is unclear if Objective-C methods
+    can be called within a block.<br /><br />
+    The MIDI client executes the MIDIReadBlock on a high-priority queue.  A problem may be that some
+    functions refuse to work on a high-priority queue or only work on the main queue.  In this case,
+    it may be necessary to set up some kind of message queue between the MIDIReadBlock block and instances of 
+    BRossToolsTextWindow that allows concurrent operation.
+</li>
+
+<!-- MIDIReadProc  -->
+<li><a href="https://developer.apple.com/documentation/coremidi/midireadproc?language=objc" name="MIDIReadProc" 
+    target="_blank">MIDIReadProc</a>  The description is confusing.  When I tried using MIDIReadProc, I had a message that 
+    a thread was started in the main queue and that that
+    was not allowed.  However, that seemed to start when a key was pressed.  Although the 
+    documentation is in the <i>Deprecated Symbols</i>
+    section of the web site, it was not marked as deprecated, although imany of the 
+    other items used with it are marked as deprecated.  
+    (<a href="CoreMIDIMapping.html#MIDIReadProc">MIKMIDI Mapping</a>)
+
+<ul>
+<li><a href="#MIDIInputPortCreate" >MIDIInputPortCreate</a></li>
+<li><a href="#MIDIDestinationCreate">MIDIDestinationCreate</a></li>
+</ul>
+</li>
+
+<!-- MIDIReceiveBlock -->
+<li><a name="MIDIReceiveBlock" 
+    href="https://developer.apple.com/documentation/coremidi/midireceiveblock?language=objc" target="_blank">
+    MIDIReceiveBlock</a>
+    (macOS 11.0+) This is an
+    Objective-C block  used by the 
+    <a href="MIDIInputBlockCreateWithProtocol">MIDIInputPortCreateWithProtocol</a>    
+    and <a href="MIDIDestinationCreateWithProtocol">MIDIDestinationCreateWithProtocol</a>
+    functions. Although it is in the deprecated symbols part of
+    the web site, it is not marked as deprecated.  It seems like is is needed by other functions that have not been
+    deprecated.   
+   
+    The  MIDIReceiveBlock is used with the MIDIInputPortCreateWithProtocol and 
+    MIDIDestinationCreateWithProtocol objects and is 
+    part of the additions for handling <b>MIDI 2.0</b>.
+    <ul>
+    <li><a href="#MIDIDestinationCreateWithProtocol">MIDIDestinationCreateWithProtocol</a></li>
+    <li><a href="#MIDIInputPortCreateWithProtocol">MIDIInputPortCreateWithProtocol</a></li>
+    </ul>
+    </li>
+
+
+<!-- MIDIReceivedEventList -->
+<li><a name="MIDIReceivedEventList" target="_blank">MIDIReceivedEventList</a></li>
+
+
+<!-- MIDIRestart -->
+<li><a name="MIDIRestart" target="_blank" 
+    href="https://developer.apple.com/documentation/coremidi/1495146-midirestart?language=objc">
+    MIDIRestart</a></li>
+
+
+</ul>
+<p><a name="midis">Start of MIDIS...</a></p>
+<ul>
+
+
+
+<!-- MIDISend -->
+<li><a href="https://developer.apple.com/documentation/coremidi/1495289-midisend?language=objc" 
+     name="MIDISend" target="_blank">MIDISend</a> 
+     (<a href="CoreMIDIMapping.html#MIDISend" target="_blank">MIKMIDI Mapping</a>)  Although the documentation says
+     that this is deprecated and should be replaced by <a href=#MIDISendEventList">MIDISendEventList</a>, MIDISendEventList
+     is only avalable with macOS 11.0 and macOS 10.x is still supported.  It is therefore inappropriate to remove it from the
+     section marked deprecated symbols and removed from the currently supported list.</li>
+
+<!-- MIDISendEventList --> 
+<li><a name="MIDISendEventList" target="_blank" href="https://developer.apple.com/documentation/coremidi/3566494-midisendeventlist?language=objc">MIDISendEventList</a> <b>MIDI 2.0</b></li>
+
+<!-- MIDISendSysex -->
+<li><a name="MIDISendSysex" target="_blank" href="">MIDISendSysex</a> Asynchronously sends a single
+    SystemExclusive (SysEx) event. (Available with macOS 10.0+ according to documentation)</li>
+
+
+<li><a name="MIDISetupAddExternalDevice" target="_blank" href="https://developer.apple.com/documentation/coremidi/1508222-midisetupaddexternaldevice?language=objc">MIDISetupAddExternalDevice</a> - See <a href="# MIDIExternalDeviceCreate">MIDIExternalDeviceCreate</a></li>
+
+<li><a name="MIDISetupRemoveExternalDevice" target="_blank" href="https://developer.apple.com/documentation/coremidi/1508370-midisetupremoveexternaldevice?language=objc">MIDISetupAddRemoveExternalDevice</a> - See <a href="# MIDIExternalDeviceCreate">MIDIExternalDeviceCreate</a></li>
+
+<li><a name="MIDISourceCreate" target="_blank"
+    href="https://developer.apple.com/documentation/coremidi/1495212-midisourcecreate?language=objc">
+    MIDISourceCreate</a> 
+    (<a href="CoreMIDIMapping.html#SourceCreate">MIKMIDI mapping</a> ) Creates a virtual source attached to a client.
+    The developer documentation indicates that this is deprecated, and the programmer should use
+    <a href="#MIDISourceCreateWithProtocol">MIDISourceCreateWithProtocol</a> instead.  However MIDISourceCreateWithProtocol is only 
+    available with macOS 11.0 and above so the attribute is misleading.</li>
+
+<li><a name="MIDISourceCreateWithProtocol"
+     href="https://developer.apple.com/documentation/coremidi/3566495-midisourcecreatewithprotocol?language=objc"
+     target="_blank">MIDISourceCreateWithProtocol</a> - Part of the additions for <b>MIDI 2.0</b>.</li>
+
+
+
+
+
+<!-- MIDISysexSendRequest -->
+<li><a name="MIDISysexSendRequest" target="_blank" href="https://developer.apple.com/documentation/coremidi/midisysexsendrequest?language=objc">MIDISysexSendRequest</a> - Struct describing the message to be 
+    sent by <a href="#MIDISendSysex">MIDISendSysex</a> (Available with macOS 10.0+ according to documentation)</li>
+
+
+</ul>
+<p><a name="midit">Start of MIDIT...</a></p>
+<ul>
+
+<!-- MIDITimeStamp -->
+<li><a name="MIDITimeStamp" target="_blank" href="https://developer.apple.com/documentation/coremidi/miditimestamp?language=objc">MIDITimeStamp</a></li>
+</ul>
+
+<h2>Foundation Framework</h2>
+</ul>
+<p><a name="nss">Start of NSS...</a></p>
+<ul>
+<li><a name="NSString" target="_blank">NSString</a></li>
+</ul>
+</body>
+</html>
+
+

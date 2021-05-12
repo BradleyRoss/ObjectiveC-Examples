@@ -1,0 +1,107 @@
+Placed a write statement to BRossToolsTextWindow in readBlock2  
+
+This is the code after modification
+
+         BRossToolsTextWindow *tempWindow =( __bridge BRossToolsTextWindow *)srcConnRefCon;
+        [tempWindow appendString:@"Test"];
+*****  *****  *****  *****
+  *****  *****  *****  *****
+  *****  *****  *****  *****
+  *****  *****  *****  *****
+  *****  *****  *****  *****
+  *****  *****  *****  *****
+  *****  *****  *****  *****
+This is what the applicationn wrote using NSLog within Xcode.
+
+
+2021-04-09 20:38:09.177745-0400 BRossTools[14798:499760] Metal API Validation Enabled
+2021-04-09 20:38:09.261578-0400 BRossTools[14798:499760] bleep method entered: message is m3
+2021-04-09 20:38:09.298420-0400 BRossTools[14798:499760] Setting window title to Listen for notes
+2021-04-09 20:38:09.298966-0400 BRossTools[14798:499760] BRossToolsMIDIListenForInput2 - use subroutines from original article
+2021-04-09 20:38:10.107522-0400 BRossTools[14798:499760] Name of source is *KEYBOARD*
+2021-04-09 20:38:10.107724-0400 BRossTools[14798:499760] Mach time conversion numerator: 125 denominator: 3
+2021-04-09 20:38:10.107793-0400 BRossTools[14798:499760] First time: 20ccad7e494
+2021-04-09 20:38:10.107995-0400 BRossTools[14798:499760] Using MIDIClientCreateWithBlock with MIDINotifyBlock
+2021-04-09 20:38:10.108276-0400 BRossTools[14798:499760] Client created with name of *MIDI Client*
+2021-04-09 20:38:10.108484-0400 BRossTools[14798:499760] Using MIDIInputPortCreateWithBlock
+2021-04-09 20:38:10.108882-0400 BRossTools[14798:499760] Input port created: name is *Input*
+2021-04-09 20:38:10.237851-0400 BRossTools[14798:499760] [plugin] AddInstanceForFactory: No factory registered for id <CFUUID 0x600001bc5ac0> F8BB1C28-BAE8-11D6-9C31-00039315CD46
+(lldb) 
+
+
+  *****  *****  *****  *****
+  *****  *****  *****  *****
+  *****  *****  *****  *****
+  *****  *****  *****  *****
+  *****  *****  *****  *****
+  *****  *****  *****  *****
+  *****  *****  *****  *****
+This is the section of the system log related to the error
+
+Apr  9 20:38:04 BradleyRossMacBook com.apple.xpc.launchd[1] (com.apple.mdworker.shared.07000000-0600-0000-0000-000000000000[14763]): Service exited due to SIGKILL | sent by mds[501]
+Apr  9 20:38:04 BradleyRossMacBook com.apple.xpc.launchd[1] (com.apple.mdworker.shared.01000000-0500-0000-0000-000000000000[14738]): Service exited due to SIGKILL | sent by mds[501]
+Apr  9 20:38:04 BradleyRossMacBook diagnosticd[10143]: System mode client stopped - DTServiceHub (10138) - clearing mode: 0x8, still active: 0x0
+Apr  9 20:38:04 BradleyRossMacBook diagnosticd[10143]: Posting empty stream filter
+Apr  9 20:38:06 BradleyRossMacBook diagnosticd[10143]: allowing DTServiceHub (10138) access to stream due to admin status
+Apr  9 20:38:06 BradleyRossMacBook diagnosticd[10143]: Posting stream filter: "{
+	    category =     {
+	        heartbeat = 34360131584;
+	    };
+	    pid =     {
+	        10138 = 34360131584;
+	        14798 = 34360131584;
+	    };
+	    subsystem =     {
+	        "com.apple.dt.instruments" = 34360131584;
+	        "com.apple.runtime-issues" = 34360131584;
+	    };
+	}"
+Apr  9 20:38:06 BradleyRossMacBook diagnosticd[10143]: System mode client started - DTServiceHub (10138) - mode: 0x8, filter: "{
+	    category =     {
+	        heartbeat = 0;
+	    };
+	    pid =     {
+	        10138 = 0;
+	        14798 = 0;
+	    };
+	    subsystem =     {
+	        "com.apple.dt.instruments" = 0;
+	        "com.apple.runtime-issues" = 0;
+	    };
+	}"
+Apr  9 20:38:11 BradleyRossMacBook BRossTools[14798]: BUG IN CLIENT OF LIBDISPATCH: Assertion failed: Block was expected to execute on queue [com.apple.main-thread]
+Apr  9 20:38:47 BradleyRossMacBook com.apple.xpc.launchd[1] (com.apple.containermanagerd): Service only ran for 0 seconds. Pushing respawn out by 10 seconds.
+
+  *****  *****  *****  *****
+  *****  *****  *****  *****
+  *****  *****  *****  *****
+  *****  *****  *****  *****
+
+
+    /*
+     -[NSTextView textStorage] must be used from main thread only
+     */
+    // NSTextStorage *temp222 =theTextView.textStorage;
+    [stringContents appendAttributedString:aString];
+}
+
+  *****  *****  *****  *****
+  *****  *****  *****  *****
+  *****  *****  *****  *****
+  *****  *****  *****  *****
+    /*
+     -[NSTextView textStorage] must be used from main thread only
+     */    // NSTextStorage *temp222 =theTextView.textStorage;
+    [stringContents appendAttributedString:aString];
+}
+
+
+Problem is apparently in method appendString for BRossToolsTextWindow.  The line causing the error is
+
+[stringContents appendAttributedString:aString];
+
+The debugger put this message next to the above line.
+
+
+
+Thread 9: EXC-BREAKPOINT (code=1, subcode=0x10460fd9c)

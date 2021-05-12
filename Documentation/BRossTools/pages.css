@@ -1,0 +1,10 @@
+
+
+
+table.sized>tbody>tr>td:nth-child(1) {max-width:500px;}
+
+table.sized {border: 1px black solid; border-collapse:collapse;}
+table.sized>tbody>tr>td {border:2px black solid;}
+table.border {border: 2px black solid; border-collapse:collapse;}
+table.border>tbody>tr>td {border: 2px black solid; }
+ 
