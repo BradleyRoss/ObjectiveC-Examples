@@ -9,6 +9,28 @@
 </head>
 <body>
 <h1>CoreMIDI, BRossTools, and Related Items</h1>
+
+<p>A few related pages are listed below.</p>
+<ul>
+<li><a href="midiLibraries.html" target="_blank">MIDI Software Libraries</a> A compilation of some software
+    libraries for writing MIDI software.</li>
+<li><a href="CoreMidi.html" target="_blank">Core MIDI Framework</a> An annotated list of some functions and classes from the Apple
+    Core MIDI library.</li>
+<li><a href="FunctionalArea.html" target="_blank">Architecture Topics</a>  This page gives some information in Core MIDI functions to be used for
+    the new MIDI 2.0 capabilities and the functions to be used before the new architecture is incorporated.  It also contains
+    about the use of some other functions.</li>
+<li><a href="CoreMidiMapping.html" target="_blank">MIKMIDI Mapping</a> When trying to understand software packages, one of the problems
+    is relating information you already know.  I have complete source code for the MIKMIDI code, so I attempted to find references to
+    key functions from Core MIDI in the MIKMIDI code.  These techniques should be extendable to other similar situations.</li>
+</ul>
+<p>I also used Doxygen to document some of the software libraries.</p>
+<ul>
+<li><a href="BRossTools/html/index.html" target="_blank">BRossTools</a></li>
+<li><a href="MIKMIDI/html/index.html" target="_blank">MIKMIDI</a></li>
+<li><a href="CoreMIDI/html/index.html" target="_blank">Core MIDI header files (*.h)</a>  Please note that these header files
+    were designed to be used with HeaderDocs rather than Doxygen.  This will make some of the documentation look a little strange
+    because of differences in keywords.</li>
+</ul>
 <h2>BRossTools</h2>
 <p>The project BRossTools is part of the GitHub repository 
    <a href="https://github.com/BradleyRoss/ObjectiveC-Examples" target="_blank">BradleyRoss/ObjectiveC-Examples</a>
@@ -45,7 +67,7 @@
     <a href="CoreMidi/html/index.html" target="_blank">here</a>.  I have been comparing the information with the
     <a href="https://developer.apple.com/documentation/coremidi?language=objc" target="_blank">
     Developer Documentation for Core MIDI</a>.  This needs to be examined further.  
-    <a href="CoreMIDI.html" target="_blank">An annotated list
+    <a href="CoreMidi.html" target="_blank">An annotated list
     of some of the CoreMIDI data structures can be found here</a>.</p>
 
 
@@ -62,23 +84,35 @@
     <a href="http://comelearncocoawithme.blogspot.com/2011/08/reading-from-external-controllers-with.html"
     target="_blank">http://comelearncocoawithme.blogspot.com/2011/08/reading-from-external-controllers-with.html</a></li>
 <li><a href="https://gist.github.com/jemmons/847cdc494eb332ba1b9f50f18ee8616a" target="_blank">jemmons/Create Input with Block.swift</a>, GitHub Gist.
-<li><a href="https://stackoverflow.com/questions/47660597/using-osx-core-midi-in-a-c-project" target="_blank">Using (OSX) Core MIDI in a c++ project</a>,
+<li><a href="https://stackoverflow.com/questions/47660597/using-osx-core-midi-in-a-c-project" target="_blank">
+    Using (OSX) Core MIDI in a c++ project</a>,
     Stack Overflow.</li>
+
 <li><a href="https://github.com/Reiszecke/CoreMIDI-example" target=_blank">RieszecleCoreMIDI-example</a>, GitHub.
-<li><a href="https://github.com/DerekCook/CoreMidi4J" target="_blank"> DerekCook/CoreMidi4J - Core MIDI Service provider Interface (SPI) 
+
+<li><a href="https://github.com/DerekCook/CoreMidi4J" target="_blank">
+    DerekCook/CoreMidi4J - Core MIDI Service provider Interface (SPI) 
     for Java 1.7 and abov on OS X</a> - This package uses JNI (Java Native Interface) to allow CoreMidi C code 
     to be used by Java in place of its default libraries.  Reading the code
     should enable a better understanding of CoreMIDI.</li>
+
 <li><a href="https://developer.apple.com/forums/thread/666546?login=true&page=1#669056022" targget="_blank">  
     "XCode 12 & iOS 14 getting crash and not able to know exact reason"</a>, 
     https://developer.apple.com/forums/thread/666546?login=true&page=1#669056022 Apple Developer Forum</li> 
-<li><a href=" " target="_blank">volter9/CoreMIDI-Wrapper</a> GitHub project</a></li>
+
+<li><a href="https://github.com/volter9/CoreMIDI-Wrapper" target="_blank">
+    volter9/CoreMIDI-Wrapper</a> GitHub project</a></li>
+
 <li>"Roadmap for a MIDI Cocoa app", Apple Developer Forums,
     <a href="https://developer.apple.com/forums/thread/85199" target="_blank">
     https://developer.apple.com/forums/thread/85199</a></li>
-<li>"CoreMIDI CFRunLoop Question", Apple Developer Forums, <a href="https://lists.apple.com/archives/coreaudio-api/2003/Jun/msg00180.html" target="_blank">
+
+<li>"CoreMIDI CFRunLoop Question", Apple Developer Forums, 
+    <a href="https://lists.apple.com/archives/coreaudio-api/2003/Jun/msg00180.html" target="_blank">
     https://lists.apple.com/archives/coreaudio-api/2003/Jun/msg00180.html</a></li>
-<li><a href="https://github.com/mixedinkey-opensource/MIKMIDI" target=_blank">MIKMIDI</a>The Doxygen documentation for the MIKMIDI library can be found
+
+<li><a href="https://github.com/mixedinkey-opensource/MIKMIDI" target=_blank">MIKMIDI</a>
+    The Doxygen documentation for the MIKMIDI library can be found
     <a href="MIKMIDI/html/index.html" target="_blank">here</a>.   In addition, 
     <a href="CoreMidiMapping.html" target="_blank">this page</a> gives information on how to
     map CoreMIDI to the code in other packages, using MIKMIDI as an example.</li>
@@ -86,14 +120,17 @@
 </ul>
 <p>Some general information about MIDI can be found at the following locations.</p>
 <ul>
+
 <li>"Details about MIDI 2.0&trade;,MIDI-CI, Profiles and Property Exchange", <i>The MIDI&trade; Association</i>
     <a href="https://https://www.midi.org/midi-articles/details-about-midi-2-0-midi-ci-profiles-and-property-exchange" target="_blank">
     https://www.midi.org/midi-articles/details-about-midi-2-0-midi-ci-profiles-and-property-exchange</a>  This should help understand the changes for MIDI 2.0,
     which were adopted 19-January-2020.</li> 
+
 <li>"Looking for Project Ideas: is there MIDI 2.0 software or programming language support?", The MIDI Association Forum, 14-January-2021,
     <a href="https://www.midi.org/forum/7601-looking-for-project-ideas-is-there-midi-2-0-software-or-programming-language-support#reply-7639" target="_blank">
     https://www.midi.org/forum/7601-looking-for-project-ideas-is-there-midi-2-0-software-or-programming-language-support#reply-7639</a>.  - There is mention
     of an unofficial guide at <a href="https://imitone.com/discover-midi" target="_blank">https://imitone.com/discover-midi</a></li>
+
 </ul>
 
 </body>
