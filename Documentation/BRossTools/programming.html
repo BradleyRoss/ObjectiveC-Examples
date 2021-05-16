@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="spreadsheet" href="pages.css">
+<meta charset="UTF-8">
+<meta keywords="midi, programming">
+<title>MIDI Programming</title>
+</head>
+<body>
+
+<h1>MIDI Programming</h1>
+
+<p>The purpose of this document is to provide information on the software programming environments for MIDI
+   software.  This page is a summary, and there will be links to more detailed information.
+
+<p><a href="index.html" target="BRossTools">Return to main page for the BRossTools project.</a></p>
+
+<h2>Apple Systems</h2>
+<p>The bulk of the programming effort for Apple Operating Systems
+   (macOS, tvOS, iOS, watchOS) is done using Xcode. The software can be downloaded for
+   free and the resulting code is freely redistributable, but XCode is not freely 
+   redistributable.  (The normal license requires a separate copy to be downloaded for each programmer.)</p> 
+<p>The following are some of the relevant pages that I have found on the Apple website.</p>
+<ul>
+<li><a href="https://developer.apple.com/audio/" target="_blank">Working with Audio</a></li>
+</ul>
+<p>I have not been able to find example programs for MIDI on Apple's website, and most of the pages that I have 
+   seen on other websites are several years old and need a lot of updating.  I have some example programs in
+   the <a href="https://github.com/bradleyross/ObjectiveC-Examples" target="_blank">BRossTools project in
+   the bradleyross/ObjectiveC-Examples repository on GitHub</a>,
+   <a href="https://bradleyross.github.io/ObjectiveC-Examples/Documentation/BRossTools/" target="_blank">with
+   a documentation page on GitHub.</a></li>
+
+<h2>Java</h2>
+<p>The Java SDK (Software Development Kit) can be downloaded for free from 
+   Oracle's website.  Although it contains a compiler and other utilities, most people use 
+   an IDE such as Eclipse or NetBeans to develop Java software.</p>
+<p>The following is some documentation for MIDI using Java.</p>
+<ul>
+<li><a href="" target="_blank">The Java&trade; Tutorials - Overview of the MIDI package, Oracle </a></li>
+</ul>
+<p>The following are some attempts to provide links between Java and the CoreMIDI framework in macOS.</p>
+<ul>
+<li><a href="https://github.com/DerekCook/CoreMidi4J" target="_blank">CoreMidi4j</a>  This uses Java to access
+   the CoreMIDI frameworkin a JNI (Java Native Interface)</li>
+
+<!--  <li><a href=http://www.xfactory-librarians.co.uk/java.html" target="_blank">
+    xfactory Java Runtime Environment</a></li> -->
+
+<li><a href="https://github.com/locurasoft/osxmidi4j" target=_blank">osxmidi4j</a></li>
+</ul>
+<p>I had some examples of Java code but they were from years ago and it looks like they will need
+   to revised..</p>
+
+<h2>UNIX</h2>
+<p>UNIX is available as a set of individual distributions, with each distribution normally obtained from a different
+   source, although some sources may support multiple distributions.  UNIX is designed for source code compatibility
+   rather than the interchangability of executable code.<p>
+<p>I have found a list of <a href="http://linux-sound.org/one-page.html#midi" target="_blank">Sound and MIDI software for Linux</a>,
+   I am not sure how they can be combined into a unified system.  The problem is that the backbone of the MIDI system
+   is not defined as part of the Linux standard.  However, there appears to be an ALSA specification for a MIDI server.
+   If ALSA really is the standard, it will make things somewhat easier.</p>
+<ul>
+<li><a href="http://tedfelix.com/linux/linux-midi.html" target="_blank"> Ted's Linux MIDI Guide</a></li>
+<li><a href="https://tldp.org/HOWTO/MIDI-HOWTO.html" target+"_blank">  The Linux MIDI-HOWTO</a></li>
+</ul>
+<p>I have very little experience with MIDI on Linus or other flavors of UNIX.  If you want to work in this
+   area, you will have to find somebody a lot more familiar with the subject than myself.</p>
+
+<h2>Windows</h2>
+<p>The most commonly used IDE for Microsoft operating systems is Visual Studio.  There is a free version, 
+   Microsoft Virtual Studio 1999, Community Edition.  There are few limitations for development of Open Source 
+   software or by organizations with under 250 employees.  However. some component libraries may have
+   a separate fee.</p>
+<p>Microsoft has some samples of MIDI programs.</p>
+<ul>
+<li><a href="https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/MIDI" target="_blank">
+    MIDI example program on GitHub</a>.</li>
+<li><a href="https://docs.microsoft.com/en-us/samples/microsoft/windows-universal-samples/midi/" target="_blank">
+    MIDI sample</a>  This is the related page in the Microsoft Documentation Site.</li>
+<li><a href="" target="_blank">Windows.Devices.MIDI Namespace</a></li>
+</ul>
+<p><a href="https://www.gearnews.com/virtualmidisynth-windows-midi-synth-doesnt-suck/" target="_blank">VirtualMIDISynth: a Windows MIDI Synth that doesn't suck</a></p>
+
+</body>
+<html>
