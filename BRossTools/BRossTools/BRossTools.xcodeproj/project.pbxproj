@@ -73,8 +73,8 @@
 		9015510F25C87BA8006DA674 /* LocalClasses.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocalClasses.m; sourceTree = "<group>"; };
 		9015511425C87BCD006DA674 /* LocalClasses.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocalClasses.h; sourceTree = "<group>"; };
 		902C70D725F6C6D9000C75F7 /* MIKMIDI.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = MIKMIDI.xcframework; sourceTree = "<group>"; };
-		9032806C25F564BF0096BD56 /* MIKMIDIsamples.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MIKMIDIsamples.m; sourceTree = "<group>"; };
-		9032807125F5653C0096BD56 /* MIKMIDIsamples.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MIKMIDIsamples.h; sourceTree = "<group>"; };
+		9032806C25F564BF0096BD56 /* MIKMIDIsamples.m.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.objc; path = MIKMIDIsamples.m.txt; sourceTree = "<group>"; };
+		9032807125F5653C0096BD56 /* MIKMIDIsamples.h.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = MIKMIDIsamples.h.txt; sourceTree = "<group>"; };
 		905212D425E34D9C00DB595E /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		905212D625E34DAE00DB595E /* CoreMIDI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMIDI.framework; path = System/Library/Frameworks/CoreMIDI.framework; sourceTree = SDKROOT; };
 		905212DB25E34DEF00DB595E /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -198,8 +198,8 @@
 				90A7F975262646130033B494 /* BRossToolsMIDISendMIDI.m */,
 				9015511425C87BCD006DA674 /* LocalClasses.h */,
 				90077A582616A6CB00C7B0E4 /* Doxyfile */,
-				9032806C25F564BF0096BD56 /* MIKMIDIsamples.m */,
-				9032807125F5653C0096BD56 /* MIKMIDIsamples.h */,
+				9032806C25F564BF0096BD56 /* MIKMIDIsamples.m.txt */,
+				9032807125F5653C0096BD56 /* MIKMIDIsamples.h.txt */,
 				90077A512616A46300C7B0E4 /* Documentation */,
 			);
 			path = BRossTools;
@@ -468,7 +468,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
-				ONLY_ACTIVE_ARCH = NO;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
 			};
 			name = Debug;
@@ -522,6 +522,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
 			};
 			name = Release;
@@ -546,6 +547,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 11.2;
 				PRODUCT_BUNDLE_IDENTIFIER = BradleyRoss.BRossTools;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -571,6 +573,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 11.2;
 				PRODUCT_BUNDLE_IDENTIFIER = BradleyRoss.BRossTools;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
