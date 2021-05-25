@@ -23,8 +23,15 @@
 //  *****  *****  *****  *****
 //  *****  *****  *****  *****
 //  *****  *****  *****  *****
-
 /**
+ @brief Placeholder for temporary tests
+
+ */
+@interface tempTest:NSObject
++ (void)runtest;
+@end
+/**
+
  
  @brief Creates an array of NSString and dispays them.
  */

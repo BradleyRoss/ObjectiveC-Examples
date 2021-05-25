@@ -16,6 +16,7 @@
 # import "BRossToolsMIDI.h"
 # import "LocalClasses.h"
 // import "MIKMIDIsamples.h"
+# import "BRossToolsSynthesizer.h"
 
 
 //  *****  *****  *****  *****  *****
@@ -96,6 +97,8 @@ static BRossToolsMIDIListenForInput2 *listener;
             } else if ([message isEqualToString:@"m6"]) {
                 BRossToolsTextWindow *sendWindow = [BRossToolsTextWindow newWindow];
                 [[TestSendDummy alloc] runtestWithWindow:sendWindow];
+            } else if ([message isEqualToString:@"temp"]) {
+                [tempTest runtest];
             } else {
                 NSLog(@"invalid code");
             }
@@ -109,7 +112,8 @@ static BRossToolsMIDIListenForInput2 *listener;
  */
 + (NSView *) menu {
     // NSStackView *stackView = [NSStackView alloc]
-    
+    BRossToolsButton *temp = [BRossToolsButton initUsingObjectIdent:self selector:@selector(bleep:) caption:@"Temporary place holder for tests"
+            ident:@"temp" ];
     BRossToolsButton *b1 = [BRossToolsButton initUsingObjectIdent:self selector:@selector(bleep:) caption:@"This will trigger the e2 test which opens a window, colors it, and inserts a few text fields and buttons" ident:@"b1" ];
     BRossToolsButton *b2 = [BRossToolsButton initUsingObjectIdent:self selector:@selector(bleep:) caption:@"run test1 new window plus fields" ident:@"b2" ];
     BRossToolsButton *b3 = [BRossToolsButton initUsingObjectIdent:self selector:@selector(bleep:) caption:@"run test2 text handling window" ident:@"b3" ];
@@ -147,7 +151,7 @@ static BRossToolsMIDIListenForInput2 *listener;
         caption:@"Send a dummy MIDIPacketList"
         ident:@"m6"];
     NSStackView *stackView = [NSStackView
-        stackViewWithViews:@[ m3, m4, m5, m6, b5, b6, b1, b2, b3, b4, b7, b8]];
+        stackViewWithViews:@[ temp, m3, m4, m5, m6, b5, b6, b1, b2, b3, b4, b7, b8]];
     stackView.orientation = NSUserInterfaceLayoutOrientationVertical;
     return stackView;
 }
@@ -158,7 +162,14 @@ static BRossToolsMIDIListenForInput2 *listener;
 //  *****  *****  *****  *****  *****
 //  *****  *****  *****  *****  *****
 
+@implementation tempTest
++ (void) runtest {
+    SequencerDemos *instance = [[SequencerDemos alloc] init];
+    [instance debugTest];
 
+    
+}
+@end
 @implementation test1
 /** Creates an array of three character strings and then displays them.
  */
