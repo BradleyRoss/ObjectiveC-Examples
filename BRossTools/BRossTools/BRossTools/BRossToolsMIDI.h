@@ -5,9 +5,11 @@
 //  Created by Bradley Ross on 3/18/21.
 //
 #import <Foundation/Foundation.h>
+#import <AVFoundation/AVFoundation.h>
+#import <AppKit/AppKit.h>
 #import <CoreMIDI/CoreMIDI.h>
 #import "BRossTools.h"
-#import "BRossToolsMIDI.h"
+// import "BRossToolsMIDI.h"
 #import "LocalClasses.h"
 #ifndef BRossToolsMIDI_h
 #define BRossToolsMIDI_h
@@ -31,6 +33,8 @@
  the main queue and that was not allowed.  It also gave me a number of statements
  that functions used in the program were deprecated.
  
+ 
+ // =to do remove because it doesn't work
  */
 
 @interface BRossToolsMIDIListenForInput:NSObject
@@ -47,7 +51,12 @@
 //  *****  *****  *****  *****  *****  *****
 
 /**
+ 
+ 
  @brief Read keyboard presses using the legacy apis.
+ 
+ I first tried using this
+ [starting eample](http://comelearncocoawithme.blogspot.com/2011/08/reading-from-external-controllers-with.html]
  
  @todo Insert code for selecting MIDI device.
  
@@ -78,14 +87,8 @@
     @brief option for client creation;
          
          0 = ClientCreate with null entry for NotifyProc
-         
-         2021-04-02 22:11:22.615261-0400 BRossTools[21102:1056359] BRossToolsMIDIListenForInput2 - use subroutines from original article
-         
-         2021-04-02 22:11:22.641355-0400 BRossTools[21102:1056359] Client created with name of MIDI client
-         
-         2021-04-02 22:11:22.726058-0400 BRossTools[21102:1056359] [plugin] AddInstanceForFactory: No factory registered for id <CFUUID 0x600002d1d0e0> F8BB1C28-BAE8-11D6-9C31-00039315CD46
         
-            1 = ClientCreate with entry for ReadProc
+        1 = ClientCreate with entry for ReadProc
         */
         int clientCreateOption;
         /**
@@ -118,6 +121,8 @@
 - (BRossToolsTextWindow *) getTextWindow;
 - (void) setTextWindow:(BRossToolsTextWindow *) window;
 - (void) killClient;
+- (void) playMidiFile;
+- (void) recordMidiFile;
 @end
 
 //  *****  *****  *****  *****  *****  *****
@@ -165,7 +170,7 @@
 //  *****  *****  *****  *****  *****  *****
 
 /**
- @brief Send MIDI commands to synthesizer.
+ @brief Send MIDI commands to external or virtual synthesizer.
  @todo  Insert code for selecting MIDI device.
  */
 @interface BRossToolsMIDISendMIDI:NSObject {
@@ -242,8 +247,10 @@
  @brief Read the contents of a MIDIPacketList
  */
 @interface BRossToolsMIDIPacketListRead:NSObject
-
-- (void) initWithWindow:(BRossToolsTextWindow *) window;
+/**
+ //todo should have instancetype for methods beginning with init - test change below
+ */
+- (instancetype) initWithWindow:(BRossToolsTextWindow *) window;
 
 - (void) processPacketList:(MIDIPacketList *) packetList;
 /**
@@ -282,7 +289,7 @@
  @brief initialize packet list
  @param window Text window to be used for displaying information.
  */
-- (id)initWithWindow:(BRossToolsTextWindow *) window;
+- (instancetype)initWithWindow:(BRossToolsTextWindow *) window;
 /**
  @brief Add the packet to the packet list.
  
@@ -339,6 +346,66 @@
 //  *****  *****  *****  *****  *****  *****
 //  *****  *****  *****  *****  *****  *****
 
+/**
+ 
+ The following methods are inherited from AVAudioUnitSampler: prepareToPlay, play
+ 
+ The following methods are inherited from AVAudioUnitMIDIInstrument: sendController:withValue:onChannel:,
+ sendMIDIEvent:data1:, sendMIDIEvent:data1:data2:,msendMIDISysExEvent:, sendPitchBend:onChannel:, sendPressure:onChannel:, sendPressureForKey:withValue:onChannel:, sendProgramChange:bankMSB:bankLSB:onchannel:, sendProgramChange:onChannel:, startNote:withVelocity:onChannel:, stopNote:onChannel:
+ 
+ */
+@interface VirtualSynthesizer:AVAudioUnitSampler
+/**
+ @brief Initialize synthesizer.
+ 
+ Initialize the object with a default sound bank, but no MIDI file will be set up for playing.  The methods inherited
+ from AVAudioUnitMIDIInstrument can be used to play notes on the synthesizer.  In addition, the MIDI file can be
+ selected and played using the other methods for this class.
+ 
+ @returns self.
+ */
 
+- (instancetype) init;
+/**
+ Select one of the two sound bank files bundled with the app.
+ 
+ @param option indicates bundled sound bank to use.
+ 
+ 1 = GeneralUser GS MuseScore v1.442.sf2
+ 
+ 2 = gs_instruments.dls
+ 
+ @returns BOOLEAN YES/NO to indicate whether file picker was successful.  (YES = succeess)
+ */
+- (BOOL) setSoundBank:(UInt8) option;
+
+/**
+ Select one of the two MIDI files bundled in the app.
+ 
+ @param option indicates bundled MIDI file to use.
+ 
+ 1 = sibeliusGMajor.mid
+ 
+ 2 = ntbldmtn.mid (Night on Bald Mountain)
+ 
+ @returns BOOLEAN YES/NO to indicate whether file picker was successful.  (YES = succeess)
+ */
+- (BOOL) selectBuiltInFile:(UInt8) option;
+
+/**
+ @brief Open the file picker to select the MIDI file to play.
+ @returns BOOLEAN YES/NO to indicate whether file picker was successful.  (YES = succeess)
+ */
+ - (BOOL) pickMIDIFileURL;
+
+/**
+ @brief Specify the NSURL for the MIDI file to be played.
+ 
+ @param url  NSURL object for file to be played.
+ 
+ @returns BOOLEAN YES/NO to indicate whether file picker was successful.  (YES = succeess)
+ */
+- (BOOL) setMIDIFileURL:(NSURL *) url;
+@end
 
 #endif /* BRossToolsMIDI_h */

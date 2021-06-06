@@ -1,7 +1,7 @@
 ## BRossTools
 
 This is a test of code to exercise the Xcode system.  One of my goals was to avoid the use of Interface Builder except for attaching items in the menu bar to various programs.  The GitHub documentation for BRossTools is located at  [https://bradleyross.github.io/ObjectiveC-Examples/BRossTools](This is a test of code to exercise the Xcode system.  One of my goals was to avoid the use of Interface Builder except for attaching items in the menu bar to various programs.  The GitHub documentation for BRossTools is located at  
-[https://bradleyross.github.io/ObjectiveC-Examples/Documentation](https://bradleyross.github.io/ObjectiveC-Examples/Documentation/)
+[https://bradleyross.github.io/ObjectiveC-Examples/Documentation/BRossTools](https://bradleyross.github.io/ObjectiveC-Examples/Documentation/BRossTools)
 
 
 
@@ -46,6 +46,44 @@ The following is a list of documentation from Apple that can be used to create, 
 
 *  [Blocks Programming Topics](https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/Blocks/Articles/00_Introduction.html#//apple_ref/doc/uid/TP40007502-CH1-SW1)
 
+#### Apple Objective-C Classes
+
+The following list provides links the Apple documentation that describe some of the various classes used in the program..
+
+* [Audio Toolbox](https://developer.apple.com/documentation/audiotoolbox/music_player?language=objc) I need mpre information on this.
+
+* [AVAudioEngine](https://developer.apple.com/documentation/avfaudio/avaudioengine?language=objc)
+(AVFAudio -> Audio Engine -> AVAudioEngine)</a>  The methods for this class include a number of
+methods having the format connectMIDI... and disconnectMIDI...
+
+* [AVAudioSequencer](https://developer.apple.com/documentation/avfaudio/avaudiosequencer?language=objc) 
+(AVFAudio -> Audio Engine -> AVAudioSequencer)
+
+* [AVAudioUnitMIDIInstrument](https://developer.apple.com/documentation/avfaudio/avaudiounitmidiinstrument?language=objc) 
+(AVFAudio -> Audio Engine -> AVAudioUnitMIDIInstrument)</a>  It appears that  sendProgramChange:onChannel sends a program   (instrument change) while sendProgramChange:bankMSB:bankLSB:onChannel changes both program and sound bank.  This would imply a need to change the instrument choice whenever you change the sound bank.
+
+* [AVAudioUnitSampler](https://developer.apple.com/documentation/avfaudio/avaudiounitsampler?language=objc) 
+(AVFAudio -> Audio Engine -> AVAudioUnitSampler)
+
+* [NSBundle](https://developer.apple.com/documentation/foundation/nsbundle) 
+(Foundation -> Resources -> NSBundle)
+
+* [NSError](//developer.apple.com/documentation/foundation/nserror?language=objc) 
+(Foundation -> Errors and Exceptions -> NSError) [EEZY Tutorials](https://eezytutorials.com/ios/nserror-by-example.php#.YLPzRC1h1pQ) [Error Handling  Programming Guide: Using and Creating Error Objects](https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/ErrorHandlingCocoa/CreateCustomizeNSError/CreateCustomizeNSError.html)
+
+
+* [NSException](https://developer.apple.com/documentation/foundation/nsexception?language=objc) 
+(Foundation -> Errors and Exceptions -> NSException)</a></li>
+
+* [NSThread](https://developer.apple.com/documentation/foundation/nsthread?language=objc)
+(Foundation -> Processes and Threads -> NSThread)
+
+* [NSTimer](https://developer.apple.com/documentation/foundation/nstimer?language=objc)
+ (Foundation -> TaskManagement -> NSTimer)</a></li>
+
+
+
+
 #### MIDI programming using CoreMIDI
 
 * [Core MIDI](https://developer.apple.com/documentation/coremidi?language=objc)
@@ -65,8 +103,15 @@ The following is a list of documentation from Apple that can be used to create, 
          * CoreData
          * CoreMIDI
          * Cocoa
-         * Foundation   
+         * Foundation     
 
+####  Audio Toolbox
+
+* [Audio Toolbox -> Music Player](https://developer.apple.com/documentation/audiotoolbox/music_player?language=objc)
+* [AVFAudio -> Audio Engine -> AVAudioSequencer](https://developer.apple.com/documentation/avfaudio/avaudiosequencer?language=objc)
+* [GitHub project - AudioKit/MIDISequencer](https://github.com/AudioKit/MIDISequencer)
+* [AVFAudio -> Audio Engine -> AVFAudioUnitMIDIInstrument](https://developer.apple.com/documentation/avfaudio/avaudiounitmidiinstrument?language=objc)
+* [Audio Toolbox -> Audio Unit v3 Plug-In -> AUAudioUnit](https://developer.apple.com/documentation/audiotoolbox/auaudiounit?language=objc)
 
 ####  MIDI documentation
 
@@ -81,3 +126,12 @@ The following is a list of documentation from Apple that can be used to create, 
 *  ["Working With MIDI", Audiobus](https://developer.audiob.us/doc/_working-_with-_m_i_d_i.html)
 
 * https://stackoverflow.com/questions/8795749/coremidi-logging-received-midi-messages-to-an-nstextfield
+
+*  [GitHub project AVFoundationMIDIPlay](https://github.com/genedelisa/AVFoundationMIDIPlay)
+
+#### Electronic Music
+The following are some sources of files for electronic music.
+
+* [Musical Artifacts DLS](https://musical-artifacts.com/artifacts?formats=dls)
+* [Musical Artifacts SF2](https://musical-artifacts.com/artifacts?formats=sf2)
+

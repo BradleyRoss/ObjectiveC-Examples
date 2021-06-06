@@ -17,6 +17,8 @@
 /**
 
  @brief Uses NSOpenPanel to asynchronously select inputMidiFile.
+ 
+ @todo NSOpenPanel does not have default title for panel.   NSSavePanel does have title.
 <ul>
  <li><a href="https://developer.apple.com/documentation/appkit/nssavepanel/1525357-runmodal?language=objc"
  target="_blank">NSSavePanel runModal</a> This page mentions NSFileHandlingPanelOKButton and

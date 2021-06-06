@@ -182,8 +182,8 @@
 		906CEEF625C7AA0900DC5271 /* BRossTools */ = {
 			isa = PBXGroup;
 			children = (
-				906CEEF725C7AA0900DC5271 /* AppDelegate.h */,
 				906CEEF825C7AA0900DC5271 /* AppDelegate.m */,
+				906CEEF725C7AA0900DC5271 /* AppDelegate.h */,
 				906CEEFA25C7AA0900DC5271 /* Assets.xcassets */,
 				906CEEFF25C7AA0900DC5271 /* Info.plist */,
 				906CEF0025C7AA0900DC5271 /* main.m */,

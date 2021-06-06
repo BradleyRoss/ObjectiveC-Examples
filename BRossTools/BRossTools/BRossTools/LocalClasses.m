@@ -27,9 +27,15 @@
 /**
   * Creates the main menu for display on the first window.
  <table>
- <tr><th>code</th> <th> Caption</th><th>ObjectiveC Method </th></tr>
- <tr><td> m3 </td><td>Listen for keystrokes using CoreMIDI (Ver 2)</td><td> [listener runTestWithWindow] </td></tr>
- <tr><td>m4</td>  <td>Kill CoreMIDI Client (Ver 2)</td><td> [listener killClient]   </td></tr>
+ <tr><th>code</th> <th> Caption<br />Action</th><th>ObjectiveC Method </th></tr>
+ <tr><td>temp</td><td>Placeholder for temporary code</td><td>[tempTest runtest]</td></tr>
+ <tr><td> m3 </td><td>Listen for keystrokes using CoreMIDI (Ver 2)<br />
+    listener  = [BRossToolsMIDIListenForInput2 alloc]<br />
+    [listener runtestWithWindow:window]</td>
+    <td> [BRossToolsMIDIListenForinput2 runTestWithWindow] </td></tr>
+ <tr><td>m4</td>  <td>Kill CoreMIDI Client (Ver 2)<br />
+    m3 is run first<br />
+    [listener killClient]</td><td> [BRossToolsMIDIListenForInput2 killClient]   </td></tr>
  <tr><td>m5 </td><td>Read a dummy MIDIPacketList </td><td> [TestReadDummy runtest]   </td></tr>
  <tr><td>b5</td><td>CoreMIDI - Show Configuration </td><td>[CoreMidiSample1 runTest]</td></tr>
  <tr><td>b6 </td><td>CoreMIDI - Show sources/destinations</td><td>[CoreMidiSample1 runTest2]</td></tr>
@@ -80,6 +86,8 @@ static BRossToolsMIDIListenForInput2 *listener;
             } else if ([message isEqualToString:@"b8"]) {
                 [test4 runtest];
          /*
+          m1a will  become Play MIDI file
+          m1b will  become Record MIDI file
             } else if ([message isEqualToString:@"m1"]){
                 [playMIDI runtest];
           */

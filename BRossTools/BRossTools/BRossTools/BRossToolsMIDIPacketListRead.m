@@ -49,8 +49,9 @@ uint32_t numer = 0;
 
 
 
-- (void) initWithWindow:(BRossToolsTextWindow *) window {
+- (instancetype) initWithWindow:(BRossToolsTextWindow *) window {
     textWindow = window;
+    return self;
 }
 /**
  @brief Parse a MIDIPacketList object.
@@ -208,11 +209,12 @@ void printMessage(NSString* message, BRossToolsTextWindow *window) {
  */
 @implementation TestReadDummy
 - (void) runtest {
+    
     BRossToolsTextWindow *window = [BRossToolsTextWindow newWindow];
     MIDIPacketList *list = buildDummy();
     [window appendString:@"Dummy MIDIPacketList has been created\n"];
-    BRossToolsMIDIPacketListRead *reader = [BRossToolsMIDIPacketListRead alloc];
-    [reader initWithWindow:window];
+    BRossToolsMIDIPacketListRead *reader = [[BRossToolsMIDIPacketListRead alloc] initWithWindow:window];
+
     [reader processPacketList:list];
     
     

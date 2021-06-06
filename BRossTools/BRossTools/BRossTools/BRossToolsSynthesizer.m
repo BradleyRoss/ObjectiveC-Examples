@@ -16,11 +16,15 @@
 }
 - (void) debugTest {
     [self selectInputMidiFile];
-    [self selectOutputMidiFile]
-    ;
+    [self selectOutputMidiFile];
+    // [self selectInputMidiFileAsync];
+    // [self selectOutputMidiFileAsync];
 }
 /**
  @brief Uses NSOpenPanel to select inputMidiFile.
+ 
+ NSOpenPanel does not have title.  NSSavePanel does have title.
+ 
 <ul>
  <li><a href="https://developer.apple.com/documentation/appkit/nssavepanel/1525357-runmodal?language=objc"
  target="_blank">NSSavePanel runModal</a> This page mentions NSFileHandlingPanelOKButton and
@@ -33,16 +37,18 @@
  */
 
 - (void) selectInputMidiFileAsync {
+    NSLog(@"Starting selectInputMidiFileAsync");
     NSOpenPanel *openPanel = [NSOpenPanel openPanel];
+    [openPanel setMessage:@"Select input file asynchronously"];
     [openPanel beginWithCompletionHandler:^(NSInteger result) {
         if (result == NSModalResponseOK) {self->inputMidiFile = openPanel.URL;
             NSLog(@"file name is %@", [self->inputMidiFile absoluteString]);
         } else if (result == NSModalResponseAbort) {
-            NSLog(@"selectInputMidiFile NSOpenPanel has been aborted");
+            NSLog(@"selectInputMidiFileAsync NSOpenPanel has been aborted");
         } else if (result == NSModalResponseCancel) {
-            NSLog(@"selectInputMidiFile NSOpenPanel has been cancelled");
+            NSLog(@"selectInputMidiFileAsync NSOpenPanel has been cancelled");
         } else {
-            NSLog(@"selectInputMidiFile NSOpenPanel ended with unknown condition");
+            NSLog(@"selectInputMidiFileAsync NSOpenPanel ended with unknown condition");
         };
     }];
     NSLog(@"Block that will obtain input file name has been launched");
@@ -52,28 +58,34 @@
  Uses NSSavePanel to select outputMidiFile.
  */
 - (void) selectOutputMidiFileAsync {
+    NSLog(@"Starting selectOutputMidiFileAsync");
     NSSavePanel *savePanel = [NSSavePanel savePanel];
+    [savePanel setMessage:@"Select output file asynchronously"];
     [savePanel beginWithCompletionHandler:^(NSInteger result) {
         if (result == NSModalResponseOK) {self->outputMidiFile = savePanel.URL;
-            NSLog(@"file name is %@", [self->outputMidiFile absoluteString]);
+            NSLog(@"Output file name is %@", [self->outputMidiFile absoluteString]);
         } else if (result == NSModalResponseAbort) {
-            NSLog(@"selectOutputMidiFile NSSavePanel has been aborted");
+            NSLog(@"selectOutputMidiFileAsync NSSavePanel has been aborted");
         } else if (result == NSModalResponseCancel) {
-            NSLog(@"selectOutputMidiFile NSSavePanel has been cancelled");
+            NSLog(@"selectOutputMidiFileAsync NSSavePanel has been cancelled");
         } else {
-            NSLog(@"selectOutputMidiFile NSSavePanel ended with unknown condition");
+            NSLog(@"selectOutputMidiFileAsync NSSavePanel ended with unknown condition");
         };
     }];
     NSLog(@"Block that will obtain file name has been launched");
     NSLog(@"At this point, output file has not been selected and value is %@", outputMidiFile);
 }
 - (void) selectInputMidiFile {
+    NSLog(@"Starting selectInputMidiFile");
     NSOpenPanel *openPanel = [NSOpenPanel openPanel];
+    [openPanel setTitleVisibility:true];  // No effect
+    [openPanel setTitle:@"Open File"];
+    [openPanel setMessage:@"Select input file"];
     NSModalResponse result;
     result = [openPanel runModal];
     if (result == NSModalResponseOK) {
         inputMidiFile = openPanel.URL;
-        NSLog(@"file name is %@", [inputMidiFile absoluteString]);
+        NSLog(@"Input file name is %@", [inputMidiFile absoluteString]);
     } else if (result == NSModalResponseAbort) {
         NSLog(@"selectInputMidiFile NSOpenPanel has been aborted");
     } else if (result == NSModalResponseCancel) {
@@ -84,12 +96,14 @@
  
 }
 - (void) selectOutputMidiFile {
+    NSLog(@"Starting selectOutputMidiFile");
     NSSavePanel *savePanel = [NSSavePanel savePanel];
+    [savePanel setMessage:@"Select output file"];
     NSModalResponse result;
     result = [savePanel runModal];
     if (result == NSModalResponseOK) {
         outputMidiFile = savePanel.URL;
-        NSLog(@"file name is %@", [outputMidiFile absoluteString]);
+        NSLog(@"Output file name is %@", [outputMidiFile absoluteString]);
     } else if (result == NSModalResponseAbort) {
         NSLog(@"selectOutputMidiFile NSSavePanel has been aborted");
     } else if (result == NSModalResponseCancel) {
