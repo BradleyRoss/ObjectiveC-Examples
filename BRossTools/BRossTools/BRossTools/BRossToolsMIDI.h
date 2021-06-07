@@ -6,8 +6,10 @@
 //
 #import <Foundation/Foundation.h>
 #import <AVFoundation/AVFoundation.h>
+
 #import <AppKit/AppKit.h>
 #import <CoreMIDI/CoreMIDI.h>
+#import <AVFAudio/AVFAudio.h>
 #import "BRossTools.h"
 // import "BRossToolsMIDI.h"
 #import "LocalClasses.h"
@@ -83,18 +85,8 @@
      indicated by midiClient.
      */
     MIDIPortRef inputPort;
-    /**
-    @brief option for client creation;
-         
-         0 = ClientCreate with null entry for NotifyProc
-        
-        1 = ClientCreate with entry for ReadProc
-        */
-        int clientCreateOption;
-        /**
-         @brief option for creating input port
-         */
-        int inputPortOption;
+ 
+
         
     /**
      @brief name of source device (keyboard)
@@ -209,7 +201,7 @@
      * but is not used by the class.  The software uses MIDIOutputPortCreate
      * for creation of the ouput port for the client.
      */
-    int outputPortOption;
+    // int outputPortOption;
         
     /**
      @brief name of source device (keyboard)
@@ -391,7 +383,15 @@
  @returns BOOLEAN YES/NO to indicate whether file picker was successful.  (YES = succeess)
  */
 - (BOOL) selectBuiltInFile:(UInt8) option;
-
+/**
+ @Select the default instrument to be used.
+ 
+ <a href="https://www.midi.org/specifications-old/item/gm-level-1-sound-set" target="_blank">
+ A list of instruments can me found on the MIDI&trade;
+ Association web site</a>.  Note that the values entered for the option ranges from 0 to 127 while the numbers for the instruments
+ range from 1 to 128.
+ 
+ */
 /**
  @brief Open the file picker to select the MIDI file to play.
  @returns BOOLEAN YES/NO to indicate whether file picker was successful.  (YES = succeess)
@@ -406,6 +406,128 @@
  @returns BOOLEAN YES/NO to indicate whether file picker was successful.  (YES = succeess)
  */
 - (BOOL) setMIDIFileURL:(NSURL *) url;
+- (BOOL) loadSoundbankAndInstrument;
+- (void) debugValues;
++ (void) test1;
 @end
+@interface PlayMIDIFile:NSObject
+- (PlayMIDIFile *) init;
+/**
+ @brief Select one of the MIDI files contained in the app.
+ 
+ @param option Indicsates built in MIDI file to play.
+ 
+ There are two MIDI files contained in the main bundle of the application.
+ 
+ 1 = sibeliusGMajor.mid
+ 
+ 2 = ntbldmtn.mid (Night on Bald Mountain)
+ 
+ @returns BOOLEAN YES/NO to indicate whether the method was run successfully - YES indicates success
+ */
+- (BOOL) selectBuiltinFile:(UInt8) option;
+- (void) songFinished;
 
+// ******  *****  *****  *****  *****  *****  *****
+// ******  *****  *****  *****  *****  *****  *****
+// ******  *****  *****  *****  *****  *****  *****
+// ******  *****  *****  *****  *****  *****  *****
+// ******  *****  *****  *****  *****  *****  *****
+// ******  *****  *****  *****  *****  *****  *****
+
+
+/**
+ @brief Open a modal window to select a MIDI file.
+ 
+ @returns BOOLEAN YES/NO to indicate whether the method was run successfully - YES indicates success
+ */
+- (BOOL) pickMIDIFileURL;
+
+
+
+/**
+ @brief specify the source of the MIDI file to be played.
+ 
+ @param url This is the NSURL value for the file to be played.  It is the same
+                NSURL value that would be loaded if you were using
+                pickMIDIFileURL to specify the file
+ @returns BOOLEAN YES/NO to indicate whether the method was run successfully - YES indicates success
+ */
+- (BOOL) setMIDIFileURL:(NSURL *) url;
+
+
+
+// ******  *****  *****  *****  *****  *****  *****
+// ******  *****  *****  *****  *****  *****  *****
+// ******  *****  *****  *****  *****  *****  *****
+// ******  *****  *****  *****  *****  *****  *****
+// ******  *****  *****  *****  *****  *****  *****
+// ******  *****  *****  *****  *****  *****  *****
+
+
+/**
+ @brief Select one of two sound banks that are stored in the main bundle.
+ @param option Indicates sound bank to use
+ 
+ 1 = GeneralUser GS MuseScore v1.442.sf2
+ 
+ 2 = gs_instruments.dls
+ */
+- (BOOL) selectSoundBank:(UInt8) option;
+
+// ******  *****  *****  *****  *****  *****  *****
+// ******  *****  *****  *****  *****  *****  *****
+// ******  *****  *****  *****  *****  *****  *****
+// ******  *****  *****  *****  *****  *****  *****
+// ******  *****  *****  *****  *****  *****  *****
+// ******  *****  *****  *****  *****  *****  *****
+
+/**
+ @brief First sample program.
+ '
+ Play a G Major scale
+ 
+ The code to launch this sample case is as follows.
+ <ul>
+ <li>PlayMIDIFile *midiTest = [[PlayMIDIFile alloc] init];</li>
+ <li>[midiTest test1];</li>
+ </ul>
+ */
+- (void) test1;
+
+// ******  *****  *****  *****  *****  *****  *****
+// ******  *****  *****  *****  *****  *****  *****
+// ******  *****  *****  *****  *****  *****  *****
+// ******  *****  *****  *****  *****  *****  *****
+// ******  *****  *****  *****  *****  *****  *****
+// ******  *****  *****  *****  *****  *****  *****
+
+/**
+@brief Second sample program.
+ 
+ Play "Night on Bald Mountain"
+ 
+ The code to launch this sample case is as follows.
+ <ul>
+ <li>PlayMIDIFile *midiTest = [[PlayMIDIFile alloc] init];</li>
+ <li>[midiTest test2];</li>
+ </ul>
+ */
+-  (void) test2;
+ /**
+  @brief Third sample program. - Pick a midi file and play it through software syntesizer.
+  
+  A file picker is used to let the user pick the MIDI file to be played.
+  
+  The selected sound bank is GeneralUser GS MuseScore v1.442.sf2.
+  
+  The code to launch this sample case is as follows.
+  <ul>
+  <li>PlayMIDIFile *midiTest = [[PlayMIDIFile alloc] init];</li>
+  <li>[midiTest test3];</li>
+  </ul>
+  */
+- (void) pickMIDIFileAndPlay;
+
+@end
 #endif /* BRossToolsMIDI_h */

@@ -134,8 +134,6 @@ static void midiNotifyCallback ( const MIDINotification *message, void *refCon) 
         textWindow.title = @"CoreMIDI Operations";
     }*/
     NSLog(@"BRossToolsMIDISendMIDI");
-    clientCreateOption = 2;
-    outputPortOption = 1;
     NSThread *mainThread = NSThread.mainThread ;
     NSThread *currentThread = NSThread.currentThread;
     NSLog(@"Current thread is %@", currentThread);
@@ -154,12 +152,12 @@ if (numberOfDestinations == 0) {
     result = MIDIObjectGetStringProperty(destRef, kMIDIPropertyName, &destName);
     if (result == noErr) {
         NSString *message = [[NSString alloc]
-                initWithFormat:@"Name of source is *%@* \n", destName];
+                initWithFormat:@"Name of destination is *%@* \n", destName];
         [textWindow appendString:message];
         NSLog(@"%@", message);
     } else {
         NSString *message = [[NSString alloc]
-            initWithFormat:@"Error obtaining source name - code: %d \n", result];
+            initWithFormat:@"Error obtaining destination name - code: %d \n", result];
         [textWindow appendString:message];
     }
     /*

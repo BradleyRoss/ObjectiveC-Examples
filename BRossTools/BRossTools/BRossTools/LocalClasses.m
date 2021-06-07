@@ -33,10 +33,17 @@
     listener  = [BRossToolsMIDIListenForInput2 alloc]<br />
     [listener runtestWithWindow:window]</td>
     <td> [BRossToolsMIDIListenForinput2 runTestWithWindow] </td></tr>
+ <tr><td>m3a</td><td>Send keystrokes to virtual synthesizer</td>
+        <td>[BRossToolsMIDIListenForInput2 initWithsynthesizer]</td>,/tr>
  <tr><td>m4</td>  <td>Kill CoreMIDI Client (Ver 2)<br />
     m3 is run first<br />
     [listener killClient]</td><td> [BRossToolsMIDIListenForInput2 killClient]   </td></tr>
- <tr><td>m5 </td><td>Read a dummy MIDIPacketList </td><td> [TestReadDummy runtest]   </td></tr>
+ <tr><td>m1a</td><td>Select and play MIDI song</td>
+        <td></td></tr>
+ <tr><td>m5 </td><td>Read a dummy MIDIPacketList </td><td> [TestReadDummy runtest]
+    </td></tr>
+ <tr><td>m6</td><td>Send a dummy MIDIPacketList</td>
+       <td>[[TestSendDummy alloc] runtestWithWindow:sendWindow]</td></tr>
  <tr><td>b5</td><td>CoreMIDI - Show Configuration </td><td>[CoreMidiSample1 runTest]</td></tr>
  <tr><td>b6 </td><td>CoreMIDI - Show sources/destinations</td><td>[CoreMidiSample1 runTest2]</td></tr>
  <tr><td>b1</td><td>Opens a window, colors, text fields, buttons</td> <td>[e2 runtest]</td></tr>
@@ -91,9 +98,12 @@ static BRossToolsMIDIListenForInput2 *listener;
             } else if ([message isEqualToString:@"m1"]){
                 [playMIDI runtest];
           */
-            }else if ([message isEqualToString:@"m2"]){
+            } else if ([message isEqualToString:@"m1a"]) {
+                PlayMIDIFile *midiTest = [[PlayMIDIFile alloc] init];
+                [midiTest pickMIDIFileAndPlay];
+            } else if ([message isEqualToString:@"m2"]){
                 [[BRossToolsMIDIListenForInput alloc] runtest];
-            }else if ([message isEqualToString:@"m3"]){
+            } else if ([message isEqualToString:@"m3"]){
                 window = [BRossToolsTextWindow newWindow];
                 window.title=@"Listen for notes";
                  listener = [BRossToolsMIDIListenForInput2 alloc];
@@ -106,7 +116,7 @@ static BRossToolsMIDIListenForInput2 *listener;
                 BRossToolsTextWindow *sendWindow = [BRossToolsTextWindow newWindow];
                 [[TestSendDummy alloc] runtestWithWindow:sendWindow];
             } else if ([message isEqualToString:@"temp"]) {
-                [tempTest runtest];
+                [tempTest runtest:4];
             } else {
                 NSLog(@"invalid code");
             }
@@ -139,6 +149,11 @@ static BRossToolsMIDIListenForInput2 *listener;
     /*
     BRossToolsButton *m1 = [BRossToolsButton initUsingObjectIdent:self selector:@selector(bleep:) caption:@"Play MIDI file using MIKMIDI samples" ident:@"m1" ];
      */
+    BRossToolsButton *m1a = [BRossToolsButton initUsingObjectIdent:self
+        selector:@selector(bleep:)
+        caption:@"Select and play MIDI file"
+        ident:@"m1a"];
+    
     /*
     BRossToolsButton *m2 = [BRossToolsButton initUsingObjectIdent:self selector:@selector(bleep:)
         caption:@"Listen for keystrokes using CoreMIDI  (not working)"
@@ -159,7 +174,7 @@ static BRossToolsMIDIListenForInput2 *listener;
         caption:@"Send a dummy MIDIPacketList"
         ident:@"m6"];
     NSStackView *stackView = [NSStackView
-        stackViewWithViews:@[ temp, m3, m4, m5, m6, b5, b6, b1, b2, b3, b4, b7, b8]];
+        stackViewWithViews:@[ temp, m3, m4, m1a, m5, m6, b5, b6, b1, b2, b3, b4, b7, b8]];
     stackView.orientation = NSUserInterfaceLayoutOrientationVertical;
     return stackView;
 }
@@ -172,10 +187,39 @@ static BRossToolsMIDIListenForInput2 *listener;
 
 @implementation tempTest
 + (void) runtest {
+    /*
     SequencerDemos *instance = [[SequencerDemos alloc] init];
     [instance debugTest];
+     */
+    /*
+    [VirtualSynthesizer test1];
+     */
+    NSLog(@"PlayMIDIFile pickMIDIFileAndPlay");
+     PlayMIDIFile *midiTest = [[PlayMIDIFile alloc] init];
+     [midiTest pickMIDIFileAndPlay];
+     
 
     
+}
++ (void) runtest:(UInt16)testNumber {
+    if (testNumber == 1) {
+        NSLog(@"PlayMIDIFile test1");
+        PlayMIDIFile *midiTest = [[PlayMIDIFile alloc] init];
+        [midiTest test1];
+        
+    }else if (testNumber == 2) {
+        NSLog(@"PlayMIDIFile test2");
+        PlayMIDIFile *midiTest = [[PlayMIDIFile alloc] init];
+        [midiTest test2];
+    } else if (testNumber == 3) {
+        NSLog(@"PlayMIDIFile pickMIDIFileAndPlay");
+        PlayMIDIFile *midiTest = [[PlayMIDIFile alloc] init];
+        [midiTest pickMIDIFileAndPlay];
+    } else if (testNumber == 4 ) {
+        NSLog(@"VirtualSynthesizer test1");
+        [VirtualSynthesizer test1];
+    
+    }
 }
 @end
 @implementation test1

@@ -29,6 +29,7 @@
  */
 @interface tempTest:NSObject
 + (void)runtest;
++ (void) runtest:(UInt16)testNumber;
 @end
 /**
 

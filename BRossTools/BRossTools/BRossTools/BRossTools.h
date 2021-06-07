@@ -11,10 +11,13 @@
  */
 #ifndef BRossTools_h
 #define BRossTools_h
+#import <Foundation/Foundation.h>
 #import <AppKit/AppKit.h>
-
+#import <AVFoundation/AVFoundation.h>
+#import <AVFAudio/AVFAudio.h>
  
  /**
+  *
   * @brief Receives identifying string from a responder
   * This protocol will enable an object to carry out an action based on a string
   * received in an action from another  object

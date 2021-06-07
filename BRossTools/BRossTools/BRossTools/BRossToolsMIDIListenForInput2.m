@@ -194,10 +194,7 @@ void describeNote(Byte data[], int length, BRossToolsTextWindow *window) {
 // *****  *****  *****  *****  *****  *****  *****  *****
 // *****  *****  *****  *****  *****  *****  *****  *****
  /*
-  Error message in log window in Xcode
-  This occurs with both clientCreateOption 0 and 1
-  2021-04-01 13:31:39.866928-0400 BRossTools[15137:693178] BRossToolsMIDIListenForInput2 - use subroutines from original article
-  2021-04-01 13:31:40.806663-0400 BRossTools[15137:693178] [plugin] AddInstanceForFactory: No factory registered for id <CFUUID 0x6000030a1e20> F8BB1C28-BAE8-11D6-9C31-00039315CD46
+ 
   
   Dynamic linking error
   
@@ -206,13 +203,7 @@ void describeNote(Byte data[], int length, BRossToolsTextWindow *window) {
   
   https://developer.apple.com/forums/thread/129136
   
-  I see two possible problems
-  
-  ACR is going a an object to be released early in which case the
-  __bridge attribute may have to be used
-  
-  The code for creating one of the MIDI objects has a bug, causing
-  corrupted structures.
+
   */
 // *****  *****  *****  *****  *****  *****  *****  *****
 // *****  *****  *****  *****  *****  *****  *****  *****
@@ -231,8 +222,8 @@ void describeNote(Byte data[], int length, BRossToolsTextWindow *window) {
         textWindow.title = @"CoreMIDI Operations";
     }*/
     NSLog(@"BRossToolsMIDIListenForInput2");
-    clientCreateOption = 2;
-    inputPortOption = 1;
+   
+    
     /*
     NSThread *mainThread = NSThread.mainThread ;
     NSThread *currentThread = NSThread.currentThread;
@@ -408,19 +399,10 @@ if (numberOfSources == 0) {
     /*
      https://clang.llvm.org/docs/AutomaticReferenceCounting.html     https://stackoverflow.com/questions/14854521/where-and-how-to-bridge
      */
-    if (clientCreateOption == 0) {
-        NSLog(@"Using MIDIClientCreate without MIDINotifyProc");
-     result = MIDIClientCreate((CFStringRef)@"MIDI client", NULL, NULL, &midiClient);
-    }else if (clientCreateOption == 1) {
-        NSLog(@"Using MIDIClientCreate with  MIDINotifyProc");
-        result = MIDIClientCreate((CFStringRef)@"MIDI client", &midiNotifyCallback,  NULL, &midiClient);
-    } else if (clientCreateOption == 2) {
+
         NSLog(@"Using MIDIClientCreateWithBlock with MIDINotifyBlock");
         result = MIDIClientCreateWithBlock((CFStringRef)@"MIDI Client", &midiClient, notifyBlock2);
-    } else {
-        [textWindow appendString:@"invalid option for clientCreateOption - aborting"];
-        return;
-    }
+  
     if (result != noErr) {
         NSString *message = [[NSString alloc]initWithFormat:@"BRossToolsMIDIListenForInput2 MIDIClientCreate failed with code of %d \n ", result];
         [textWindow appendString:message];
@@ -435,15 +417,10 @@ if (numberOfSources == 0) {
      *  create input port
      */
     MIDIPortRef inputPort;
-    if (inputPortOption == 0 ){
-        NSLog(@" Using MIDIInputPortCreate");
-     result = MIDIInputPortCreate(midiClient, (CFStringRef)@"Input", midiInputCallback, (void *)&textWindow, &inputPort);
-    } else if (inputPortOption == 1) {
         NSLog(@"Using MIDIInputPortCreateWithBlock");
         result = MIDIInputPortCreateWithBlock(midiClient, (CFStringRef)@"Input", &inputPort, readBlock2);
-    } else {
-        return;
-    }
+
+    
      
     if (result != noErr) {
         NSString *message = [[NSString alloc]

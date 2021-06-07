@@ -11,6 +11,7 @@
 @implementation SequencerDemos {
     MIDIDeviceRef inputMidiDevice;
     MIDIDeviceRef outputMidiDevice;
+    Boolean useVirtualSynthesizer;
     NSURL *outputMidiFile;
     NSURL *inputMidiFile;
 }
@@ -33,7 +34,7 @@
     target="_blank">NSSavePanel</a></li>
  <li><a href="https://developer.apple.com/library/archive/documentation/FileManagement/Conceptual/FileSystemProgrammingGuide/Introduction/Introduction.html#//apple_ref/doc/uid/TP40010672-CH1-SW1/" target="_blank">File System Programming Guide</a>.</li>
  </ul>
- @todo Should it be runModal or startithCompletionHandler?
+ @todo Should it be runModal or startWithCompletionHandler?
  */
 
 - (void) selectInputMidiFileAsync {

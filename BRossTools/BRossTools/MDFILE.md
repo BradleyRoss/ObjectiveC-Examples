@@ -50,7 +50,7 @@ The following is a list of documentation from Apple that can be used to create, 
 
 The following list provides links the Apple documentation that describe some of the various classes used in the program..
 
-* [Audio Toolbox](https://developer.apple.com/documentation/audiotoolbox/music_player?language=objc) I need mpre information on this.
+* [Audio Toolbox](https://developer.apple.com/documentation/audiotoolbox/music_player?language=objc) I need more information on this.
 
 * [AVAudioEngine](https://developer.apple.com/documentation/avfaudio/avaudioengine?language=objc)
 (AVFAudio -> Audio Engine -> AVAudioEngine)</a>  The methods for this class include a number of
@@ -69,7 +69,7 @@ methods having the format connectMIDI... and disconnectMIDI...
 (Foundation -> Resources -> NSBundle)
 
 * [NSError](//developer.apple.com/documentation/foundation/nserror?language=objc) 
-(Foundation -> Errors and Exceptions -> NSError) [EEZY Tutorials](https://eezytutorials.com/ios/nserror-by-example.php#.YLPzRC1h1pQ) [Error Handling  Programming Guide: Using and Creating Error Objects](https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/ErrorHandlingCocoa/CreateCustomizeNSError/CreateCustomizeNSError.html)
+(Foundation -> Errors and Exceptions -> NSError) [(EEZY Tutorials)](https://eezytutorials.com/ios/nserror-by-example.php#.YLPzRC1h1pQ) [(Error Handling  Programming Guide: Using and Creating Error Objects)](https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/ErrorHandlingCocoa/CreateCustomizeNSError/CreateCustomizeNSError.html)
 
 
 * [NSException](https://developer.apple.com/documentation/foundation/nsexception?language=objc) 
