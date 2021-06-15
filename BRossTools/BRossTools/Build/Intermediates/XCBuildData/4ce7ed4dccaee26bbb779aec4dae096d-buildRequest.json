@@ -1,0 +1,58 @@
+{
+  "buildCommand" : "prepareForIndexing",
+  "configuredTargets" : [
+    {
+      "guid" : "c8a5c95922fff92dafb008c2010b9f5c72d5f5a1fb05d490f7875a14bc77124b"
+    },
+    {
+      "guid" : "c8a5c95922fff92dafb008c2010b9f5cc5875796b8d4088a79072368df77d31d"
+    },
+    {
+      "guid" : "c8a5c95922fff92dafb008c2010b9f5c8cd5ac71bdb86ba89a8d06567596d4d1"
+    }
+  ],
+  "continueBuildingAfterErrors" : true,
+  "enableIndexBuildArena" : false,
+  "hideShellScriptEnvironment" : false,
+  "parameters" : {
+    "action" : "build",
+    "activeArchitecture" : "arm64",
+    "activeRunDestination" : {
+      "disableOnlyActiveArch" : false,
+      "platform" : "macosx",
+      "sdk" : "macosx11.3",
+      "sdkVariant" : "macos",
+      "supportedArchitectures" : [
+        "arm64e",
+        "arm64",
+        "x86_64"
+      ],
+      "targetArchitecture" : "arm64"
+    },
+    "arenaInfo" : {
+      "buildIntermediatesPath" : "/Users/bradleyross/Documents/GitHub/Reload/Untitled/ObjectiveC-Examples/BRossTools/BRossTools/Build/Intermediates",
+      "buildProductsPath" : "/Users/bradleyross/Documents/GitHub/Reload/Untitled/ObjectiveC-Examples/BRossTools/BRossTools/Build/Products",
+      "derivedDataPath" : "/Users/bradleyross/Documents/GitHub/Reload/Untitled/ObjectiveC-Examples/BRossTools/BRossTools/DerivedData",
+      "indexDataStoreFolderPath" : "/Users/bradleyross/Documents/GitHub/Reload/Untitled/ObjectiveC-Examples/BRossTools/BRossTools/DerivedData/BRossTools/Index/DataStore",
+      "indexEnableDataStore" : true,
+      "indexPCHPath" : "/Users/bradleyross/Documents/GitHub/Reload/Untitled/ObjectiveC-Examples/BRossTools/BRossTools/DerivedData/BRossTools/Index/PrecompiledHeaders",
+      "pchPath" : "/Users/bradleyross/Documents/GitHub/Reload/Untitled/ObjectiveC-Examples/BRossTools/BRossTools/Build/Intermediates/PrecompiledHeaders"
+    },
+    "configurationName" : "Debug",
+    "overrides" : {
+      "synthesized" : {
+        "table" : {
+          "ENABLE_PREVIEWS" : "NO"
+        }
+      }
+    }
+  },
+  "qos" : "default",
+  "schemeCommand" : "launch",
+  "shouldCollectMetrics" : false,
+  "showNonLoggedProgress" : true,
+  "useDryRun" : true,
+  "useImplicitDependencies" : true,
+  "useLegacyBuildLocations" : false,
+  "useParallelTargets" : true
+}

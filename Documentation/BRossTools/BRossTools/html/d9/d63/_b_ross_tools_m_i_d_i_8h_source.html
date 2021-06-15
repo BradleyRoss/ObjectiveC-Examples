@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>BRossTools: /Users/bradleyross/Documents/GitHub/ObjectiveC-Examples/BRossTools/BRossTools/BRossTools/BRossToolsMIDI.h Source File</title>
+<title>BRossTools: BRossTools/BRossToolsMIDI.h Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -61,7 +61,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="../../dir_e5fbe6d2783ccd4c93c7856d92d7be6e.html">GitHub</a></li><li class="navelem"><a class="el" href="../../dir_cc6e12aed97e9dde9ee07b1cd572a52c.html">ObjectiveC-Examples</a></li><li class="navelem"><a class="el" href="../../dir_1c5de74a934e4a5d2a8e5248429d1000.html">BRossTools</a></li><li class="navelem"><a class="el" href="../../dir_d7f368544736ba0d9f1f186e04eb3dab.html">BRossTools</a></li><li class="navelem"><a class="el" href="../../dir_6a5db01ea446548ca69d5ce363798089.html">BRossTools</a></li>  </ul>
+<li class="navelem"><a class="el" href="../../dir_3c9381d376dcd2fb9cb9b2bc3346cebe.html">BRossTools</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -69,389 +69,531 @@ $(function() {
 <div class="title">BRossToolsMIDI.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="../../d9/d63/_b_ross_tools_m_i_d_i_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">//</span></div>
+<a href="../../d9/d63/_b_ross_tools_m_i_d_i_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno"><a class="line" href="../../d6/ddb/interface_b_ross_tools_m_i_d_i_listen_for_input2.html#ad5353072039509d052c9ec5030c61fee">    1</a></span>&#160;<span class="comment">//</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">//  CoreMIDIsamples.h</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">//  BRossTools</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">//</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">//  Created by Bradley Ross on 3/18/21.</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">//</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#import &lt;Foundation/Foundation.h&gt;</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#import &lt;CoreMIDI/CoreMIDI.h&gt;</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#import &quot;<a class="code" href="../../df/db4/_b_ross_tools_8h.html">BRossTools.h</a>&quot;</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#import &quot;<a class="code" href="../../d9/d63/_b_ross_tools_m_i_d_i_8h.html">BRossToolsMIDI.h</a>&quot;</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#import &quot;<a class="code" href="../../de/d97/_local_classes_8h.html">LocalClasses.h</a>&quot;</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#ifndef BRossToolsMIDI_h</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#define BRossToolsMIDI_h</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">//  *****  *****  *****  *****  *****  *****</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment">//  *****  *****  *****  *****  *****  *****</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">//  *****  *****  *****  *****  *****  *****</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment">//  *****  *****  *****  *****  *****  *****</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#import &lt;AVFoundation/AVFoundation.h&gt;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#import &lt;AppKit/AppKit.h&gt;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#import &lt;CoreMIDI/CoreMIDI.h&gt;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#import &lt;AVFAudio/AVFAudio.h&gt;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#import &quot;<a class="code" href="../../df/db4/_b_ross_tools_8h.html">BRossTools.h</a>&quot;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">// import &quot;BRossToolsMIDI.h&quot;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#import &quot;<a class="code" href="../../de/d97/_local_classes_8h.html">LocalClasses.h</a>&quot;</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#ifndef BRossToolsMIDI_h</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#define BRossToolsMIDI_h</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment">//  *****  *****  *****  *****  *****  *****</span></div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment">//  *****  *****  *****  *****  *****  *****</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment"></span> </div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="comment">/**</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment"> @brief Use CoreMIDI to read key strokes for notes.</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="comment"> </span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="comment"> Listens for keystrokes on a MIDI keyboard.</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="comment"> </span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="comment"> I first tried using this</span></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="comment"> [starting eample](http://comelearncocoawithme.blogspot.com/2011/08/reading-from-external-controllers-with.html]</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="comment"> however it gave me a message that the program was trying to start a task on</span></div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="comment"> the main queue and that was not allowed.  It also gave me a number of statements</span></div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="comment"> that functions used in the program were deprecated.</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment">//  *****  *****  *****  *****  *****  *****</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment">//  *****  *****  *****  *****  *****  *****</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="comment">//  *****  *****  *****  *****  *****  *****</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment">//  *****  *****  *****  *****  *****  *****</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="comment">/**</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="comment"> </span></div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="comment"> </span></div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
-<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="../../db/d97/interface_b_ross_tools_m_i_d_i_listen_for_input.html">   36</a></span>&#160;<span class="keyword">@interface </span><a class="code" href="../../db/d97/interface_b_ross_tools_m_i_d_i_listen_for_input.html">BRossToolsMIDIListenForInput</a>:<a class="code" href="../../d7/dc4/class_n_s_object.html">NSObject</a></div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;- (void) <a class="code" href="../../db/d97/interface_b_ross_tools_m_i_d_i_listen_for_input.html#a100eaba688eff9dceff837f034a6c44c">runtest</a>;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;- (<a class="code" href="../../d0/d85/interface_b_ross_tools_text_window.html">BRossToolsTextWindow</a> *) <a class="code" href="../../db/d97/interface_b_ross_tools_m_i_d_i_listen_for_input.html#a3a4ab8f5fcb1b10ef21c3145a79c8a91">getTextWindow</a>;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;- (void) setTextWindow:(<a class="code" href="../../d0/d85/interface_b_ross_tools_text_window.html">BRossToolsTextWindow</a> *) window;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="keyword">@end</span></div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="comment">//  *****  *****  *****  *****  *****  *****</span></div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="comment">//  *****  *****  *****  *****  *****  *****</span></div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="comment">//  *****  *****  *****  *****  *****  *****</span></div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="comment">//  *****  *****  *****  *****  *****  *****</span></div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="comment">//  *****  *****  *****  *****  *****  *****</span></div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="comment">//  *****  *****  *****  *****  *****  *****</span></div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="comment"></span> </div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="comment">/**</span></div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="comment"> @brief Read keyboard presses using the legacy apis.</span></div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="comment"> </span></div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="comment"> @todo Insert code for selecting MIDI device.</span></div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="comment"> </span></div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="comment"> @todo  If I have the clent  create an output Port, will it show up on Audio MIDI Setup?  Will GarageBand be able to connectt to the port?</span></div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="comment"> </span></div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="comment"> @todo Running this version resulted in the following message being sent to the log.  I don&#39;t know if this is a problem.  &lt;i&gt;2021-03-31 20:59:33.847954-0400 BRossTools[12359:542211] [plugin] AddInstanceForFactory: No factory registered for id &lt;CFUUID 0x60000398e400&gt; F8BB1C28-BAE8-11D6-9C31-00039315CD46&lt;/i&gt;</span></div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00058"></a><span class="lineno"><a class="line" href="../../d6/ddb/interface_b_ross_tools_m_i_d_i_listen_for_input2.html">   58</a></span>&#160;<span class="keyword">@interface </span><a class="code" href="../../d6/ddb/interface_b_ross_tools_m_i_d_i_listen_for_input2.html">BRossToolsMIDIListenForInput2</a>:<a class="code" href="../../d7/dc4/class_n_s_object.html">NSObject</a> {</div>
-<div class="line"><a name="l00059"></a><span class="lineno"><a class="line" href="../../d6/ddb/interface_b_ross_tools_m_i_d_i_listen_for_input2.html#ae3189127c25f1c32bc35a64c9199d969">   59</a></span>&#160;    OSStatus <a class="code" href="../../d6/ddb/interface_b_ross_tools_m_i_d_i_listen_for_input2.html#ae3189127c25f1c32bc35a64c9199d969">result</a>;<span class="comment"></span></div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="comment">    /**</span></div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="comment">    @brief Identifier for MIDI client software.</span></div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00063"></a><span class="lineno"><a class="line" href="../../d6/ddb/interface_b_ross_tools_m_i_d_i_listen_for_input2.html#aaa311ced7e8ddadf9566b5cc032d5ce0">   63</a></span>&#160;    MIDIClientRef <a class="code" href="../../d6/ddb/interface_b_ross_tools_m_i_d_i_listen_for_input2.html#aaa311ced7e8ddadf9566b5cc032d5ce0">midiClient</a>;<span class="comment"></span></div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="comment">    /**</span></div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="comment">    @brief Identifier for external MIDI device (keyboard)</span></div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00067"></a><span class="lineno"><a class="line" href="../../d6/ddb/interface_b_ross_tools_m_i_d_i_listen_for_input2.html#a6a3af4602a30dccce9bda62ca764266d">   67</a></span>&#160;    MIDIEndpointRef <a class="code" href="../../d6/ddb/interface_b_ross_tools_m_i_d_i_listen_for_input2.html#a6a3af4602a30dccce9bda62ca764266d">sourceRef</a>;<span class="comment"></span></div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="comment">    /**</span></div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="comment">     @brief MIDIObjectRef for Input Port.</span></div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="comment">     </span></div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="comment">     The Input Port receives information from the</span></div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="comment">     external source indicated by sourceRef</span></div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="comment">     so that it can be processed by the client</span></div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="comment">     indicated by midiClient.</span></div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00076"></a><span class="lineno"><a class="line" href="../../d6/ddb/interface_b_ross_tools_m_i_d_i_listen_for_input2.html#af79e5f1f34499d27e8862df5e3d9ecfe">   76</a></span>&#160;    MIDIPortRef <a class="code" href="../../d6/ddb/interface_b_ross_tools_m_i_d_i_listen_for_input2.html#af79e5f1f34499d27e8862df5e3d9ecfe">inputPort</a>;<span class="comment"></span></div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="comment">    /**</span></div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="comment">    @brief option for client creation;</span></div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="comment">         </span></div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="comment">         0 = ClientCreate with null entry for NotifyProc</span></div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="comment">         </span></div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="comment">         2021-04-02 22:11:22.615261-0400 BRossTools[21102:1056359] BRossToolsMIDIListenForInput2 - use subroutines from original article</span></div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="comment">         </span></div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="comment">         2021-04-02 22:11:22.641355-0400 BRossTools[21102:1056359] Client created with name of MIDI client</span></div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="comment">         </span></div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="comment">         2021-04-02 22:11:22.726058-0400 BRossTools[21102:1056359] [plugin] AddInstanceForFactory: No factory registered for id &lt;CFUUID 0x600002d1d0e0&gt; F8BB1C28-BAE8-11D6-9C31-00039315CD46</span></div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="comment">        </span></div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="comment">            1 = ClientCreate with entry for ReadProc</span></div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;<span class="comment">        */</span></div>
-<div class="line"><a name="l00090"></a><span class="lineno"><a class="line" href="../../d6/ddb/interface_b_ross_tools_m_i_d_i_listen_for_input2.html#a9ee943ae6f0f235d56d3fb8338aa203f">   90</a></span>&#160;        <span class="keywordtype">int</span> <a class="code" href="../../d6/ddb/interface_b_ross_tools_m_i_d_i_listen_for_input2.html#a9ee943ae6f0f235d56d3fb8338aa203f">clientCreateOption</a>;<span class="comment"></span></div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;<span class="comment">        /**</span></div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;<span class="comment">         @brief option for creating input port</span></div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span class="comment">         */</span></div>
-<div class="line"><a name="l00094"></a><span class="lineno"><a class="line" href="../../d6/ddb/interface_b_ross_tools_m_i_d_i_listen_for_input2.html#afe889e213b1f35b92d375891baf507e3">   94</a></span>&#160;        <span class="keywordtype">int</span> <a class="code" href="../../d6/ddb/interface_b_ross_tools_m_i_d_i_listen_for_input2.html#afe889e213b1f35b92d375891baf507e3">inputPortOption</a>;</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        <span class="comment"></span></div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;<span class="comment">    /**</span></div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;<span class="comment">     @brief name of source device (keyboard)</span></div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00099"></a><span class="lineno"><a class="line" href="../../d6/ddb/interface_b_ross_tools_m_i_d_i_listen_for_input2.html#aeb062c7a451ccf0cbeda247a002c8c83">   99</a></span>&#160;    CFStringRef <a class="code" href="../../d6/ddb/interface_b_ross_tools_m_i_d_i_listen_for_input2.html#aeb062c7a451ccf0cbeda247a002c8c83">sourceName</a>;<span class="comment"></span></div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;<span class="comment">    /**</span></div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;<span class="comment">     @brief name of client</span></div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00103"></a><span class="lineno"><a class="line" href="../../d6/ddb/interface_b_ross_tools_m_i_d_i_listen_for_input2.html#a0d2bc7cdd93c264208c3ca3be3def34e">  103</a></span>&#160;    CFStringRef <a class="code" href="../../d6/ddb/interface_b_ross_tools_m_i_d_i_listen_for_input2.html#a0d2bc7cdd93c264208c3ca3be3def34e">clientName</a>;<span class="comment"></span></div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;<span class="comment">    /**</span></div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;<span class="comment">     @brief name of input port</span></div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00107"></a><span class="lineno"><a class="line" href="../../d6/ddb/interface_b_ross_tools_m_i_d_i_listen_for_input2.html#a70f8cc5f0cb1579fcb7138dee16e7f78">  107</a></span>&#160;    CFStringRef <a class="code" href="../../d6/ddb/interface_b_ross_tools_m_i_d_i_listen_for_input2.html#a70f8cc5f0cb1579fcb7138dee16e7f78">portName</a>;<span class="comment"></span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="comment"> @brief Read keyboard presses using the legacy apis.</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="comment"> </span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="comment"> I first tried using this</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="comment"> [starting eample](http://comelearncocoawithme.blogspot.com/2011/08/reading-from-external-controllers-with.html]</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="comment"> </span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="comment"> @todo Insert code for selecting MIDI device.</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="comment"> </span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="comment"> @todo  If I have the clent  create an output Port, will it show up on Audio MIDI Setup?  Will GarageBand be able to connectt to the port?</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="comment"> </span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="comment"> @todo Running this version resulted in the following message being sent to the log.  I don&#39;t know if this is a problem.  &lt;i&gt;2021-03-31 20:59:33.847954-0400 BRossTools[12359:542211] [plugin] AddInstanceForFactory: No factory registered for id &lt;CFUUID 0x60000398e400&gt; F8BB1C28-BAE8-11D6-9C31-00039315CD46</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="../../d6/ddb/interface_b_ross_tools_m_i_d_i_listen_for_input2.html">   45</a></span>&#160;<span class="keyword">@interface </span><a class="code" href="../../d6/ddb/interface_b_ross_tools_m_i_d_i_listen_for_input2.html">BRossToolsMIDIListenForInput2</a>:<a class="code" href="../../d7/dc4/class_n_s_object.html">NSObject</a></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;- (instancetype) <a class="code" href="../../d6/ddb/interface_b_ross_tools_m_i_d_i_listen_for_input2.html#a320a5bde7481a0d2763849a20c77441e">init</a>;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;- (void) <a class="code" href="../../d6/ddb/interface_b_ross_tools_m_i_d_i_listen_for_input2.html#ab1a26c579db962150dbc3e2f042a7aad">runtest</a>;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;- (void) runtestWithWindow:(<a class="code" href="../../d0/d85/interface_b_ross_tools_text_window.html">BRossToolsTextWindow</a> *)window;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;- (<a class="code" href="../../d0/d85/interface_b_ross_tools_text_window.html">BRossToolsTextWindow</a> *) <a class="code" href="../../d6/ddb/interface_b_ross_tools_m_i_d_i_listen_for_input2.html#ade13d13315b6ca0d9d30c1c4883a7360">getTextWindow</a>;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;- (void) setTextWindow:(<a class="code" href="../../d0/d85/interface_b_ross_tools_text_window.html">BRossToolsTextWindow</a> *) window;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;- (void) <a class="code" href="../../d6/ddb/interface_b_ross_tools_m_i_d_i_listen_for_input2.html#ae4f1512b68b5bec10f5b8d0dc15b89dc">killClient</a>;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;- (void) <a class="code" href="../../d6/ddb/interface_b_ross_tools_m_i_d_i_listen_for_input2.html#a739f264401897e2ed4390442ceaddbb2">playMidiFile</a>;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;- (void) <a class="code" href="../../d6/ddb/interface_b_ross_tools_m_i_d_i_listen_for_input2.html#a79f3ba5c61739218ded3f0f4b57280df">recordMidiFile</a>;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="keyword">@end</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="comment">//  *****  *****  *****  *****  *****  *****</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="comment">//  *****  *****  *****  *****  *****  *****</span></div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="comment">//  *****  *****  *****  *****  *****  *****</span></div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="comment">//  *****  *****  *****  *****  *****  *****</span></div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="comment">//  *****  *****  *****  *****  *****  *****</span></div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="comment">//  *****  *****  *****  *****  *****  *****</span><span class="comment"></span></div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="comment">/**</span></div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="comment"> * @brief Create a dummy MIDIPacketList and send it to the first MIDI destination.</span></div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00065"></a><span class="lineno"><a class="line" href="../../dd/da1/interface_test_send_dummy.html">   65</a></span>&#160;<span class="keyword">@interface </span><a class="code" href="../../dd/da1/interface_test_send_dummy.html">TestSendDummy</a>:<a class="code" href="../../d7/dc4/class_n_s_object.html">NSObject</a><span class="comment"></span></div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="comment">/**</span></div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="comment"> * @brief Send a dummy MIDIPacketList to a destination.</span></div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="comment"> * @todo These are going to have to be renamed since they take the place of the init method.</span></div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;- (void) runtestWithWindow:(<a class="code" href="../../d0/d85/interface_b_ross_tools_text_window.html">BRossToolsTextWindow</a> *) window;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;- (void) <a class="code" href="../../dd/da1/interface_test_send_dummy.html#acf72aecc51281dfb5bb92cc33648d597">runtest</a> ;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="keyword">@end</span></div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="comment">//  *****  *****  *****  *****  *****  *****</span></div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="comment">//  *****  *****  *****  *****  *****  *****</span></div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="comment">//  *****  *****  *****  *****  *****  *****</span></div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="comment">//  *****  *****  *****  *****  *****  *****</span></div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="comment">//  *****  *****  *****  *****  *****  *****</span></div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="comment">//  *****  *****  *****  *****  *****  *****</span></div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="comment">/**</span></div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="comment"> * @brief create a dummy MIDIPacketList and parse it.</span></div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="comment"> * This method generates a dummy MIDIPacketList object and then parses it using</span></div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="comment"> * [BRossToolsMIDIPacketListRead processPacketList].</span></div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00090"></a><span class="lineno"><a class="line" href="../../d6/d3d/interface_test_read_dummy.html">   90</a></span>&#160;<span class="keyword">@interface </span><a class="code" href="../../d6/d3d/interface_test_read_dummy.html">TestReadDummy</a>:<a class="code" href="../../d7/dc4/class_n_s_object.html">NSObject</a></div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;- (void) <a class="code" href="../../d6/d3d/interface_test_read_dummy.html#a4473f9b4767c12d149b9134ba9351cbe">runtest</a>;</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160; </div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span class="keyword">@end</span></div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160; </div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;<span class="comment">//  *****  *****  *****  *****  *****  *****</span></div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;<span class="comment">//  *****  *****  *****  *****  *****  *****</span></div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;<span class="comment">//  *****  *****  *****  *****  *****  *****</span></div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;<span class="comment">//  *****  *****  *****  *****  *****  *****</span></div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;<span class="comment">//  *****  *****  *****  *****  *****  *****</span></div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;<span class="comment">//  *****  *****  *****  *****  *****  *****</span></div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;<span class="comment">/**</span></div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;<span class="comment"> @brief Send MIDI commands to external or virtual synthesizer.</span></div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;<span class="comment"> @todo  Insert code for selecting MIDI device.</span></div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00106"></a><span class="lineno"><a class="line" href="../../da/dbe/interface_b_ross_tools_m_i_d_i_send_m_i_d_i.html">  106</a></span>&#160;<span class="keyword">@interface </span><a class="code" href="../../da/dbe/interface_b_ross_tools_m_i_d_i_send_m_i_d_i.html">BRossToolsMIDISendMIDI</a>:<a class="code" href="../../d7/dc4/class_n_s_object.html">NSObject</a> {</div>
+<div class="line"><a name="l00107"></a><span class="lineno"><a class="line" href="../../da/dbe/interface_b_ross_tools_m_i_d_i_send_m_i_d_i.html#aab6c3ab31e6efd4ea0ef467a3226f6f0">  107</a></span>&#160;    OSStatus <a class="code" href="../../da/dbe/interface_b_ross_tools_m_i_d_i_send_m_i_d_i.html#aab6c3ab31e6efd4ea0ef467a3226f6f0">result</a>;<span class="comment"></span></div>
 <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;<span class="comment">    /**</span></div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;<span class="comment">    @brief Pointer to BRossToolsTextWindow.</span></div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;<span class="comment">         </span></div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;<span class="comment"></span> </div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;<span class="comment">    */</span></div>
-<div class="line"><a name="l00113"></a><span class="lineno"><a class="line" href="../../d6/ddb/interface_b_ross_tools_m_i_d_i_listen_for_input2.html#aeba8b64569708cf8ea3fba868e091230">  113</a></span>&#160;    <a class="code" href="../../d0/d85/interface_b_ross_tools_text_window.html">BRossToolsTextWindow</a> *<a class="code" href="../../d6/ddb/interface_b_ross_tools_m_i_d_i_listen_for_input2.html#aeba8b64569708cf8ea3fba868e091230">textWindow</a>;</div>
-<div class="line"><a name="l00114"></a><span class="lineno"><a class="line" href="../../d6/ddb/interface_b_ross_tools_m_i_d_i_listen_for_input2.html#af8e985c5153efa04bf80d288ceb34cb1">  114</a></span>&#160;    <a class="code" href="../../d0/d85/interface_b_ross_tools_text_window.html">BRossToolsTextWindow</a> *<a class="code" href="../../d6/ddb/interface_b_ross_tools_m_i_d_i_listen_for_input2.html#af8e985c5153efa04bf80d288ceb34cb1">windowValue</a>;</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    }</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;- (void) runtest;</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;- (void) runtestWithWindow:(<a class="code" href="../../d0/d85/interface_b_ross_tools_text_window.html">BRossToolsTextWindow</a> *)window;</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;- (<a class="code" href="../../d0/d85/interface_b_ross_tools_text_window.html">BRossToolsTextWindow</a> *) getTextWindow;</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;- (void) setTextWindow:(<a class="code" href="../../d0/d85/interface_b_ross_tools_text_window.html">BRossToolsTextWindow</a> *) window;</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;- (void) killClient;</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;<span class="keyword">@end</span></div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160; </div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;<span class="comment">//  *****  *****  *****  *****  *****  *****</span></div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;<span class="comment">//  *****  *****  *****  *****  *****  *****</span></div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;<span class="comment">//  *****  *****  *****  *****  *****  *****</span></div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;<span class="comment">//  *****  *****  *****  *****  *****  *****</span></div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;<span class="comment">//  *****  *****  *****  *****  *****  *****</span></div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;<span class="comment">//  *****  *****  *****  *****  *****  *****</span><span class="comment"></span></div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;<span class="comment">/**</span></div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;<span class="comment"> * @brief Create a dummy MIDIPacketList and send it to the first MIDI destination.</span></div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00132"></a><span class="lineno"><a class="line" href="../../dd/da1/interface_test_send_dummy.html">  132</a></span>&#160;<span class="keyword">@interface </span><a class="code" href="../../dd/da1/interface_test_send_dummy.html">TestSendDummy</a>:<a class="code" href="../../d7/dc4/class_n_s_object.html">NSObject</a><span class="comment"></span></div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;<span class="comment">/**</span></div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;<span class="comment"> * @brief Send a dummy MIDIPacketList to a destination.</span></div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;- (void) runtestWithWindow:(<a class="code" href="../../d0/d85/interface_b_ross_tools_text_window.html">BRossToolsTextWindow</a> *) window;</div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160; </div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;- (void) <a class="code" href="../../dd/da1/interface_test_send_dummy.html#acf72aecc51281dfb5bb92cc33648d597">runtest</a> ;</div>
-<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160; </div>
-<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;<span class="keyword">@end</span></div>
-<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160; </div>
-<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;<span class="comment">//  *****  *****  *****  *****  *****  *****</span></div>
-<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;<span class="comment">//  *****  *****  *****  *****  *****  *****</span></div>
-<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;<span class="comment">//  *****  *****  *****  *****  *****  *****</span></div>
-<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;<span class="comment">//  *****  *****  *****  *****  *****  *****</span></div>
-<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;<span class="comment">//  *****  *****  *****  *****  *****  *****</span></div>
-<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;<span class="comment">//  *****  *****  *****  *****  *****  *****</span></div>
-<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;<span class="comment"></span> </div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;<span class="comment">/**</span></div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;<span class="comment"> * @brief create a dummy MIDIPacketList and parse it.</span></div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;<span class="comment"> * This method generates a dummy MIDIPacketList object and then parses it using</span></div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;<span class="comment"> * [BRossToolsMIDIPacketListRead processPacketList].</span></div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00155"></a><span class="lineno"><a class="line" href="../../d6/d3d/interface_test_read_dummy.html">  155</a></span>&#160;<span class="keyword">@interface </span><a class="code" href="../../d6/d3d/interface_test_read_dummy.html">TestReadDummy</a>:<a class="code" href="../../d7/dc4/class_n_s_object.html">NSObject</a></div>
-<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;- (void) <a class="code" href="../../d6/d3d/interface_test_read_dummy.html#a4473f9b4767c12d149b9134ba9351cbe">runtest</a>;</div>
-<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160; </div>
-<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;<span class="keyword">@end</span></div>
-<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160; </div>
-<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;<span class="comment">//  *****  *****  *****  *****  *****  *****</span></div>
-<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;<span class="comment">//  *****  *****  *****  *****  *****  *****</span></div>
-<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;<span class="comment">//  *****  *****  *****  *****  *****  *****</span></div>
-<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;<span class="comment">//  *****  *****  *****  *****  *****  *****</span></div>
-<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;<span class="comment">//  *****  *****  *****  *****  *****  *****</span></div>
-<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;<span class="comment">//  *****  *****  *****  *****  *****  *****</span></div>
-<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;<span class="comment"></span> </div>
-<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;<span class="comment">/**</span></div>
-<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;<span class="comment"> @brief Send MIDI commands to synthesizer.</span></div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;<span class="comment"> @todo  Insert code for selecting MIDI device.</span></div>
-<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00171"></a><span class="lineno"><a class="line" href="../../da/dbe/interface_b_ross_tools_m_i_d_i_send_m_i_d_i.html">  171</a></span>&#160;<span class="keyword">@interface </span><a class="code" href="../../da/dbe/interface_b_ross_tools_m_i_d_i_send_m_i_d_i.html">BRossToolsMIDISendMIDI</a>:<a class="code" href="../../d7/dc4/class_n_s_object.html">NSObject</a> {</div>
-<div class="line"><a name="l00172"></a><span class="lineno"><a class="line" href="../../da/dbe/interface_b_ross_tools_m_i_d_i_send_m_i_d_i.html#aab6c3ab31e6efd4ea0ef467a3226f6f0">  172</a></span>&#160;    OSStatus <a class="code" href="../../da/dbe/interface_b_ross_tools_m_i_d_i_send_m_i_d_i.html#aab6c3ab31e6efd4ea0ef467a3226f6f0">result</a>;<span class="comment"></span></div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;<span class="comment">    /**</span></div>
-<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;<span class="comment">    @brief Identifier for MIDI client object.</span></div>
-<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00176"></a><span class="lineno"><a class="line" href="../../da/dbe/interface_b_ross_tools_m_i_d_i_send_m_i_d_i.html#a52b21970fa1644fdc5adcc462fee972d">  176</a></span>&#160;    MIDIClientRef <a class="code" href="../../da/dbe/interface_b_ross_tools_m_i_d_i_send_m_i_d_i.html#a52b21970fa1644fdc5adcc462fee972d">midiClient</a>;<span class="comment"></span></div>
-<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;<span class="comment">    /**</span></div>
-<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;<span class="comment">    @brief Identifier for external MIDI device (synthesizer)</span></div>
-<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00180"></a><span class="lineno"><a class="line" href="../../da/dbe/interface_b_ross_tools_m_i_d_i_send_m_i_d_i.html#ac6f6b221ca28b97bb276eced7b287f21">  180</a></span>&#160;    MIDIEndpointRef <a class="code" href="../../da/dbe/interface_b_ross_tools_m_i_d_i_send_m_i_d_i.html#ac6f6b221ca28b97bb276eced7b287f21">destRef</a>;<span class="comment"></span></div>
-<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;<span class="comment">    /**</span></div>
-<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;<span class="comment">     * @brief MIDIObjectRef for output port.</span></div>
-<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;<span class="comment">     *</span></div>
-<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;<span class="comment">     * The Output Port belongs to the client andsends information from the</span></div>
-<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;<span class="comment">     * client indicated by sourceRef</span></div>
-<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;<span class="comment">     * so that it can be processed by the client</span></div>
-<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;<span class="comment">     * indicated by midiClient.</span></div>
-<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00189"></a><span class="lineno"><a class="line" href="../../da/dbe/interface_b_ross_tools_m_i_d_i_send_m_i_d_i.html#a2469f51314848401e377257cf800a2ef">  189</a></span>&#160;    MIDIPortRef <a class="code" href="../../da/dbe/interface_b_ross_tools_m_i_d_i_send_m_i_d_i.html#a2469f51314848401e377257cf800a2ef">outputPort</a>;<span class="comment"></span></div>
-<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;<span class="comment">    /**</span></div>
-<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;<span class="comment">     * @brief option for client creation;</span></div>
-<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;<span class="comment">     *</span></div>
-<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;<span class="comment">     * Option used for creeate client</span></div>
-<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;<span class="comment">     *</span></div>
-<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;<span class="comment">     * 0 = MIDIClientCreate with null entry for NotifyProc</span></div>
-<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;<span class="comment">     *</span></div>
-<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;<span class="comment">     * 1 = MIDIClientCreate with entry for ReadProc</span></div>
-<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00199"></a><span class="lineno"><a class="line" href="../../da/dbe/interface_b_ross_tools_m_i_d_i_send_m_i_d_i.html#a977b248b383d4c596dab855d4a2d9d72">  199</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="../../da/dbe/interface_b_ross_tools_m_i_d_i_send_m_i_d_i.html#a977b248b383d4c596dab855d4a2d9d72">clientCreateOption</a>;<span class="comment"></span></div>
-<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;<span class="comment">    /**</span></div>
-<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;<span class="comment">     *   @brief option for creating output port</span></div>
-<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;<span class="comment">     *</span></div>
-<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;<span class="comment">     * The value is currently hard-coded to a value of 1</span></div>
-<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;<span class="comment">     * but is not used by the class.  The software uses MIDIOutputPortCreate</span></div>
-<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;<span class="comment">     * for creation of the ouput port for the client.</span></div>
-<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00207"></a><span class="lineno"><a class="line" href="../../da/dbe/interface_b_ross_tools_m_i_d_i_send_m_i_d_i.html#a26a5ee9f298de6ef6dca73a3606f1b81">  207</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="../../da/dbe/interface_b_ross_tools_m_i_d_i_send_m_i_d_i.html#a26a5ee9f298de6ef6dca73a3606f1b81">outputPortOption</a>;</div>
-<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;        <span class="comment"></span></div>
-<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;<span class="comment">    /**</span></div>
-<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;<span class="comment">     @brief name of source device (keyboard)</span></div>
-<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00212"></a><span class="lineno"><a class="line" href="../../da/dbe/interface_b_ross_tools_m_i_d_i_send_m_i_d_i.html#af301ea97720230f4a65f6fe90d7b710f">  212</a></span>&#160;    CFStringRef <a class="code" href="../../da/dbe/interface_b_ross_tools_m_i_d_i_send_m_i_d_i.html#af301ea97720230f4a65f6fe90d7b710f">destName</a>;<span class="comment"></span></div>
-<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;<span class="comment">    /**</span></div>
-<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;<span class="comment">     @brief name of client</span></div>
-<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00216"></a><span class="lineno"><a class="line" href="../../da/dbe/interface_b_ross_tools_m_i_d_i_send_m_i_d_i.html#a0f0c6f10f67bc130a19b27e58bb04eb3">  216</a></span>&#160;    CFStringRef <a class="code" href="../../da/dbe/interface_b_ross_tools_m_i_d_i_send_m_i_d_i.html#a0f0c6f10f67bc130a19b27e58bb04eb3">clientName</a>;<span class="comment"></span></div>
-<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;<span class="comment">    /**</span></div>
-<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;<span class="comment">     @brief name of input port</span></div>
-<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00220"></a><span class="lineno"><a class="line" href="../../da/dbe/interface_b_ross_tools_m_i_d_i_send_m_i_d_i.html#a11d621d225eaf4f6fbcca0e016e28264">  220</a></span>&#160;    CFStringRef <a class="code" href="../../da/dbe/interface_b_ross_tools_m_i_d_i_send_m_i_d_i.html#a11d621d225eaf4f6fbcca0e016e28264">portName</a>;<span class="comment"></span></div>
-<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;<span class="comment">    /**</span></div>
-<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;<span class="comment">    @brief Pointer to BRossToolsTextWindow.</span></div>
-<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;<span class="comment">         </span></div>
-<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;<span class="comment">    */</span></div>
-<div class="line"><a name="l00225"></a><span class="lineno"><a class="line" href="../../da/dbe/interface_b_ross_tools_m_i_d_i_send_m_i_d_i.html#abe209b8e6770666ab5bd45936b37392f">  225</a></span>&#160;    <a class="code" href="../../d0/d85/interface_b_ross_tools_text_window.html">BRossToolsTextWindow</a> *<a class="code" href="../../da/dbe/interface_b_ross_tools_m_i_d_i_send_m_i_d_i.html#abe209b8e6770666ab5bd45936b37392f">textWindow</a>;</div>
-<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;    </div>
-<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;    }</div>
-<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;- (void) runtestWithWindow:(<a class="code" href="../../d0/d85/interface_b_ross_tools_text_window.html">BRossToolsTextWindow</a> *)window;</div>
-<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;- (<a class="code" href="../../d0/d85/interface_b_ross_tools_text_window.html">BRossToolsTextWindow</a> *) getTextWindow;</div>
-<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;- (void) setTextWindow:(<a class="code" href="../../d0/d85/interface_b_ross_tools_text_window.html">BRossToolsTextWindow</a> *) window;</div>
-<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;- (void) killClient;</div>
-<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;<span class="keyword">@end</span></div>
-<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160; </div>
-<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160; </div>
-<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;<span class="comment">//  *****  *****  *****  *****  *****  *****</span></div>
-<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;<span class="comment">//  *****  *****  *****  *****  *****  *****</span></div>
-<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;<span class="comment">//  *****  *****  *****  *****  *****  *****</span></div>
-<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;<span class="comment">//  *****  *****  *****  *****  *****  *****</span></div>
-<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;<span class="comment">//  *****  *****  *****  *****  *****  *****</span></div>
-<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;<span class="comment">//  *****  *****  *****  *****  *****  *****</span><span class="comment"></span></div>
-<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;<span class="comment">/**</span></div>
-<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;<span class="comment"> @brief Read the contents of a MIDIPacketList</span></div>
-<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00244"></a><span class="lineno"><a class="line" href="../../da/d9d/interface_b_ross_tools_m_i_d_i_packet_list_read.html">  244</a></span>&#160;<span class="keyword">@interface </span><a class="code" href="../../da/d9d/interface_b_ross_tools_m_i_d_i_packet_list_read.html">BRossToolsMIDIPacketListRead</a>:<a class="code" href="../../d7/dc4/class_n_s_object.html">NSObject</a></div>
-<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160; </div>
-<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;- (void) initWithWindow:(<a class="code" href="../../d0/d85/interface_b_ross_tools_text_window.html">BRossToolsTextWindow</a> *) window;</div>
-<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160; </div>
-<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;- (void) processPacketList:(MIDIPacketList *) packetList;<span class="comment"></span></div>
-<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;<span class="comment">/**</span></div>
-<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;<span class="comment"> @brief Process the contents of an individual MIDIPacket</span></div>
-<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;<span class="comment"> </span></div>
-<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;<span class="comment"> This method processes the contents of a MIDI packet.  By subclassing and</span></div>
-<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;<span class="comment"> overriding this method, you can substitute your desired action for processing</span></div>
-<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;<span class="comment"> the packet.</span></div>
-<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;- (void) processPacket:(MIDIPacket *) packet;</div>
-<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;<span class="keyword">@end</span></div>
-<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160; </div>
-<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;<span class="comment">//  *****  *****  *****  *****  *****  *****</span></div>
-<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;<span class="comment">//  *****  *****  *****  *****  *****  *****</span></div>
-<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;<span class="comment">//  *****  *****  *****  *****  *****  *****</span></div>
-<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;<span class="comment">//  *****  *****  *****  *****  *****  *****</span></div>
-<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;<span class="comment">//  *****  *****  *****  *****  *****  *****</span></div>
-<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;<span class="comment">//  *****  *****  *****  *****  *****  *****</span></div>
-<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;<span class="comment"></span> </div>
-<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;<span class="comment">/**</span></div>
-<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;<span class="comment">  * @brief Construct a MIDIPacketList object</span></div>
-<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;<span class="comment"> </span></div>
-<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;<span class="comment">  The following are some of the structures used for MIDIPacketList,</span></div>
-<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;<span class="comment"> </span></div>
-<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;<span class="comment"> *  - struct MIDIPacketList, and MIDITimeStamp</span></div>
-<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;<span class="comment"> *        - UInt32              numPackets</span></div>
-<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;<span class="comment"> *        - MIDIPacket          packet[1]</span></div>
-<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;<span class="comment"> *  - struct MIDIPacket</span></div>
-<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;<span class="comment"> *       - MIDITimeStamp       timeStamp</span></div>
-<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;<span class="comment"> *       - UInt16              length</span></div>
-<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;<span class="comment"> *       - Byte                data[256]</span></div>
-<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;<span class="comment"> *  - UInt64  MIDITimeStamp</span></div>
-<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00280"></a><span class="lineno"><a class="line" href="../../d0/deb/interface_b_ross_tools_m_i_d_i_packet_list_build.html">  280</a></span>&#160;<span class="keyword">@interface </span><a class="code" href="../../d0/deb/interface_b_ross_tools_m_i_d_i_packet_list_build.html">BRossToolsMIDIPacketListBuild</a>:<a class="code" href="../../d7/dc4/class_n_s_object.html">NSObject</a><span class="comment"></span></div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;<span class="comment">    @brief Identifier for MIDI client object.</span></div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00111"></a><span class="lineno"><a class="line" href="../../da/dbe/interface_b_ross_tools_m_i_d_i_send_m_i_d_i.html#a52b21970fa1644fdc5adcc462fee972d">  111</a></span>&#160;    MIDIClientRef <a class="code" href="../../da/dbe/interface_b_ross_tools_m_i_d_i_send_m_i_d_i.html#a52b21970fa1644fdc5adcc462fee972d">midiClient</a>;<span class="comment"></span></div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;<span class="comment">    /**</span></div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;<span class="comment">    @brief Identifier for external MIDI device (synthesizer)</span></div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00115"></a><span class="lineno"><a class="line" href="../../da/dbe/interface_b_ross_tools_m_i_d_i_send_m_i_d_i.html#ac6f6b221ca28b97bb276eced7b287f21">  115</a></span>&#160;    MIDIEndpointRef <a class="code" href="../../da/dbe/interface_b_ross_tools_m_i_d_i_send_m_i_d_i.html#ac6f6b221ca28b97bb276eced7b287f21">destRef</a>;<span class="comment"></span></div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;<span class="comment">    /**</span></div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;<span class="comment">     * @brief MIDIObjectRef for output port.</span></div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;<span class="comment">     *</span></div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;<span class="comment">     * The Output Port belongs to the client andsends information from the</span></div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;<span class="comment">     * client indicated by sourceRef</span></div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;<span class="comment">     * so that it can be processed by the client</span></div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;<span class="comment">     * indicated by midiClient.</span></div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00124"></a><span class="lineno"><a class="line" href="../../da/dbe/interface_b_ross_tools_m_i_d_i_send_m_i_d_i.html#a2469f51314848401e377257cf800a2ef">  124</a></span>&#160;    MIDIPortRef <a class="code" href="../../da/dbe/interface_b_ross_tools_m_i_d_i_send_m_i_d_i.html#a2469f51314848401e377257cf800a2ef">outputPort</a>;<span class="comment"></span></div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;<span class="comment">    /**</span></div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;<span class="comment">     * @brief option for client creation;</span></div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;<span class="comment">     *</span></div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;<span class="comment">     * Option used for creeate client</span></div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;<span class="comment">     *</span></div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;<span class="comment">     * 0 = MIDIClientCreate with null entry for NotifyProc</span></div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;<span class="comment">     *</span></div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;<span class="comment">     * 1 = MIDIClientCreate with entry for ReadProc</span></div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00134"></a><span class="lineno"><a class="line" href="../../da/dbe/interface_b_ross_tools_m_i_d_i_send_m_i_d_i.html#a977b248b383d4c596dab855d4a2d9d72">  134</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="../../da/dbe/interface_b_ross_tools_m_i_d_i_send_m_i_d_i.html#a977b248b383d4c596dab855d4a2d9d72">clientCreateOption</a>;<span class="comment"></span></div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;<span class="comment">    /**</span></div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;<span class="comment">     *   @brief option for creating output port</span></div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;<span class="comment">     *</span></div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;<span class="comment">     * The value is currently hard-coded to a value of 1</span></div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;<span class="comment">     * but is not used by the class.  The software uses MIDIOutputPortCreate</span></div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;<span class="comment">     * for creation of the ouput port for the client.</span></div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;    <span class="comment">// int outputPortOption;</span></div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;        <span class="comment"></span></div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;<span class="comment">    /**</span></div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;<span class="comment">     @brief name of source device (keyboard)</span></div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00147"></a><span class="lineno"><a class="line" href="../../da/dbe/interface_b_ross_tools_m_i_d_i_send_m_i_d_i.html#af301ea97720230f4a65f6fe90d7b710f">  147</a></span>&#160;    CFStringRef <a class="code" href="../../da/dbe/interface_b_ross_tools_m_i_d_i_send_m_i_d_i.html#af301ea97720230f4a65f6fe90d7b710f">destName</a>;<span class="comment"></span></div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;<span class="comment">    /**</span></div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;<span class="comment">     @brief name of client</span></div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00151"></a><span class="lineno"><a class="line" href="../../da/dbe/interface_b_ross_tools_m_i_d_i_send_m_i_d_i.html#a0f0c6f10f67bc130a19b27e58bb04eb3">  151</a></span>&#160;    CFStringRef <a class="code" href="../../da/dbe/interface_b_ross_tools_m_i_d_i_send_m_i_d_i.html#a0f0c6f10f67bc130a19b27e58bb04eb3">clientName</a>;<span class="comment"></span></div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;<span class="comment">    /**</span></div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;<span class="comment">     @brief name of input port</span></div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00155"></a><span class="lineno"><a class="line" href="../../da/dbe/interface_b_ross_tools_m_i_d_i_send_m_i_d_i.html#a11d621d225eaf4f6fbcca0e016e28264">  155</a></span>&#160;    CFStringRef <a class="code" href="../../da/dbe/interface_b_ross_tools_m_i_d_i_send_m_i_d_i.html#a11d621d225eaf4f6fbcca0e016e28264">portName</a>;<span class="comment"></span></div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;<span class="comment">    /**</span></div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;<span class="comment">    @brief Pointer to BRossToolsTextWindow.</span></div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;<span class="comment">         </span></div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;<span class="comment">    */</span></div>
+<div class="line"><a name="l00160"></a><span class="lineno"><a class="line" href="../../da/dbe/interface_b_ross_tools_m_i_d_i_send_m_i_d_i.html#abe209b8e6770666ab5bd45936b37392f">  160</a></span>&#160;    <a class="code" href="../../d0/d85/interface_b_ross_tools_text_window.html">BRossToolsTextWindow</a> *<a class="code" href="../../da/dbe/interface_b_ross_tools_m_i_d_i_send_m_i_d_i.html#abe209b8e6770666ab5bd45936b37392f">textWindow</a>;</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;    </div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;    }</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;- (void) runtestWithWindow:(<a class="code" href="../../d0/d85/interface_b_ross_tools_text_window.html">BRossToolsTextWindow</a> *)window;</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;- (<a class="code" href="../../d0/d85/interface_b_ross_tools_text_window.html">BRossToolsTextWindow</a> *) getTextWindow;</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;- (void) setTextWindow:(<a class="code" href="../../d0/d85/interface_b_ross_tools_text_window.html">BRossToolsTextWindow</a> *) window;</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;- (void) killClient;</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;<span class="keyword">@end</span></div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160; </div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160; </div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;<span class="comment">//  *****  *****  *****  *****  *****  *****</span></div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;<span class="comment">//  *****  *****  *****  *****  *****  *****</span></div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;<span class="comment">//  *****  *****  *****  *****  *****  *****</span></div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;<span class="comment">//  *****  *****  *****  *****  *****  *****</span></div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;<span class="comment">//  *****  *****  *****  *****  *****  *****</span></div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;<span class="comment">//  *****  *****  *****  *****  *****  *****</span><span class="comment"></span></div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;<span class="comment">/**</span></div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;<span class="comment"> @brief Read the contents of a MIDIPacketList</span></div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00179"></a><span class="lineno"><a class="line" href="../../da/d9d/interface_b_ross_tools_m_i_d_i_packet_list_read.html">  179</a></span>&#160;<span class="keyword">@interface </span><a class="code" href="../../da/d9d/interface_b_ross_tools_m_i_d_i_packet_list_read.html">BRossToolsMIDIPacketListRead</a>:<a class="code" href="../../d7/dc4/class_n_s_object.html">NSObject</a><span class="comment"></span></div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;<span class="comment">/**</span></div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;<span class="comment"> @todo should have instancetype for methods beginning with init - test change below</span></div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;- (instancetype) initWithWindow:(<a class="code" href="../../d0/d85/interface_b_ross_tools_text_window.html">BRossToolsTextWindow</a> *) window;</div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160; </div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;- (void) processPacketList:(MIDIPacketList *) packetList;<span class="comment"></span></div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;<span class="comment">/**</span></div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;<span class="comment"> @brief Process the contents of an individual MIDIPacket</span></div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;<span class="comment"> </span></div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;<span class="comment"> This method processes the contents of a MIDI packet.  By subclassing and</span></div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;<span class="comment"> overriding this method, you can substitute your desired action for processing</span></div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;<span class="comment"> the packet.</span></div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;- (void) processPacket:(MIDIPacket *) packet;</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;<span class="keyword">@end</span></div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160; </div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;<span class="comment">//  *****  *****  *****  *****  *****  *****</span></div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;<span class="comment">//  *****  *****  *****  *****  *****  *****</span></div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;<span class="comment">//  *****  *****  *****  *****  *****  *****</span></div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;<span class="comment">//  *****  *****  *****  *****  *****  *****</span></div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;<span class="comment">//  *****  *****  *****  *****  *****  *****</span></div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;<span class="comment">//  *****  *****  *****  *****  *****  *****</span></div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;<span class="comment">/**</span></div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;<span class="comment">  * @brief Construct a MIDIPacketList object</span></div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;<span class="comment"> </span></div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;<span class="comment">  The following are some of the structures used for MIDIPacketList,</span></div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;<span class="comment"> </span></div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;<span class="comment"> *  - struct MIDIPacketList, and MIDITimeStamp</span></div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;<span class="comment"> *        - UInt32              numPackets</span></div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;<span class="comment"> *        - MIDIPacket          packet[1]</span></div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;<span class="comment"> *  - struct MIDIPacket</span></div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;<span class="comment"> *       - MIDITimeStamp       timeStamp</span></div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;<span class="comment"> *       - UInt16              length</span></div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;<span class="comment"> *       - Byte                data[256]</span></div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;<span class="comment"> *  - UInt64  MIDITimeStamp</span></div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00217"></a><span class="lineno"><a class="line" href="../../d0/deb/interface_b_ross_tools_m_i_d_i_packet_list_build.html">  217</a></span>&#160;<span class="keyword">@interface </span><a class="code" href="../../d0/deb/interface_b_ross_tools_m_i_d_i_packet_list_build.html">BRossToolsMIDIPacketListBuild</a>:<a class="code" href="../../d7/dc4/class_n_s_object.html">NSObject</a><span class="comment"></span></div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;<span class="comment">/**</span></div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;<span class="comment"> @brief initialize packet list</span></div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;<span class="comment"> @param window Text window to be used for displaying information.</span></div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;- (instancetype)initWithWindow:(<a class="code" href="../../d0/d85/interface_b_ross_tools_text_window.html">BRossToolsTextWindow</a> *) window;<span class="comment"></span></div>
+<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;<span class="comment">/**</span></div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;<span class="comment"> @brief Add the packet to the packet list.</span></div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;<span class="comment"> </span></div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;<span class="comment"> In adding the packet, it will increment the number of packets in the packet list and initialize</span></div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;<span class="comment"> the data structure for the next packet.</span></div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;<span class="comment"> @param time MIDITimeStamp to be inserted into packet header.</span></div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;<span class="comment"> @returns (0 if successfully added packet, otherwise error code</span></div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160; - (<span class="keywordtype">int</span> *) addPacket:(MIDITimeStamp) time;<span class="comment"></span></div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;<span class="comment">/**</span></div>
+<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;<span class="comment"> @brief Add MIDI command to packet (excl SysEx).</span></div>
+<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;<span class="comment"> @param command value indicating type of command</span></div>
+<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;<span class="comment"> @param channel channel to which command is sent</span></div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;<span class="comment"> @param values array of integer values containing values used with command</span></div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;<span class="comment"> @returns 0 if sucessfully added command, otherwise error code</span></div>
+<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;<span class="comment"> The following are the constants for the command codes.</span></div>
+<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;<span class="comment">  </span></div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;<span class="comment"> See https://www.midi.org/specifications-old/item/table-1-summary-of-midi-message</span></div>
+<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;<span class="comment"> </span></div>
+<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;<span class="comment"> &lt;table&gt;</span></div>
+<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;<span class="comment"> &lt;tr&gt;&lt;td&gt;kMIDICVStatusNoteOff&lt;/td&gt;&lt;td&gt;value = 0x8,  2 data bytes&lt;/td&gt;&lt;/tr&gt;</span></div>
+<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;<span class="comment"> &lt;tr&gt;&lt;td&gt;kMIDICVStatusNote On &lt;/td&gt;&lt;td&gt;value = 0x9,  2 data  bytes&lt;/td&gt;&lt;/tr&gt;</span></div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;<span class="comment"> &lt;tr&gt;&lt;td&gt;kMIDICVStatusPolyPressure&lt;/td&gt;&lt;td&gt;value = 0xA, 2 data bytes&lt;/td&gt;&lt;/tr&gt;</span></div>
+<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;<span class="comment"> &lt;tr&gt;&lt;td&gt;kMIDICVStatusControlChange&lt;/td&gt;&lt;td&gt;value = 0xB, 2 data bytes&lt;/td&gt;&lt;/tr&gt;</span></div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;<span class="comment"> &lt;tr&gt;&lt;td&gt;kMIDICVStatusProgramChange &lt;/td&gt;&lt;td&gt;value = 0xC, 1 data byte&lt;/td&gt;&lt;/tr&gt;</span></div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;<span class="comment"> &lt;tr&gt;&lt;td&gt;kMIDICVStatusChannelPressure&lt;/td&gt;&lt;td&gt;value =0xD, 1 data byte&lt;/td&gt;&lt;/tr&gt;</span></div>
+<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;<span class="comment"> &lt;tr&gt;&lt;td&gt;kMIDICVStatusPitchBend  &lt;/td&gt;&lt;td&gt; value = 0xE, 2 data bytes holding a 14 bit integer &lt;/td&gt;&lt;/tr&gt;</span></div>
+<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;<span class="comment"> &lt;tr&gt;&lt;td&gt;A value of 15 indicates non musical commands&lt;/td&gt;</span></div>
+<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;<span class="comment">    &lt;td&gt;value = 0xF, variable number of data  bytes&lt;/td&gt;&lt;/tr&gt;</span></div>
+<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;<span class="comment"> &lt;/table&gt;</span></div>
+<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;- (int) addCommand:(u_int)command channel:(u_int)channel values:(u_int *)values;<span class="comment"></span></div>
+<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;<span class="comment">/**</span></div>
+<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;<span class="comment"> @Finish packet list</span></div>
+<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;<span class="comment"> @return error code</span></div>
+<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;- (MIDIPacketList *) <a class="code" href="../../d0/deb/interface_b_ross_tools_m_i_d_i_packet_list_build.html#a94d6f0c2f5e5c7411d6d0a7c54e9f5ff">build</a>;</div>
+<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160; </div>
+<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;- (void) setPort: (MIDIPortRef)portValue;</div>
+<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160; </div>
+<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;- (void) setDest:(MIDIEndpointRef)destValue ;</div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;    </div>
+<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;- (void) setDelay:(<span class="keywordtype">float</span>) value;</div>
+<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160; </div>
+<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;- (MIDIPacketList *) <a class="code" href="../../d0/deb/interface_b_ross_tools_m_i_d_i_packet_list_build.html#af19a8fb3607e76ac6199e6c5ecc3a47a">sendPacketList</a>;</div>
+<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160; </div>
+<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;<span class="keyword">@end</span></div>
+<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160; </div>
+<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;<span class="comment">//  *****  *****  *****  *****  *****  *****</span></div>
+<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;<span class="comment">//  *****  *****  *****  *****  *****  *****</span></div>
+<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;<span class="comment">//  *****  *****  *****  *****  *****  *****</span></div>
+<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;<span class="comment">//  *****  *****  *****  *****  *****  *****</span></div>
+<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;<span class="comment">//  *****  *****  *****  *****  *****  *****</span></div>
+<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;<span class="comment">//  *****  *****  *****  *****  *****  *****</span></div>
+<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;<span class="comment"></span> </div>
 <div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;<span class="comment">/**</span></div>
-<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;<span class="comment"> @brief initialize packet list</span></div>
-<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;<span class="comment"> @param window Text window to be used for displaying information.</span></div>
-<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;- (id)initWithWindow:(<a class="code" href="../../d0/d85/interface_b_ross_tools_text_window.html">BRossToolsTextWindow</a> *) window;<span class="comment"></span></div>
-<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;<span class="comment">/**</span></div>
-<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;<span class="comment"> @brief Add the packet to the packet list.</span></div>
-<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;<span class="comment"> </span></div>
-<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;<span class="comment"> In adding the packet, it will increment the number of packets in the packet list and initialize</span></div>
-<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;<span class="comment"> the data structure for the next packet.</span></div>
-<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;<span class="comment"> @param time MIDITimeStamp to be inserted into packet header.</span></div>
-<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;<span class="comment"> @returns (0 if successfully added packet, otherwise error code</span></div>
-<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160; - (<span class="keywordtype">int</span> *) addPacket:(MIDITimeStamp) time;<span class="comment"></span></div>
-<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;<span class="comment">/**</span></div>
-<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;<span class="comment"> @brief Add MIDI command to packet (excl SysEx).</span></div>
-<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;<span class="comment"> @param command value indicating type of command</span></div>
-<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;<span class="comment"> @param channel channel to which command is sent</span></div>
-<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;<span class="comment"> @param values array of integer values containing values used with command</span></div>
-<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;<span class="comment"> @returns 0 if sucessfully added command, otherwise error code</span></div>
-<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;<span class="comment"> The following are the constants for the command codes.</span></div>
-<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;<span class="comment"> </span></div>
+<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;<span class="comment"> </span></div>
+<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;<span class="comment"> The following methods are inherited from AVAudioUnitSampler: prepareToPlay, play</span></div>
+<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;<span class="comment"> </span></div>
+<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;<span class="comment"> The following methods are inherited from AVAudioUnitMIDIInstrument: sendController:withValue:onChannel:,</span></div>
+<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;<span class="comment"> sendMIDIEvent:data1:, sendMIDIEvent:data1:data2:,msendMIDISysExEvent:, sendPitchBend:onChannel:, sendPressure:onChannel:, sendPressureForKey:withValue:onChannel:, sendProgramChange:bankMSB:bankLSB:onchannel:, sendProgramChange:onChannel:, startNote:withVelocity:onChannel:, stopNote:onChannel:</span></div>
+<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;<span class="comment"> </span></div>
+<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00289"></a><span class="lineno"><a class="line" href="../../d9/d51/interface_virtual_synthesizer.html">  289</a></span>&#160;<span class="keyword">@interface </span><a class="code" href="../../d9/d51/interface_virtual_synthesizer.html">VirtualSynthesizer</a>:<a class="code" href="../../d7/dc4/class_n_s_object.html">NSObject</a><span class="comment"></span></div>
+<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;<span class="comment">/**</span></div>
+<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;<span class="comment"> @brief Initialize synthesizer.</span></div>
+<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;<span class="comment"> </span></div>
+<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;<span class="comment"> Initialize the object with a default sound bank, but no MIDI file will be set up for playing.  The methods inherited</span></div>
+<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;<span class="comment"> from AVAudioUnitMIDIInstrument can be used to play notes on the synthesizer.  In addition, the MIDI file can be</span></div>
+<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;<span class="comment"> selected and played using the other methods for this class.</span></div>
+<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;<span class="comment"> </span></div>
+<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;<span class="comment"> @returns self.</span></div>
+<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160; </div>
+<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;- (instancetype) <a class="code" href="../../d9/d51/interface_virtual_synthesizer.html#a874aa75c0fd54459344dd1342f4fb80d">init</a>;<span class="comment"></span></div>
+<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;<span class="comment">/**</span></div>
+<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;<span class="comment"> Select one of the two sound bank files bundled with the app.</span></div>
 <div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;<span class="comment"> </span></div>
-<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;<span class="comment"> See https://www.midi.org/specifications-old/item/table-1-summary-of-midi-message</span></div>
+<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;<span class="comment"> @param option indicates bundled sound bank to use.</span></div>
 <div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;<span class="comment"> </span></div>
-<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;<span class="comment"> &lt;table&gt;</span></div>
-<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;<span class="comment"> &lt;tr&gt;&lt;td&gt;kMIDICVStatusNoteOff&lt;/td&gt;&lt;td&gt;value = 0x8,  2 data bytes&lt;/td&gt;&lt;/tr&gt;</span></div>
-<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;<span class="comment"> &lt;tr&gt;&lt;td&gt;kMIDICVStatusNote On &lt;/td&gt;&lt;td&gt;value = 0x9,  2 data  bytes&lt;/td&gt;&lt;/tr&gt;</span></div>
-<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;<span class="comment"> &lt;tr&gt;&lt;td&gt;kMIDICVStatusPolyPressure&lt;/td&gt;&lt;td&gt;value = 0xA, 2 data bytes&lt;/td&gt;&lt;/tr&gt;</span></div>
-<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;<span class="comment"> &lt;tr&gt;&lt;td&gt;kMIDICVStatusControlChange&lt;/td&gt;&lt;td&gt;value = 0xB, 2 data bytes&lt;/td&gt;&lt;/tr&gt;</span></div>
-<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;<span class="comment"> &lt;tr&gt;&lt;td&gt;kMIDICVStatusProgramChange &lt;/td&gt;&lt;td&gt;value = 0xC, 1 data byte&lt;/td&gt;&lt;/tr&gt;</span></div>
-<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;<span class="comment"> &lt;tr&gt;&lt;td&gt;kMIDICVStatusChannelPressure&lt;/td&gt;&lt;td&gt;value =0xD, 1 data byte&lt;/td&gt;&lt;/tr&gt;</span></div>
-<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;<span class="comment"> &lt;tr&gt;&lt;td&gt;kMIDICVStatusPitchBend  &lt;/td&gt;&lt;td&gt; value = 0xE, 2 data bytes holding a 14 bit integer &lt;/td&gt;&lt;/tr&gt;</span></div>
-<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;<span class="comment"> &lt;tr&gt;&lt;td&gt;A value of 15 indicates non musical commands&lt;/td&gt;</span></div>
-<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;<span class="comment">    &lt;td&gt;value = 0xF, variable number of data  bytes&lt;/td&gt;&lt;/tr&gt;</span></div>
-<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;<span class="comment"> &lt;/table&gt;</span></div>
-<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;- (int) addCommand:(u_int)command channel:(u_int)channel values:(u_int *)values;<span class="comment"></span></div>
-<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;<span class="comment">/**</span></div>
-<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;<span class="comment"> @Finish packet list</span></div>
-<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;<span class="comment"> @return error code</span></div>
-<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;- (MIDIPacketList *) <a class="code" href="../../d0/deb/interface_b_ross_tools_m_i_d_i_packet_list_build.html#a94d6f0c2f5e5c7411d6d0a7c54e9f5ff">build</a>;</div>
-<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160; </div>
-<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;- (void) setPort: (MIDIPortRef)portValue;</div>
-<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160; </div>
-<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;- (void) setDest:(MIDIEndpointRef)destValue ;</div>
-<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;    </div>
-<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;- (void) setDelay:(<span class="keywordtype">float</span>) value;</div>
-<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160; </div>
-<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;- (MIDIPacketList *) <a class="code" href="../../d0/deb/interface_b_ross_tools_m_i_d_i_packet_list_build.html#af19a8fb3607e76ac6199e6c5ecc3a47a">sendPacketList</a>;</div>
-<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160; </div>
-<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;<span class="keyword">@end</span></div>
-<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160; </div>
-<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;<span class="comment">//  *****  *****  *****  *****  *****  *****</span></div>
-<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;<span class="comment">//  *****  *****  *****  *****  *****  *****</span></div>
-<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;<span class="comment">//  *****  *****  *****  *****  *****  *****</span></div>
-<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;<span class="comment">//  *****  *****  *****  *****  *****  *****</span></div>
-<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;<span class="comment">//  *****  *****  *****  *****  *****  *****</span></div>
-<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;<span class="comment">//  *****  *****  *****  *****  *****  *****</span></div>
-<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160; </div>
-<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160; </div>
-<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160; </div>
-<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* BRossToolsMIDI_h */</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;<span class="comment"> 1 = GeneralUser GS MuseScore v1.442.sf2</span></div>
+<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;<span class="comment"> </span></div>
+<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;<span class="comment"> 2 = gs_instruments.dls</span></div>
+<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;<span class="comment"> </span></div>
+<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;<span class="comment"> @returns BOOLEAN YES/NO to indicate whether file picker was successful.  (YES = succeess)</span></div>
+<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;- (BOOL) setSoundBank:(UInt8) option;</div>
+<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;<span class="comment">/**</span></div>
+<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;<span class="comment"> Select one of the two MIDI files bundled in the app.</span></div>
+<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;<span class="comment"> </span></div>
+<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;<span class="comment"> @param option indicates bundled MIDI file to use.</span></div>
+<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;<span class="comment"> </span></div>
+<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;<span class="comment"> 1 = sibeliusGMajor.mid</span></div>
+<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;<span class="comment"> </span></div>
+<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;<span class="comment"> 2 = ntbldmtn.mid (Night on Bald Mountain)</span></div>
+<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;<span class="comment"> </span></div>
+<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;<span class="comment"> @returns BOOLEAN YES/NO to indicate whether file picker was successful.  (YES = succeess)</span></div>
+<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;- (BOOL) selectBuiltInFile:(UInt8) option;<span class="comment"></span></div>
+<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;<span class="comment">/**</span></div>
+<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;<span class="comment"> @Select the default instrument to be used.</span></div>
+<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;<span class="comment"> </span></div>
+<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;<span class="comment"> &lt;a href=&quot;https://www.midi.org/specifications-old/item/gm-level-1-sound-set&quot; target=&quot;_blank&quot;&gt;</span></div>
+<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;<span class="comment"> A list of instruments can me found on the MIDI&amp;trade;</span></div>
+<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;<span class="comment"> Association web site&lt;/a&gt;.  Note that the values entered for the option ranges from 0 to 127 while the numbers for the instruments</span></div>
+<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;<span class="comment"> range from 1 to 128.</span></div>
+<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;<span class="comment"> </span></div>
+<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;<span class="comment"> */</span><span class="comment"></span></div>
+<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;<span class="comment">/**</span></div>
+<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;<span class="comment"> @brief Open the file picker to select the MIDI file to play.</span></div>
+<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;<span class="comment"> @returns BOOLEAN YES/NO to indicate whether file picker was successful.  (YES = succeess)</span></div>
+<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160; - (BOOL) <a class="code" href="../../d9/d51/interface_virtual_synthesizer.html#a18c1e4f1f0f3c351e1428de304501e5b">pickMIDIFileURL</a>;</div>
+<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;<span class="comment">/**</span></div>
+<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;<span class="comment"> @brief Specify the NSURL for the MIDI file to be played.</span></div>
+<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;<span class="comment"> </span></div>
+<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;<span class="comment"> @param url  NSURL object for file to be played.</span></div>
+<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;<span class="comment"> </span></div>
+<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;<span class="comment"> @returns BOOLEAN YES/NO to indicate whether file picker was successful.  (YES = succeess)</span></div>
+<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;- (BOOL) setMIDIFileURL:(NSURL *) url;</div>
+<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;- (BOOL) <a class="code" href="../../d9/d51/interface_virtual_synthesizer.html#aa094ee2859578329b7b1f88a4bb83fa7">loadSoundbankAndInstrument</a>;</div>
+<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;- (BOOL) <a class="code" href="../../d9/d51/interface_virtual_synthesizer.html#ad993f7459c329d3b73f132e53030f866">startEngine</a>;</div>
+<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;- (void) <a class="code" href="../../d9/d51/interface_virtual_synthesizer.html#a073099b0e1b4c02c41e9009fc606c64a">debugValues</a>;</div>
+<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;- (void) <a class="code" href="../../d6/d5f/interfacetest1.html">test1</a>;</div>
+<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;- (AVAudioUnitSampler *) <a class="code" href="../../d9/d51/interface_virtual_synthesizer.html#a3b7915e9ca00796ad88c0ccd51740fba">getSynthesizer</a>;</div>
+<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;- (AVAudioEngine *) <a class="code" href="../../d9/d51/interface_virtual_synthesizer.html#afca68af9898aa0b22f4d69a44cc348da">getAudioEngine</a>;</div>
+<div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;<span class="keyword">@end</span></div>
+<div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160; </div>
+<div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;<span class="comment">//  *****  *****  *****  ******  *****  ******</span></div>
+<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160; </div>
+<div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160; </div>
+<div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160; </div>
+<div class="line"><a name="l00361"></a><span class="lineno"><a class="line" href="../../d1/d5e/interface_play_m_i_d_i_file.html">  361</a></span>&#160;<span class="keyword">@interface </span><a class="code" href="../../d1/d5e/interface_play_m_i_d_i_file.html">PlayMIDIFile</a>:<a class="code" href="../../d7/dc4/class_n_s_object.html">NSObject</a></div>
+<div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;- (<a class="code" href="../../d1/d5e/interface_play_m_i_d_i_file.html">PlayMIDIFile</a> *) <a class="code" href="../../d1/d5e/interface_play_m_i_d_i_file.html#a875dd3d08aa6e41230b445f4649fdcd3">init</a>;<span class="comment"></span></div>
+<div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;<span class="comment">/**</span></div>
+<div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160;<span class="comment"> @brief Select one of the MIDI files contained in the app.</span></div>
+<div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;<span class="comment"> </span></div>
+<div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160;<span class="comment"> @param option Indicsates built in MIDI file to play.</span></div>
+<div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160;<span class="comment"> </span></div>
+<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;<span class="comment"> There are two MIDI files contained in the main bundle of the application.</span></div>
+<div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;<span class="comment"> </span></div>
+<div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;<span class="comment"> 1 = sibeliusGMajor.mid</span></div>
+<div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;<span class="comment"> </span></div>
+<div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;<span class="comment"> 2 = ntbldmtn.mid (Night on Bald Mountain)</span></div>
+<div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;<span class="comment"> </span></div>
+<div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;<span class="comment"> @returns BOOLEAN YES/NO to indicate whether the method was run successfully - YES indicates success</span></div>
+<div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160;- (BOOL) selectBuiltinFile:(UInt8) option;</div>
+<div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;- (void) <a class="code" href="../../d1/d5e/interface_play_m_i_d_i_file.html#ae6c70b48ad13fedd84d7d9d2a2ff1e66">songFinished</a>;</div>
+<div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160; </div>
+<div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;<span class="comment">// ******  *****  *****  *****  *****  *****  *****</span></div>
+<div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160;<span class="comment">// ******  *****  *****  *****  *****  *****  *****</span></div>
+<div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160;<span class="comment">// ******  *****  *****  *****  *****  *****  *****</span></div>
+<div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160;<span class="comment">// ******  *****  *****  *****  *****  *****  *****</span></div>
+<div class="line"><a name="l00383"></a><span class="lineno">  383</span>&#160;<span class="comment">// ******  *****  *****  *****  *****  *****  *****</span></div>
+<div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160;<span class="comment">// ******  *****  *****  *****  *****  *****  *****</span></div>
+<div class="line"><a name="l00385"></a><span class="lineno">  385</span>&#160; </div>
+<div class="line"><a name="l00386"></a><span class="lineno">  386</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00387"></a><span class="lineno">  387</span>&#160;<span class="comment">/**</span></div>
+<div class="line"><a name="l00388"></a><span class="lineno">  388</span>&#160;<span class="comment"> @brief Open a modal window to select a MIDI file.</span></div>
+<div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160;<span class="comment"> </span></div>
+<div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160;<span class="comment"> @returns BOOLEAN YES/NO to indicate whether the method was run successfully - YES indicates success</span></div>
+<div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160;- (BOOL) <a class="code" href="../../d1/d5e/interface_play_m_i_d_i_file.html#abcc91005293786413842400d4fe99e59">pickMIDIFileURL</a>;</div>
+<div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160; </div>
+<div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160; </div>
+<div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160;<span class="comment">/**</span></div>
+<div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160;<span class="comment"> @brief specify the source of the MIDI file to be played.</span></div>
+<div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160;<span class="comment"> </span></div>
+<div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160;<span class="comment"> @param url This is the NSURL value for the file to be played.  It is the same</span></div>
+<div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160;<span class="comment">                NSURL value that would be loaded if you were using</span></div>
+<div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160;<span class="comment">                pickMIDIFileURL to specify the file</span></div>
+<div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160;<span class="comment"> @returns BOOLEAN YES/NO to indicate whether the method was run successfully - YES indicates success</span></div>
+<div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160;- (BOOL) setMIDIFileURL:(NSURL *) url;</div>
+<div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160; </div>
+<div class="line"><a name="l00406"></a><span class="lineno">  406</span>&#160; </div>
+<div class="line"><a name="l00407"></a><span class="lineno">  407</span>&#160; </div>
+<div class="line"><a name="l00408"></a><span class="lineno">  408</span>&#160;<span class="comment">// ******  *****  *****  *****  *****  *****  *****</span></div>
+<div class="line"><a name="l00409"></a><span class="lineno">  409</span>&#160;<span class="comment">// ******  *****  *****  *****  *****  *****  *****</span></div>
+<div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160;<span class="comment">// ******  *****  *****  *****  *****  *****  *****</span></div>
+<div class="line"><a name="l00411"></a><span class="lineno">  411</span>&#160;<span class="comment">// ******  *****  *****  *****  *****  *****  *****</span></div>
+<div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160;<span class="comment">// ******  *****  *****  *****  *****  *****  *****</span></div>
+<div class="line"><a name="l00413"></a><span class="lineno">  413</span>&#160;<span class="comment">// ******  *****  *****  *****  *****  *****  *****</span></div>
+<div class="line"><a name="l00414"></a><span class="lineno">  414</span>&#160; </div>
+<div class="line"><a name="l00415"></a><span class="lineno">  415</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00416"></a><span class="lineno">  416</span>&#160;<span class="comment">/**</span></div>
+<div class="line"><a name="l00417"></a><span class="lineno">  417</span>&#160;<span class="comment"> @brief Select one of two sound banks that are stored in the main bundle.</span></div>
+<div class="line"><a name="l00418"></a><span class="lineno">  418</span>&#160;<span class="comment"> @param option Indicates sound bank to use</span></div>
+<div class="line"><a name="l00419"></a><span class="lineno">  419</span>&#160;<span class="comment"> </span></div>
+<div class="line"><a name="l00420"></a><span class="lineno">  420</span>&#160;<span class="comment"> 1 = GeneralUser GS MuseScore v1.442.sf2</span></div>
+<div class="line"><a name="l00421"></a><span class="lineno">  421</span>&#160;<span class="comment"> </span></div>
+<div class="line"><a name="l00422"></a><span class="lineno">  422</span>&#160;<span class="comment"> 2 = gs_instruments.dls</span></div>
+<div class="line"><a name="l00423"></a><span class="lineno">  423</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00424"></a><span class="lineno">  424</span>&#160;- (BOOL) selectSoundBank:(UInt8) option;</div>
+<div class="line"><a name="l00425"></a><span class="lineno">  425</span>&#160; </div>
+<div class="line"><a name="l00426"></a><span class="lineno">  426</span>&#160;<span class="comment">// ******  *****  *****  *****  *****  *****  *****</span></div>
+<div class="line"><a name="l00427"></a><span class="lineno">  427</span>&#160;<span class="comment">// ******  *****  *****  *****  *****  *****  *****</span></div>
+<div class="line"><a name="l00428"></a><span class="lineno">  428</span>&#160;<span class="comment">// ******  *****  *****  *****  *****  *****  *****</span></div>
+<div class="line"><a name="l00429"></a><span class="lineno">  429</span>&#160;<span class="comment">// ******  *****  *****  *****  *****  *****  *****</span></div>
+<div class="line"><a name="l00430"></a><span class="lineno">  430</span>&#160;<span class="comment">// ******  *****  *****  *****  *****  *****  *****</span></div>
+<div class="line"><a name="l00431"></a><span class="lineno">  431</span>&#160;<span class="comment">// ******  *****  *****  *****  *****  *****  *****</span></div>
+<div class="line"><a name="l00432"></a><span class="lineno">  432</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00433"></a><span class="lineno">  433</span>&#160;<span class="comment">/**</span></div>
+<div class="line"><a name="l00434"></a><span class="lineno">  434</span>&#160;<span class="comment"> @brief First sample program.</span></div>
+<div class="line"><a name="l00435"></a><span class="lineno">  435</span>&#160;<span class="comment"> &#39;</span></div>
+<div class="line"><a name="l00436"></a><span class="lineno">  436</span>&#160;<span class="comment"> Play a G Major scale</span></div>
+<div class="line"><a name="l00437"></a><span class="lineno">  437</span>&#160;<span class="comment"> </span></div>
+<div class="line"><a name="l00438"></a><span class="lineno">  438</span>&#160;<span class="comment"> The code to launch this sample case is as follows.</span></div>
+<div class="line"><a name="l00439"></a><span class="lineno">  439</span>&#160;<span class="comment"> &lt;ul&gt;</span></div>
+<div class="line"><a name="l00440"></a><span class="lineno">  440</span>&#160;<span class="comment"> &lt;li&gt;PlayMIDIFile *midiTest = [[PlayMIDIFile alloc] init];&lt;/li&gt;</span></div>
+<div class="line"><a name="l00441"></a><span class="lineno">  441</span>&#160;<span class="comment"> &lt;li&gt;[midiTest test1];&lt;/li&gt;</span></div>
+<div class="line"><a name="l00442"></a><span class="lineno">  442</span>&#160;<span class="comment"> &lt;/ul&gt;</span></div>
+<div class="line"><a name="l00443"></a><span class="lineno">  443</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00444"></a><span class="lineno">  444</span>&#160;- (void) <a class="code" href="../../d6/d5f/interfacetest1.html">test1</a>;</div>
+<div class="line"><a name="l00445"></a><span class="lineno">  445</span>&#160; </div>
+<div class="line"><a name="l00446"></a><span class="lineno">  446</span>&#160;<span class="comment">// ******  *****  *****  *****  *****  *****  *****</span></div>
+<div class="line"><a name="l00447"></a><span class="lineno">  447</span>&#160;<span class="comment">// ******  *****  *****  *****  *****  *****  *****</span></div>
+<div class="line"><a name="l00448"></a><span class="lineno">  448</span>&#160;<span class="comment">// ******  *****  *****  *****  *****  *****  *****</span></div>
+<div class="line"><a name="l00449"></a><span class="lineno">  449</span>&#160;<span class="comment">// ******  *****  *****  *****  *****  *****  *****</span></div>
+<div class="line"><a name="l00450"></a><span class="lineno">  450</span>&#160;<span class="comment">// ******  *****  *****  *****  *****  *****  *****</span></div>
+<div class="line"><a name="l00451"></a><span class="lineno">  451</span>&#160;<span class="comment">// ******  *****  *****  *****  *****  *****  *****</span></div>
+<div class="line"><a name="l00452"></a><span class="lineno">  452</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00453"></a><span class="lineno">  453</span>&#160;<span class="comment">/**</span></div>
+<div class="line"><a name="l00454"></a><span class="lineno">  454</span>&#160;<span class="comment">@brief Second sample program.</span></div>
+<div class="line"><a name="l00455"></a><span class="lineno">  455</span>&#160;<span class="comment"> </span></div>
+<div class="line"><a name="l00456"></a><span class="lineno">  456</span>&#160;<span class="comment"> Play &quot;Night on Bald Mountain&quot;</span></div>
+<div class="line"><a name="l00457"></a><span class="lineno">  457</span>&#160;<span class="comment"> </span></div>
+<div class="line"><a name="l00458"></a><span class="lineno">  458</span>&#160;<span class="comment"> The code to launch this sample case is as follows.</span></div>
+<div class="line"><a name="l00459"></a><span class="lineno">  459</span>&#160;<span class="comment"> &lt;ul&gt;</span></div>
+<div class="line"><a name="l00460"></a><span class="lineno">  460</span>&#160;<span class="comment"> &lt;li&gt;PlayMIDIFile *midiTest = [[PlayMIDIFile alloc] init];&lt;/li&gt;</span></div>
+<div class="line"><a name="l00461"></a><span class="lineno">  461</span>&#160;<span class="comment"> &lt;li&gt;[midiTest test2];&lt;/li&gt;</span></div>
+<div class="line"><a name="l00462"></a><span class="lineno">  462</span>&#160;<span class="comment"> &lt;/ul&gt;</span></div>
+<div class="line"><a name="l00463"></a><span class="lineno">  463</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00464"></a><span class="lineno">  464</span>&#160;-  (void) <a class="code" href="../../d1/d05/interfacetest2.html">test2</a>;<span class="comment"></span></div>
+<div class="line"><a name="l00465"></a><span class="lineno">  465</span>&#160;<span class="comment"> /**</span></div>
+<div class="line"><a name="l00466"></a><span class="lineno">  466</span>&#160;<span class="comment">  @brief Third sample program. - Pick a midi file and play it through software syntesizer.</span></div>
+<div class="line"><a name="l00467"></a><span class="lineno">  467</span>&#160;<span class="comment">  </span></div>
+<div class="line"><a name="l00468"></a><span class="lineno">  468</span>&#160;<span class="comment">  A file picker is used to let the user pick the MIDI file to be played.</span></div>
+<div class="line"><a name="l00469"></a><span class="lineno">  469</span>&#160;<span class="comment">  </span></div>
+<div class="line"><a name="l00470"></a><span class="lineno">  470</span>&#160;<span class="comment">  The selected sound bank is GeneralUser GS MuseScore v1.442.sf2.</span></div>
+<div class="line"><a name="l00471"></a><span class="lineno">  471</span>&#160;<span class="comment">  </span></div>
+<div class="line"><a name="l00472"></a><span class="lineno">  472</span>&#160;<span class="comment">  The code to launch this sample case is as follows.</span></div>
+<div class="line"><a name="l00473"></a><span class="lineno">  473</span>&#160;<span class="comment">  &lt;ul&gt;</span></div>
+<div class="line"><a name="l00474"></a><span class="lineno">  474</span>&#160;<span class="comment">  &lt;li&gt;PlayMIDIFile *midiTest = [[PlayMIDIFile alloc] init];&lt;/li&gt;</span></div>
+<div class="line"><a name="l00475"></a><span class="lineno">  475</span>&#160;<span class="comment">  &lt;li&gt;[midiTest test3];&lt;/li&gt;</span></div>
+<div class="line"><a name="l00476"></a><span class="lineno">  476</span>&#160;<span class="comment">  &lt;/ul&gt;</span></div>
+<div class="line"><a name="l00477"></a><span class="lineno">  477</span>&#160;<span class="comment">  */</span></div>
+<div class="line"><a name="l00478"></a><span class="lineno">  478</span>&#160;- (void) <a class="code" href="../../d1/d5e/interface_play_m_i_d_i_file.html#a59846ac2f0d05abfa9fdfabb593577fd">pickMIDIFileAndPlay</a>;</div>
+<div class="line"><a name="l00479"></a><span class="lineno">  479</span>&#160; </div>
+<div class="line"><a name="l00480"></a><span class="lineno">  480</span>&#160;<span class="keyword">@end</span></div>
+<div class="line"><a name="l00481"></a><span class="lineno">  481</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* BRossToolsMIDI_h */</span><span class="preprocessor"></span></div>
 <div class="ttc" id="a_b_ross_tools_8h_html"><div class="ttname"><a href="../../df/db4/_b_ross_tools_8h.html">BRossTools.h</a></div><div class="ttdoc">BRossTools header.</div></div>
-<div class="ttc" id="a_b_ross_tools_m_i_d_i_8h_html"><div class="ttname"><a href="../../d9/d63/_b_ross_tools_m_i_d_i_8h.html">BRossToolsMIDI.h</a></div></div>
 <div class="ttc" id="a_local_classes_8h_html"><div class="ttname"><a href="../../de/d97/_local_classes_8h.html">LocalClasses.h</a></div><div class="ttdoc">LocalClasses headers. The code in this section is either specific to tests, samples or requires more ...</div></div>
 <div class="ttc" id="aclass_n_s_object_html"><div class="ttname"><a href="../../d7/dc4/class_n_s_object.html">NSObject</a></div></div>
-<div class="ttc" id="ainterface_b_ross_tools_m_i_d_i_listen_for_input2_html"><div class="ttname"><a href="../../d6/ddb/interface_b_ross_tools_m_i_d_i_listen_for_input2.html">BRossToolsMIDIListenForInput2</a></div><div class="ttdoc">Read keyboard presses using the legacy apis.</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d63/_b_ross_tools_m_i_d_i_8h_source.html#l00058">BRossToolsMIDI.h:58</a></div></div>
-<div class="ttc" id="ainterface_b_ross_tools_m_i_d_i_listen_for_input2_html_a0d2bc7cdd93c264208c3ca3be3def34e"><div class="ttname"><a href="../../d6/ddb/interface_b_ross_tools_m_i_d_i_listen_for_input2.html#a0d2bc7cdd93c264208c3ca3be3def34e">BRossToolsMIDIListenForInput2::clientName</a></div><div class="ttdeci">CFStringRef clientName</div><div class="ttdoc">name of client</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d63/_b_ross_tools_m_i_d_i_8h_source.html#l00103">BRossToolsMIDI.h:103</a></div></div>
-<div class="ttc" id="ainterface_b_ross_tools_m_i_d_i_listen_for_input2_html_a6a3af4602a30dccce9bda62ca764266d"><div class="ttname"><a href="../../d6/ddb/interface_b_ross_tools_m_i_d_i_listen_for_input2.html#a6a3af4602a30dccce9bda62ca764266d">BRossToolsMIDIListenForInput2::sourceRef</a></div><div class="ttdeci">MIDIEndpointRef sourceRef</div><div class="ttdoc">Identifier for external MIDI device (keyboard)</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d63/_b_ross_tools_m_i_d_i_8h_source.html#l00067">BRossToolsMIDI.h:67</a></div></div>
-<div class="ttc" id="ainterface_b_ross_tools_m_i_d_i_listen_for_input2_html_a70f8cc5f0cb1579fcb7138dee16e7f78"><div class="ttname"><a href="../../d6/ddb/interface_b_ross_tools_m_i_d_i_listen_for_input2.html#a70f8cc5f0cb1579fcb7138dee16e7f78">BRossToolsMIDIListenForInput2::portName</a></div><div class="ttdeci">CFStringRef portName</div><div class="ttdoc">name of input port</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d63/_b_ross_tools_m_i_d_i_8h_source.html#l00107">BRossToolsMIDI.h:107</a></div></div>
-<div class="ttc" id="ainterface_b_ross_tools_m_i_d_i_listen_for_input2_html_a9ee943ae6f0f235d56d3fb8338aa203f"><div class="ttname"><a href="../../d6/ddb/interface_b_ross_tools_m_i_d_i_listen_for_input2.html#a9ee943ae6f0f235d56d3fb8338aa203f">BRossToolsMIDIListenForInput2::clientCreateOption</a></div><div class="ttdeci">int clientCreateOption</div><div class="ttdoc">option for client creation;</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d63/_b_ross_tools_m_i_d_i_8h_source.html#l00090">BRossToolsMIDI.h:90</a></div></div>
-<div class="ttc" id="ainterface_b_ross_tools_m_i_d_i_listen_for_input2_html_aaa311ced7e8ddadf9566b5cc032d5ce0"><div class="ttname"><a href="../../d6/ddb/interface_b_ross_tools_m_i_d_i_listen_for_input2.html#aaa311ced7e8ddadf9566b5cc032d5ce0">BRossToolsMIDIListenForInput2::midiClient</a></div><div class="ttdeci">MIDIClientRef midiClient</div><div class="ttdoc">Identifier for MIDI client software.</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d63/_b_ross_tools_m_i_d_i_8h_source.html#l00063">BRossToolsMIDI.h:63</a></div></div>
-<div class="ttc" id="ainterface_b_ross_tools_m_i_d_i_listen_for_input2_html_ae3189127c25f1c32bc35a64c9199d969"><div class="ttname"><a href="../../d6/ddb/interface_b_ross_tools_m_i_d_i_listen_for_input2.html#ae3189127c25f1c32bc35a64c9199d969">BRossToolsMIDIListenForInput2::result</a></div><div class="ttdeci">OSStatus result</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d63/_b_ross_tools_m_i_d_i_8h_source.html#l00059">BRossToolsMIDI.h:59</a></div></div>
-<div class="ttc" id="ainterface_b_ross_tools_m_i_d_i_listen_for_input2_html_aeb062c7a451ccf0cbeda247a002c8c83"><div class="ttname"><a href="../../d6/ddb/interface_b_ross_tools_m_i_d_i_listen_for_input2.html#aeb062c7a451ccf0cbeda247a002c8c83">BRossToolsMIDIListenForInput2::sourceName</a></div><div class="ttdeci">CFStringRef sourceName</div><div class="ttdoc">name of source device (keyboard)</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d63/_b_ross_tools_m_i_d_i_8h_source.html#l00099">BRossToolsMIDI.h:99</a></div></div>
-<div class="ttc" id="ainterface_b_ross_tools_m_i_d_i_listen_for_input2_html_aeba8b64569708cf8ea3fba868e091230"><div class="ttname"><a href="../../d6/ddb/interface_b_ross_tools_m_i_d_i_listen_for_input2.html#aeba8b64569708cf8ea3fba868e091230">BRossToolsMIDIListenForInput2::textWindow</a></div><div class="ttdeci">BRossToolsTextWindow * textWindow</div><div class="ttdoc">Pointer to BRossToolsTextWindow.</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d63/_b_ross_tools_m_i_d_i_8h_source.html#l00113">BRossToolsMIDI.h:113</a></div></div>
-<div class="ttc" id="ainterface_b_ross_tools_m_i_d_i_listen_for_input2_html_af79e5f1f34499d27e8862df5e3d9ecfe"><div class="ttname"><a href="../../d6/ddb/interface_b_ross_tools_m_i_d_i_listen_for_input2.html#af79e5f1f34499d27e8862df5e3d9ecfe">BRossToolsMIDIListenForInput2::inputPort</a></div><div class="ttdeci">MIDIPortRef inputPort</div><div class="ttdoc">MIDIObjectRef for Input Port.</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d63/_b_ross_tools_m_i_d_i_8h_source.html#l00076">BRossToolsMIDI.h:76</a></div></div>
-<div class="ttc" id="ainterface_b_ross_tools_m_i_d_i_listen_for_input2_html_af8e985c5153efa04bf80d288ceb34cb1"><div class="ttname"><a href="../../d6/ddb/interface_b_ross_tools_m_i_d_i_listen_for_input2.html#af8e985c5153efa04bf80d288ceb34cb1">BRossToolsMIDIListenForInput2::windowValue</a></div><div class="ttdeci">BRossToolsTextWindow * windowValue</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d63/_b_ross_tools_m_i_d_i_8h_source.html#l00114">BRossToolsMIDI.h:114</a></div></div>
-<div class="ttc" id="ainterface_b_ross_tools_m_i_d_i_listen_for_input2_html_afe889e213b1f35b92d375891baf507e3"><div class="ttname"><a href="../../d6/ddb/interface_b_ross_tools_m_i_d_i_listen_for_input2.html#afe889e213b1f35b92d375891baf507e3">BRossToolsMIDIListenForInput2::inputPortOption</a></div><div class="ttdeci">int inputPortOption</div><div class="ttdoc">option for creating input port</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d63/_b_ross_tools_m_i_d_i_8h_source.html#l00094">BRossToolsMIDI.h:94</a></div></div>
-<div class="ttc" id="ainterface_b_ross_tools_m_i_d_i_listen_for_input_html"><div class="ttname"><a href="../../db/d97/interface_b_ross_tools_m_i_d_i_listen_for_input.html">BRossToolsMIDIListenForInput</a></div><div class="ttdoc">Use CoreMIDI to read key strokes for notes.</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d63/_b_ross_tools_m_i_d_i_8h_source.html#l00036">BRossToolsMIDI.h:37</a></div></div>
-<div class="ttc" id="ainterface_b_ross_tools_m_i_d_i_listen_for_input_html_a100eaba688eff9dceff837f034a6c44c"><div class="ttname"><a href="../../db/d97/interface_b_ross_tools_m_i_d_i_listen_for_input.html#a100eaba688eff9dceff837f034a6c44c">-[BRossToolsMIDIListenForInput runtest]</a></div><div class="ttdeci">void runtest()</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d3f/_b_ross_tools_m_i_d_i_listen_for_input_8m_source.html#l00060">BRossToolsMIDIListenForInput.m:71</a></div></div>
-<div class="ttc" id="ainterface_b_ross_tools_m_i_d_i_listen_for_input_html_a3a4ab8f5fcb1b10ef21c3145a79c8a91"><div class="ttname"><a href="../../db/d97/interface_b_ross_tools_m_i_d_i_listen_for_input.html#a3a4ab8f5fcb1b10ef21c3145a79c8a91">-[BRossToolsMIDIListenForInput getTextWindow]</a></div><div class="ttdeci">BRossToolsTextWindow * getTextWindow()</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d3f/_b_ross_tools_m_i_d_i_listen_for_input_8m_source.html#l00060">BRossToolsMIDIListenForInput.m:62</a></div></div>
-<div class="ttc" id="ainterface_b_ross_tools_m_i_d_i_packet_list_build_html"><div class="ttname"><a href="../../d0/deb/interface_b_ross_tools_m_i_d_i_packet_list_build.html">BRossToolsMIDIPacketListBuild</a></div><div class="ttdoc">Construct a MIDIPacketList object.</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d63/_b_ross_tools_m_i_d_i_8h_source.html#l00280">BRossToolsMIDI.h:281</a></div></div>
+<div class="ttc" id="ainterface_b_ross_tools_m_i_d_i_listen_for_input2_html"><div class="ttname"><a href="../../d6/ddb/interface_b_ross_tools_m_i_d_i_listen_for_input2.html">BRossToolsMIDIListenForInput2</a></div><div class="ttdoc">Read keyboard presses using the legacy apis.</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d63/_b_ross_tools_m_i_d_i_8h_source.html#l00045">BRossToolsMIDI.h:46</a></div></div>
+<div class="ttc" id="ainterface_b_ross_tools_m_i_d_i_listen_for_input2_html_a320a5bde7481a0d2763849a20c77441e"><div class="ttname"><a href="../../d6/ddb/interface_b_ross_tools_m_i_d_i_listen_for_input2.html#a320a5bde7481a0d2763849a20c77441e">-[BRossToolsMIDIListenForInput2 init]</a></div><div class="ttdeci">instancetype init()</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d95/_b_ross_tools_m_i_d_i_listen_for_input2_8m_source.html#l00174">BRossToolsMIDIListenForInput2.m:215</a></div></div>
+<div class="ttc" id="ainterface_b_ross_tools_m_i_d_i_listen_for_input2_html_a739f264401897e2ed4390442ceaddbb2"><div class="ttname"><a href="../../d6/ddb/interface_b_ross_tools_m_i_d_i_listen_for_input2.html#a739f264401897e2ed4390442ceaddbb2">-[BRossToolsMIDIListenForInput2 playMidiFile]</a></div><div class="ttdeci">void playMidiFile()</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d95/_b_ross_tools_m_i_d_i_listen_for_input2_8m_source.html#l00174">BRossToolsMIDIListenForInput2.m:526</a></div></div>
+<div class="ttc" id="ainterface_b_ross_tools_m_i_d_i_listen_for_input2_html_a79f3ba5c61739218ded3f0f4b57280df"><div class="ttname"><a href="../../d6/ddb/interface_b_ross_tools_m_i_d_i_listen_for_input2.html#a79f3ba5c61739218ded3f0f4b57280df">-[BRossToolsMIDIListenForInput2 recordMidiFile]</a></div><div class="ttdeci">void recordMidiFile()</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d95/_b_ross_tools_m_i_d_i_listen_for_input2_8m_source.html#l00174">BRossToolsMIDIListenForInput2.m:534</a></div></div>
+<div class="ttc" id="ainterface_b_ross_tools_m_i_d_i_listen_for_input2_html_ab1a26c579db962150dbc3e2f042a7aad"><div class="ttname"><a href="../../d6/ddb/interface_b_ross_tools_m_i_d_i_listen_for_input2.html#ab1a26c579db962150dbc3e2f042a7aad">-[BRossToolsMIDIListenForInput2 runtest]</a></div><div class="ttdeci">void runtest()</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d95/_b_ross_tools_m_i_d_i_listen_for_input2_8m_source.html#l00174">BRossToolsMIDIListenForInput2.m:219</a></div></div>
+<div class="ttc" id="ainterface_b_ross_tools_m_i_d_i_listen_for_input2_html_ade13d13315b6ca0d9d30c1c4883a7360"><div class="ttname"><a href="../../d6/ddb/interface_b_ross_tools_m_i_d_i_listen_for_input2.html#ade13d13315b6ca0d9d30c1c4883a7360">-[BRossToolsMIDIListenForInput2 getTextWindow]</a></div><div class="ttdeci">BRossToolsTextWindow * getTextWindow()</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d95/_b_ross_tools_m_i_d_i_listen_for_input2_8m_source.html#l00086">BRossToolsMIDIListenForInput2.m:90</a></div></div>
+<div class="ttc" id="ainterface_b_ross_tools_m_i_d_i_listen_for_input2_html_ae4f1512b68b5bec10f5b8d0dc15b89dc"><div class="ttname"><a href="../../d6/ddb/interface_b_ross_tools_m_i_d_i_listen_for_input2.html#ae4f1512b68b5bec10f5b8d0dc15b89dc">-[BRossToolsMIDIListenForInput2 killClient]</a></div><div class="ttdeci">void killClient()</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d95/_b_ross_tools_m_i_d_i_listen_for_input2_8m_source.html#l00174">BRossToolsMIDIListenForInput2.m:510</a></div></div>
+<div class="ttc" id="ainterface_b_ross_tools_m_i_d_i_packet_list_build_html"><div class="ttname"><a href="../../d0/deb/interface_b_ross_tools_m_i_d_i_packet_list_build.html">BRossToolsMIDIPacketListBuild</a></div><div class="ttdoc">Construct a MIDIPacketList object.</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d63/_b_ross_tools_m_i_d_i_8h_source.html#l00217">BRossToolsMIDI.h:218</a></div></div>
 <div class="ttc" id="ainterface_b_ross_tools_m_i_d_i_packet_list_build_html_a94d6f0c2f5e5c7411d6d0a7c54e9f5ff"><div class="ttname"><a href="../../d0/deb/interface_b_ross_tools_m_i_d_i_packet_list_build.html#a94d6f0c2f5e5c7411d6d0a7c54e9f5ff">-[BRossToolsMIDIPacketListBuild build]</a></div><div class="ttdeci">MIDIPacketList * build()</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d56/_b_ross_tools_m_i_d_i_packet_list_build_8m_source.html#l00027">BRossToolsMIDIPacketListBuild.m:61</a></div></div>
 <div class="ttc" id="ainterface_b_ross_tools_m_i_d_i_packet_list_build_html_af19a8fb3607e76ac6199e6c5ecc3a47a"><div class="ttname"><a href="../../d0/deb/interface_b_ross_tools_m_i_d_i_packet_list_build.html#af19a8fb3607e76ac6199e6c5ecc3a47a">-[BRossToolsMIDIPacketListBuild sendPacketList]</a></div><div class="ttdeci">MIDIPacketList * sendPacketList()</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d56/_b_ross_tools_m_i_d_i_packet_list_build_8m_source.html#l00027">BRossToolsMIDIPacketListBuild.m:65</a></div></div>
-<div class="ttc" id="ainterface_b_ross_tools_m_i_d_i_packet_list_read_html"><div class="ttname"><a href="../../da/d9d/interface_b_ross_tools_m_i_d_i_packet_list_read.html">BRossToolsMIDIPacketListRead</a></div><div class="ttdoc">Read the contents of a MIDIPacketList.</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d63/_b_ross_tools_m_i_d_i_8h_source.html#l00244">BRossToolsMIDI.h:245</a></div></div>
-<div class="ttc" id="ainterface_b_ross_tools_m_i_d_i_send_m_i_d_i_html"><div class="ttname"><a href="../../da/dbe/interface_b_ross_tools_m_i_d_i_send_m_i_d_i.html">BRossToolsMIDISendMIDI</a></div><div class="ttdoc">Send MIDI commands to synthesizer.</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d63/_b_ross_tools_m_i_d_i_8h_source.html#l00171">BRossToolsMIDI.h:171</a></div></div>
-<div class="ttc" id="ainterface_b_ross_tools_m_i_d_i_send_m_i_d_i_html_a0f0c6f10f67bc130a19b27e58bb04eb3"><div class="ttname"><a href="../../da/dbe/interface_b_ross_tools_m_i_d_i_send_m_i_d_i.html#a0f0c6f10f67bc130a19b27e58bb04eb3">BRossToolsMIDISendMIDI::clientName</a></div><div class="ttdeci">CFStringRef clientName</div><div class="ttdoc">name of client</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d63/_b_ross_tools_m_i_d_i_8h_source.html#l00216">BRossToolsMIDI.h:216</a></div></div>
-<div class="ttc" id="ainterface_b_ross_tools_m_i_d_i_send_m_i_d_i_html_a11d621d225eaf4f6fbcca0e016e28264"><div class="ttname"><a href="../../da/dbe/interface_b_ross_tools_m_i_d_i_send_m_i_d_i.html#a11d621d225eaf4f6fbcca0e016e28264">BRossToolsMIDISendMIDI::portName</a></div><div class="ttdeci">CFStringRef portName</div><div class="ttdoc">name of input port</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d63/_b_ross_tools_m_i_d_i_8h_source.html#l00220">BRossToolsMIDI.h:220</a></div></div>
-<div class="ttc" id="ainterface_b_ross_tools_m_i_d_i_send_m_i_d_i_html_a2469f51314848401e377257cf800a2ef"><div class="ttname"><a href="../../da/dbe/interface_b_ross_tools_m_i_d_i_send_m_i_d_i.html#a2469f51314848401e377257cf800a2ef">BRossToolsMIDISendMIDI::outputPort</a></div><div class="ttdeci">MIDIPortRef outputPort</div><div class="ttdoc">MIDIObjectRef for output port.</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d63/_b_ross_tools_m_i_d_i_8h_source.html#l00189">BRossToolsMIDI.h:189</a></div></div>
-<div class="ttc" id="ainterface_b_ross_tools_m_i_d_i_send_m_i_d_i_html_a26a5ee9f298de6ef6dca73a3606f1b81"><div class="ttname"><a href="../../da/dbe/interface_b_ross_tools_m_i_d_i_send_m_i_d_i.html#a26a5ee9f298de6ef6dca73a3606f1b81">BRossToolsMIDISendMIDI::outputPortOption</a></div><div class="ttdeci">int outputPortOption</div><div class="ttdoc">option for creating output port</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d63/_b_ross_tools_m_i_d_i_8h_source.html#l00207">BRossToolsMIDI.h:207</a></div></div>
-<div class="ttc" id="ainterface_b_ross_tools_m_i_d_i_send_m_i_d_i_html_a52b21970fa1644fdc5adcc462fee972d"><div class="ttname"><a href="../../da/dbe/interface_b_ross_tools_m_i_d_i_send_m_i_d_i.html#a52b21970fa1644fdc5adcc462fee972d">BRossToolsMIDISendMIDI::midiClient</a></div><div class="ttdeci">MIDIClientRef midiClient</div><div class="ttdoc">Identifier for MIDI client object.</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d63/_b_ross_tools_m_i_d_i_8h_source.html#l00176">BRossToolsMIDI.h:176</a></div></div>
-<div class="ttc" id="ainterface_b_ross_tools_m_i_d_i_send_m_i_d_i_html_a977b248b383d4c596dab855d4a2d9d72"><div class="ttname"><a href="../../da/dbe/interface_b_ross_tools_m_i_d_i_send_m_i_d_i.html#a977b248b383d4c596dab855d4a2d9d72">BRossToolsMIDISendMIDI::clientCreateOption</a></div><div class="ttdeci">int clientCreateOption</div><div class="ttdoc">option for client creation;</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d63/_b_ross_tools_m_i_d_i_8h_source.html#l00199">BRossToolsMIDI.h:199</a></div></div>
-<div class="ttc" id="ainterface_b_ross_tools_m_i_d_i_send_m_i_d_i_html_aab6c3ab31e6efd4ea0ef467a3226f6f0"><div class="ttname"><a href="../../da/dbe/interface_b_ross_tools_m_i_d_i_send_m_i_d_i.html#aab6c3ab31e6efd4ea0ef467a3226f6f0">BRossToolsMIDISendMIDI::result</a></div><div class="ttdeci">OSStatus result</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d63/_b_ross_tools_m_i_d_i_8h_source.html#l00172">BRossToolsMIDI.h:172</a></div></div>
-<div class="ttc" id="ainterface_b_ross_tools_m_i_d_i_send_m_i_d_i_html_abe209b8e6770666ab5bd45936b37392f"><div class="ttname"><a href="../../da/dbe/interface_b_ross_tools_m_i_d_i_send_m_i_d_i.html#abe209b8e6770666ab5bd45936b37392f">BRossToolsMIDISendMIDI::textWindow</a></div><div class="ttdeci">BRossToolsTextWindow * textWindow</div><div class="ttdoc">Pointer to BRossToolsTextWindow.</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d63/_b_ross_tools_m_i_d_i_8h_source.html#l00225">BRossToolsMIDI.h:225</a></div></div>
-<div class="ttc" id="ainterface_b_ross_tools_m_i_d_i_send_m_i_d_i_html_ac6f6b221ca28b97bb276eced7b287f21"><div class="ttname"><a href="../../da/dbe/interface_b_ross_tools_m_i_d_i_send_m_i_d_i.html#ac6f6b221ca28b97bb276eced7b287f21">BRossToolsMIDISendMIDI::destRef</a></div><div class="ttdeci">MIDIEndpointRef destRef</div><div class="ttdoc">Identifier for external MIDI device (synthesizer)</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d63/_b_ross_tools_m_i_d_i_8h_source.html#l00180">BRossToolsMIDI.h:180</a></div></div>
-<div class="ttc" id="ainterface_b_ross_tools_m_i_d_i_send_m_i_d_i_html_af301ea97720230f4a65f6fe90d7b710f"><div class="ttname"><a href="../../da/dbe/interface_b_ross_tools_m_i_d_i_send_m_i_d_i.html#af301ea97720230f4a65f6fe90d7b710f">BRossToolsMIDISendMIDI::destName</a></div><div class="ttdeci">CFStringRef destName</div><div class="ttdoc">name of source device (keyboard)</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d63/_b_ross_tools_m_i_d_i_8h_source.html#l00212">BRossToolsMIDI.h:212</a></div></div>
-<div class="ttc" id="ainterface_b_ross_tools_text_window_html"><div class="ttname"><a href="../../d0/d85/interface_b_ross_tools_text_window.html">BRossToolsTextWindow</a></div><div class="ttdoc">Creates a scrolling window for handling text.</div><div class="ttdef"><b>Definition:</b> <a href="../../df/db4/_b_ross_tools_8h_source.html#l00135">BRossTools.h:135</a></div></div>
-<div class="ttc" id="ainterface_test_read_dummy_html"><div class="ttname"><a href="../../d6/d3d/interface_test_read_dummy.html">TestReadDummy</a></div><div class="ttdoc">create a dummy MIDIPacketList and parse it.</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d63/_b_ross_tools_m_i_d_i_8h_source.html#l00155">BRossToolsMIDI.h:156</a></div></div>
-<div class="ttc" id="ainterface_test_read_dummy_html_a4473f9b4767c12d149b9134ba9351cbe"><div class="ttname"><a href="../../d6/d3d/interface_test_read_dummy.html#a4473f9b4767c12d149b9134ba9351cbe">-[TestReadDummy runtest]</a></div><div class="ttdeci">void runtest()</div><div class="ttdef"><b>Definition:</b> <a href="../../db/dde/_b_ross_tools_m_i_d_i_packet_list_read_8m_source.html#l00196">BRossToolsMIDIPacketListRead.m:210</a></div></div>
-<div class="ttc" id="ainterface_test_send_dummy_html"><div class="ttname"><a href="../../dd/da1/interface_test_send_dummy.html">TestSendDummy</a></div><div class="ttdoc">Create a dummy MIDIPacketList and send it to the first MIDI destination.</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d63/_b_ross_tools_m_i_d_i_8h_source.html#l00132">BRossToolsMIDI.h:133</a></div></div>
-<div class="ttc" id="ainterface_test_send_dummy_html_acf72aecc51281dfb5bb92cc33648d597"><div class="ttname"><a href="../../dd/da1/interface_test_send_dummy.html#acf72aecc51281dfb5bb92cc33648d597">-[TestSendDummy runtest]</a></div><div class="ttdeci">void runtest()</div><div class="ttdef"><b>Definition:</b> <a href="../../db/dde/_b_ross_tools_m_i_d_i_packet_list_read_8m_source.html#l00196">BRossToolsMIDIPacketListRead.m:346</a></div></div>
+<div class="ttc" id="ainterface_b_ross_tools_m_i_d_i_packet_list_read_html"><div class="ttname"><a href="../../da/d9d/interface_b_ross_tools_m_i_d_i_packet_list_read.html">BRossToolsMIDIPacketListRead</a></div><div class="ttdoc">Read the contents of a MIDIPacketList.</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d63/_b_ross_tools_m_i_d_i_8h_source.html#l00179">BRossToolsMIDI.h:180</a></div></div>
+<div class="ttc" id="ainterface_b_ross_tools_m_i_d_i_send_m_i_d_i_html"><div class="ttname"><a href="../../da/dbe/interface_b_ross_tools_m_i_d_i_send_m_i_d_i.html">BRossToolsMIDISendMIDI</a></div><div class="ttdoc">Send MIDI commands to external or virtual synthesizer.</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d63/_b_ross_tools_m_i_d_i_8h_source.html#l00106">BRossToolsMIDI.h:106</a></div></div>
+<div class="ttc" id="ainterface_b_ross_tools_m_i_d_i_send_m_i_d_i_html_a0f0c6f10f67bc130a19b27e58bb04eb3"><div class="ttname"><a href="../../da/dbe/interface_b_ross_tools_m_i_d_i_send_m_i_d_i.html#a0f0c6f10f67bc130a19b27e58bb04eb3">BRossToolsMIDISendMIDI::clientName</a></div><div class="ttdeci">CFStringRef clientName</div><div class="ttdoc">name of client</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d63/_b_ross_tools_m_i_d_i_8h_source.html#l00151">BRossToolsMIDI.h:151</a></div></div>
+<div class="ttc" id="ainterface_b_ross_tools_m_i_d_i_send_m_i_d_i_html_a11d621d225eaf4f6fbcca0e016e28264"><div class="ttname"><a href="../../da/dbe/interface_b_ross_tools_m_i_d_i_send_m_i_d_i.html#a11d621d225eaf4f6fbcca0e016e28264">BRossToolsMIDISendMIDI::portName</a></div><div class="ttdeci">CFStringRef portName</div><div class="ttdoc">name of input port</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d63/_b_ross_tools_m_i_d_i_8h_source.html#l00155">BRossToolsMIDI.h:155</a></div></div>
+<div class="ttc" id="ainterface_b_ross_tools_m_i_d_i_send_m_i_d_i_html_a2469f51314848401e377257cf800a2ef"><div class="ttname"><a href="../../da/dbe/interface_b_ross_tools_m_i_d_i_send_m_i_d_i.html#a2469f51314848401e377257cf800a2ef">BRossToolsMIDISendMIDI::outputPort</a></div><div class="ttdeci">MIDIPortRef outputPort</div><div class="ttdoc">MIDIObjectRef for output port.</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d63/_b_ross_tools_m_i_d_i_8h_source.html#l00124">BRossToolsMIDI.h:124</a></div></div>
+<div class="ttc" id="ainterface_b_ross_tools_m_i_d_i_send_m_i_d_i_html_a52b21970fa1644fdc5adcc462fee972d"><div class="ttname"><a href="../../da/dbe/interface_b_ross_tools_m_i_d_i_send_m_i_d_i.html#a52b21970fa1644fdc5adcc462fee972d">BRossToolsMIDISendMIDI::midiClient</a></div><div class="ttdeci">MIDIClientRef midiClient</div><div class="ttdoc">Identifier for MIDI client object.</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d63/_b_ross_tools_m_i_d_i_8h_source.html#l00111">BRossToolsMIDI.h:111</a></div></div>
+<div class="ttc" id="ainterface_b_ross_tools_m_i_d_i_send_m_i_d_i_html_a977b248b383d4c596dab855d4a2d9d72"><div class="ttname"><a href="../../da/dbe/interface_b_ross_tools_m_i_d_i_send_m_i_d_i.html#a977b248b383d4c596dab855d4a2d9d72">BRossToolsMIDISendMIDI::clientCreateOption</a></div><div class="ttdeci">int clientCreateOption</div><div class="ttdoc">option for client creation;</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d63/_b_ross_tools_m_i_d_i_8h_source.html#l00134">BRossToolsMIDI.h:134</a></div></div>
+<div class="ttc" id="ainterface_b_ross_tools_m_i_d_i_send_m_i_d_i_html_aab6c3ab31e6efd4ea0ef467a3226f6f0"><div class="ttname"><a href="../../da/dbe/interface_b_ross_tools_m_i_d_i_send_m_i_d_i.html#aab6c3ab31e6efd4ea0ef467a3226f6f0">BRossToolsMIDISendMIDI::result</a></div><div class="ttdeci">OSStatus result</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d63/_b_ross_tools_m_i_d_i_8h_source.html#l00107">BRossToolsMIDI.h:107</a></div></div>
+<div class="ttc" id="ainterface_b_ross_tools_m_i_d_i_send_m_i_d_i_html_abe209b8e6770666ab5bd45936b37392f"><div class="ttname"><a href="../../da/dbe/interface_b_ross_tools_m_i_d_i_send_m_i_d_i.html#abe209b8e6770666ab5bd45936b37392f">BRossToolsMIDISendMIDI::textWindow</a></div><div class="ttdeci">BRossToolsTextWindow * textWindow</div><div class="ttdoc">Pointer to BRossToolsTextWindow.</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d63/_b_ross_tools_m_i_d_i_8h_source.html#l00160">BRossToolsMIDI.h:160</a></div></div>
+<div class="ttc" id="ainterface_b_ross_tools_m_i_d_i_send_m_i_d_i_html_ac6f6b221ca28b97bb276eced7b287f21"><div class="ttname"><a href="../../da/dbe/interface_b_ross_tools_m_i_d_i_send_m_i_d_i.html#ac6f6b221ca28b97bb276eced7b287f21">BRossToolsMIDISendMIDI::destRef</a></div><div class="ttdeci">MIDIEndpointRef destRef</div><div class="ttdoc">Identifier for external MIDI device (synthesizer)</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d63/_b_ross_tools_m_i_d_i_8h_source.html#l00115">BRossToolsMIDI.h:115</a></div></div>
+<div class="ttc" id="ainterface_b_ross_tools_m_i_d_i_send_m_i_d_i_html_af301ea97720230f4a65f6fe90d7b710f"><div class="ttname"><a href="../../da/dbe/interface_b_ross_tools_m_i_d_i_send_m_i_d_i.html#af301ea97720230f4a65f6fe90d7b710f">BRossToolsMIDISendMIDI::destName</a></div><div class="ttdeci">CFStringRef destName</div><div class="ttdoc">option for creating output port</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d63/_b_ross_tools_m_i_d_i_8h_source.html#l00147">BRossToolsMIDI.h:147</a></div></div>
+<div class="ttc" id="ainterface_b_ross_tools_text_window_html"><div class="ttname"><a href="../../d0/d85/interface_b_ross_tools_text_window.html">BRossToolsTextWindow</a></div><div class="ttdoc">Creates a scrolling window for handling text.</div><div class="ttdef"><b>Definition:</b> <a href="../../df/db4/_b_ross_tools_8h_source.html#l00138">BRossTools.h:138</a></div></div>
+<div class="ttc" id="ainterface_play_m_i_d_i_file_html"><div class="ttname"><a href="../../d1/d5e/interface_play_m_i_d_i_file.html">PlayMIDIFile</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d63/_b_ross_tools_m_i_d_i_8h_source.html#l00361">BRossToolsMIDI.h:362</a></div></div>
+<div class="ttc" id="ainterface_play_m_i_d_i_file_html_a59846ac2f0d05abfa9fdfabb593577fd"><div class="ttname"><a href="../../d1/d5e/interface_play_m_i_d_i_file.html#a59846ac2f0d05abfa9fdfabb593577fd">-[PlayMIDIFile pickMIDIFileAndPlay]</a></div><div class="ttdeci">void pickMIDIFileAndPlay()</div><div class="ttdoc">Third sample program. - Pick a midi file and play it through software syntesizer.</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/daa/_b_ross_tools_m_i_d_i_play_m_i_d_i_file_8m_source.html#l00025">BRossToolsMIDIPlayMIDIFile.m:197</a></div></div>
+<div class="ttc" id="ainterface_play_m_i_d_i_file_html_a875dd3d08aa6e41230b445f4649fdcd3"><div class="ttname"><a href="../../d1/d5e/interface_play_m_i_d_i_file.html#a875dd3d08aa6e41230b445f4649fdcd3">-[PlayMIDIFile init]</a></div><div class="ttdeci">PlayMIDIFile * init()</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/daa/_b_ross_tools_m_i_d_i_play_m_i_d_i_file_8m_source.html#l00025">BRossToolsMIDIPlayMIDIFile.m:29</a></div></div>
+<div class="ttc" id="ainterface_play_m_i_d_i_file_html_abcc91005293786413842400d4fe99e59"><div class="ttname"><a href="../../d1/d5e/interface_play_m_i_d_i_file.html#abcc91005293786413842400d4fe99e59">-[PlayMIDIFile pickMIDIFileURL]</a></div><div class="ttdeci">BOOL pickMIDIFileURL()</div><div class="ttdoc">Open a modal window to select a MIDI file.</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/daa/_b_ross_tools_m_i_d_i_play_m_i_d_i_file_8m_source.html#l00025">BRossToolsMIDIPlayMIDIFile.m:39</a></div></div>
+<div class="ttc" id="ainterface_play_m_i_d_i_file_html_ae6c70b48ad13fedd84d7d9d2a2ff1e66"><div class="ttname"><a href="../../d1/d5e/interface_play_m_i_d_i_file.html#ae6c70b48ad13fedd84d7d9d2a2ff1e66">-[PlayMIDIFile songFinished]</a></div><div class="ttdeci">void songFinished()</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/daa/_b_ross_tools_m_i_d_i_play_m_i_d_i_file_8m_source.html#l00025">BRossToolsMIDIPlayMIDIFile.m:36</a></div></div>
+<div class="ttc" id="ainterface_test_read_dummy_html"><div class="ttname"><a href="../../d6/d3d/interface_test_read_dummy.html">TestReadDummy</a></div><div class="ttdoc">create a dummy MIDIPacketList and parse it.</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d63/_b_ross_tools_m_i_d_i_8h_source.html#l00090">BRossToolsMIDI.h:91</a></div></div>
+<div class="ttc" id="ainterface_test_read_dummy_html_a4473f9b4767c12d149b9134ba9351cbe"><div class="ttname"><a href="../../d6/d3d/interface_test_read_dummy.html#a4473f9b4767c12d149b9134ba9351cbe">-[TestReadDummy runtest]</a></div><div class="ttdeci">void runtest()</div><div class="ttdef"><b>Definition:</b> <a href="../../db/dde/_b_ross_tools_m_i_d_i_packet_list_read_8m_source.html#l00197">BRossToolsMIDIPacketListRead.m:211</a></div></div>
+<div class="ttc" id="ainterface_test_send_dummy_html"><div class="ttname"><a href="../../dd/da1/interface_test_send_dummy.html">TestSendDummy</a></div><div class="ttdoc">Create a dummy MIDIPacketList and send it to the first MIDI destination.</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d63/_b_ross_tools_m_i_d_i_8h_source.html#l00065">BRossToolsMIDI.h:66</a></div></div>
+<div class="ttc" id="ainterface_test_send_dummy_html_acf72aecc51281dfb5bb92cc33648d597"><div class="ttname"><a href="../../dd/da1/interface_test_send_dummy.html#acf72aecc51281dfb5bb92cc33648d597">-[TestSendDummy runtest]</a></div><div class="ttdeci">void runtest()</div><div class="ttdef"><b>Definition:</b> <a href="../../db/dde/_b_ross_tools_m_i_d_i_packet_list_read_8m_source.html#l00197">BRossToolsMIDIPacketListRead.m:356</a></div></div>
+<div class="ttc" id="ainterface_virtual_synthesizer_html"><div class="ttname"><a href="../../d9/d51/interface_virtual_synthesizer.html">VirtualSynthesizer</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d63/_b_ross_tools_m_i_d_i_8h_source.html#l00289">BRossToolsMIDI.h:290</a></div></div>
+<div class="ttc" id="ainterface_virtual_synthesizer_html_a073099b0e1b4c02c41e9009fc606c64a"><div class="ttname"><a href="../../d9/d51/interface_virtual_synthesizer.html#a073099b0e1b4c02c41e9009fc606c64a">-[VirtualSynthesizer debugValues]</a></div><div class="ttdeci">void debugValues()</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/db7/_b_ross_tools_m_i_d_i_virtual_synthesizer_8m_source.html#l00022">BRossToolsMIDIVirtualSynthesizer.m:151</a></div></div>
+<div class="ttc" id="ainterface_virtual_synthesizer_html_a18c1e4f1f0f3c351e1428de304501e5b"><div class="ttname"><a href="../../d9/d51/interface_virtual_synthesizer.html#a18c1e4f1f0f3c351e1428de304501e5b">-[VirtualSynthesizer pickMIDIFileURL]</a></div><div class="ttdeci">BOOL pickMIDIFileURL()</div><div class="ttdoc">Open the file picker to select the MIDI file to play.</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/db7/_b_ross_tools_m_i_d_i_virtual_synthesizer_8m_source.html#l00022">BRossToolsMIDIVirtualSynthesizer.m:145</a></div></div>
+<div class="ttc" id="ainterface_virtual_synthesizer_html_a3b7915e9ca00796ad88c0ccd51740fba"><div class="ttname"><a href="../../d9/d51/interface_virtual_synthesizer.html#a3b7915e9ca00796ad88c0ccd51740fba">-[VirtualSynthesizer getSynthesizer]</a></div><div class="ttdeci">AVAudioUnitSampler * getSynthesizer()</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/db7/_b_ross_tools_m_i_d_i_virtual_synthesizer_8m_source.html#l00022">BRossToolsMIDIVirtualSynthesizer.m:80</a></div></div>
+<div class="ttc" id="ainterface_virtual_synthesizer_html_a874aa75c0fd54459344dd1342f4fb80d"><div class="ttname"><a href="../../d9/d51/interface_virtual_synthesizer.html#a874aa75c0fd54459344dd1342f4fb80d">-[VirtualSynthesizer init]</a></div><div class="ttdeci">instancetype init()</div><div class="ttdoc">Initialize synthesizer.</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/db7/_b_ross_tools_m_i_d_i_virtual_synthesizer_8m_source.html#l00022">BRossToolsMIDIVirtualSynthesizer.m:25</a></div></div>
+<div class="ttc" id="ainterface_virtual_synthesizer_html_aa094ee2859578329b7b1f88a4bb83fa7"><div class="ttname"><a href="../../d9/d51/interface_virtual_synthesizer.html#aa094ee2859578329b7b1f88a4bb83fa7">-[VirtualSynthesizer loadSoundbankAndInstrument]</a></div><div class="ttdeci">BOOL loadSoundbankAndInstrument()</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/db7/_b_ross_tools_m_i_d_i_virtual_synthesizer_8m_source.html#l00022">BRossToolsMIDIVirtualSynthesizer.m:118</a></div></div>
+<div class="ttc" id="ainterface_virtual_synthesizer_html_ad993f7459c329d3b73f132e53030f866"><div class="ttname"><a href="../../d9/d51/interface_virtual_synthesizer.html#ad993f7459c329d3b73f132e53030f866">-[VirtualSynthesizer startEngine]</a></div><div class="ttdeci">BOOL startEngine()</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/db7/_b_ross_tools_m_i_d_i_virtual_synthesizer_8m_source.html#l00022">BRossToolsMIDIVirtualSynthesizer.m:90</a></div></div>
+<div class="ttc" id="ainterface_virtual_synthesizer_html_afca68af9898aa0b22f4d69a44cc348da"><div class="ttname"><a href="../../d9/d51/interface_virtual_synthesizer.html#afca68af9898aa0b22f4d69a44cc348da">-[VirtualSynthesizer getAudioEngine]</a></div><div class="ttdeci">AVAudioEngine * getAudioEngine()</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/db7/_b_ross_tools_m_i_d_i_virtual_synthesizer_8m_source.html#l00022">BRossToolsMIDIVirtualSynthesizer.m:83</a></div></div>
+<div class="ttc" id="ainterfacetest1_html"><div class="ttname"><a href="../../d6/d5f/interfacetest1.html">test1</a></div><div class="ttdoc">Creates an array of NSString and dispays them.</div><div class="ttdef"><b>Definition:</b> <a href="../../de/d97/_local_classes_8h_source.html#l00042">LocalClasses.h:43</a></div></div>
+<div class="ttc" id="ainterfacetest2_html"><div class="ttname"><a href="../../d1/d05/interfacetest2.html">test2</a></div><div class="ttdoc">Test for BRossToolsTextWindow.</div><div class="ttdef"><b>Definition:</b> <a href="../../de/d97/_local_classes_8h_source.html#l00060">LocalClasses.h:61</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

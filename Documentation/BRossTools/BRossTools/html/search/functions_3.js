@@ -1,7 +1,10 @@
 var searchData=
 [
-  ['clientname_252',['clientName',['../d6/ddb/interface_b_ross_tools_m_i_d_i_listen_for_input2.html#a0d2bc7cdd93c264208c3ca3be3def34e',1,'BRossToolsMIDIListenForInput2']]],
-  ['createbuttonviewusingobject_3aselector_3acaption_3a_253',['CreateButtonViewUsingObject:selector:caption:',['../dc/d6a/interface_b_ross_tools_button_view.html#a2cfcce924f83103120b08353bb71af1f',1,'BRossToolsButtonView']]],
-  ['createmainmenu_3a_254',['createMainMenu:',['../df/d4f/interfaceaaa_menu.html#a40d697e58b748e3da857cc9a11f7a12d',1,'aaaMenu']]],
-  ['createmainmenuforwindow_3a_255',['createMainMenuForWindow:',['../dc/d79/interface_b_ross_tools_simple_grid_menu.html#a1cbb39d235b04e733e6af0418a7c8c4b',1,'BRossToolsSimpleGridMenu']]]
+  ['debugtest_299',['debugTest',['../de/dd7/interface_sequencer_demos.html#adf1a70755c91607fa85d3d4a4f5cf567',1,'SequencerDemos']]],
+  ['debugvalues_300',['debugValues',['../d9/d51/interface_virtual_synthesizer.html#a073099b0e1b4c02c41e9009fc606c64a',1,'VirtualSynthesizer']]],
+  ['describenote_301',['describeNote',['../d6/ddb/interface_b_ross_tools_m_i_d_i_listen_for_input2.html#a5b327c90e16a61b22b0197812af062c7',1,'BRossToolsMIDIListenForInput2']]],
+  ['describenotexxxx_302',['describeNoteXXXX',['../d6/ddb/interface_b_ross_tools_m_i_d_i_listen_for_input2.html#ae1a9c8ff9305980df8599c3f5ef3bb40',1,'BRossToolsMIDIListenForInput2']]],
+  ['destination_303',['destination',['../da/d21/interface_b_ross_tools_c_f_dictionary_array.html#a6c32e0415cb3430dd71848c41fc3574e',1,'BRossToolsCFDictionaryArray']]],
+  ['devicedata_304',['deviceData',['../d6/d7e/interface_core_midi_sample1.html#a42510e1c3dfb171ed0fb838c1bb6c63a',1,'CoreMidiSample1']]],
+  ['displaytolog_3aview_3aoutput_3a_305',['displayToLog:view:output:',['../d9/d96/interface_b_ross_tools_view.html#a2fdda8b856d3ac7a41ff31da1d7ec950',1,'BRossToolsView']]]
 ];

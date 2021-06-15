@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['killclient_278',['killClient',['../d6/ddb/interface_b_ross_tools_m_i_d_i_listen_for_input2.html#ae4f1512b68b5bec10f5b8d0dc15b89dc',1,'BRossToolsMIDIListenForInput2::killClient()'],['../da/dbe/interface_b_ross_tools_m_i_d_i_send_m_i_d_i.html#acf980e9b970bb73edf4ca0fbee172cd5',1,'BRossToolsMIDISendMIDI::killClient()']]]
+  ['loadsoundbankandinstrument_325',['loadSoundbankAndInstrument',['../d9/d51/interface_virtual_synthesizer.html#aa094ee2859578329b7b1f88a4bb83fa7',1,'VirtualSynthesizer']]],
+  ['logger_326',['logger',['../d6/d7e/interface_core_midi_sample1.html#a86194943a5fb981bc0f4018109df8dc1',1,'CoreMidiSample1::logger()'],['../de/d97/_local_classes_8h.html#a8583f26ca0bb017e67cf5cf6dfe160c1',1,'logger():&#160;LocalClasses.h']]],
+  ['logsizepositionof_3atitle_3a_327',['logSizePositionOf:title:',['../de/d14/interfacee2.html#a3cfcdd8e1c1a41e975a35d988fa6c048',1,'e2']]]
 ];

@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['newpanel_347',['newPanel',['../d0/d85/interface_b_ross_tools_text_window.html#a246e45b5b02ab214c6068bb760eb47b1',1,'BRossToolsTextWindow']]],
-  ['numbertype_348',['numberType',['../d6/d41/_local_classes_8m.html#acd69f6953d702b665a64c6fd68d405fe',1,'LocalClasses.m']]],
-  ['numer_349',['numer',['../d4/d56/_b_ross_tools_m_i_d_i_packet_list_build_8m.html#af323556d18dbd2e75b96ce51cc36eb03',1,'numer():&#160;BRossToolsMIDIPacketListBuild.m'],['../db/dde/_b_ross_tools_m_i_d_i_packet_list_read_8m.html#af323556d18dbd2e75b96ce51cc36eb03',1,'numer():&#160;BRossToolsMIDIPacketListRead.m']]],
-  ['numpackets_350',['numPackets',['../db/dde/_b_ross_tools_m_i_d_i_packet_list_read_8m.html#afc1359b143ca39e8e75570a5bd8fcc05',1,'BRossToolsMIDIPacketListRead.m']]]
+  ['offset_418',['offset',['../d4/d56/_b_ross_tools_m_i_d_i_packet_list_build_8m.html#a7c85c342ca85af51f9245eb0d9b9b46b',1,'BRossToolsMIDIPacketListBuild.m']]],
+  ['outputmididevice_419',['outputMidiDevice',['../d9/de4/_b_ross_tools_synthesizer_8m.html#a29fe5a618d2406cea6726075fea8a057',1,'BRossToolsSynthesizer.m']]],
+  ['outputmidifile_420',['outputMidiFile',['../d9/de4/_b_ross_tools_synthesizer_8m.html#a5c2a41bf79f3a00ccb8f6a0337ff57db',1,'BRossToolsSynthesizer.m']]],
+  ['outputport_421',['outputPort',['../da/dbe/interface_b_ross_tools_m_i_d_i_send_m_i_d_i.html#a2469f51314848401e377257cf800a2ef',1,'BRossToolsMIDISendMIDI']]]
 ];

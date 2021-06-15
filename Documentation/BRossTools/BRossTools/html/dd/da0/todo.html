@@ -66,19 +66,33 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><dl class="reflist">
-<dt>Member <a class="el" href="../../d6/ddb/interface_b_ross_tools_m_i_d_i_listen_for_input2.html#ad6165d8edcfa4c4908ae0327cc6346a0">[BRossToolsMIDIListenForInput2 runtestWithWindow:]</a>  </dt>
-<dd><a class="anchor" id="_todo000005"></a>It appears that a packet can comtain more than one MIDI command. The code will have to be changed to keep looking for commands until the combined length of the MIDI commands is packet-&gt;length  </dd>
-<dt>Member <a class="el" href="../../da/d9d/interface_b_ross_tools_m_i_d_i_packet_list_read.html#a63cb5b9dd1a0201013b4ae126064f9b9">[BRossToolsMIDIPacketListRead processPacket:]</a>  </dt>
-<dd><a class="anchor" id="_todo000006"></a>insert code for SysEx  </dd>
-<dt>Member <a class="el" href="../../da/dbe/interface_b_ross_tools_m_i_d_i_send_m_i_d_i.html#a8ea22c310474a0e99ee045754283d074">[BRossToolsMIDISendMIDI runtestWithWindow:]</a>  </dt>
-<dd><a class="anchor" id="_todo000007"></a>add code to send notes  </dd>
+<dt>Global <a class="el" href="../../d6/ddb/interface_b_ross_tools_m_i_d_i_listen_for_input2.html#ae1a9c8ff9305980df8599c3f5ef3bb40">[BRossToolsMIDIListenForInput2 describeNoteXXXX]</a>  </dt>
+<dd><a class="anchor" id="_todo000007"></a>Is it still used?  </dd>
+<dt>Global <a class="el" href="../../d6/ddb/interface_b_ross_tools_m_i_d_i_listen_for_input2.html#ad6165d8edcfa4c4908ae0327cc6346a0">[BRossToolsMIDIListenForInput2 runtestWithWindow:]</a>  </dt>
+<dd><p class="startdd"><a class="anchor" id="_todo000008"></a>should be renamed to start with Init</p>
+<p class="enddd"><a class="anchor" id="_todo000009"></a>It appears that a packet can comtain more than one MIDI command. The code will have to be changed to keep looking for commands until the combined length of the MIDI commands is packet-&gt;length  </p>
+</dd>
+<dt>Global <a class="el" href="../../da/d9d/interface_b_ross_tools_m_i_d_i_packet_list_read.html#a9e489f81d81a1b8a60f276972e151747">[BRossToolsMIDIPacketListRead initWithWindow:]</a>  </dt>
+<dd><a class="anchor" id="_todo000006"></a>should have instancetype for methods beginning with init - test change below  </dd>
+<dt>Global <a class="el" href="../../da/d9d/interface_b_ross_tools_m_i_d_i_packet_list_read.html#a63cb5b9dd1a0201013b4ae126064f9b9">[BRossToolsMIDIPacketListRead processPacket:]</a>  </dt>
+<dd><a class="anchor" id="_todo000011"></a>insert code for SysEx  </dd>
+<dt>Global <a class="el" href="../../da/dbe/interface_b_ross_tools_m_i_d_i_send_m_i_d_i.html#a8ea22c310474a0e99ee045754283d074">[BRossToolsMIDISendMIDI runtestWithWindow:]</a>  </dt>
+<dd><a class="anchor" id="_todo000012"></a>add code to send notes  </dd>
+<dt>Global <a class="el" href="../../de/dd7/interface_sequencer_demos.html#a0d7df00847a2a313313ad1267a95cde7">[SequencerDemos selectInputMidiFile]</a>  </dt>
+<dd><a class="anchor" id="_todo000013"></a>NSOpenPanel does not have default title for panel. NSSavePanel does have title.  </dd>
+<dt>Global <a class="el" href="../../de/dd7/interface_sequencer_demos.html#adcad30e661d9715c48b1a3e86edc1c16">[SequencerDemos selectInputMidiFileAsync]</a>  </dt>
+<dd><a class="anchor" id="_todo000014"></a>Should it be runModal or startWithCompletionHandler? </dd>
+<dt>Global <a class="el" href="../../dd/da1/interface_test_send_dummy.html#a37c421fae0bbaf4af874742d7ef5da9e">[TestSendDummy runtestWithWindow:]</a>  </dt>
+<dd><a class="anchor" id="_todo000005"></a>These are going to have to be renamed since they take the place of the init method.  </dd>
 <dt>Class <a class="el" href="../../d6/ddb/interface_b_ross_tools_m_i_d_i_listen_for_input2.html">BRossToolsMIDIListenForInput2</a>  </dt>
-<dd><p class="startdd"><a class="anchor" id="_todo000001"></a>Insert code for selecting MIDI device.</p>
-<p class="interdd"><a class="anchor" id="_todo000003"></a>Running this version resulted in the following message being sent to the log. I don't know if this is a problem. <em>2021-03-31 20:59:33.847954-0400 BRossTools[12359:542211] [plugin] AddInstanceForFactory: No factory registered for id &lt;CFUUID 0x60000398e400&gt; F8BB1C28-BAE8-11D6-9C31-00039315CD46</em> </p>
-<p class="enddd"><a class="anchor" id="_todo000002"></a>If I have the clent create an output Port, will it show up on Audio MIDI Setup? Will GarageBand be able to connectt to the port? </p>
+<dd><p class="startdd"><a class="anchor" id="_todo000003"></a>Running this version resulted in the following message being sent to the log. I don't know if this is a problem. <em>2021-03-31 20:59:33.847954-0400 BRossTools[12359:542211] [plugin] AddInstanceForFactory: No factory registered for id &lt;CFUUID 0x60000398e400&gt; F8BB1C28-BAE8-11D6-9C31-00039315CD46 </em></p>
+<p class="interdd"><em> <a class="anchor" id="_todo000002"></a>If I have the clent create an output Port, will it show up on Audio MIDI Setup? Will GarageBand be able to connectt to the port?</em></p>
+<p class="enddd"><em> <a class="anchor" id="_todo000001"></a>Insert code for selecting MIDI device. </em></p>
 </dd>
 <dt>Class <a class="el" href="../../da/dbe/interface_b_ross_tools_m_i_d_i_send_m_i_d_i.html">BRossToolsMIDISendMIDI</a>  </dt>
-<dd><a class="anchor" id="_todo000004"></a>Insert code for selecting MIDI device. </dd>
+<dd><em> <a class="anchor" id="_todo000004"></a>Insert code for selecting MIDI device.  </em></dd>
+<dt>Global <a class="el" href="../../db/dde/_b_ross_tools_m_i_d_i_packet_list_read_8m.html#ab6b13e4953009e56e0d9268ef7eeee7f">buildDummy</a>  ()</dt>
+<dd><em> <a class="anchor" id="_todo000010"></a>I had to increase the adjustment for latency from 0.5 seconds to one second, I'm not sure if I should use threads with different priorities</em></dd>
 </dl>
 </div></div><!-- contents -->
 </div><!-- PageDoc -->

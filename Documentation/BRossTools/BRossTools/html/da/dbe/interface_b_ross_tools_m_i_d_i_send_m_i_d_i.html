@@ -64,14 +64,13 @@ $(function() {
   <div class="summary">
 <a href="#pub-methods">Instance Methods</a> &#124;
 <a href="#pub-static-methods">Class Methods</a> &#124;
-<a href="#pro-attribs">Protected Attributes</a> &#124;
-<a href="../../d7/daf/interface_b_ross_tools_m_i_d_i_send_m_i_d_i-members.html">List of all members</a>  </div>
+<a href="#pro-attribs">Protected Attributes</a>  </div>
   <div class="headertitle">
 <div class="title">BRossToolsMIDISendMIDI Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Send MIDI commands to synthesizer.  
+<p>Send MIDI commands to external or virtual synthesizer.  
  <a href="../../da/dbe/interface_b_ross_tools_m_i_d_i_send_m_i_d_i.html#details">More...</a></p>
 
 <p><code>#import &lt;<a class="el" href="../../d9/d63/_b_ross_tools_m_i_d_i_8h_source.html">BRossToolsMIDI.h</a>&gt;</code></p>
@@ -120,11 +119,8 @@ Protected Attributes</h2></td></tr>
 <tr class="memitem:a977b248b383d4c596dab855d4a2d9d72"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/dbe/interface_b_ross_tools_m_i_d_i_send_m_i_d_i.html#a977b248b383d4c596dab855d4a2d9d72">clientCreateOption</a></td></tr>
 <tr class="memdesc:a977b248b383d4c596dab855d4a2d9d72"><td class="mdescLeft">&#160;</td><td class="mdescRight">option for client creation;  <a href="../../da/dbe/interface_b_ross_tools_m_i_d_i_send_m_i_d_i.html#a977b248b383d4c596dab855d4a2d9d72">More...</a><br /></td></tr>
 <tr class="separator:a977b248b383d4c596dab855d4a2d9d72"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a26a5ee9f298de6ef6dca73a3606f1b81"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/dbe/interface_b_ross_tools_m_i_d_i_send_m_i_d_i.html#a26a5ee9f298de6ef6dca73a3606f1b81">outputPortOption</a></td></tr>
-<tr class="memdesc:a26a5ee9f298de6ef6dca73a3606f1b81"><td class="mdescLeft">&#160;</td><td class="mdescRight">option for creating output port  <a href="../../da/dbe/interface_b_ross_tools_m_i_d_i_send_m_i_d_i.html#a26a5ee9f298de6ef6dca73a3606f1b81">More...</a><br /></td></tr>
-<tr class="separator:a26a5ee9f298de6ef6dca73a3606f1b81"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af301ea97720230f4a65f6fe90d7b710f"><td class="memItemLeft" align="right" valign="top">CFStringRef&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/dbe/interface_b_ross_tools_m_i_d_i_send_m_i_d_i.html#af301ea97720230f4a65f6fe90d7b710f">destName</a></td></tr>
-<tr class="memdesc:af301ea97720230f4a65f6fe90d7b710f"><td class="mdescLeft">&#160;</td><td class="mdescRight">name of source device (keyboard)  <a href="../../da/dbe/interface_b_ross_tools_m_i_d_i_send_m_i_d_i.html#af301ea97720230f4a65f6fe90d7b710f">More...</a><br /></td></tr>
+<tr class="memdesc:af301ea97720230f4a65f6fe90d7b710f"><td class="mdescLeft">&#160;</td><td class="mdescRight">option for creating output port  <a href="../../da/dbe/interface_b_ross_tools_m_i_d_i_send_m_i_d_i.html#af301ea97720230f4a65f6fe90d7b710f">More...</a><br /></td></tr>
 <tr class="separator:af301ea97720230f4a65f6fe90d7b710f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0f0c6f10f67bc130a19b27e58bb04eb3"><td class="memItemLeft" align="right" valign="top">CFStringRef&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/dbe/interface_b_ross_tools_m_i_d_i_send_m_i_d_i.html#a0f0c6f10f67bc130a19b27e58bb04eb3">clientName</a></td></tr>
 <tr class="memdesc:a0f0c6f10f67bc130a19b27e58bb04eb3"><td class="mdescLeft">&#160;</td><td class="mdescRight">name of client  <a href="../../da/dbe/interface_b_ross_tools_m_i_d_i_send_m_i_d_i.html#a0f0c6f10f67bc130a19b27e58bb04eb3">More...</a><br /></td></tr>
@@ -137,10 +133,10 @@ Protected Attributes</h2></td></tr>
 <tr class="separator:abe209b8e6770666ab5bd45936b37392f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Send MIDI commands to synthesizer. </p>
+<div class="textblock"><p>Send MIDI commands to external or virtual synthesizer. </p>
 <dl class="todo"><dt><b><a class="el" href="../../dd/da0/todo.html#_todo000004">Todo:</a></b></dt><dd>Insert code for selecting MIDI device. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d9/d63/_b_ross_tools_m_i_d_i_8h_source.html#l00171">171</a> of file <a class="el" href="../../d9/d63/_b_ross_tools_m_i_d_i_8h_source.html">BRossToolsMIDI.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/d63/_b_ross_tools_m_i_d_i_8h_source.html#l00106">106</a> of file <a class="el" href="../../d9/d63/_b_ross_tools_m_i_d_i_8h_source.html">BRossToolsMIDI.h</a>.</p>
 </div><h2 class="groupheader">Method Documentation</h2>
 <a id="aaf99729ec9b0ab5c4bf07d59fa0824d4"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aaf99729ec9b0ab5c4bf07d59fa0824d4">&#9670;&nbsp;</a></span>getTextWindow</h2>
@@ -158,7 +154,8 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <b>Initial value:</b><div class="fragment"><div class="line">{</div>
 <div class="line">    </div>
-<div class="line">    <span class="keywordtype">void</span> **clientRef</div>
+<div class="line">    <span class="keywordtype">void</span> **<a class="code" href="../../d3/d95/_b_ross_tools_m_i_d_i_listen_for_input2_8m.html#a4865bae320663cdb71785403ad43e325">clientRef</a></div>
+<div class="ttc" id="a_b_ross_tools_m_i_d_i_listen_for_input2_8m_html_a4865bae320663cdb71785403ad43e325"><div class="ttname"><a href="../../d3/d95/_b_ross_tools_m_i_d_i_listen_for_input2_8m.html#a4865bae320663cdb71785403ad43e325">clientRef</a></div><div class="ttdeci">void ** clientRef</div><div class="ttdoc">A pointer to information passed through the client.</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d95/_b_ross_tools_m_i_d_i_listen_for_input2_8m_source.html#l00036">BRossToolsMIDIListenForInput2.m:24</a></div></div>
 </div><!-- fragment -->
 <p class="definition">Definition at line <a class="el" href="../../da/d91/_b_ross_tools_m_i_d_i_send_m_i_d_i_8m_source.html#l00001">1</a> of file <a class="el" href="../../da/d91/_b_ross_tools_m_i_d_i_send_m_i_d_i_8m_source.html">BRossToolsMIDISendMIDI.m</a>.</p>
 
@@ -179,7 +176,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../da/d91/_b_ross_tools_m_i_d_i_send_m_i_d_i_8m_source.html#l00075">75</a> of file <a class="el" href="../../da/d91/_b_ross_tools_m_i_d_i_send_m_i_d_i_8m_source.html">BRossToolsMIDISendMIDI.m</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/d91/_b_ross_tools_m_i_d_i_send_m_i_d_i_8m_source.html#l00076">76</a> of file <a class="el" href="../../da/d91/_b_ross_tools_m_i_d_i_send_m_i_d_i_8m_source.html">BRossToolsMIDISendMIDI.m</a>.</p>
 
 </div>
 </div>
@@ -226,7 +223,7 @@ Protected Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../da/d91/_b_ross_tools_m_i_d_i_send_m_i_d_i_8m_source.html#l00075">75</a> of file <a class="el" href="../../da/d91/_b_ross_tools_m_i_d_i_send_m_i_d_i_8m_source.html">BRossToolsMIDISendMIDI.m</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/d91/_b_ross_tools_m_i_d_i_send_m_i_d_i_8m_source.html#l00076">76</a> of file <a class="el" href="../../da/d91/_b_ross_tools_m_i_d_i_send_m_i_d_i_8m_source.html">BRossToolsMIDISendMIDI.m</a>.</p>
 
 </div>
 </div>
@@ -274,9 +271,9 @@ Protected Attributes</h2></td></tr>
 <p>&mdash; Start of block/closure/lamda side runTestWithWindow &mdash;</p>
 <p>This is the MIDINotifyBlock notifyBlock2 that will execute whenever there have been changes to the system.</p>
 <p>message MIDINotification struct describing change to system</p>
-<dl class="todo"><dt><b><a class="el" href="../../dd/da0/todo.html#_todo000007">Todo:</a></b></dt><dd>add code to send notes </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="../../dd/da0/todo.html#_todo000012">Todo:</a></b></dt><dd>add code to send notes </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../da/d91/_b_ross_tools_m_i_d_i_send_m_i_d_i_8m_source.html#l00075">75</a> of file <a class="el" href="../../da/d91/_b_ross_tools_m_i_d_i_send_m_i_d_i_8m_source.html">BRossToolsMIDISendMIDI.m</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/d91/_b_ross_tools_m_i_d_i_send_m_i_d_i_8m_source.html#l00076">76</a> of file <a class="el" href="../../da/d91/_b_ross_tools_m_i_d_i_send_m_i_d_i_8m_source.html">BRossToolsMIDISendMIDI.m</a>.</p>
 
 </div>
 </div>
@@ -300,7 +297,7 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<h2 class="groupheader">Member Data Documentation</h2>
+<h2 class="groupheader">Field Documentation</h2>
 <a id="a977b248b383d4c596dab855d4a2d9d72"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a977b248b383d4c596dab855d4a2d9d72">&#9670;&nbsp;</a></span>clientCreateOption</h2>
 
@@ -326,7 +323,7 @@ Protected Attributes</h2></td></tr>
 <p>0 = MIDIClientCreate with null entry for NotifyProc</p>
 <p>1 = MIDIClientCreate with entry for ReadProc </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d9/d63/_b_ross_tools_m_i_d_i_8h_source.html#l00199">199</a> of file <a class="el" href="../../d9/d63/_b_ross_tools_m_i_d_i_8h_source.html">BRossToolsMIDI.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/d63/_b_ross_tools_m_i_d_i_8h_source.html#l00134">134</a> of file <a class="el" href="../../d9/d63/_b_ross_tools_m_i_d_i_8h_source.html">BRossToolsMIDI.h</a>.</p>
 
 </div>
 </div>
@@ -352,7 +349,7 @@ Protected Attributes</h2></td></tr>
 
 <p>name of client </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d9/d63/_b_ross_tools_m_i_d_i_8h_source.html#l00216">216</a> of file <a class="el" href="../../d9/d63/_b_ross_tools_m_i_d_i_8h_source.html">BRossToolsMIDI.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/d63/_b_ross_tools_m_i_d_i_8h_source.html#l00151">151</a> of file <a class="el" href="../../d9/d63/_b_ross_tools_m_i_d_i_8h_source.html">BRossToolsMIDI.h</a>.</p>
 
 </div>
 </div>
@@ -376,9 +373,11 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>option for creating output port </p>
+<p>The value is currently hard-coded to a value of 1 but is not used by the class. The software uses MIDIOutputPortCreate for creation of the ouput port for the client.</p>
 <p>name of source device (keyboard) </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d9/d63/_b_ross_tools_m_i_d_i_8h_source.html#l00212">212</a> of file <a class="el" href="../../d9/d63/_b_ross_tools_m_i_d_i_8h_source.html">BRossToolsMIDI.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/d63/_b_ross_tools_m_i_d_i_8h_source.html#l00147">147</a> of file <a class="el" href="../../d9/d63/_b_ross_tools_m_i_d_i_8h_source.html">BRossToolsMIDI.h</a>.</p>
 
 </div>
 </div>
@@ -404,7 +403,7 @@ Protected Attributes</h2></td></tr>
 
 <p>Identifier for external MIDI device (synthesizer) </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d9/d63/_b_ross_tools_m_i_d_i_8h_source.html#l00180">180</a> of file <a class="el" href="../../d9/d63/_b_ross_tools_m_i_d_i_8h_source.html">BRossToolsMIDI.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/d63/_b_ross_tools_m_i_d_i_8h_source.html#l00115">115</a> of file <a class="el" href="../../d9/d63/_b_ross_tools_m_i_d_i_8h_source.html">BRossToolsMIDI.h</a>.</p>
 
 </div>
 </div>
@@ -430,7 +429,7 @@ Protected Attributes</h2></td></tr>
 
 <p>Identifier for MIDI client object. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d9/d63/_b_ross_tools_m_i_d_i_8h_source.html#l00176">176</a> of file <a class="el" href="../../d9/d63/_b_ross_tools_m_i_d_i_8h_source.html">BRossToolsMIDI.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/d63/_b_ross_tools_m_i_d_i_8h_source.html#l00111">111</a> of file <a class="el" href="../../d9/d63/_b_ross_tools_m_i_d_i_8h_source.html">BRossToolsMIDI.h</a>.</p>
 
 </div>
 </div>
@@ -457,34 +456,7 @@ Protected Attributes</h2></td></tr>
 <p>MIDIObjectRef for output port. </p>
 <p>The Output Port belongs to the client andsends information from the client indicated by sourceRef so that it can be processed by the client indicated by midiClient. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d9/d63/_b_ross_tools_m_i_d_i_8h_source.html#l00189">189</a> of file <a class="el" href="../../d9/d63/_b_ross_tools_m_i_d_i_8h_source.html">BRossToolsMIDI.h</a>.</p>
-
-</div>
-</div>
-<a id="a26a5ee9f298de6ef6dca73a3606f1b81"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a26a5ee9f298de6ef6dca73a3606f1b81">&#9670;&nbsp;</a></span>outputPortOption</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">- (int) outputPortOption</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>option for creating output port </p>
-<p>The value is currently hard-coded to a value of 1 but is not used by the class. The software uses MIDIOutputPortCreate for creation of the ouput port for the client. </p>
-
-<p class="definition">Definition at line <a class="el" href="../../d9/d63/_b_ross_tools_m_i_d_i_8h_source.html#l00207">207</a> of file <a class="el" href="../../d9/d63/_b_ross_tools_m_i_d_i_8h_source.html">BRossToolsMIDI.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/d63/_b_ross_tools_m_i_d_i_8h_source.html#l00124">124</a> of file <a class="el" href="../../d9/d63/_b_ross_tools_m_i_d_i_8h_source.html">BRossToolsMIDI.h</a>.</p>
 
 </div>
 </div>
@@ -510,7 +482,7 @@ Protected Attributes</h2></td></tr>
 
 <p>name of input port </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d9/d63/_b_ross_tools_m_i_d_i_8h_source.html#l00220">220</a> of file <a class="el" href="../../d9/d63/_b_ross_tools_m_i_d_i_8h_source.html">BRossToolsMIDI.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/d63/_b_ross_tools_m_i_d_i_8h_source.html#l00155">155</a> of file <a class="el" href="../../d9/d63/_b_ross_tools_m_i_d_i_8h_source.html">BRossToolsMIDI.h</a>.</p>
 
 </div>
 </div>
@@ -534,7 +506,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d9/d63/_b_ross_tools_m_i_d_i_8h_source.html#l00172">172</a> of file <a class="el" href="../../d9/d63/_b_ross_tools_m_i_d_i_8h_source.html">BRossToolsMIDI.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/d63/_b_ross_tools_m_i_d_i_8h_source.html#l00107">107</a> of file <a class="el" href="../../d9/d63/_b_ross_tools_m_i_d_i_8h_source.html">BRossToolsMIDI.h</a>.</p>
 
 </div>
 </div>
@@ -560,13 +532,13 @@ Protected Attributes</h2></td></tr>
 
 <p>Pointer to <a class="el" href="../../d0/d85/interface_b_ross_tools_text_window.html" title="Creates a scrolling window for handling text.">BRossToolsTextWindow</a>. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d9/d63/_b_ross_tools_m_i_d_i_8h_source.html#l00225">225</a> of file <a class="el" href="../../d9/d63/_b_ross_tools_m_i_d_i_8h_source.html">BRossToolsMIDI.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/d63/_b_ross_tools_m_i_d_i_8h_source.html#l00160">160</a> of file <a class="el" href="../../d9/d63/_b_ross_tools_m_i_d_i_8h_source.html">BRossToolsMIDI.h</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>/Users/bradleyross/Documents/GitHub/ObjectiveC-Examples/BRossTools/BRossTools/BRossTools/<a class="el" href="../../d9/d63/_b_ross_tools_m_i_d_i_8h_source.html">BRossToolsMIDI.h</a></li>
-<li>/Users/bradleyross/Documents/GitHub/ObjectiveC-Examples/BRossTools/BRossTools/BRossTools/<a class="el" href="../../da/d91/_b_ross_tools_m_i_d_i_send_m_i_d_i_8m_source.html">BRossToolsMIDISendMIDI.m</a></li>
+<li>BRossTools/<a class="el" href="../../d9/d63/_b_ross_tools_m_i_d_i_8h_source.html">BRossToolsMIDI.h</a></li>
+<li>BRossTools/<a class="el" href="../../da/d91/_b_ross_tools_m_i_d_i_send_m_i_d_i_8m_source.html">BRossToolsMIDISendMIDI.m</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

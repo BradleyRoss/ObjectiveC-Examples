@@ -62,8 +62,7 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#pub-static-methods">Class Methods</a> &#124;
-<a href="../../d8/d50/interfacemain_menu-members.html">List of all members</a>  </div>
+<a href="#pub-static-methods">Class Methods</a>  </div>
   <div class="headertitle">
 <div class="title">mainMenu Class Reference</div>  </div>
 </div><!--header-->
@@ -97,13 +96,26 @@ Class Methods</h2></td></tr>
 <p>The purpose of this class is to create a graphical main menu that contains a list of tasks that can be run.</p>
 <p>Creates the main menu for display on the first window. </p><table class="doxtable">
 <tr>
-<th>code </th><th>Caption</th><th>ObjectiveC Method  </th></tr>
+<th>code </th><th>Caption<br  />
+Action</th><th>ObjectiveC Method  </th></tr>
 <tr>
-<td>m3 </td><td>Listen for keystrokes using CoreMIDI (Ver 2)</td><td>[listener runTestWithWindow]  </td></tr>
+<td>temp</td><td>Placeholder for temporary code</td><td>[<a class="el" href="../../d1/d23/interfacetemp_test.html" title="Placeholder for temporary tests.">tempTest</a> runtest] </td></tr>
 <tr>
-<td>m4 </td><td>Kill CoreMIDI Client (Ver 2)</td><td>[listener killClient]  </td></tr>
+<td>m3 </td><td>Listen for keystrokes using CoreMIDI (Ver 2)<br  />
+ listener = [<a class="el" href="../../d6/ddb/interface_b_ross_tools_m_i_d_i_listen_for_input2.html" title="Read keyboard presses using the legacy apis.">BRossToolsMIDIListenForInput2</a> alloc]<br  />
+ [listener runtestWithWindow:window] </td><td>[BRossToolsMIDIListenForinput2 runTestWithWindow]  </td></tr>
+<tr>
+<td>m3a</td><td>Send keystrokes to virtual synthesizer </td><td>[<a class="el" href="../../d6/ddb/interface_b_ross_tools_m_i_d_i_listen_for_input2.html" title="Read keyboard presses using the legacy apis.">BRossToolsMIDIListenForInput2</a> initWithsynthesizer],/tr&gt; </td></tr>
+<tr>
+<td>m4 </td><td>Kill CoreMIDI Client (Ver 2)<br  />
+ m3 is run first<br  />
+ [listener killClient]</td><td>[<a class="el" href="../../d6/ddb/interface_b_ross_tools_m_i_d_i_listen_for_input2.html" title="Read keyboard presses using the legacy apis.">BRossToolsMIDIListenForInput2</a> killClient]  </td></tr>
+<tr>
+<td>m1a</td><td>Select and play MIDI song </td><td></td></tr>
 <tr>
 <td>m5 </td><td>Read a dummy MIDIPacketList </td><td>[<a class="el" href="../../d6/d3d/interface_test_read_dummy.html" title="create a dummy MIDIPacketList and parse it.">TestReadDummy</a> runtest]  </td></tr>
+<tr>
+<td>m6</td><td>Send a dummy MIDIPacketList </td><td>[[<a class="el" href="../../dd/da1/interface_test_send_dummy.html" title="Create a dummy MIDIPacketList and send it to the first MIDI destination.">TestSendDummy</a> alloc] runtestWithWindow:sendWindow] </td></tr>
 <tr>
 <td>b5</td><td>CoreMIDI - Show Configuration </td><td>[<a class="el" href="../../d6/d7e/interface_core_midi_sample1.html" title="MIDI tools.">CoreMidiSample1</a> runTest] </td></tr>
 <tr>
@@ -123,7 +135,7 @@ Class Methods</h2></td></tr>
 </table>
 <p>listener is an instance of <a class="el" href="../../d6/ddb/interface_b_ross_tools_m_i_d_i_listen_for_input2.html" title="Read keyboard presses using the legacy apis.">BRossToolsMIDIListenForInput2</a> The method [<a class="el" href="../../d0/d9c/interfacemain_menu.html" title="Generates initial menu for selecting tasks from a list.">mainMenu</a> menu] creates the menu </p>
 
-<p class="definition">Definition at line <a class="el" href="../../de/d97/_local_classes_8h_source.html#l00145">145</a> of file <a class="el" href="../../de/d97/_local_classes_8h_source.html">LocalClasses.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/d97/_local_classes_8h_source.html#l00156">156</a> of file <a class="el" href="../../de/d97/_local_classes_8h_source.html">LocalClasses.h</a>.</p>
 </div><h2 class="groupheader">Method Documentation</h2>
 <a id="af0fdbd899be90cda359dbb3979446d4a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af0fdbd899be90cda359dbb3979446d4a">&#9670;&nbsp;</a></span>bleep:</h2>
@@ -150,7 +162,7 @@ Class Methods</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d6/d41/_local_classes_8m_source.html#l00048">48</a> of file <a class="el" href="../../d6/d41/_local_classes_8m_source.html">LocalClasses.m</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d6/d41/_local_classes_8m_source.html#l00062">62</a> of file <a class="el" href="../../d6/d41/_local_classes_8m_source.html">LocalClasses.m</a>.</p>
 
 </div>
 </div>
@@ -174,13 +186,13 @@ Class Methods</h2></td></tr>
 <p>Builds view containing main menu.</p>
 <dl class="section return"><dt>Returns</dt><dd>pointer to NSStackView object. <a href="https://stackoverflow.com/questions/36020540/why-is-instancetype-used">https://stackoverflow.com/questions/36020540/why-is-instancetype-used</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d6/d41/_local_classes_8m_source.html#l00048">48</a> of file <a class="el" href="../../d6/d41/_local_classes_8m_source.html">LocalClasses.m</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d6/d41/_local_classes_8m_source.html#l00062">62</a> of file <a class="el" href="../../d6/d41/_local_classes_8m_source.html">LocalClasses.m</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>/Users/bradleyross/Documents/GitHub/ObjectiveC-Examples/BRossTools/BRossTools/BRossTools/<a class="el" href="../../de/d97/_local_classes_8h_source.html">LocalClasses.h</a></li>
-<li>/Users/bradleyross/Documents/GitHub/ObjectiveC-Examples/BRossTools/BRossTools/BRossTools/<a class="el" href="../../d6/d41/_local_classes_8m_source.html">LocalClasses.m</a></li>
+<li>BRossTools/<a class="el" href="../../de/d97/_local_classes_8h_source.html">LocalClasses.h</a></li>
+<li>BRossTools/<a class="el" href="../../d6/d41/_local_classes_8m_source.html">LocalClasses.m</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

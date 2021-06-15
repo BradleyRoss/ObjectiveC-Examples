@@ -65,23 +65,23 @@ $(function() {
 <div class="title">BRossTools </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p><a class="anchor" id="md__Users_bradleyross_Documents_GitHub_ObjectiveC_Examples_BRossTools_BRossTools_BRossTools_MDFILE"></a> This is a test of code to exercise the Xcode system. One of my goals was to avoid the use of Interface Builder except for attaching items in the menu bar to various programs. The GitHub documentation for BRossTools is located at [<a href="https://bradleyross.github.io/ObjectiveC-Examples/BRossTools">https://bradleyross.github.io/ObjectiveC-Examples/BRossTools</a>](This is a test of code to exercise the Xcode system. One of my goals was to avoid the use of Interface Builder except for attaching items in the menu bar to various programs. The GitHub documentation for BRossTools is located at <br  />
+<div class="textblock"><p><a class="anchor" id="md_MDFILE"></a> This is a test of code to exercise the Xcode system. One of my goals was to avoid the use of Interface Builder except for attaching items in the menu bar to various programs. The GitHub documentation for BRossTools is located at [<a href="https://bradleyross.github.io/ObjectiveC-Examples/BRossTools">https://bradleyross.github.io/ObjectiveC-Examples/BRossTools</a>](This is a test of code to exercise the Xcode system. One of my goals was to avoid the use of Interface Builder except for attaching items in the menu bar to various programs. The GitHub documentation for BRossTools is located at <br  />
  <a href="https://bradleyross.github.io/ObjectiveC-Examples/Documentation/BRossTools">https://bradleyross.github.io/ObjectiveC-Examples/Documentation/BRossTools</a></p>
-<h3><a class="anchor" id="autotoc_md1"></a>
+<h3><a class="anchor" id="autotoc_md18"></a>
 Files</h3>
 <ul>
 <li><a class="el" href="df/db4/_b_ross_tools_8h.html" title="BRossTools header.">BRossTools.h</a> and <a class="el" href="df/dbb/_b_ross_tools_8m.html" title="BRossTools implementation.">BRossTools.m</a> contain a set of Objective-C classes that are under development that will be used as a library to assist programmers.</li>
 <li><a class="el" href="de/d97/_local_classes_8h.html" title="LocalClasses headers. The code in this section is either specific to tests, samples or requires more ...">LocalClasses.h</a> and <a class="el" href="df/dbb/_b_ross_tools_8m.html" title="BRossTools implementation.">BRossTools.m</a> contain Objective-C classes that are being used to understand the technologies used in the development of MacOS applications.</li>
 <li>The file <a class="el" href="d2/db8/_app_delegate_8m.html">AppDelegate.m</a> has been modified to create a menu upon opening the application that can be used to call the other components contained in the application.</li>
-<li>The files <a class="el" href="d1/dda/_m_i_k_m_i_d_isamples_8h.html" title="MIKMIDI is an Objective-C library and this file describes a set of tests and samples.">MIKMIDIsamples.h</a> and <a class="el" href="d6/dd7/_m_i_k_m_i_d_isamples_8m.html" title="MIKMIDI example files. MIKMIDI is an Objective-C library for MIDI.">MIKMIDIsamples.m</a> contain examples for using MIKMIDI from Andrew Marsden</li>
+<li>The files MIKMIDIsamples.h and MIKMIDIsamples.m contain examples for using MIKMIDI from Andrew Marsden</li>
 </ul>
-<h3><a class="anchor" id="autotoc_md2"></a>
+<h3><a class="anchor" id="autotoc_md19"></a>
 Mapping to main menu</h3>
-<h3><a class="anchor" id="autotoc_md3"></a>
+<h3><a class="anchor" id="autotoc_md20"></a>
 Apple Documentation</h3>
 <p>The following is a list of documentation from Apple that can be used to create, modify, and understand this code.</p>
 <ul>
-<li><a href="https://developer.apple.com/documentation/technologies">Documentation - Apple Technologies</a> - This appears to reprsent the current API's.</li>
+<li><a href="https://developer.apple.com/documentation/technologies">Documentation - Apple Technologies</a> - This appears to represent the current API's.</li>
 <li><a href="https://developer.apple.com/library/archive/navigation/">Documentation Archive</a></li>
 <li><a href="https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/ProgrammingWithObjectiveC/Introduction/Introduction.html#//apple_ref/doc/uid/TP40011210-CH1-SW1">Programming With Objective-C</a></li>
 <li><a href="https://developer.apple.com/library/archive/documentation/DataManagement/Conceptual/DocBasedAppProgrammingGuideForOSX/Introduction/Introduction.html#//apple_ref/doc/uid/TP40011179">Document-Based App Programming Guide</a></li>
@@ -94,7 +94,22 @@ Apple Documentation</h3>
 <li><a href="https://developer.apple.com/library/archive/documentation/UserExperience/Conceptual/AutolayoutPG/index.html#//apple_ref/doc/uid/TP40010853">Auto Layout Guide</a></li>
 <li><a href="https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/Blocks/Articles/00_Introduction.html#//apple_ref/doc/uid/TP40007502-CH1-SW1">Blocks Programming Topics</a></li>
 </ul>
-<h3><a class="anchor" id="autotoc_md4"></a>
+<h3><a class="anchor" id="autotoc_md21"></a>
+Apple Objective-C Classes</h3>
+<p>The following list provides links the Apple documentation that describe some of the various classes used in the program..</p>
+<ul>
+<li><a href="https://developer.apple.com/documentation/audiotoolbox/music_player?language=objc">Audio Toolbox</a> I need more information on this.</li>
+<li><a href="https://developer.apple.com/documentation/avfaudio/avaudioengine?language=objc">AVAudioEngine</a> (AVFAudio -&gt; Audio Engine -&gt; AVAudioEngine) The methods for this class include a number of methods having the format connectMIDI... and disconnectMIDI...</li>
+<li><a href="https://developer.apple.com/documentation/avfaudio/avaudiosequencer?language=objc">AVAudioSequencer</a> (AVFAudio -&gt; Audio Engine -&gt; AVAudioSequencer)</li>
+<li><a href="https://developer.apple.com/documentation/avfaudio/avaudiounitmidiinstrument?language=objc">AVAudioUnitMIDIInstrument</a> (AVFAudio -&gt; Audio Engine -&gt; AVAudioUnitMIDIInstrument) It appears that sendProgramChange:onChannel sends a program (instrument change) while sendProgramChange:bankMSB:bankLSB:onChannel changes both program and sound bank. This would imply a need to change the instrument choice whenever you change the sound bank.</li>
+<li><a href="https://developer.apple.com/documentation/avfaudio/avaudiounitsampler?language=objc">AVAudioUnitSampler</a> (AVFAudio -&gt; Audio Engine -&gt; AVAudioUnitSampler)</li>
+<li><a href="https://developer.apple.com/documentation/foundation/nsbundle">NSBundle</a> (Foundation -&gt; Resources -&gt; NSBundle)</li>
+<li><a href="//developer.apple.com/documentation/foundation/nserror?language=objc">NSError</a> (Foundation -&gt; Errors and Exceptions -&gt; NSError) <a href="https://eezytutorials.com/ios/nserror-by-example.php#.YLPzRC1h1pQ">(EEZY Tutorials)</a> <a href="https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/ErrorHandlingCocoa/CreateCustomizeNSError/CreateCustomizeNSError.html">(Error Handling Programming Guide: Using and Creating Error Objects)</a></li>
+<li><a href="https://developer.apple.com/documentation/foundation/nsexception?language=objc">NSException</a> (Foundation -&gt; Errors and Exceptions -&gt; NSException)</li>
+<li><a href="https://developer.apple.com/documentation/foundation/nsthread?language=objc">NSThread</a> (Foundation -&gt; Processes and Threads -&gt; NSThread)</li>
+<li><a href="https://developer.apple.com/documentation/foundation/nstimer?language=objc">NSTimer</a> (Foundation -&gt; TaskManagement -&gt; NSTimer)</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md22"></a>
 MIDI programming using CoreMIDI</h3>
 <ul>
 <li><a href="https://developer.apple.com/documentation/coremidi?language=objc">Core MIDI</a></li>
@@ -111,8 +126,17 @@ MIDI programming using CoreMIDI</h3>
      * CoreData
      * CoreMIDI
      * Cocoa
-     * Foundation   
-</pre><h3><a class="anchor" id="autotoc_md5"></a>
+     * Foundation     
+</pre> <h3><a class="anchor" id="autotoc_md23"></a>
+Audio Toolbox</h3>
+<ul>
+<li><a href="https://developer.apple.com/documentation/audiotoolbox/music_player?language=objc">Audio Toolbox -&gt; Music Player</a></li>
+<li><a href="https://developer.apple.com/documentation/avfaudio/avaudiosequencer?language=objc">AVFAudio -&gt; Audio Engine -&gt; AVAudioSequencer</a></li>
+<li><a href="https://github.com/AudioKit/MIDISequencer">GitHub project - AudioKit/MIDISequencer</a></li>
+<li><a href="https://developer.apple.com/documentation/avfaudio/avaudiounitmidiinstrument?language=objc">AVFAudio -&gt; Audio Engine -&gt; AVFAudioUnitMIDIInstrument</a></li>
+<li><a href="https://developer.apple.com/documentation/audiotoolbox/auaudiounit?language=objc">Audio Toolbox -&gt; Audio Unit v3 Plug-In -&gt; AUAudioUnit</a></li>
+</ul>
+<h3><a class="anchor" id="autotoc_md24"></a>
 MIDI documentation</h3>
 <ul>
 <li><a href="https://www.midi.org/midi-articles/details-about-midi-2-0-midi-ci-profiles-and-property-exchange">Details about MIDI 2.0&trade;, MIDI-CI, Profiles and Property Exchange", MIDI</a> &ndash; Although this article describes the MIDI 2.0 standard, the full set of specifications has not yet been released to the general public, but only to corporate members of the Association.</li>
@@ -120,7 +144,15 @@ MIDI documentation</h3>
 <li><a href="https://imitone.com/discover-midi/">"Discover MIDI", imitone</a> &ndash; This appears to be the best laid-out guide to MIDI that I have seen to this date. The amount of information on programming is limited, but should help to explain the Apple documentation for CoreMidi.</li>
 <li>"MIDI Tutorial For Programmers", Carnegie Mellon University <a href="https://www.cs.cmu.edu/~music/cmsip/readings/MIDI%20tutorial%20for%20programmers.html">https://www.cs.cmu.edu/~music/cmsip/readings/MIDI%20tutorial%20for%20programmers.html</a> &ndash; Warning: Files with URL's like this have a habit of vanishing without warning.</li>
 <li><a href="https://developer.audiob.us/doc/_working-_with-_m_i_d_i.html">"Working With MIDI", Audiobus</a></li>
-<li><a href="https://stackoverflow.com/questions/8795749/coremidi-logging-received-midi-messages-to-an-nstextfield">https://stackoverflow.com/questions/8795749/coremidi-logging-received-midi-messages-to-an-nstextfield</a> </li>
+<li><a href="https://stackoverflow.com/questions/8795749/coremidi-logging-received-midi-messages-to-an-nstextfield">https://stackoverflow.com/questions/8795749/coremidi-logging-received-midi-messages-to-an-nstextfield</a></li>
+<li><a href="https://github.com/genedelisa/AVFoundationMIDIPlay">GitHub project AVFoundationMIDIPlay</a></li>
+</ul>
+<h3><a class="anchor" id="autotoc_md25"></a>
+Electronic Music</h3>
+<p>The following are some sources of files for electronic music.</p>
+<ul>
+<li><a href="https://musical-artifacts.com/artifacts?formats=dls">Musical Artifacts DLS</a></li>
+<li><a href="https://musical-artifacts.com/artifacts?formats=sf2">Musical Artifacts SF2</a> </li>
 </ul>
 </div></div><!-- PageDoc -->
 </div><!-- contents -->
