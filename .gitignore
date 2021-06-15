@@ -1,0 +1,4 @@
+# See https://www.atlassian.com/git/tutorials/saving-changes/gitignore
+# for information on the Git commands
+#   git rm --cached .DS_Store
+.DS_Store
