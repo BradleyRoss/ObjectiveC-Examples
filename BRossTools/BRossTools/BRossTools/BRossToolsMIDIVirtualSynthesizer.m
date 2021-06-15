@@ -24,7 +24,7 @@
     
 - (instancetype) init {
     [self commonInit];
-    gm_instrument = 1;
+    gm_instrument = 17;
     [self setSoundBank:1];
     return self;
 }
@@ -76,6 +76,12 @@
     }
     
     
+}
+- (AVAudioUnitSampler *) getSynthesizer {
+    return synthesizer;
+}
+- (AVAudioEngine *) getAudioEngine {
+    return audioEngine;
 }
 - (BOOL) selectInstrument:(UInt8) option {
     gm_instrument = option;
@@ -149,24 +155,31 @@
     NSLog(@"soundbank %@",soundbank);
 }
 
-+ (void) test1 {
-    VirtualSynthesizer *synth = [[VirtualSynthesizer alloc] init];
-    BOOL success = [synth startEngine];
+- (void) test1 {
+    BOOL success;
+    
+    // VirtualSynthesizer *instance;
+    //instance = [[VirtualSynthesizer alloc] init];
+    success = [self startEngine];
+    // AVAudioUnitSampler *synth2 = [instance getSynthesizer];
     if (success) {
         NSLog(@"Engine started");
     } else {
         NSLog(@"Failure in starting engine");
     }
-    success = [synth loadSoundbankAndInstrument];
+    success = [self loadSoundbankAndInstrument];
     if (success) {
-        [synth startNote:64 withVelocity:75 onChannel:0];
-        [NSThread sleepForTimeInterval:2.0];
-        [synth stopNote:64 onChannel:0];
+     
+        [synthesizer startNote:64 withVelocity:75 onChannel:0];
+        [NSThread sleepForTimeInterval:2.5];
+        [synthesizer stopNote:64 onChannel:0];
+    
     } else {
-        [synth debugValues];
+        [self debugValues];
         [NSThread sleepForTimeInterval:4.0];
         
     }
+     
     NSLog(@"VirtualSynthesizer test1 complete");
 }
 @end

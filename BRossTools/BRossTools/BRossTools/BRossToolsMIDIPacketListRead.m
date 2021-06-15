@@ -256,7 +256,7 @@ void printMessage(NSString* message, BRossToolsTextWindow *window) {
             if (result == noErr) {
                 if (window != NULL) {
                 NSString *message = [[NSString alloc]
-                        initWithFormat:@"Name of source is *%@* \n", destinationName];
+                        initWithFormat:@"Name of destination is *%@* \n", destinationName];
                 
                 [window appendString:message];
                 NSLog(@"%@", message);
@@ -264,10 +264,10 @@ void printMessage(NSString* message, BRossToolsTextWindow *window) {
             } else {
                 if (window != NULL) {
                 NSString *message = [[NSString alloc]
-                    initWithFormat:@"Error obtaining source name - code: %d \n", result];
+                    initWithFormat:@"Error obtaining destination name - code: %d \n", result];
                 [window appendString:message];
                 } else {
-                    NSLog(@"Error obtaining source name - code: %d \n", result);
+                    NSLog(@"Error obtaining destination name - code: %d \n", result);
                 }
                 
     }
@@ -279,9 +279,9 @@ void printMessage(NSString* message, BRossToolsTextWindow *window) {
    
     if (result != noErr) {
         if (window == NULL) {
-            NSLog(@"BRossToolsMIDIListenForInput2 MIDIClientCreate failed with code of %d \n ", result);
+            NSLog(@"TestSendDummy MIDIClientCreate failed with code of %d \n ", result);
         } else {
-            NSString *message = [[NSString alloc]initWithFormat:@"BRossToolsMIDIListenForInput2 MIDIClientCreate failed with code of %d \n ", result];
+            NSString *message = [[NSString alloc]initWithFormat:@"TestSendDummy MIDIClientCreate failed with code of %d \n ", result];
             [window appendString:message];
         }
     } else {
@@ -311,7 +311,7 @@ void printMessage(NSString* message, BRossToolsTextWindow *window) {
         }
     } else {
         if (window == NULL) {
-            NSLog(@"Input port created: name is *%@* \n", portName);
+            NSLog(@"Output port created: name is *%@* \n", portName);
         } else {
             result = MIDIObjectGetStringProperty(portRef, kMIDIPropertyName, &portName);
             NSString *message = [[NSString alloc]
@@ -327,7 +327,15 @@ void printMessage(NSString* message, BRossToolsTextWindow *window) {
      @todo  Does output port have to be connected to destination
      */
     MIDIPacketList *packetList = buildDummy();
+    CFStringRef portName2;
+    CFStringRef destName2;
+    OSStatus result2;
+    result2 = MIDIObjectGetStringProperty(portRef, kMIDIPropertyName, &portName2);
+    result2 = MIDIObjectGetStringProperty(destinationRef,kMIDIPropertyName, &destName2);
+    NSLog(@"Number of Packets: %d", packetList->numPackets);
+    NSLog(@"Port name: %@     Destination name: %@", portName2,  destName2);
     result = MIDISend(portRef, destinationRef, packetList);
+    NSLog(@"Packet sent: %d", result);
     if (result != noErr) {
         if (window == NULL) {
             NSLog(@"MIDISend failed with code of %d \n ", result);
@@ -340,7 +348,7 @@ void printMessage(NSString* message, BRossToolsTextWindow *window) {
         if (window == NULL) {
             NSLog(@"MIDIPacketList sent to destination");
         } else {
-        [window appendString:@"Output port connected to destination\n"];
+        [window appendString:@"MIDIPacketList sent to destination\n"];
         }
     }
 }
@@ -356,6 +364,8 @@ void printMessage(NSString* message, BRossToolsTextWindow *window) {
  
  The purpose of this function  is to create a dummy MIDIPacketList with the time stamps set a fraction of a second into
  the future.
+ 
+ @todo I had to increase the adjustment for latency from 0.5 seconds to one second,  I'm not sure if I should use threads with different priorities
  
  @returns MIDIPacketList
  */
@@ -373,7 +383,7 @@ MIDIPacketList *buildDummy() {
     data =  allocationData;
     MIDIPacket *packet = MIDIPacketListInit(generatedPacketList);
     for (counter = 0; counter < 5; counter++) {
-        time = startTicks + getTicks(0.5 + counter*1.0);
+        time = startTicks + getTicks(0.25 + counter*1.0);
         // packet->length = 0;
         // packet->timeStamp = time;
         data[0] = kMIDICVStatusNoteOn * 16;
@@ -387,7 +397,7 @@ MIDIPacketList *buildDummy() {
         data[8] = 64;
         // packet->length = 9;
         packet = MIDIPacketListAdd(generatedPacketList, 4096, packet, time, 9, data);
-        time = startTicks + getTicks(1.0 + counter*1.0);
+        time = startTicks + getTicks(2.0 + counter*1.0);
         // packet->length = 0;
         // packet->timeStamp = time;
         data[0] = kMIDICVStatusNoteOff * 16;
@@ -400,6 +410,7 @@ MIDIPacketList *buildDummy() {
         data[7] = 61 + counter;
         data[8] = 64;
         // packet->length = 9;
+        NSLog(@"Packet added");
         packet = MIDIPacketListAdd(generatedPacketList, 4096, packet, time, 9, data);
     }
     return generatedPacketList;

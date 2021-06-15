@@ -19,6 +19,9 @@
 #import <CoreMIDI/CoreMIDI.h>
 #import <stdio.h>
 #import <time.h>
+void sendMessage2(BRossToolsTextWindow *window, NSString *message);
+void sendMessage(NSString *message);
+void logger(NSString* text, SInt32 code);
 //  *****  *****  *****  *****
 //  *****  *****  *****  *****
 //  *****  *****  *****  *****

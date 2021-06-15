@@ -52,13 +52,13 @@
    
     return self;
 }
-- (id)initWithWindow:(BRossToolsTextWindow *) window {
+- (instancetype)initWithWindow:(BRossToolsTextWindow *) window {
     return self;
 }
 - (void) setDelay:(float)delay {
     
 }
-    - (MIDIPacketList *) build{
+- (MIDIPacketList *) build{
         return (MIDIPacketList *) NULL;;
 }
 

@@ -25,6 +25,7 @@
 // *****  *****  *****  *****  *****  *****
 // *****  *****  *****  *****  *****  *****
 /*
+ @todo Is this still used?
  Version from original article.
  */
 @implementation BRossToolsMIDISendMIDI {

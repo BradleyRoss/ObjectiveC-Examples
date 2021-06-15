@@ -14,6 +14,7 @@
 #include "LocalClasses.h"
 @interface SequencerDemos:NSObject
 - (void) debugTest;
+// @todo remove file
 /**
 
  @brief Uses NSOpenPanel to asynchronously select inputMidiFile.

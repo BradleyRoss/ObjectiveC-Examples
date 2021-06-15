@@ -92,17 +92,9 @@ static BRossToolsMIDIListenForInput2 *listener;
                 [test5 runtest];
             } else if ([message isEqualToString:@"b8"]) {
                 [test4 runtest];
-         /*
-          m1a will  become Play MIDI file
-          m1b will  become Record MIDI file
-            } else if ([message isEqualToString:@"m1"]){
-                [playMIDI runtest];
-          */
             } else if ([message isEqualToString:@"m1a"]) {
                 PlayMIDIFile *midiTest = [[PlayMIDIFile alloc] init];
                 [midiTest pickMIDIFileAndPlay];
-            } else if ([message isEqualToString:@"m2"]){
-                [[BRossToolsMIDIListenForInput alloc] runtest];
             } else if ([message isEqualToString:@"m3"]){
                 window = [BRossToolsTextWindow newWindow];
                 window.title=@"Listen for notes";
@@ -132,7 +124,7 @@ static BRossToolsMIDIListenForInput2 *listener;
     // NSStackView *stackView = [NSStackView alloc]
     BRossToolsButton *temp = [BRossToolsButton initUsingObjectIdent:self selector:@selector(bleep:) caption:@"Temporary place holder for tests"
             ident:@"temp" ];
-    BRossToolsButton *b1 = [BRossToolsButton initUsingObjectIdent:self selector:@selector(bleep:) caption:@"This will trigger the e2 test which opens a window, colors it, and inserts a few text fields and buttons" ident:@"b1" ];
+    BRossToolsButton *b1 = [BRossToolsButton initUsingObjectIdent:self selector:@selector(bleep:) caption:@" e2 test - opens a window, colors it, and inserts a few text fields and buttons" ident:@"b1" ];
     BRossToolsButton *b2 = [BRossToolsButton initUsingObjectIdent:self selector:@selector(bleep:) caption:@"run test1 new window plus fields" ident:@"b2" ];
     BRossToolsButton *b3 = [BRossToolsButton initUsingObjectIdent:self selector:@selector(bleep:) caption:@"run test2 text handling window" ident:@"b3" ];
 
@@ -146,24 +138,18 @@ static BRossToolsMIDIListenForInput2 *listener;
     
     BRossToolsButton *b8 = [BRossToolsButton initUsingObjectIdent:self selector:@selector(bleep:) caption:@"run test4 - Playing with pointers" ident:@"b8" ];
     
-    /*
-    BRossToolsButton *m1 = [BRossToolsButton initUsingObjectIdent:self selector:@selector(bleep:) caption:@"Play MIDI file using MIKMIDI samples" ident:@"m1" ];
-     */
+
     BRossToolsButton *m1a = [BRossToolsButton initUsingObjectIdent:self
         selector:@selector(bleep:)
         caption:@"Select and play MIDI file"
         ident:@"m1a"];
     
-    /*
-    BRossToolsButton *m2 = [BRossToolsButton initUsingObjectIdent:self selector:@selector(bleep:)
-        caption:@"Listen for keystrokes using CoreMIDI  (not working)"
-        ident:@"m2"];
-     */
+ 
     BRossToolsButton *m3 = [BRossToolsButton initUsingObjectIdent:self selector:@selector(bleep:)
-        caption:@"Listen for keystrokes using CoreMIDI Ver 2(Original version)"
+        caption:@"Start listening for keystrokes"
         ident:@"m3"];
     BRossToolsButton *m4 = [BRossToolsButton initUsingObjectIdent:self selector:@selector(bleep:)
-        caption:@"Kill CoreMIDI Client (Ver 2) "
+        caption:@"Stop listening to Keystrokes "
         ident:@"m4"];
     BRossToolsButton *m5 = [BRossToolsButton initUsingObjectIdent:self
         selector:@selector(bleep:)
@@ -217,7 +203,8 @@ static BRossToolsMIDIListenForInput2 *listener;
         [midiTest pickMIDIFileAndPlay];
     } else if (testNumber == 4 ) {
         NSLog(@"VirtualSynthesizer test1");
-        [VirtualSynthesizer test1];
+        VirtualSynthesizer *instance = [[VirtualSynthesizer alloc] init];
+        [instance test1];
     
     }
 }
@@ -572,15 +559,14 @@ void elapsed(void);
  @param window BRossTools window to be used
  @param message NSString message to be sent
  */
-void sendMessage2(BRossToolsTextWindow *window, NSString *message);
-void sendMessage(NSString *message);
+
 /**
  List data on an entity belonging to a device
  */
 void entityData(MIDIDeviceRef device, MIDIEntityRef entity);
 void endpointData(MIDIDeviceRef device, MIDIEntityRef entity, MIDIEndpointRef endpoint);
 void objectDictionary(MIDIObjectRef object);
-void listDictionaryLevel(int level, CFTypeRef dictionary);
+
 /**
  *    Returns a string value based on the error code.
  *    @param text string value to be returned
@@ -591,7 +577,7 @@ void listDictionaryLevel(int level, CFTypeRef dictionary);
  *       Documentation -> Core MIDI -> MIDI Services -> Error Constants</a>.  It is my assumpton the CF_ENUM enumeration
  *       declarations in different header files are combined into a single enumerations.</p>
  */
-void logger(NSString* text, SInt32 code);
+
 /**
  Status value returned by some functions in the CoreMidi library
  */
@@ -690,7 +676,7 @@ NSString *getDisplayName(MIDIObjectRef object)
     return (__bridge NSString *)name;
 }
 /**
- @briefT List MIDI sources and destinations.
+ @brief List MIDI sources and destinations.
  
  runtest2 is based on CoreMidiDemo2.
  
@@ -1092,146 +1078,7 @@ void objectDictionary(MIDIObjectRef object) {
 //  *****  *****  *****  *****  *****
 //  *****  *****  *****  *****  *****
 
-/**
- *   Display contents of a CFArray or CFDictionary object (deprecated).
- *   @deprecated
- *   @param level This is the depth within the tree structure.  The value for the
- *                initial call should be zero.
- *   @param dictionary The CFArray or CFDictionary object to be listed
- *
- *   <p>Since this metjhod uses malloc and CFDictionaryGetKeysAndValues, there is a problem in that using free
- *              caused the method to fail.  When added to the fact that thismethod is called recursively to
- *              process the entire tree structure., it would appear that modifying the mehod to avoid memory
- *              leaks would be very difficult.  I am therefore goin to other methods that don't require
- *              malloc and free.</p>
- *
- *   https://developer.apple.com/documentation/corefoundation/cfarray?language=objc
- *   https://developer.apple.com/documentation/corefoundation/cfdictionary?language=objc
- *
- *    Since this can   be callled recursively, there is a problem with recursion erasing data.  So there needs to be a version
- *          that has data that can be associated with the level of recursion.
- *
- *          Called by objectDictionary
- *
- */
-__attribute__((deprecated)) void listDictionaryLevel(int level, CFTypeRef dictionary) {
-        buildMessage = [[NSString alloc]initWithFormat:@"listDictionaryLevel level %d", level];
-        sendMessage(buildMessage);
-        CFTypeID dictionaryType = CFDictionaryGetTypeID();
-        CFTypeID arrayType = CFArrayGetTypeID();
-        CFTypeID stringType = CFStringGetTypeID();
-        CFTypeID numberType = CFNumberGetTypeID();
-        int currentLevel = level;
-        CFStringRef *keysByLevel[20];
-        CFTypeRef *valuesByLevel[20];
-        CFTypeID typeID = CFGetTypeID(dictionary);
-        /*
-         https://stackoverflow.com/questions/2283466/how-to-enumerate-cfproperylist-cfdictionary-keys
 
-         CFDictionaryRef dict = CFDictionaryCreate(...)
-         size size = CFDictionaryGetCount(dict);
-         CFTypeRef *keysTypeRef = (CFTypeRef *) malloc( size * sizeof(CFTypeRef) );
-         CFDictionaryGetKeysAndValues(dict, (const void **) keysTypeRef, NULL);
-         const void **keys = (const void **) keysTypeRef;
-         */
-        NSString *spacer;
-        if (currentLevel % 5 == 0 ) { spacer = @" ";} else
-        if (currentLevel % 5 == 1 ) { spacer = @"    ";} else
-        if (currentLevel % 5 == 2 ) { spacer = @"       ";} else
-        if (currentLevel % 5 == 3 ) { spacer = @"          ";} else
-        if (currentLevel % 5 == 4 ) { spacer = @"             ";} else
-        if (currentLevel % 5 == 5 ) { spacer = @"                ";}
-        if (typeID == dictionaryType) {
-            CFIndex count = CFDictionaryGetCount(dictionary);
-            CFStringRef *keysTypeRef = (CFStringRef *) malloc(count*sizeof(CFStringRef*) );
-                if (keysTypeRef == NULL) { NSLog(@"keysTypeRef not allocated"); }
-                keysByLevel[currentLevel] = keysTypeRef;
-            CFTypeRef *valuesTypeRef = (CFTypeRef *) malloc (count*sizeof(CFTypeRef*));
-                if (valuesTypeRef == NULL) { NSLog(@"valuesTypeRef not allocated");}
-                valuesByLevel[currentLevel] = valuesTypeRef;
-            CFDictionaryGetKeysAndValues(dictionary, (const void **)keysTypeRef, (const void **)valuesTypeRef);
-            const void **keys  = (const void **) keysTypeRef;
-            const void **values = (const void **) valuesTypeRef;
-            /*
-             * The line calling the CFDictionaryGetKeys and Values is shown below.  This was
-             * rejected by the current version of Xcode, possibly because Xcode is now
-             * applying additional type checking, and the original line was a hack with
-             * implied casts.
-             *
-             * CFDictionaryGetKeysAndValues(dictionary, (const void *) &keys, (const void *) &values);
-             */
-            int position = 0;
-            for (position = 0; position < count; position++) {
-                CFTypeRef element = values[position];
-                CFTypeID elementTypeID = CFGetTypeID(element);
-                if (elementTypeID == numberType) {
-                    CFNumberRef element = (CFNumberRef) values[position];
-                    SInt32 numericValue;
-                    CFNumberGetValue(element,kCFNumberSInt32Type, &numericValue);
-                    // NSLog (@"%d", result);
-                    buildMessage = [[NSString alloc] initWithFormat:@"%@%3d %3d number %@  %d", spacer, level, position, keys[position], numericValue];
-                    sendMessage(buildMessage);
-                } else if (elementTypeID == stringType) {
-                    NSString *buildMessage = [[NSString alloc]
-                            initWithFormat:@"%@%3d %3d string %@  %@", spacer, level, position, keys[position], (CFStringRef) values[position]];
-                    sendMessage(buildMessage);
-                } else if (elementTypeID == dictionaryType) {
-                    NSString *buildMessage = [[NSString alloc]
-                        initWithFormat:@"%@%3d %3d dictionary %@", spacer, level, position, keys[position]];
-                    sendMessage(buildMessage);
-                    listDictionaryLevel(currentLevel+1,  values[position]);
-                } else if (elementTypeID == arrayType) {
-                    NSString *buildMessage = [[NSString  alloc] initWithFormat:@"%@%3d %3d array %@", spacer, level, position, keys[position] ];
-                    sendMessage(buildMessage);
-                    listDictionaryLevel(currentLevel+1,  values[position]);
-                }
-                /*
-                 * The code that I copied this from didn't dealloc the
-                 * allocated memory.  I therefore added the two
-                 * free statements in the code below
-                 * to prevent memory leaks.
-                 *
-                 * When I put the code in, the program failed.
-                 */
-                // free(keysByLevel[currentLevel]);
-                // free(valuesByLevel[currentLevel]);
-            }
-        } else if (typeID == arrayType) {
-            CFIndex count = CFArrayGetCount(dictionary);
-            
-            int position;
-            for (position = 0; position < count; position++) {
-                CFTypeRef element = CFArrayGetValueAtIndex(dictionary, position);
-                CFTypeID elementTypeID = CFGetTypeID(element);
-                if (elementTypeID == numberType) {
-                    SInt32 numericValue;
-                    CFNumberGetValue(element,kCFNumberSInt32Type, &numericValue);
-                    buildMessage = [[NSString alloc]
-                            initWithFormat:@"%@%3d %3d number   %d", spacer, level, position, numericValue];
-                    sendMessage(buildMessage);
-                } else if (elementTypeID == stringType) {
-                    buildMessage = [[NSString alloc]
-                            initWithFormat:@"%@%3d %3d string %@  ", spacer, level, position, (CFStringRef) element];
-                    sendMessage(buildMessage);
-                } else if (elementTypeID == dictionaryType) {
-                    buildMessage = [[NSString alloc]
-                            initWithFormat:@"%@%3d %3d dictionary ", spacer, level, position];
-                    sendMessage(buildMessage);
-                    listDictionaryLevel(currentLevel+1,  element);
-                } else if (elementTypeID == arrayType) {
-                    buildMessage = [[NSString alloc]
-                        initWithFormat:@"%@%3d %3d array ", spacer, level, position];
-                    sendMessage(buildMessage);
-                    listDictionaryLevel(currentLevel+1,  element);
-                }
-            }
-        } else {
-            buildMessage = [[NSString alloc] initWithFormat:@"%@%@ not valid for parameter of listDictionaryLevel",spacer, CFCopyTypeIDDescription(typeID)];
-            sendMessage(buildMessage);
-        }
-       
-        
-    }
 
 //  *****  *****  *****  *****  *****
 //  *****  *****  *****  *****  *****

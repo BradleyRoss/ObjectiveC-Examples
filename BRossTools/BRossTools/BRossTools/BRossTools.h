@@ -65,7 +65,7 @@
  */
 @interface BRossToolsButton:NSButton
 /*
-    TODO check on instance and class properties
+    @todo check on instance and class properties
  */
 {
 @private NSString* identValue;

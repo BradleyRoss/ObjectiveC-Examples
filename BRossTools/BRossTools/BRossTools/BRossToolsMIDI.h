@@ -24,33 +24,9 @@
 //  *****  *****  *****  *****  *****  *****
 
 
-/**
- @brief Use CoreMIDI to read key strokes for notes.
- 
- Listens for keystrokes on a MIDI keyboard.
- 
- I first tried using this
- [starting eample](http://comelearncocoawithme.blogspot.com/2011/08/reading-from-external-controllers-with.html]
- however it gave me a message that the program was trying to start a task on
- the main queue and that was not allowed.  It also gave me a number of statements
- that functions used in the program were deprecated.
- 
- 
- // =to do remove because it doesn't work
- */
 
-@interface BRossToolsMIDIListenForInput:NSObject
-- (void) runtest;
-- (BRossToolsTextWindow *) getTextWindow;
-- (void) setTextWindow:(BRossToolsTextWindow *) window;
-@end
 
-//  *****  *****  *****  *****  *****  *****
-//  *****  *****  *****  *****  *****  *****
-//  *****  *****  *****  *****  *****  *****
-//  *****  *****  *****  *****  *****  *****
-//  *****  *****  *****  *****  *****  *****
-//  *****  *****  *****  *****  *****  *****
+
 
 /**
  
@@ -64,50 +40,10 @@
  
  @todo  If I have the clent  create an output Port, will it show up on Audio MIDI Setup?  Will GarageBand be able to connectt to the port?
  
- @todo Running this version resulted in the following message being sent to the log.  I don't know if this is a problem.  <i>2021-03-31 20:59:33.847954-0400 BRossTools[12359:542211] [plugin] AddInstanceForFactory: No factory registered for id <CFUUID 0x60000398e400> F8BB1C28-BAE8-11D6-9C31-00039315CD46</i>
+ @todo Running this version resulted in the following message being sent to the log.  I don't know if this is a problem.  <i>2021-03-31 20:59:33.847954-0400 BRossTools[12359:542211] [plugin] AddInstanceForFactory: No factory registered for id <CFUUID 0x60000398e400> F8BB1C28-BAE8-11D6-9C31-00039315CD46
  */
-@interface BRossToolsMIDIListenForInput2:NSObject {
-    OSStatus result;
-    /**
-    @brief Identifier for MIDI client software.
-     */
-    MIDIClientRef midiClient;
-    /**
-    @brief Identifier for external MIDI device (keyboard)
-     */
-    MIDIEndpointRef sourceRef;
-    /**
-     @brief MIDIObjectRef for Input Port.
-     
-     The Input Port receives information from the
-     external source indicated by sourceRef
-     so that it can be processed by the client
-     indicated by midiClient.
-     */
-    MIDIPortRef inputPort;
- 
-
-        
-    /**
-     @brief name of source device (keyboard)
-     */
-    CFStringRef sourceName;
-    /**
-     @brief name of client
-     */
-    CFStringRef clientName;
-    /**
-     @brief name of input port
-     */
-    CFStringRef portName;
-    /**
-    @brief Pointer to BRossToolsTextWindow.
-         
-
-    */
-    BRossToolsTextWindow *textWindow;
-    BRossToolsTextWindow *windowValue;
-    }
+@interface BRossToolsMIDIListenForInput2:NSObject
+- (instancetype) init;
 - (void) runtest;
 - (void) runtestWithWindow:(BRossToolsTextWindow *)window;
 - (BRossToolsTextWindow *) getTextWindow;
@@ -129,6 +65,8 @@
 @interface TestSendDummy:NSObject
 /**
  * @brief Send a dummy MIDIPacketList to a destination.
+ *
+ * @todo These are going to have to be renamed since they take the place of the init method.
  */
 - (void) runtestWithWindow:(BRossToolsTextWindow *) window;
 
@@ -240,7 +178,7 @@
  */
 @interface BRossToolsMIDIPacketListRead:NSObject
 /**
- //todo should have instancetype for methods beginning with init - test change below
+ @todo should have instancetype for methods beginning with init - test change below
  */
 - (instancetype) initWithWindow:(BRossToolsTextWindow *) window;
 
@@ -297,9 +235,11 @@
  @param channel channel to which command is sent
  @param values array of integer values containing values used with command
  @returns 0 if sucessfully added command, otherwise error code
+
+
+
  The following are the constants for the command codes.
- 
- 
+  
  See https://www.midi.org/specifications-old/item/table-1-summary-of-midi-message
  
  <table>
@@ -346,7 +286,7 @@
  sendMIDIEvent:data1:, sendMIDIEvent:data1:data2:,msendMIDISysExEvent:, sendPitchBend:onChannel:, sendPressure:onChannel:, sendPressureForKey:withValue:onChannel:, sendProgramChange:bankMSB:bankLSB:onchannel:, sendProgramChange:onChannel:, startNote:withVelocity:onChannel:, stopNote:onChannel:
  
  */
-@interface VirtualSynthesizer:AVAudioUnitSampler
+@interface VirtualSynthesizer:NSObject
 /**
  @brief Initialize synthesizer.
  
@@ -407,9 +347,17 @@
  */
 - (BOOL) setMIDIFileURL:(NSURL *) url;
 - (BOOL) loadSoundbankAndInstrument;
+- (BOOL) startEngine;
 - (void) debugValues;
-+ (void) test1;
+- (void) test1;
+- (AVAudioUnitSampler *) getSynthesizer;
+- (AVAudioEngine *) getAudioEngine;
 @end
+
+//  *****  *****  *****  ******  *****  ******
+
+
+
 @interface PlayMIDIFile:NSObject
 - (PlayMIDIFile *) init;
 /**

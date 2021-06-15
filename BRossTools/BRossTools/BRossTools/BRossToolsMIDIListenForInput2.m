@@ -1,5 +1,5 @@
 //
-//  CoreMIDIsamples.m
+//  BRossToolsMIDIListenForInput2.m.m
 //  BRossTools
 //
 //  Created by Bradley Ross on 3/18/21.
@@ -22,7 +22,11 @@
  Version from original article.
  */
 @implementation BRossToolsMIDIListenForInput2 {
+    
+    BOOL extraLogMessages;
+
     /**
+ 
      @brief A pointer to information passed through the client.
      
      The MIDIPortConnectSource passes
@@ -30,6 +34,57 @@
      
      */
     void **clientRef;
+    /**
+     @brief object encapsulates synthesizer.
+     
+     This object encapsulates an AVAudioUnitSampler instance together with
+     other functions.
+     */
+    VirtualSynthesizer *virtual;
+    /**
+     @brief Synthesizer used to play notes from keyboard.
+     */
+    AVAudioUnitSampler *synth;
+    
+    OSStatus result;
+    /**
+    @brief Identifier for MIDI client software.
+     */
+    MIDIClientRef midiClient;
+    /**
+    @brief Identifier for external MIDI device (keyboard)
+     */
+    MIDIEndpointRef sourceRef;
+    /**
+     @brief MIDIObjectRef for Input Port.
+     
+     The Input Port receives information from the
+     external source indicated by sourceRef
+     so that it can be processed by the client
+     indicated by midiClient.
+     */
+    MIDIPortRef inputPort;
+ 
+
+        
+    /**
+     @brief name of source device (keyboard)
+     */
+    CFStringRef sourceName;
+    /**
+     @brief name of client
+     */
+    CFStringRef clientName;
+    /**
+     @brief name of input port
+     */
+    CFStringRef portName;
+    /**
+    @brief Pointer to BRossToolsTextWindow.
+     */
+     BRossToolsTextWindow *textWindow;
+     BRossToolsTextWindow *windowValue;
+    
 }
 
 - (BRossToolsTextWindow *) getTextWindow {
@@ -51,11 +106,7 @@
 
 
 /*
- This is the ReadProc function.
- 
- It may be that I can't have Objective-C calls inside callback
- For MIDI 1, MIDIPacketList
- The following type declarations are in M(DIServices.h
+ The following type declarations are in MIDIServices.h
  
  struct MIDIPacketList
  {
@@ -101,42 +152,8 @@
  https://clang.llvm.org
  */
 
-static void midiInputCallback(const MIDIPacketList *list,
-        void *procRef, void *srcRef) {
-    NSLog(@"BRossToolsMIDIListenForInput2 midiInputCallback has been called");
-    // BRossToolsTextWindow *innerWindow;
-   
-    /*
-    [textWindow appendString:@"BRossToolsMIDIListenForInput2 midiInputCallback has been called \n"];
-     */
 
-    UInt16 nBytes;
-    const MIDIPacket *packet = &list->packet[0];
-    NSLog(@"There are %d packets in the list of packets",
-          (unsigned int)list->numPackets);
-    for (unsigned int i = 0; i < list->numPackets; i++) {
-        Byte data[256];
-        nBytes = packet->length;
-        for (i=0; i< nBytes; i++) {
-            data[i] = packet->data[i];
-        }
-        NSLog(@" timestamp %8llx", packet->timeStamp);
-        
-        describeNote(data, nBytes, NULL);
-        
-        packet=MIDIPacketNext(packet);
-    }
-}
-/**
- @brief Callback for configuration changes
- 
- @param message message describing configuration change
- 
- @param refCon information passed with ClientCreate
- */
-static void midiNotifyCallback ( const MIDINotification *message, void *refCon) {
-    NSLog(@"midiNotifyCallback (MIDINotifyProc) called");
-}
+
 // void runWithWindow(BRossToolsTextWindow * window);
 /*
  Can modules called from CoreMIDI call textWindow methods -- crashing when posting to textWindow with link library problem
@@ -146,9 +163,15 @@ static void midiNotifyCallback ( const MIDINotification *message, void *refCon) 
 // *****  *****  *****  *****  *****  *****  *****  *****
 // *****  *****  *****  *****  *****  *****  *****  *****
 // *****  *****  *****  *****  *****  *****  *****  *****
-void describeNote(Byte data[], int length, BRossToolsTextWindow *window) {
+/**
+ Print information on note
+ @todo Is it still used?
+ */
+void describeNoteXXXX(Byte data[], int length, BRossToolsTextWindow *window) {
     NSString *message;
+ 
     NSLog(@"There are %d data bytes in packet", length);
+    
     unsigned int firstByte = (unsigned int)data[0];
    //  NSLog(@"First data byte is %x", firstByte);
     unsigned int channel = firstByte % 16;
@@ -185,6 +208,10 @@ void describeNote(Byte data[], int length, BRossToolsTextWindow *window) {
 // *****  *****  *****  *****  *****  *****  *****  *****
 // *****  *****  *****  *****  *****  *****  *****  *****
 // *****  *****  *****  *****  *****  *****  *****  *****
+- (instancetype) init {
+   
+    return self;
+}
 - (void) runtest {
     [self runtestWithWindow:NULL];
 }
@@ -210,9 +237,15 @@ void describeNote(Byte data[], int length, BRossToolsTextWindow *window) {
 // *****  *****  *****  *****  *****  *****  *****  *****
 // *****  *****  *****  *****  *****  *****  *****  *****
 // *****  *****  *****  *****  *****  *****  *****  *****
+/**
+ 
+ @todo should be renamed to start with Init
+ 
+ */
 - (void) runtestWithWindow:window {
     // id pointerList[10];
     // pointerList[0] = window;
+    extraLogMessages = NO;
        windowValue = window;
        textWindow = window;
     
@@ -223,6 +256,23 @@ void describeNote(Byte data[], int length, BRossToolsTextWindow *window) {
     }*/
     NSLog(@"BRossToolsMIDIListenForInput2");
    
+    BOOL success;
+    NSLog(@"starting BRossToolsMIDIListenForInput2 init");
+    virtual = [[VirtualSynthesizer alloc] init];
+    synth = [virtual getSynthesizer];
+    success = [virtual startEngine];
+    // AVAudioUnitSampler *synth2 = [instance getSynthesizer];
+    if (success) {
+        NSLog(@"Engine started");
+    } else {
+        NSLog(@"Failure in starting engine");
+    }
+    success = [virtual loadSoundbankAndInstrument];
+    if (success) {
+    }
+    [synth startNote:60 withVelocity:100 onChannel:0];
+    [NSThread sleepForTimeInterval:0.25];
+    [synth stopNote:60 onChannel:0];
     
     /*
     NSThread *mainThread = NSThread.mainThread ;
@@ -232,11 +282,14 @@ void describeNote(Byte data[], int length, BRossToolsTextWindow *window) {
      */
     [textWindow appendString:@"BRossToolsMIDIListenForInput2\n"];
     ItemCount numberOfSources = MIDIGetNumberOfSources();
+
 if (numberOfSources == 0) {
     [textWindow appendString:@"No sources found -- aborting \n"];
     return;
 }
-
+/*
+ @todo If there is more than one source, a panel should be displayed to pick the source rather than simply picking the first.
+ */
     sourceRef = MIDIGetSource(0);
 
     result = MIDIObjectGetStringProperty(sourceRef, kMIDIPropertyName, &sourceName);
@@ -272,7 +325,7 @@ if (numberOfSources == 0) {
      */
     BRossToolsTextWindow *localWindow =self->textWindow;
     /*
-     The following is based on ar article from
+     The following is based on an article from
      https://eclecticlight.co/2020/09/08/changing-the-clock-in-apple-silicon-macs/
      
      https://developer.apple.com/documentation/driverkit/mach_timebase_info_t
@@ -350,13 +403,15 @@ if (numberOfSources == 0) {
             double seconds = (double)multiplied / 1.0e9;
             NSString *message;
             message = [[NSString alloc ]
-                    initWithFormat:@" %10.3f seconds  MIDITimeStamp\n", seconds];
+                    initWithFormat:@"MIDITimeStamp %10.3f seconds\n", seconds];
             [localWindow appendString:message];
-            NSLog(@" %f  MIDITimeStamp seconds",
-                  seconds);
+           
             // describeNote(data, nBytes, localWindow);
             
-            NSLog(@"There are %d data bytes in packet", nBytes);
+            if (self->extraLogMessages) {
+                NSLog(@"MIDITimeStamp %f seconds", seconds);
+                NSLog(@"There are %d data bytes in packet", nBytes);
+            }
             unsigned int firstByte = (unsigned int)data[0];
             // NSLog(@"First data byte is %x", firstByte);
             unsigned int channel = firstByte % 16;
@@ -365,21 +420,23 @@ if (numberOfSources == 0) {
             if (command == 9) {
                 desc =@"NOTE ON";
                 /* second byte is pitch, third byte is velocity*/
-                message = [[NSString alloc] initWithFormat:@" c %d %@ ch %d p %d v:%d \n", command, desc, channel, (unsigned int)data[1], (unsigned int)data[2]];
+                message = [[NSString alloc] initWithFormat:@"      c %d %@ ch %d p %d v:%d \n", command, desc, channel, (unsigned int)data[1], (unsigned int)data[2]];
+                [self->synth startNote:(unsigned int)data[1]
+                    withVelocity:(unsigned int)data[2] onChannel:channel];
             } else if (command == 8) {
                 desc = @"NOTE OFF";
-                message = [[NSString alloc] initWithFormat:@" c %d  %@ ch %d p %d  v %d \n", command, desc, channel, (unsigned int)data[1], (unsigned int)data[2]];
+                message = [[NSString alloc] initWithFormat:@"      c %d  %@ ch %d p %d  v %d \n", command, desc, channel, (unsigned int)data[1], (unsigned int)data[2]];
+                [self->synth stopNote:(unsigned int)data[1] onChannel:channel];
             } else if (command == 24) {
                 desc = @"PROGRAM CHANGE";
                 /* second byte indicates instrument */
-                message = [[NSString alloc] initWithFormat:@" c %d  %@ ch %d inst %d  \n", command, desc, channel, (unsigned int)data[1]];
+                message = [[NSString alloc] initWithFormat:@"      c %d  %@ ch %d inst %d  \n", command, desc, channel, (unsigned int)data[1]];
             } else {
                 desc =  @"???";
-                message = [[NSString alloc] initWithFormat:@" c %d  %@ ch %d   \n", command, desc, channel];
+                message = [[NSString alloc] initWithFormat:@"      c %d  %@ ch %d   \n", command, desc, channel];
                 
             }
             
-            // Trying to use BRossToolsTextWindow instance window causes lldb error
             
             if (localWindow != NULL) {
                 [localWindow appendString:message];
@@ -447,7 +504,9 @@ if (numberOfSources == 0) {
     }
 }
 - (void) killClient {
-    int result = MIDIClientDispose(midiClient);
+    OSStatus result;
+    result = MIDIClientDispose(midiClient);
+    [[virtual getAudioEngine] stop];
     NSString *message = [[NSString alloc] initWithFormat:@"Running killClient %d", result];
     NSLog(@"%@", message);
     // [textWindow appendString:message];
@@ -461,7 +520,7 @@ if (numberOfSources == 0) {
 // *****  *****  *****  *****  *****  *****
 
 - (void) playMidiFile {
-    
+    // @todo not used at this time
 }
 // *****  *****  *****  *****  *****  *****
 // *****  *****  *****  *****  *****  *****
@@ -469,7 +528,7 @@ if (numberOfSources == 0) {
 // *****  *****  *****  *****  *****  *****
 // *****  *****  *****  *****  *****  *****
 - (void) recordMidiFile {
-    
+    // @todo not used at this time
 }
 // *****  *****  *****  *****  *****  *****
 // *****  *****  *****  *****  *****  *****

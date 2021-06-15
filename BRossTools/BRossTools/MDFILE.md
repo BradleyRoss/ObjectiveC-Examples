@@ -20,7 +20,7 @@ This is a test of code to exercise the Xcode system.  One of my goals was to avo
 
 The following is a list of documentation from Apple that can be used to create, modify, and understand this code.
 
-* [Documentation - Apple Technologies](https://developer.apple.com/documentation/technologies) - This appears to reprsent the current API's.
+* [Documentation - Apple Technologies](https://developer.apple.com/documentation/technologies) - This appears to represent the current API's.
 
 * [Documentation Archive](https://developer.apple.com/library/archive/navigation/)
  
