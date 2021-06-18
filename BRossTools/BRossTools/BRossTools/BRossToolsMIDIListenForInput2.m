@@ -443,7 +443,7 @@ if (numberOfSources == 0) {
                 message = [[NSString alloc] initWithFormat:@"      c %d  %@ ch %d inst %d  \n", command, desc, channel, (unsigned int)data[1]];
             } else if (command == 13) {
                 desc =@"CHANNEL PRESSURE";
-                message = [[NSString alloc] initWithFormat:@" comm %d %@ ch %d key:%d  value: %d  \n", command, desc, channel, (unsigned int)data[1]];
+                message = [[NSString alloc] initWithFormat:@" comm %d %@ ch %d   value: %d  \n", command, desc, channel, (unsigned int)data[1]];
             } else if (command == 14) {
                 desc =@"PITCH BEND";
                 message = [[NSString alloc] initWithFormat:@" comm %d %@ ch %d LSB:%d  MSB:%d  \n", command, desc, channel, (unsigned int)data[1], (unsigned int) data[2]];
