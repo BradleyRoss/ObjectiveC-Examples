@@ -9,11 +9,10 @@
 /* Begin PBXBuildFile section */
 		9015511025C87BA8006DA674 /* LocalClasses.m in Sources */ = {isa = PBXBuildFile; fileRef = 9015510F25C87BA8006DA674 /* LocalClasses.m */; };
 		904006E9265AD1A200062511 /* BRossToolsSynthesizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 904006E8265AD1A200062511 /* BRossToolsSynthesizer.m */; };
-		904006EA265AE3B400062511 /* BRossToolsSynthesizer.h in Sources */ = {isa = PBXBuildFile; fileRef = 904006E7265ACF0F00062511 /* BRossToolsSynthesizer.h */; };
-		905212D525E34D9C00DB595E /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 905212D425E34D9C00DB595E /* CoreFoundation.framework */; };
-		905212D725E34DAE00DB595E /* CoreMIDI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 905212D625E34DAE00DB595E /* CoreMIDI.framework */; };
-		905212DC25E34DEF00DB595E /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 905212DB25E34DEF00DB595E /* AppKit.framework */; };
-		905212E525E34ECB00DB595E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 905212E425E34ECB00DB595E /* Foundation.framework */; };
+		905212D525E34D9C00DB595E /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 905212D425E34D9C00DB595E /* CoreFoundation.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		905212D725E34DAE00DB595E /* CoreMIDI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 905212D625E34DAE00DB595E /* CoreMIDI.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		905212DC25E34DEF00DB595E /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 905212DB25E34DEF00DB595E /* AppKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		905212E525E34ECB00DB595E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 905212E425E34ECB00DB595E /* Foundation.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		906CEEF925C7AA0900DC5271 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 906CEEF825C7AA0900DC5271 /* AppDelegate.m */; };
 		906CEEFB25C7AA0900DC5271 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 906CEEFA25C7AA0900DC5271 /* Assets.xcassets */; };
 		906CEEFE25C7AA0900DC5271 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 906CEEFC25C7AA0900DC5271 /* MainMenu.xib */; };
@@ -381,7 +380,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				904006EA265AE3B400062511 /* BRossToolsSynthesizer.h in Sources */,
 				904006E9265AD1A200062511 /* BRossToolsSynthesizer.m in Sources */,
 				906CEF2925C7AC3D00DC5271 /* BRossTools.m in Sources */,
 				90A7F98026275DF10033B494 /* BRossToolsMIDIPacketListBuild.m in Sources */,

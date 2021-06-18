@@ -184,11 +184,13 @@ void describeNoteXXXX(Byte data[], int length, BRossToolsTextWindow *window) {
     } else if (command == 8) {
         desc = @"NOTE OFF";
         message = [[NSString alloc] initWithFormat:@" comm %d  %@ ch %d p %d  v %d \n", command, desc, channel, (unsigned int)data[1], (unsigned int)data[2]];
-    } else if (command == 24) {
+    } else if (command == 12) {
         desc = @"PROGRAM CHANGE";
         /* second byte indicates instrument */
         message = [[NSString alloc] initWithFormat:@" comm %d  %@ ch %d inst %d  \n", command, desc, channel, (unsigned int)data[1]];
-
+    } else if (command == 10) {
+        desc =@"Poly key pressure";
+        message = [[NSString alloc] initWithFormat:@" comm %d %@ ch %d key %d  pressure %d  \n", command, desc, channel, (unsigned int)data[1], (unsigned int) data[2]];
     } else {
         desc =  @"???";
         message = [[NSString alloc] initWithFormat:@" command %d  %@ channel %d   \n", command, desc, channel];
@@ -427,13 +429,27 @@ if (numberOfSources == 0) {
                 desc = @"NOTE OFF";
                 message = [[NSString alloc] initWithFormat:@"      c %d  %@ ch %d p %d  v %d \n", command, desc, channel, (unsigned int)data[1], (unsigned int)data[2]];
                 [self->synth stopNote:(unsigned int)data[1] onChannel:channel];
-            } else if (command == 24) {
+            } else if (command == 10) {
+                desc =@"Poly key pressure";
+                message = [[NSString alloc] initWithFormat:@" comm %d %@ ch %d key %d  pressure %d  \n", command, desc, channel, (unsigned int)data[1], (unsigned int) data[2]];
+            } else if (command == 11) {
+                desc =@"CONTROL CHANGE";
+                message = [[NSString alloc] initWithFormat:@" comm %d %@ ch %d control: %d  value: %d  \n", command, desc, channel, (unsigned int)data[1], (unsigned int) data[2]];
+                
+            } else if (command == 12) {
+                // only two bytes
                 desc = @"PROGRAM CHANGE";
                 /* second byte indicates instrument */
                 message = [[NSString alloc] initWithFormat:@"      c %d  %@ ch %d inst %d  \n", command, desc, channel, (unsigned int)data[1]];
+            } else if (command == 13) {
+                desc =@"CHANNEL PRESSURE";
+                message = [[NSString alloc] initWithFormat:@" comm %d %@ ch %d key:%d  value: %d  \n", command, desc, channel, (unsigned int)data[1]];
+            } else if (command == 14) {
+                desc =@"PITCH BEND";
+                message = [[NSString alloc] initWithFormat:@" comm %d %@ ch %d LSB:%d  MSB:%d  \n", command, desc, channel, (unsigned int)data[1], (unsigned int) data[2]];
             } else {
                 desc =  @"???";
-                message = [[NSString alloc] initWithFormat:@"      c %d  %@ ch %d   \n", command, desc, channel];
+                message = [[NSString alloc] initWithFormat:@"      comm %d  %@ ch %d   \n", command, desc, channel];
                 
             }
             
