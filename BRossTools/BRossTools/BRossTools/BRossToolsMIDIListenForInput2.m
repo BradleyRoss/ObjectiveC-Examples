@@ -135,7 +135,7 @@
 // *****  *****  *****  *****  *****  *****  *****  *****
 // *****  *****  *****  *****  *****  *****  *****  *****
 
-/**
+/*
  @brief MIDIReadProc callback function.
  @param list This is the list of pack4ets.
  @param procRef additional data passd to MIDIInputPortCreate or MIDIDestinationCreate
@@ -167,44 +167,8 @@
  Print information on note
  @todo Is it still used?
  */
-void describeNoteXXXX(Byte data[], int length, BRossToolsTextWindow *window) {
-    NSString *message;
- 
-    NSLog(@"There are %d data bytes in packet", length);
-    
-    unsigned int firstByte = (unsigned int)data[0];
-   //  NSLog(@"First data byte is %x", firstByte);
-    unsigned int channel = firstByte % 16;
-    unsigned int command = firstByte / 16;
-    NSString *desc;
-    if (command == 9) {
-        desc =@"NOTE ON";
-        /* second byte is pitch, third byte is velocity*/
-        message = [[NSString alloc] initWithFormat:@" comm %d  %@ ch %d p %d  v %d \n", command, desc, channel, (unsigned int)data[1], (unsigned int)data[2]];
-    } else if (command == 8) {
-        desc = @"NOTE OFF";
-        message = [[NSString alloc] initWithFormat:@" comm %d  %@ ch %d p %d  v %d \n", command, desc, channel, (unsigned int)data[1], (unsigned int)data[2]];
-    } else if (command == 12) {
-        desc = @"PROGRAM CHANGE";
-        /* second byte indicates instrument */
-        message = [[NSString alloc] initWithFormat:@" comm %d  %@ ch %d inst %d  \n", command, desc, channel, (unsigned int)data[1]];
-    } else if (command == 10) {
-        desc =@"Poly key pressure";
-        message = [[NSString alloc] initWithFormat:@" comm %d %@ ch %d key %d  pressure %d  \n", command, desc, channel, (unsigned int)data[1], (unsigned int) data[2]];
-    } else {
-        desc =  @"???";
-        message = [[NSString alloc] initWithFormat:@" command %d  %@ channel %d   \n", command, desc, channel];
-        
-    }
-    /*
-     Trying to use BRossToolsTextWindow instance window causes lldb error
-     */
-    if (window != NULL) {
-    // [window appendString:message];
-    }
-     
-    NSLog(@"%@", message);
-}
+
+
 // *****  *****  *****  *****  *****  *****  *****  *****
 // *****  *****  *****  *****  *****  *****  *****  *****
 // *****  *****  *****  *****  *****  *****  *****  *****
