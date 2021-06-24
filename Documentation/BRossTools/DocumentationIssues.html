@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Documentation Issues</title>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="pages.css">
+</head>
+<body>
+<h1>Documentation Issues</h1>
+<h2>32/64 bit Architectures</h2>
+<p>If you look at the documentation for
+   <a target="_blank" href="https://developer.apple.com/documentation/objectivec/nsuinteger?language=objc">NSUInteger</a>, it states that it is a 32 bit unsigned integer for 32 bit architectures and a 64 bit unsigned integer for 64-bit architectures.  However, the typedef declarations at the top of the page state unsigned long for iOS, macOS, Mac Catalyst, and tvOS while watchOS uses unsigned int.  Since both watchOS and macOS are currently both 64 bit architectures, that would imply the int and long are defined differently for different targets.  I do not think that this is the case.</p>
+<h2>Deprecated Definition</h2>
+
+</body>
+</html>
