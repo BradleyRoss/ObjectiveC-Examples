@@ -1,6 +1,0 @@
-Target dependency graph (3 targets)
-BRossTools in BRossTools
-BRossToolsTests in BRossTools, depends on:
-BRossTools in BRossTools (explicit)
-BRossToolsUITests in BRossTools, depends on:
-BRossTools in BRossTools (explicit)
