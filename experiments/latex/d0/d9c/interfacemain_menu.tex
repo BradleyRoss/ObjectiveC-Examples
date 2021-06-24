@@ -1,0 +1,107 @@
+\hypertarget{interfacemain_menu}{}\doxysection{main\+Menu Class Reference}
+\label{interfacemain_menu}\index{mainMenu@{mainMenu}}
+
+
+Object for creating main menu.  
+
+
+
+
+{\ttfamily \#import $<$experimental\+Classes.\+h$>$}
+
+Inheritance diagram for main\+Menu\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{d0/d9c/interfacemain_menu}
+\end{center}
+\end{figure}
+\doxysubsection*{Class Methods}
+\begin{DoxyCompactItemize}
+\item 
+(void) + \mbox{\hyperlink{interfacemain_menu_af0fdbd899be90cda359dbb3979446d4a}{bleep\+:}}
+\begin{DoxyCompactList}\small\item\em Responds to button clicks. \end{DoxyCompactList}\item 
+(\mbox{\hyperlink{class_n_s_view}{NSView}} $\ast$) + \mbox{\hyperlink{interfacemain_menu_acfe883b4d10f3a71e115acfa1bfbfca1}{menu}}
+\begin{DoxyCompactList}\small\item\em Builds view containing main menu. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Object for creating main menu. 
+
+Definition at line 13 of file experimental\+Classes.\+h.
+
+
+
+\doxysubsection{Method Documentation}
+\mbox{\Hypertarget{interfacemain_menu_af0fdbd899be90cda359dbb3979446d4a}\label{interfacemain_menu_af0fdbd899be90cda359dbb3979446d4a}} 
+\index{mainMenu@{mainMenu}!bleep:@{bleep:}}
+\index{bleep:@{bleep:}!mainMenu@{mainMenu}}
+\doxysubsubsection{\texorpdfstring{bleep:}{bleep:}}
+{\footnotesize\ttfamily + (void) bleep\+: \begin{DoxyParamCaption}\item[{(id)}]{sender }\end{DoxyParamCaption}}
+
+
+
+Responds to button clicks. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sender} & object sending message to method when button clicked. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 1 of file experimental\+Classes.\+m.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{13              :(id)sender \{}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{15     NSString *message = [sender getIdent];}
+\DoxyCodeLine{16         \textcolor{keywordflow}{if} (message == nil)\{}
+\DoxyCodeLine{17             NSLog(\textcolor{stringliteral}{@"{}No identifier provided"{}});}
+\DoxyCodeLine{18         \}\textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{19             \textcolor{keywordflow}{if} ([message isEqualToString:\textcolor{stringliteral}{@"{}b1"{}}]) \{}
+\DoxyCodeLine{20                 [\mbox{\hyperlink{interfacee2}{e2}} \mbox{\hyperlink{interfacee2_a56f831c1b07b31838a4a75fbfdab3f8a}{runtest}}];}
+\DoxyCodeLine{21             \}}
+\DoxyCodeLine{22     NSLog(\textcolor{stringliteral}{@"{}bleep method entered: message is \%@"{}}, message);}
+\DoxyCodeLine{23         \}}
+\DoxyCodeLine{24 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{interfacemain_menu_acfe883b4d10f3a71e115acfa1bfbfca1}\label{interfacemain_menu_acfe883b4d10f3a71e115acfa1bfbfca1}} 
+\index{mainMenu@{mainMenu}!menu@{menu}}
+\index{menu@{menu}!mainMenu@{mainMenu}}
+\doxysubsubsection{\texorpdfstring{menu}{menu}}
+{\footnotesize\ttfamily + (\mbox{\hyperlink{class_n_s_view}{NSView}} $\ast$) menu \begin{DoxyParamCaption}{ }\end{DoxyParamCaption}}
+
+
+
+Builds view containing main menu. 
+
+\begin{DoxyReturn}{Returns}
+pointer to NSStack\+View object. \href{https://stackoverflow.com/questions/36020540/why-is-instancetype-used}{\texttt{ https\+://stackoverflow.\+com/questions/36020540/why-\/is-\/instancetype-\/used}} 
+\end{DoxyReturn}
+
+
+Definition at line 1 of file experimental\+Classes.\+m.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{31                  \{}
+\DoxyCodeLine{32     \textcolor{comment}{// NSStackView *stackView = [NSStackView alloc]}}
+\DoxyCodeLine{33     }
+\DoxyCodeLine{34     \mbox{\hyperlink{interface_b_ross_tools_button}{BRossToolsButton}} *b1 = [\mbox{\hyperlink{interface_b_ross_tools_button}{BRossToolsButton}} \mbox{\hyperlink{interface_b_ross_tools_button_ad14d51a62e103a790a82908aaee1792d}{initUsingObjectIdent}}:self \mbox{\hyperlink{interface_b_ross_tools_button_ad14d51a62e103a790a82908aaee1792d}{selector}}:@selector(\mbox{\hyperlink{interface_b_ross_tools_button_ad14d51a62e103a790a82908aaee1792d}{bleep}}:) \mbox{\hyperlink{interface_b_ross_tools_button_ad14d51a62e103a790a82908aaee1792d}{caption}}:@"{}This will trigger the e2 test which opens a window, colors it, and inserts a few text fields and buttons"{} \mbox{\hyperlink{interface_b_ross_tools_button_ad14d51a62e103a790a82908aaee1792d}{ident}}:@"{}b1"{} ];}
+\DoxyCodeLine{35     \mbox{\hyperlink{interface_b_ross_tools_button}{BRossToolsButton}} *b2 = [\mbox{\hyperlink{interface_b_ross_tools_button}{BRossToolsButton}} \mbox{\hyperlink{interface_b_ross_tools_button_ad14d51a62e103a790a82908aaee1792d}{initUsingObjectIdent}}:self \mbox{\hyperlink{interface_b_ross_tools_button_ad14d51a62e103a790a82908aaee1792d}{selector}}:@selector(\mbox{\hyperlink{interface_b_ross_tools_button_ad14d51a62e103a790a82908aaee1792d}{bleep}}:) \mbox{\hyperlink{interface_b_ross_tools_button_ad14d51a62e103a790a82908aaee1792d}{caption}}:@"{}button2"{} \mbox{\hyperlink{interface_b_ross_tools_button_ad14d51a62e103a790a82908aaee1792d}{ident}}:@"{}b2"{} ];}
+\DoxyCodeLine{36     \mbox{\hyperlink{interface_b_ross_tools_button}{BRossToolsButton}} *b3 = [\mbox{\hyperlink{interface_b_ross_tools_button}{BRossToolsButton}} \mbox{\hyperlink{interface_b_ross_tools_button_ad14d51a62e103a790a82908aaee1792d}{initUsingObjectIdent}}:self \mbox{\hyperlink{interface_b_ross_tools_button_ad14d51a62e103a790a82908aaee1792d}{selector}}:@selector(\mbox{\hyperlink{interface_b_ross_tools_button_ad14d51a62e103a790a82908aaee1792d}{bleep}}:) \mbox{\hyperlink{interface_b_ross_tools_button_ad14d51a62e103a790a82908aaee1792d}{caption}}:@"{}button3"{} \mbox{\hyperlink{interface_b_ross_tools_button_ad14d51a62e103a790a82908aaee1792d}{ident}}:@"{}b3"{} ];}
+\DoxyCodeLine{37     \mbox{\hyperlink{interface_b_ross_tools_button}{BRossToolsButton}} *b4 = [\mbox{\hyperlink{interface_b_ross_tools_button}{BRossToolsButton}} \mbox{\hyperlink{interface_b_ross_tools_button_ad14d51a62e103a790a82908aaee1792d}{initUsingObjectIdent}}:self \mbox{\hyperlink{interface_b_ross_tools_button_ad14d51a62e103a790a82908aaee1792d}{selector}}:@selector(\mbox{\hyperlink{interface_b_ross_tools_button_ad14d51a62e103a790a82908aaee1792d}{bleep}}:) \mbox{\hyperlink{interface_b_ross_tools_button_ad14d51a62e103a790a82908aaee1792d}{caption}}:@"{}button4"{} \mbox{\hyperlink{interface_b_ross_tools_button_ad14d51a62e103a790a82908aaee1792d}{ident}}:@"{}b4"{} ];}
+\DoxyCodeLine{38     NSStackView *stackView = [NSStackView stackViewWithViews:@[b1, b2, b3, b4]];}
+\DoxyCodeLine{39     stackView.orientation = NSUserInterfaceLayoutOrientationVertical;}
+\DoxyCodeLine{40     \textcolor{keywordflow}{return} stackView;}
+\DoxyCodeLine{41 \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+experiments/\mbox{\hyperlink{experimental_classes_8h}{experimental\+Classes.\+h}}\item 
+experiments/\mbox{\hyperlink{experimental_classes_8m}{experimental\+Classes.\+m}}\end{DoxyCompactItemize}

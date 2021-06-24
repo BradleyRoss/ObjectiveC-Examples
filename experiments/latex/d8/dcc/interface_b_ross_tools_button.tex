@@ -1,0 +1,164 @@
+\hypertarget{interface_b_ross_tools_button}{}\doxysection{BRoss\+Tools\+Button Class Reference}
+\label{interface_b_ross_tools_button}\index{BRossToolsButton@{BRossToolsButton}}
+
+
+Subclass of \mbox{\hyperlink{class_n_s_button}{NSButton}} that provides additional capability.  
+
+
+
+
+{\ttfamily \#import $<$experimental\+Classes.\+h$>$}
+
+Inheritance diagram for BRoss\+Tools\+Button\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{d8/dcc/interface_b_ross_tools_button}
+\end{center}
+\end{figure}
+\doxysubsection*{Instance Methods}
+\begin{DoxyCompactItemize}
+\item 
+(NSString $\ast$) -\/ \mbox{\hyperlink{interface_b_ross_tools_button_a62724e4d988ad0fbf505c2277e01233b}{get\+Ident}}
+\begin{DoxyCompactList}\small\item\em Get NSString object allowing multiple instances to be distinguished. \end{DoxyCompactList}\item 
+(void) -\/ \mbox{\hyperlink{interface_b_ross_tools_button_aa29cccc2e12f9996f3abb7b647fa77a6}{set\+Ident\+:}}
+\begin{DoxyCompactList}\small\item\em Set NSString object allowing multiple instances to be distinguished. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Class Methods}
+\begin{DoxyCompactItemize}
+\item 
+(instancetype) + \mbox{\hyperlink{interface_b_ross_tools_button_ad14d51a62e103a790a82908aaee1792d}{init\+Using\+Object\+Ident\+:selector\+:caption\+:ident\+:}}
+\begin{DoxyCompactList}\small\item\em Creates an object contaning a view of a button to insert in view. \end{DoxyCompactList}\item 
+(instancetype) + \mbox{\hyperlink{interface_b_ross_tools_button_a9d313c941c23630a126b4ba5b6071ebf}{init\+Using\+Object\+:selector\+:caption\+:}}
+\begin{DoxyCompactList}\small\item\em Creates an object contaning a view of a button to insert in view. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Subclass of \mbox{\hyperlink{class_n_s_button}{NSButton}} that provides additional capability. 
+
+There is one instance variable named ident which is an NSString object containing an identifier for the button.
+
+\mbox{\hyperlink{class_n_s_button}{NSButton}} is a subclass of NSControl which is a subclass of \mbox{\hyperlink{class_n_s_view}{NSView}} which is a class of NSResponder. 
+
+Definition at line 66 of file experimental\+Classes.\+h.
+
+
+
+\doxysubsection{Method Documentation}
+\mbox{\Hypertarget{interface_b_ross_tools_button_a62724e4d988ad0fbf505c2277e01233b}\label{interface_b_ross_tools_button_a62724e4d988ad0fbf505c2277e01233b}} 
+\index{BRossToolsButton@{BRossToolsButton}!getIdent@{getIdent}}
+\index{getIdent@{getIdent}!BRossToolsButton@{BRossToolsButton}}
+\doxysubsubsection{\texorpdfstring{getIdent}{getIdent}}
+{\footnotesize\ttfamily -\/ (NSString $\ast$) get\+Ident \begin{DoxyParamCaption}{ }\end{DoxyParamCaption}}
+
+
+
+Get NSString object allowing multiple instances to be distinguished. 
+
+\begin{DoxyReturn}{Returns}
+identifying character string stored in instance variable. 
+\end{DoxyReturn}
+
+
+Definition at line 130 of file experimental\+Classes.\+m.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{143                         \{}
+\DoxyCodeLine{144     \textcolor{keywordflow}{return} \mbox{\hyperlink{experimental_classes_8m_a5c01c6e96e185c13c825e62bc4fbda8b}{identValue}};}
+\DoxyCodeLine{145 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{interface_b_ross_tools_button_a9d313c941c23630a126b4ba5b6071ebf}\label{interface_b_ross_tools_button_a9d313c941c23630a126b4ba5b6071ebf}} 
+\index{BRossToolsButton@{BRossToolsButton}!initUsingObject:selector:caption:@{initUsingObject:selector:caption:}}
+\index{initUsingObject:selector:caption:@{initUsingObject:selector:caption:}!BRossToolsButton@{BRossToolsButton}}
+\doxysubsubsection{\texorpdfstring{initUsingObject:selector:caption:}{initUsingObject:selector:caption:}}
+{\footnotesize\ttfamily + (instancetype) init\+Using\+Object\+: \begin{DoxyParamCaption}\item[{(id)}]{target\+Object }\item[{selector\+:(SEL)}]{select }\item[{caption\+:(NSString $\ast$)}]{label }\end{DoxyParamCaption}}
+
+
+
+Creates an object contaning a view of a button to insert in view. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em target\+Object} & id for object that will receive action from button \\
+\hline
+{\em select} & character string that will identify button to target object \\
+\hline
+{\em label} & caption for button \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+address of object created
+\end{DoxyReturn}
+\href{https://stackoverflow.com/questions/36020540/why-is-instancetype-used}{\texttt{ https\+://stackoverflow.\+com/questions/36020540/why-\/is-\/instancetype-\/used}} 
+
+Definition at line 130 of file experimental\+Classes.\+m.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{131                                :targetObject  selector:(SEL)select caption:(NSString *)label \{}
+\DoxyCodeLine{132     \textcolor{comment}{// SEL *a = NSFunctionFromString(selector);//}}
+\DoxyCodeLine{133     \textcolor{comment}{// SEL bleep1 = sel\_registerName("{}bleep:"{});}}
+\DoxyCodeLine{134     \mbox{\hyperlink{interface_b_ross_tools_button}{BRossToolsButton}} *button = [\mbox{\hyperlink{interface_b_ross_tools_button}{BRossToolsButton}} buttonWithTitle:label target:targetObject action:select];}
+\DoxyCodeLine{135     \mbox{\hyperlink{experimental_classes_8m_a5c01c6e96e185c13c825e62bc4fbda8b}{identValue}} = nil;}
+\DoxyCodeLine{136     \textcolor{keywordflow}{return} button;}
+\DoxyCodeLine{137 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{interface_b_ross_tools_button_ad14d51a62e103a790a82908aaee1792d}\label{interface_b_ross_tools_button_ad14d51a62e103a790a82908aaee1792d}} 
+\index{BRossToolsButton@{BRossToolsButton}!initUsingObjectIdent:selector:caption:ident:@{initUsingObjectIdent:selector:caption:ident:}}
+\index{initUsingObjectIdent:selector:caption:ident:@{initUsingObjectIdent:selector:caption:ident:}!BRossToolsButton@{BRossToolsButton}}
+\doxysubsubsection{\texorpdfstring{initUsingObjectIdent:selector:caption:ident:}{initUsingObjectIdent:selector:caption:ident:}}
+{\footnotesize\ttfamily + (instancetype) init\+Using\+Object\+Ident\+: \begin{DoxyParamCaption}\item[{(id)}]{target\+Object }\item[{selector\+:(SEL)}]{select }\item[{caption\+:(NSString $\ast$)}]{label }\item[{ident\+:(NSString $\ast$)}]{ident }\end{DoxyParamCaption}}
+
+
+
+Creates an object contaning a view of a button to insert in view. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em target\+Object} & id for object that will receive action from button \\
+\hline
+{\em select} & character string that will identify button to target object \\
+\hline
+{\em label} & caption for button \\
+\hline
+{\em ident} & character string that identifies button \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+pointer to button object created 
+\end{DoxyReturn}
+
+
+Definition at line 130 of file experimental\+Classes.\+m.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{138                                     :targetObject  selector:(SEL)select caption:(NSString *)label ident:(NSString *)ident \{}
+\DoxyCodeLine{139     \mbox{\hyperlink{interface_b_ross_tools_button}{BRossToolsButton}} *button = [\mbox{\hyperlink{interface_b_ross_tools_button}{BRossToolsButton}} buttonWithTitle:label target:targetObject action:select];}
+\DoxyCodeLine{140     [button \mbox{\hyperlink{interface_b_ross_tools_button_aa29cccc2e12f9996f3abb7b647fa77a6}{setIdent}}:ident];}
+\DoxyCodeLine{141     \textcolor{keywordflow}{return} button;}
+\DoxyCodeLine{142 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{interface_b_ross_tools_button_aa29cccc2e12f9996f3abb7b647fa77a6}\label{interface_b_ross_tools_button_aa29cccc2e12f9996f3abb7b647fa77a6}} 
+\index{BRossToolsButton@{BRossToolsButton}!setIdent:@{setIdent:}}
+\index{setIdent:@{setIdent:}!BRossToolsButton@{BRossToolsButton}}
+\doxysubsubsection{\texorpdfstring{setIdent:}{setIdent:}}
+{\footnotesize\ttfamily -\/ (void) set\+Ident\+: \begin{DoxyParamCaption}\item[{(NSString $\ast$)}]{ident }\end{DoxyParamCaption}}
+
+
+
+Set NSString object allowing multiple instances to be distinguished. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ident} & character string identifying instance. This is an instance variable. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+experiments/\mbox{\hyperlink{experimental_classes_8h}{experimental\+Classes.\+h}}\item 
+experiments/\mbox{\hyperlink{experimental_classes_8m}{experimental\+Classes.\+m}}\end{DoxyCompactItemize}

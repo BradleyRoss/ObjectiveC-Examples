@@ -1,0 +1,186 @@
+\hypertarget{interfacee2}{}\doxysection{e2 Class Reference}
+\label{interfacee2}\index{e2@{e2}}
+
+
+Test case \mbox{\hyperlink{interfacee2}{e2}}.  
+
+
+
+
+{\ttfamily \#import $<$experimental\+Classes.\+h$>$}
+
+Inheritance diagram for e2\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{de/d14/interfacee2}
+\end{center}
+\end{figure}
+\doxysubsection*{Class Methods}
+\begin{DoxyCompactItemize}
+\item 
+(void) + \mbox{\hyperlink{interfacee2_a56f831c1b07b31838a4a75fbfdab3f8a}{runtest}}
+\begin{DoxyCompactList}\small\item\em Method running test case. \end{DoxyCompactList}\item 
+(void) + \mbox{\hyperlink{interfacee2_a3cfcdd8e1c1a41e975a35d988fa6c048}{log\+Size\+Position\+Of\+:title\+:}}
+\begin{DoxyCompactList}\small\item\em Uses NSLog to send information on a NSRect object. \end{DoxyCompactList}\item 
+(void) + \mbox{\hyperlink{interfacee2_acfbd3a7eccb9ca1584b813ef46d5e96d}{bleep\+:}}
+\begin{DoxyCompactList}\small\item\em Messages from button clicks are sent to this method. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Test case \mbox{\hyperlink{interfacee2}{e2}}. 
+
+This is a subclass of \mbox{\hyperlink{class_n_s_object}{NSObject}}. \begin{DoxyVerb}It opens a window, changes the color and inserts some text fields and buttons.
+\end{DoxyVerb}
+ 
+
+Definition at line 35 of file experimental\+Classes.\+h.
+
+
+
+\doxysubsection{Method Documentation}
+\mbox{\Hypertarget{interfacee2_acfbd3a7eccb9ca1584b813ef46d5e96d}\label{interfacee2_acfbd3a7eccb9ca1584b813ef46d5e96d}} 
+\index{e2@{e2}!bleep:@{bleep:}}
+\index{bleep:@{bleep:}!e2@{e2}}
+\doxysubsubsection{\texorpdfstring{bleep:}{bleep:}}
+{\footnotesize\ttfamily + (void) bleep\+: \begin{DoxyParamCaption}\item[{(id)}]{sender }\end{DoxyParamCaption}}
+
+
+
+Messages from button clicks are sent to this method. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sender} & This indicates the object that sent the message. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 1 of file experimental\+Classes.\+m.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{117                : (id)sender\{}
+\DoxyCodeLine{118      \textcolor{keywordflow}{if} (sender == nil)\{}
+\DoxyCodeLine{119          NSLog(\textcolor{stringliteral}{@"{}bleep used with identifying string"{}});}
+\DoxyCodeLine{120      \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{121      NSLog(\textcolor{stringliteral}{@"{}bleep entered message is \%@"{}}, [sender getIdent]);}
+\DoxyCodeLine{122      \}}
+\DoxyCodeLine{123  \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{interfacee2_a3cfcdd8e1c1a41e975a35d988fa6c048}\label{interfacee2_a3cfcdd8e1c1a41e975a35d988fa6c048}} 
+\index{e2@{e2}!logSizePositionOf:title:@{logSizePositionOf:title:}}
+\index{logSizePositionOf:title:@{logSizePositionOf:title:}!e2@{e2}}
+\doxysubsubsection{\texorpdfstring{logSizePositionOf:title:}{logSizePositionOf:title:}}
+{\footnotesize\ttfamily + (void) log\+Size\+Position\+Of\+: \begin{DoxyParamCaption}\item[{(NSRect $\ast$)}]{object }\item[{title\+:(NSString $\ast$)}]{title\+String }\end{DoxyParamCaption}}
+
+
+
+Uses NSLog to send information on a NSRect object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em object} & identifier for NSRect object.\\
+\hline
+{\em title\+String} & character string used to identify NSRect object being described \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 1 of file experimental\+Classes.\+m.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{112                          :(NSRect *)\textcolor{keywordtype}{object} title:(NSString *)titleString \{}
+\DoxyCodeLine{113     NSLog(\textcolor{stringliteral}{@"{}\%@"{}}, titleString);}
+\DoxyCodeLine{114     NSLog(\textcolor{stringliteral}{@"{}    width \%f     height \%f"{}}, object-\/>size.width, object-\/>size.height);}
+\DoxyCodeLine{115     NSLog(\textcolor{stringliteral}{@"{}    x \%f     y \%f"{}}, object-\/>origin.x, object-\/>origin.y);}
+\DoxyCodeLine{116 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{interfacee2_a56f831c1b07b31838a4a75fbfdab3f8a}\label{interfacee2_a56f831c1b07b31838a4a75fbfdab3f8a}} 
+\index{e2@{e2}!runtest@{runtest}}
+\index{runtest@{runtest}!e2@{e2}}
+\doxysubsubsection{\texorpdfstring{runtest}{runtest}}
+{\footnotesize\ttfamily + (void) runtest \begin{DoxyParamCaption}{ }\end{DoxyParamCaption}}
+
+
+
+Method running test case. 
+
+
+
+Definition at line 1 of file experimental\+Classes.\+m.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{50                 \{}
+\DoxyCodeLine{51    \textcolor{comment}{/*}}
+\DoxyCodeLine{52 \textcolor{comment}{      NSScreen is screen being used}}
+\DoxyCodeLine{53 \textcolor{comment}{    */}}
+\DoxyCodeLine{54     NSScreen *thisScreen = [NSScreen mainScreen];}
+\DoxyCodeLine{55     NSRect r1 = thisScreen.frame;}
+\DoxyCodeLine{56     [\mbox{\hyperlink{interfacee2}{e2}} \mbox{\hyperlink{interfacee2_a3cfcdd8e1c1a41e975a35d988fa6c048}{logSizePositionOf}}:\&r1 \mbox{\hyperlink{interfacee2_a3cfcdd8e1c1a41e975a35d988fa6c048}{title}}:@"{}Frame of screen"{} ];}
+\DoxyCodeLine{57     NSRect windowFrame;}
+\DoxyCodeLine{58     windowFrame.size = NSMakeSize (thisScreen.frame.size.width/2.0, thisScreen.frame.size.height*0.5);}
+\DoxyCodeLine{59     windowFrame.origin = NSMakePoint ((CGFloat)0.0,(CGFloat) 0.0);}
+\DoxyCodeLine{60    \textcolor{comment}{//  windowFrame.origin = NSMakePoint(screenFrame.size.width*0.1, screenFrame.size.height*0.1);}}
+\DoxyCodeLine{61     NSUInteger style = NSWindowStyleMaskTitled | NSWindowStyleMaskResizable;}
+\DoxyCodeLine{62     }
+\DoxyCodeLine{63     NSWindow *thisWindow = [[NSWindow alloc] initWithContentRect:windowFrame styleMask:style backing:NSBackingStoreBuffered defer:NO];}
+\DoxyCodeLine{64  \textcolor{comment}{/*  Make a window */}}
+\DoxyCodeLine{65     [thisWindow setBackgroundColor:[NSColor greenColor]];}
+\DoxyCodeLine{66     [thisWindow makeKeyAndOrderFront:NSApp];}
+\DoxyCodeLine{67     NSRect r3 = thisWindow.frame;}
+\DoxyCodeLine{68     [\mbox{\hyperlink{interfacee2}{e2}} \mbox{\hyperlink{interfacee2_a3cfcdd8e1c1a41e975a35d988fa6c048}{logSizePositionOf}}:\&r3 \mbox{\hyperlink{interfacee2_a3cfcdd8e1c1a41e975a35d988fa6c048}{title}}:@"{}Frame of new window"{}];}
+\DoxyCodeLine{69     NSRect r4 = thisWindow.contentView.frame;}
+\DoxyCodeLine{70     [\mbox{\hyperlink{interfacee2}{e2}} \mbox{\hyperlink{interfacee2_a3cfcdd8e1c1a41e975a35d988fa6c048}{logSizePositionOf}}:\&r4 \mbox{\hyperlink{interfacee2_a3cfcdd8e1c1a41e975a35d988fa6c048}{title}}:@"{}Frame of contentView of new window"{}];}
+\DoxyCodeLine{71     NSRect r5 = thisWindow.contentView.bounds;}
+\DoxyCodeLine{72     [\mbox{\hyperlink{interfacee2}{e2}} \mbox{\hyperlink{interfacee2_a3cfcdd8e1c1a41e975a35d988fa6c048}{logSizePositionOf}}:\&r5 \mbox{\hyperlink{interfacee2_a3cfcdd8e1c1a41e975a35d988fa6c048}{title}}:@"{}Bounds of contentView of new window"{}];}
+\DoxyCodeLine{73     \textcolor{comment}{/*  Build a text field */}}
+\DoxyCodeLine{74     \textcolor{comment}{/*}}
+\DoxyCodeLine{75 \textcolor{comment}{     NSRect is a struct}}
+\DoxyCodeLine{76 \textcolor{comment}{     f1 is an object of type NSTextField}}
+\DoxyCodeLine{77 \textcolor{comment}{     frame is a property of f1 and is a struct}}
+\DoxyCodeLine{78 \textcolor{comment}{     bounds is a property of f1 and is a struct}}
+\DoxyCodeLine{79 \textcolor{comment}{     origin and size are components of the NSRect struct}}
+\DoxyCodeLine{80 \textcolor{comment}{     }}
+\DoxyCodeLine{81 \textcolor{comment}{     https://forums.macrumors.com/threads/create-\/button-\/programmatically.740537/}}
+\DoxyCodeLine{82 \textcolor{comment}{     https://stackoverflow.com/questions/2455161/unrecognized-\/selector-\/sent-\/to-\/instance-\/error-\/in-\/objective-\/c}}
+\DoxyCodeLine{83 \textcolor{comment}{     }}
+\DoxyCodeLine{84 \textcolor{comment}{     you can use the value of f1.frame.origin.x in an expression (?)}}
+\DoxyCodeLine{85 \textcolor{comment}{     However, you can't assign a value to f1.frame.origin.x because it involves both}}
+\DoxyCodeLine{86 \textcolor{comment}{         property relationships of an object and components of a struct}}
+\DoxyCodeLine{87 \textcolor{comment}{     */}}
+\DoxyCodeLine{88     NSTextField *f1 = [NSTextField textFieldWithString:@"{}First text"{}];}
+\DoxyCodeLine{89     [f1 setTextColor:[NSColor purpleColor] ];}
+\DoxyCodeLine{90     \mbox{\hyperlink{class_n_s_view}{NSView}} *topView = thisWindow.contentView;}
+\DoxyCodeLine{91     NSRect f1Frame = f1.frame;}
+\DoxyCodeLine{92     f1Frame.origin = NSMakePoint((CGFloat) 100.0, (CGFloat) 150.0);}
+\DoxyCodeLine{93     f1.frame = f1Frame;}
+\DoxyCodeLine{94     [topView addSubview:f1];}
+\DoxyCodeLine{95 }
+\DoxyCodeLine{96     [\mbox{\hyperlink{interfacee2}{e2}} \mbox{\hyperlink{interfacee2_a3cfcdd8e1c1a41e975a35d988fa6c048}{logSizePositionOf}}:\&f1Frame \mbox{\hyperlink{interfacee2_a3cfcdd8e1c1a41e975a35d988fa6c048}{title}}:@"{}Information on frame f1"{}];}
+\DoxyCodeLine{97     NSRect f1Bounds = f1.bounds ;}
+\DoxyCodeLine{98     [\mbox{\hyperlink{interfacee2}{e2}} \mbox{\hyperlink{interfacee2_a3cfcdd8e1c1a41e975a35d988fa6c048}{logSizePositionOf}}:\&f1Bounds \mbox{\hyperlink{interfacee2_a3cfcdd8e1c1a41e975a35d988fa6c048}{title}}:@"{}Information on bounds of f1"{}];}
+\DoxyCodeLine{99     }
+\DoxyCodeLine{100     \mbox{\hyperlink{interface_b_ross_tools_button}{BRossToolsButton}} *b1 =[\mbox{\hyperlink{interface_b_ross_tools_button}{BRossToolsButton}} \mbox{\hyperlink{interface_b_ross_tools_button_ad14d51a62e103a790a82908aaee1792d}{initUsingObjectIdent}}:self  \mbox{\hyperlink{interface_b_ross_tools_button_ad14d51a62e103a790a82908aaee1792d}{selector}}:@selector(\mbox{\hyperlink{interface_b_ross_tools_button_ad14d51a62e103a790a82908aaee1792d}{bleep}}:) \mbox{\hyperlink{interface_b_ross_tools_button_ad14d51a62e103a790a82908aaee1792d}{caption}}:@"{}Show alert"{} \mbox{\hyperlink{interface_b_ross_tools_button_ad14d51a62e103a790a82908aaee1792d}{ident}}:@"{}first"{}];}
+\DoxyCodeLine{101     NSRect b1Frame = b1.frame;}
+\DoxyCodeLine{102     b1Frame.origin = NSMakePoint((CGFloat) 100.0, (CGFloat) 50.0);}
+\DoxyCodeLine{103     b1.frame = b1Frame;}
+\DoxyCodeLine{104     \mbox{\hyperlink{interface_b_ross_tools_button}{BRossToolsButton}} *b2 = [\mbox{\hyperlink{interface_b_ross_tools_button}{BRossToolsButton}} \mbox{\hyperlink{interface_b_ross_tools_button_ad14d51a62e103a790a82908aaee1792d}{initUsingObjectIdent}}:self \mbox{\hyperlink{interface_b_ross_tools_button_ad14d51a62e103a790a82908aaee1792d}{selector}}:@selector(\mbox{\hyperlink{interface_b_ross_tools_button_ad14d51a62e103a790a82908aaee1792d}{bleep}}:) \mbox{\hyperlink{interface_b_ross_tools_button_ad14d51a62e103a790a82908aaee1792d}{caption}}:@"{}Show second alert"{} \mbox{\hyperlink{interface_b_ross_tools_button_ad14d51a62e103a790a82908aaee1792d}{ident}}:@"{}second"{}];}
+\DoxyCodeLine{105     \textcolor{comment}{//   Order of parameters is x, y   and width, height}}
+\DoxyCodeLine{106     NSRect b2Frame = b2.frame;}
+\DoxyCodeLine{107     b2Frame.origin = NSMakePoint((CGFloat) 200.0, (CGFloat) 50.0);}
+\DoxyCodeLine{108     b2.frame = b2Frame;}
+\DoxyCodeLine{109     [topView addSubview:b1];}
+\DoxyCodeLine{110     [topView addSubview:b2];}
+\DoxyCodeLine{111 \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+experiments/\mbox{\hyperlink{experimental_classes_8h}{experimental\+Classes.\+h}}\item 
+experiments/\mbox{\hyperlink{experimental_classes_8m}{experimental\+Classes.\+m}}\end{DoxyCompactItemize}

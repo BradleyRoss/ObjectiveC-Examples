@@ -11,6 +11,24 @@
 <p>If you look at the documentation for
    <a target="_blank" href="https://developer.apple.com/documentation/objectivec/nsuinteger?language=objc">NSUInteger</a>, it states that it is a 32 bit unsigned integer for 32 bit architectures and a 64 bit unsigned integer for 64-bit architectures.  However, the typedef declarations at the top of the page state unsigned long for iOS, macOS, Mac Catalyst, and tvOS while watchOS uses unsigned int.  Since both watchOS and macOS are currently both 64 bit architectures, that would imply the int and long are defined differently for different targets.  I do not think that this is the case.</p>
 <h2>Deprecated Definition</h2>
+<p>If you look at the <a href="FunctionalArea.html" target="_blank">changes
+   for MIDI&trade; 2.0 is listed here</a>, you will 
+   find the term <i>deprecated</i> to be inconsistent 
+   in it's usage.  If something is required for use of
+   a supported version of the operating system, I don't believe it can
+   be indicated as deprecated.  For all versions of 
+   macOS 10, the "old architecture" functions and classes 
+   must be used.  The ones marked "new architecture" can 
+   only be used for macOS 11.0 and above.  (Similar 
+   splits also apply for iOS, tvOS, watchOS, etc.) My 
+   view would be that the "old architecture" is 
+   "to be deprecated" rather than being currently deprecated.</p>
+<p>There are other functions that appear to be deprecated but are
+   not marked as such in the documentation.  It would appear that 
+   MIDIReadProc fits in this category since MIDIReadBlock is the
+   "old architecture" version and MIDIReceiveBlock is the
+   "new architecture" version.</p>
 
 </body>
 </html>
+
