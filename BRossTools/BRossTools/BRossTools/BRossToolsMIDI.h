@@ -1,5 +1,5 @@
 //
-//  CoreMIDIsamples.h
+//  BRossToolsMIDI.h
 //  BRossTools
 //
 //  Created by Bradley Ross on 3/18/21.
@@ -10,9 +10,12 @@
 #import <AppKit/AppKit.h>
 #import <CoreMIDI/CoreMIDI.h>
 #import <AVFAudio/AVFAudio.h>
+
 #import "BRossTools.h"
-// import "BRossToolsMIDI.h"
-#import "LocalClasses.h"
+// #import "LocalClasses.h"
+// #import "BRossToolsMIDI.h"
+
+// #import "CoreMidiSamples.h"
 #ifndef BRossToolsMIDI_h
 #define BRossToolsMIDI_h
 

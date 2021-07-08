@@ -10,6 +10,7 @@
  @brief BRossTools implementation
  */
 #import <Foundation/Foundation.h>
+#import "BRossToolsTextWindow.h"
 #import "BRossTools.h"
 
 //  *****  *****  *****  *****  *****
@@ -97,6 +98,22 @@
     NSLog(@"Setting window title to %@", title);
     displayPanel.title=title;
 }
+- (NSViewController *) getNSViewController {
+return viewController;
+}
+
+- (NSTextStorage *) getNSTextStorage {
+return stringContents;
+}
+
+- (NSScrollView *) getNSScrollView {
+return scrollview;
+}
+
+- (NSTextView *) getNSTextView {
+return theTextView;
+}
+
 /**
       Add some text to the window.
  
@@ -118,15 +135,27 @@
     // NSTextStorage *temp222 =theTextView.textStorage;
     if (NSThread.isMainThread) {
     [stringContents appendAttributedString:aString];
+       if (autoscroll) {
+           // scroll to the bottom of the content
+             NSRange lastLine = NSMakeRange(stringContents.length - 1, 1);
+             [theTextView scrollRangeToVisible:lastLine];
+        }
     } else {
         dispatch_async(dispatch_get_main_queue(), ^() {
             [self->stringContents appendAttributedString:aString];
+        if (autoscroll) {
+            // scroll to the bottom of the content
+             NSRange lastLine = NSMakeRange(stringContents.length - 1, 1);
+             [theTextView scrollRangeToVisible:lastLine];
+        }
         });
     }
 }
 /**
  @brief does not work
  Can't get this to work.
+
+ Since this uses variadic variables, it will take a lot of effort to make it work correctly
  */
 - (void)appendFormat:(NSString *)format, ...{
     NSLog(@"Starting BRossToolsTextWindow appendFormat");
@@ -148,6 +177,16 @@
     initWithString:formattedString];
     [stringContents appendAttributedString:aString];*/
 }
+- (BOOL) getAutoscroll {
+    return autoscroll;
+}
+-(void) setAutoscroll:(BOOL) value {
+    autoscroll = value;
+}
+
+
+
+
 @end
 
 //  *****  *****  *****  *****  *****

@@ -11,9 +11,7 @@
  Implementation code for LocalClasses.
  */
 #import <Foundation/Foundation.h>
-# import "BRossTools.h"
 
-# import "BRossToolsMIDI.h"
 # import "LocalClasses.h"
 // import "MIKMIDIsamples.h"
 # import "BRossToolsSynthesizer.h"
@@ -606,6 +604,7 @@ static BRossToolsTextWindow *textWindowStorage = nil;
     // BRossToolsTextWindow *textWindow;
     // textWindow = [BRossToolsTextWindow newWindow];
     [[self textWindow] setTitle:@"test4 -- MIDI Configuration"];
+    [[self textWindow] setAutoscroll:YES];
     // [self setTextWindow:textWindow];
     buildMessage = [NSString alloc];
     [[self textWindow] appendString:@"Starting CoreMidiSample1"] ;

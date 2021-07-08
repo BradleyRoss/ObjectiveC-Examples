@@ -1,5 +1,5 @@
 //
-//  BRossToolsMIDIListenForInput2.m.m
+//  BRossToolsMIDIListenForInput2.m
 //  BRossTools
 //
 //  Created by Bradley Ross on 3/18/21.
@@ -215,11 +215,12 @@
     extraLogMessages = NO;
        windowValue = window;
        textWindow = window;
-    
+    [textWindow setAutoscroll:YES];
     /*
     if (textWindow == NULL) {
         textWindow = [BRossToolsTextWindow newWindow];
         textWindow.title = @"CoreMIDI Operations";
+    
     }*/
     NSLog(@"BRossToolsMIDIListenForInput2");
    

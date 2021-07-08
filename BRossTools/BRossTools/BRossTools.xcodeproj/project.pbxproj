@@ -79,6 +79,7 @@
 /* Begin PBXFileReference section */
 		90077A582616A6CB00C7B0E4 /* Doxyfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Doxyfile; sourceTree = SOURCE_ROOT; };
 		90077A5C2616A73D00C7B0E4 /* MDFILE.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = MDFILE.md; sourceTree = SOURCE_ROOT; };
+		90120C3C269781230006E59E /* BRossToolsTextWindow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BRossToolsTextWindow.h; sourceTree = "<group>"; };
 		9015510F25C87BA8006DA674 /* LocalClasses.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocalClasses.m; sourceTree = "<group>"; };
 		9015511425C87BCD006DA674 /* LocalClasses.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocalClasses.h; sourceTree = "<group>"; };
 		904006E7265ACF0F00062511 /* BRossToolsSynthesizer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BRossToolsSynthesizer.h; sourceTree = "<group>"; };
@@ -211,6 +212,7 @@
 				90A7F975262646130033B494 /* BRossToolsMIDISendMIDI.m */,
 				906CEEFC25C7AA0900DC5271 /* MainMenu.xib */,
 				9015511425C87BCD006DA674 /* LocalClasses.h */,
+				90120C3C269781230006E59E /* BRossToolsTextWindow.h */,
 				90077A582616A6CB00C7B0E4 /* Doxyfile */,
 				904006E7265ACF0F00062511 /* BRossToolsSynthesizer.h */,
 				90CA4C97266BEFEC0048F7E8 /* BRossToolsMIDIVirtualSynthesizer.m */,
