@@ -28,14 +28,14 @@
  <tr><th>code</th> <th> Caption<br />Action</th><th>ObjectiveC Method </th></tr>
  <tr><td>temp</td><td>Placeholder for temporary code</td><td>[tempTest runtest]</td></tr>
  <tr><td> m3 </td><td>Listen for keystrokes using CoreMIDI (Ver 2)<br />
-    listener  = [BRossToolsMIDIListenForInput2 alloc]<br />
+    listener  = [BRossToolsMIDIListenForInput alloc]<br />
     [listener runtestWithWindow:window]</td>
-    <td> [BRossToolsMIDIListenForinput2 runTestWithWindow] </td></tr>
+    <td> [BRossToolsMIDIListenForinput runTestWithWindow] </td></tr>
  <tr><td>m3a</td><td>Send keystrokes to virtual synthesizer</td>
-        <td>[BRossToolsMIDIListenForInput2 initWithsynthesizer]</td>,/tr>
+        <td>[BRossToolsMIDIListenForInput initWithsynthesizer]</td>,/tr>
  <tr><td>m4</td>  <td>Kill CoreMIDI Client (Ver 2)<br />
     m3 is run first<br />
-    [listener killClient]</td><td> [BRossToolsMIDIListenForInput2 killClient]   </td></tr>
+    [listener killClient]</td><td> [BRossToolsMIDIListenForInput killClient]   </td></tr>
  <tr><td>m1a</td><td>Select and play MIDI song</td>
         <td></td></tr>
  <tr><td>m5 </td><td>Read a dummy MIDIPacketList </td><td> [TestReadDummy runtest]
@@ -57,7 +57,7 @@
  */
 @implementation mainMenu
 static BRossToolsTextWindow *window;
-static BRossToolsMIDIListenForInput2 *listener;
+static BRossToolsMIDIListenForInput *listener;
 
 + (void)bleep:(id)sender {
 
@@ -96,7 +96,7 @@ static BRossToolsMIDIListenForInput2 *listener;
             } else if ([message isEqualToString:@"m3"]){
                 window = [BRossToolsTextWindow newWindow];
                 window.title=@"Listen for notes";
-                 listener = [BRossToolsMIDIListenForInput2 alloc];
+                 listener = [BRossToolsMIDIListenForInput alloc];
                   [listener    runtestWithWindow:window];
             } else if ([message isEqualToString:@"m4"]) {
                 [listener killClient];

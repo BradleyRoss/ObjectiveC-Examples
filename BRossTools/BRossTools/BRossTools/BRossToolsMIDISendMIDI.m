@@ -239,7 +239,7 @@ if (numberOfDestinations == 0) {
         return;
     }
     if (result != noErr) {
-        NSString *message = [[NSString alloc]initWithFormat:@"BRossToolsMIDIListenForInput2 MIDIClientCreate failed with code of %d \n ", result];
+        NSString *message = [[NSString alloc]initWithFormat:@"BRossToolsMIDIListenForInput MIDIClientCreate failed with code of %d \n ", result];
         [textWindow appendString:message];
     } else {
         result = MIDIObjectGetStringProperty(midiClient, kMIDIPropertyName, &clientName);

@@ -181,7 +181,7 @@ if (numberOfSources == 0) {
 /*
  Version from original article.
  */
-@implementation BRossToolsMIDIListenForInput2 {
+@implementation BRossToolsMIDIListenForInput {
 
 
 OSStatus result;
@@ -271,10 +271,10 @@ CFStringRef portName;
  */
 static void midiInputCallback(const MIDIPacketList *list,
         void *procRef, void *srcRef) {
-    NSLog(@"BRossToolsMIDIListenForInput2 midiInputCallback has been called");
+    NSLog(@"BRossToolsMIDIListenForInput midiInputCallback has been called");
     
     /*
-    [textWindow appendString:@"BRossToolsMIDIListenForInput2 midiInputCallback has been called \n"];
+    [textWindow appendString:@"BRossToolsMIDIListenForInput midiInputCallback has been called \n"];
      */
 
     UInt16 nBytes;
@@ -361,10 +361,10 @@ void describeNote(Byte data[], int length) {
         textWindow = [BRossToolsTextWindow newWindow];
         textWindow.title = @"CoreMIDI Operations";
     }
-    NSLog(@"BRossToolsMIDIListenForInput2 - use subroutines from original article");
+    NSLog(@"BRossToolsMIDIListenForInput - use subroutines from original article");
     clientCreateOption = 2;
     inputPortOption = 1;
-    [textWindow appendString:@"BRossToolsMIDIListenForInput2 - use subroutines from original article"];
+    [textWindow appendString:@"BRossToolsMIDIListenForInput - use subroutines from original article"];
     ItemCount numberOfSources = MIDIGetNumberOfSources();
 if (numberOfSources == 0) {
     [textWindow appendString:@"No sources found -- aborting \n"];
@@ -425,7 +425,7 @@ if (numberOfSources == 0) {
         return;
     }
     if (result != noErr) {
-        NSString *message = [[NSString alloc]initWithFormat:@"BRossToolsMIDIListenForInput2 MIDIClientCreate failed with code of %d \n ", result];
+        NSString *message = [[NSString alloc]initWithFormat:@"BRossToolsMIDIListenForInput MIDIClientCreate failed with code of %d \n ", result];
         [textWindow appendString:message];
     } else {
         result = MIDIObjectGetStringProperty(midiClient, kMIDIPropertyName, &clientName);

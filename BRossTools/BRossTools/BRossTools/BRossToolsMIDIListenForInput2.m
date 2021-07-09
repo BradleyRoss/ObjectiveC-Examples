@@ -21,7 +21,7 @@
 /*
  Version from original article.
  */
-@implementation BRossToolsMIDIListenForInput2 {
+@implementation BRossToolsMIDIListenForInput {
     
     BOOL extraLogMessages;
 

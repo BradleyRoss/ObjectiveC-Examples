@@ -259,6 +259,9 @@ void printMessage(NSString* message, BRossToolsTextWindow *window) {
                         initWithFormat:@"Name of destination is *%@* \n", destinationName];
                 
                 [window appendString:message];
+                [window appendString:@"Destination must be capable of playing MIDIPacketList\n"];
+                [window appendString:@"      must be turned on\n"];
+                [window appendString:@"      must have volume turned up\n"];
                 NSLog(@"%@", message);
                 }
             } else {
@@ -335,7 +338,7 @@ void printMessage(NSString* message, BRossToolsTextWindow *window) {
     NSLog(@"Number of Packets: %d", packetList->numPackets);
     NSLog(@"Port name: %@     Destination name: %@", portName2,  destName2);
     result = MIDISend(portRef, destinationRef, packetList);
-    NSLog(@"Packet sent: %d", result);
+    NSLog(@"Packet sent, error code is: %d", result);
     if (result != noErr) {
         if (window == NULL) {
             NSLog(@"MIDISend failed with code of %d \n ", result);

@@ -45,7 +45,7 @@
  
  @todo Running this version resulted in the following message being sent to the log.  I don't know if this is a problem.  2021-03-31 20:59:33.847954-0400 BRossTools[12359:542211] [plugin] AddInstanceForFactory: No factory registered for id <CFUUID 0x60000398e400> F8BB1C28-BAE8-11D6-9C31-00039315CD46
  */
-@interface BRossToolsMIDIListenForInput2:NSObject
+@interface BRossToolsMIDIListenForInput:NSObject
 - (instancetype) init;
 - (void) runtest;
 - (void) runtestWithWindow:(BRossToolsTextWindow *)window;
