@@ -143,10 +143,10 @@ return theTextView;
     } else {
         dispatch_async(dispatch_get_main_queue(), ^() {
             [self->stringContents appendAttributedString:aString];
-        if (autoscroll) {
+        if (self->autoscroll) {
             // scroll to the bottom of the content
-             NSRange lastLine = NSMakeRange(stringContents.length - 1, 1);
-             [theTextView scrollRangeToVisible:lastLine];
+             NSRange lastLine = NSMakeRange(self->stringContents.length - 1, 1);
+             [self->theTextView scrollRangeToVisible:lastLine];
         }
         });
     }

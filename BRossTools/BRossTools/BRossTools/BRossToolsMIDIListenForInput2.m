@@ -222,7 +222,7 @@
         textWindow.title = @"CoreMIDI Operations";
     
     }*/
-    NSLog(@"BRossToolsMIDIListenForInput2");
+    // NSLog(@"BRossToolsMIDIListenForInput2");
    
     BOOL success;
     NSLog(@"starting BRossToolsMIDIListenForInput2 init");
@@ -236,12 +236,24 @@
         NSLog(@"Failure in starting engine");
     }
     success = [virtual loadSoundbankAndInstrument];
-    if (success) {
-    }
+    if (!success) {
+        NSString *message = @"Aborting - can't start synthesizer \n";
+        if (textWindow != NULL) {
+            [textWindow appendString:message];
+        } else {
+            NSLog(@"%@", message);
+        }
+    } else {
+        NSString *message = @"Play Middle C for 0.25 seconds \n";
+        if (textWindow != NULL) {
+            [textWindow appendString:message];
+        } else {
+            NSLog(@"%@", message);
+        }
     [synth startNote:60 withVelocity:100 onChannel:0];
     [NSThread sleepForTimeInterval:0.25];
     [synth stopNote:60 onChannel:0];
-    
+    }
     /*
     NSThread *mainThread = NSThread.mainThread ;
     NSThread *currentThread = NSThread.currentThread;
@@ -264,12 +276,19 @@ if (numberOfSources == 0) {
     if (result == noErr) {
         NSString *message = [[NSString alloc]
                 initWithFormat:@"Name of source is *%@* \n", sourceName];
-        [textWindow appendString:message];
-        NSLog(@"%@", message);
+        if (textWindow != NULL) {
+            [textWindow appendString:message];
+        } else {
+            NSLog(@"%@", message);
+        }
     } else {
         NSString *message = [[NSString alloc]
             initWithFormat:@"Error obtaining source name - code: %d \n", result];
-        [textWindow appendString:message];
+        if (textWindow != NULL) {
+            [textWindow appendString:message];
+        } else {
+            NSLog(@"%@",message);
+        }
     }
     /*
      typedef void (^MIDINotifyBlock)(const MIDINotification *message);
@@ -284,7 +303,11 @@ if (numberOfSources == 0) {
      * message  MIDINotification struct describing change to system
      */
     MIDINotifyBlock notifyBlock2 = ^(const MIDINotification *message) {
-        NSLog(@"MIDINotifyBlock notifyBlock has been called ");
+        if (self->textWindow != NULL) {
+                NSLog(@"MIDINotifyBlock notifyBlock has been called ");
+        } else {
+            [self->textWindow appendString:@"MIDINotifyBlock notifyBlock has been called \n"];
+        }
     };
     /*
     MIDIReceiveBlock receiveBlock2 = ^(const MIDIEventList *evtList, void *srcConnRefCon){
@@ -318,7 +341,12 @@ if (numberOfSources == 0) {
     if (kern_result == KERN_SUCCESS) {
         numer = info.numer;
         denom = info.denom;
-    NSLog(@"Mach time conversion numerator: %d denominator: %d",numer, denom );
+        NSString *message = [[NSString alloc]initWithFormat:@"Mach time conversion numerator: %d denominator: %d \n",numer, denom ];
+        if (textWindow != NULL) {
+            [textWindow appendString:message];
+        } else {
+            NSLog(@"%@", message);
+        }
         
     } else {
         numer = 1;

@@ -176,13 +176,23 @@
 //  *****  *****  *****  *****  *****  *****
 //  *****  *****  *****  *****  *****  *****
 //  *****  *****  *****  *****  *****  *****
-/**
- @brief Read the contents of a MIDIPacketList
- */
+
+ /**
+  *   @brief  Reads a MIDIPacketList
+  *  Sources of information on MIDI 1.0 Detailed Specifications
+  *    * [MIDI Association Documents](https://www.midi.org/specifications/midi1-specifications)
+  *    * MIDI 1.0 Depetailed Specifications
+  *    * MIDI Machine Control
+  *    * MIDI Show Control
+  *
+  * @todo should have instancetype for methods beginning with init - test change below
+  *
+  *   Will each MIDIPacketList generated list have a data structure that is sized large enough for the
+  *   entire data structure and that exists util ARC marks it for garbage removal?
+  */
+ 
 @interface BRossToolsMIDIPacketListRead:NSObject
-/**
- @todo should have instancetype for methods beginning with init - test change below
- */
+
 - (instancetype) initWithWindow:(BRossToolsTextWindow *) window;
 
 - (void) processPacketList:(MIDIPacketList *) packetList;
