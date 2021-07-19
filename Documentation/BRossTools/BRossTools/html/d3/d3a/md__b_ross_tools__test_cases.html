@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>BRossTools: Examples</title>
+<title>BRossTools: ObjectiveC-Examples</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -62,75 +62,128 @@ $(function() {
 </div><!-- top -->
 <div class="PageDoc"><div class="header">
   <div class="headertitle">
-<div class="title">Examples </div>  </div>
+<div class="title">ObjectiveC-Examples </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p>When you compile and execute the BRossTools application, a window appears with a number of buttons for running the various examples.</p>
-<h2><a class="anchor" id="autotoc_md1"></a>
+<div class="textblock"><p>I have created a number of Objective-C examples dealing with CoreMIDI, CoreAudio, and the Foundation Framework. The <a href="https://github.com/BradleyRoss/ObjectiveC-Examples">GitHub repository</a> contains the Xcode project in the directory BRossTools, while there is an <a href="https://bradleyross.github.io/ObjectiveC-Examples/Documentation/BRossTools/">associated URL for documentation</a>.</p>
+<h2><a class="anchor" id="autotoc_md4"></a>
 MIDI Examples</h2>
-<h3><a class="anchor" id="autotoc_md2"></a>
+<p>When you compile and execute the BRossTools application, a window appears with a number of buttons for running the various examples.</p>
+<h3><a class="anchor" id="autotoc_md5"></a>
 Listen for keystrokes</h3>
+<p>If there is only one MIDI source attached to the system, the actions of the keystrokes will be sent to a software synthesizer.</p>
 <p>There are two buttons on the main menu related to this example: "Start listening for keystrokes" (The identifier is "m3") and "Stop listening for keystrokes" (The identifier is "m4".)</p>
-<p>The code attached to m3 is . window = [<a class="el" href="../../d0/d85/interface_b_ross_tools_text_window.html" title="Creates a scrolling window for handling text.">BRossToolsTextWindow</a> newWindow]; . window.title="Listen for notes"; . listener = [<a class="el" href="../../d6/ddb/interface_b_ross_tools_m_i_d_i_listen_for_input2.html" title="Read keyboard presses using the legacy apis.">BRossToolsMIDIListenForInput2</a> alloc]; . [listener runtestWithWindow:window];</p>
-<p>The code attached to m4 is . [listener killClient];</p>
-<h3><a class="anchor" id="autotoc_md3"></a>
+<p>The code attached to m3 is</p>
+<ul>
+<li>window = [<a class="el" href="../../d8/d10/class_b_ross_tools_text_window.html" title="Creates a scrolling window for handling text.">BRossToolsTextWindow</a> newWindow];</li>
+<li>window.title="Listen for notes";</li>
+<li>listener = [<a class="el" href="../../db/d97/interface_b_ross_tools_m_i_d_i_listen_for_input.html" title="Read keyboard presses using the legacy apis.">BRossToolsMIDIListenForInput</a> alloc];</li>
+<li>[listener runtestWithWindow:window];</li>
+</ul>
+<p>The code attached to m4 is</p>
+<ul>
+<li>[listener killClient];</li>
+</ul>
+<h4><a class="anchor" id="autotoc_md6"></a>
+Provides examples of</h4>
+<ul>
+<li><a href="https://developer.apple.com/documentation/avfaudio/avaudiounitsampler/">AVAudioUnitSampler</a> This is a software synthesizer.</li>
+<li><a href="https://developer.apple.com/documentation/coremidi/1495330-midiclientcreatewithblock?language=objc">MIDIClientCreateWithBlock</a></li>
+<li><a href="https://developer.apple.com/documentation/coremidi/1495333-midiinputportcreatewithblock?language=objc">MIDIInputPortCreateWithBlock</a> For MIDI 2.0, this will be replaced by <a href="https://developer.apple.com/documentation/coremidi/3566488-midiinputportcreatewithprotocol?language=objc">MIDIInputPortCreateWithProtocol</a></li>
+<li><a href="https://developer.apple.com/documentation/coremidi/midinotifyblock?language=objc">MIDINotifyBlock</a> Blocks are also known as closures and this block is called when modifications are made to the MIDI configuration.</li>
+<li><a href="https://developer.apple.com/documentation/coremidi/1495278-midiportconnectsource?language=objc">MIDIPortConnectSource</a> This function connects a virtual input port on a client to a MIDI source.</li>
+<li><a href="https://developer.apple.com/documentation/coremidi/midireadblock?language=objc">MIDIReadBlock</a> (For MIDI 2.0, this will be replaced by <a href="https://developer.apple.com/documentation/coremidi/midireceiveblock?language=objc">MIDIReceiveBlock</a>). This block is called when MIDI information is received by a virtual input port or a virtual destination.</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md7"></a>
 Select and play a MIDI file</h3>
-<p>The identifier for this button is "m1a".</p>
-<h3><a class="anchor" id="autotoc_md4"></a>
+<p>This sample will allow the user to select a MIDI file via a panel and then play the file on the internal synthesizer.</p>
+<p>The identifier for this button is "m1a" and the associated code is ...</p>
+<ul>
+<li><a class="el" href="../../d1/d5e/interface_play_m_i_d_i_file.html">PlayMIDIFile</a> *midiTest = [[<a class="el" href="../../d1/d5e/interface_play_m_i_d_i_file.html">PlayMIDIFile</a> alloc] init];</li>
+<li>[midiTest pickMIDIFileAndPlay];</li>
+</ul>
+<h4><a class="anchor" id="autotoc_md8"></a>
+Provides examples of</h4>
+<ul>
+<li><a href="https://developer.apple.com/documentation/avfaudio/avmidiplayer">AVMIDIPlayer</a> This is a convenience class for playing MIDI files through the software synthesizer. Processes involving manipulation of the MIDI data will have to use different classes.</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md9"></a>
 Read a dummy MIDIPacketList</h3>
+<p>This program creates a MIDI 1 <a href="https://developer.apple.com/documentation/coremidi/midipacketlist?language=objc">MIDIPacketList</a> and then parses it. This was developed to check the algorithms for building and parsing the list. MIDI 2 uses <a href="https://developer.apple.com/documentation/coremidi/midieventlist?language=objc">MIDIEventList</a> and a different set of classes and functions.</p>
 <p>The identifier for this button is "m5", and the associated code is ...</p>
 <ul>
 <li>[[<a class="el" href="../../d6/d3d/interface_test_read_dummy.html" title="create a dummy MIDIPacketList and parse it.">TestReadDummy</a> alloc] runtest];</li>
 </ul>
-<h3><a class="anchor" id="autotoc_md5"></a>
+<h3><a class="anchor" id="autotoc_md10"></a>
 Send a dummy MIDIPacketList</h3>
 <p>The identifier for this button is "m6", and the associated code is ...</p>
 <ul>
-<li><a class="el" href="../../d0/d85/interface_b_ross_tools_text_window.html" title="Creates a scrolling window for handling text.">BRossToolsTextWindow</a> *sendWindow = [<a class="el" href="../../d0/d85/interface_b_ross_tools_text_window.html" title="Creates a scrolling window for handling text.">BRossToolsTextWindow</a> newWindow];</li>
+<li><a class="el" href="../../d8/d10/class_b_ross_tools_text_window.html" title="Creates a scrolling window for handling text.">BRossToolsTextWindow</a> *sendWindow = [<a class="el" href="../../d8/d10/class_b_ross_tools_text_window.html" title="Creates a scrolling window for handling text.">BRossToolsTextWindow</a> newWindow];</li>
 <li>[[<a class="el" href="../../dd/da1/interface_test_send_dummy.html" title="Create a dummy MIDIPacketList and send it to the first MIDI destination.">TestSendDummy</a> alloc] runtestWithWindow:sendWindow];</li>
 </ul>
 <p>This example creates the same MIDIPacketList as in the previous example. If there is one and only one MIDI destination, it will send the MIDIPacketList to that destination.</p>
-<p>This doesn't seem to work right when CASIO is attached</p>
-<h3><a class="anchor" id="autotoc_md6"></a>
+<p>This seems to be some sort of intermittent problem that sometimes doesn't allow the notes to play.</p>
+<h3><a class="anchor" id="autotoc_md11"></a>
 Show MIDI configuration</h3>
+<p>This sample shows the devices, entities, sources, and destinations on a system. This is a hierarchical arrange with a number of devices on the system, (0, 1, or many) entities exist per device, (0, 1, or many) sources exist per entity, and (0, 1, or many) destinations exist per entity. This code also expands the arrays and dictionaries belonging to the various items.</p>
 <p>The identifier for this button is "b5", and the associated code is ...</p>
 <ul>
 <li>[<a class="el" href="../../d6/d7e/interface_core_midi_sample1.html" title="MIDI tools.">CoreMidiSample1</a> runtest];</li>
 </ul>
-<h3><a class="anchor" id="autotoc_md7"></a>
+<h4><a class="anchor" id="autotoc_md12"></a>
+Exammples of</h4>
+<ul>
+<li><a href="https://developer.apple.com/documentation/coremidi/1495164-midigetnumberofdevices?language=objc">MIDIGetNumberOfDevices</a> Gets the number of MIDI devices on the system.</li>
+<li><a href="https://developer.apple.com/documentation/coremidi/1495368-midigetdevice?language=objc">MIDIGetDevice</a> Obtains a specific device from the list of devices on the system. Although the list referenced in MIDIGetNumberOfDevices, the set of devices and their order can change if the configuration of the MIDI system is changed.</li>
+<li><a href="https://developer.apple.com/documentation/coremidi/1495354-mididevicegetnumberofentities?language=objc">MIDIDeviceGetNumberOfEntities</a> Gets the number of MIDI entities for a given device.</li>
+<li><a href="https://developer.apple.com/documentation/coremidi/1495261-mididevicegetentity?language=objc">MIDIDeviceGetEntity</a> Obtains information on a specific entity belonging to the device. As with the list of devices, the members and order of entities can change if changes are made to the configuration.</li>
+<li><a href="https://developer.apple.com/documentation/coremidi/1495188-midientitygetnumberofdestination?language=objc">MIDIEntityGetNumberOfDestinations</a> Gets the number of destinations for a specific entity.</li>
+<li><a href="https://developer.apple.com/documentation/coremidi/1495223-midientitygetdestination?language=objc">MIDIEntityGetDestination</a> Obtains information on a specific destination belonging to the entity. As with the list of devices, the members and order of destinations can change if changes are made to the configuration.</li>
+<li><a href="https://developer.apple.com/documentation/coremidi/1495284-midientitygetnumberofsources?language=objc">MIDIEntityGetNumberOfSources</a> Gets the number of sources for a specific entity.</li>
+<li><a href="https://developer.apple.com/documentation/coremidi/1495236-midientitygetsource?language=objc">MIDIEntityGetSource</a> Obtains information on a specific source belonging to an entity As with the list of devices, the members and order of sources can change if changes are made to the configuration.</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md13"></a>
 Show MIDI sources/destinations</h3>
 <p>The identifier for this button is "b6", and the associated code is ...</p>
 <ul>
 <li>[[CoreMMidiSample1 runtest2];</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md8"></a>
+<h4><a class="anchor" id="autotoc_md14"></a>
+Examples of</h4>
+<ul>
+<li><a href="https://developer.apple.com/documentation/coremidi/1495116-midigetnumberofsources?language=objc">MIDIGetNumberOfSources</a> Obtains the number of active MIDI sources in the system.</li>
+<li><a href="https://developer.apple.com/documentation/coremidi/1495168-midigetsource?language=objc">MIDIGetSource</a> Obtains a specific source from the list of active sources on the system. The members and order of the list can change if changes are made to the configuration.</li>
+<li><a href="https://developer.apple.com/documentation/coremidi/1495309-midigetnumberofdestinations?language=objc">MIDIGetNumberOfDestinations</a> Obtains the number of active MIDI destinations in the system.</li>
+<li><a href="https://developer.apple.com/documentation/coremidi/1495108-midigetdestination?language=objc">MIDIGetDestination</a> Obtains a specific destination from a list of active destinations in the system. The members and order of the list can change if changes are made to the configuration.</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md15"></a>
 Foundation Framework Examples</h2>
-<h3><a class="anchor" id="autotoc_md9"></a>
+<h3><a class="anchor" id="autotoc_md16"></a>
 b1</h3>
 <ul>
 <li>[<a class="el" href="../../de/d14/interfacee2.html" title="Sample code e2. It opens a window, changes the color and inserts some text fields and buttons.">e2</a> runtest];</li>
 </ul>
-<h3><a class="anchor" id="autotoc_md10"></a>
+<h3><a class="anchor" id="autotoc_md17"></a>
 b2</h3>
 <ul>
 <li>[<a class="el" href="../../d6/d5f/interfacetest1.html" title="Creates an array of NSString and dispays them.">test1</a> runtest];</li>
 </ul>
-<h3><a class="anchor" id="autotoc_md11"></a>
+<h3><a class="anchor" id="autotoc_md18"></a>
 b3 BRossToolsTextWindow</h3>
 <ul>
 <li>[<a class="el" href="../../d1/d05/interfacetest2.html" title="Test for BRossToolsTextWindow.">test2</a> runtest];</li>
 </ul>
-<h3><a class="anchor" id="autotoc_md12"></a>
+<h3><a class="anchor" id="autotoc_md19"></a>
 b4</h3>
 <ul>
 <li>[<a class="el" href="../../da/d7b/interfacetest4.html" title="Sample code test4.">test4</a> runtest];</li>
 </ul>
-<h3><a class="anchor" id="autotoc_md13"></a>
+<h3><a class="anchor" id="autotoc_md20"></a>
 b7 CFArray, CFDictionary</h3>
 <ul>
 <li>[<a class="el" href="../../dd/d3c/interfacetest5.html" title="CFDictionary/CFArray example.">test5</a> runtest];</li>
 </ul>
-<h3><a class="anchor" id="autotoc_md14"></a>
+<h3><a class="anchor" id="autotoc_md21"></a>
 b8 Playing with pointers</h3>
 <ul>
 <li>[<a class="el" href="../../da/d7b/interfacetest4.html" title="Sample code test4.">test4</a> runtest]; </li>

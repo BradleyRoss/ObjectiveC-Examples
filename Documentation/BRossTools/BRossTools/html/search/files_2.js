@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['coremidisamples_2em_276',['CoreMIDIsamples.m',['../da/d93/_core_m_i_d_isamples_8m.html',1,'']]]
+  ['localclasses_2eh_279',['LocalClasses.h',['../de/d97/_local_classes_8h.html',1,'']]],
+  ['localclasses_2em_280',['LocalClasses.m',['../d6/d41/_local_classes_8m.html',1,'']]]
 ];

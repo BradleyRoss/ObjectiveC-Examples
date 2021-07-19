@@ -75,12 +75,12 @@ $(function() {
 
 <p>LocalClasses headers. The code in this section is either specific to tests, samples or requires more work before it can moved to BRossTools classes.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#import &quot;<a class="el" href="../../d9/d63/_b_ross_tools_m_i_d_i_8h_source.html">BRossToolsMIDI.h</a>&quot;</code><br />
-<code>#import &quot;<a class="el" href="../../df/db4/_b_ross_tools_8h_source.html">BRossTools.h</a>&quot;</code><br />
-<code>#import &lt;Foundation/Foundation.h&gt;</code><br />
+<div class="textblock"><code>#import &lt;Foundation/Foundation.h&gt;</code><br />
 <code>#import &lt;CoreMIDI/CoreMIDI.h&gt;</code><br />
 <code>#import &lt;stdio.h&gt;</code><br />
 <code>#import &lt;time.h&gt;</code><br />
+<code>#import &quot;<a class="el" href="../../dc/d74/_b_ross_tools_text_window_8h_source.html">BRossToolsTextWindow.h</a>&quot;</code><br />
+<code>#import &quot;<a class="el" href="../../df/db4/_b_ross_tools_8h_source.html">BRossTools.h</a>&quot;</code><br />
 </div>
 <p><a href="../../de/d97/_local_classes_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -93,7 +93,7 @@ Data Structures</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates an array of NSString and dispays them.  <a href="../../d6/d5f/interfacetest1.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d05/interfacetest2.html">test2</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Test for <a class="el" href="../../d0/d85/interface_b_ross_tools_text_window.html" title="Creates a scrolling window for handling text.">BRossToolsTextWindow</a>.  <a href="../../d1/d05/interfacetest2.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Test for <a class="el" href="../../d8/d10/class_b_ross_tools_text_window.html" title="Creates a scrolling window for handling text.">BRossToolsTextWindow</a>.  <a href="../../d1/d05/interfacetest2.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/df5/interfacetest3.html">test3</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sample code <a class="el" href="../../db/df5/interfacetest3.html" title="Sample code test3.">test3</a>.  <a href="../../db/df5/interfacetest3.html#details">More...</a><br /></td></tr>
@@ -123,10 +123,6 @@ Data Structures</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a1b23c047fd4dd39f27894e49b55c2ddd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d97/_local_classes_8h.html#a1b23c047fd4dd39f27894e49b55c2ddd">sendMessage2</a> (<a class="el" href="../../d0/d85/interface_b_ross_tools_text_window.html">BRossToolsTextWindow</a> *window, NSString *message)</td></tr>
-<tr class="separator:a1b23c047fd4dd39f27894e49b55c2ddd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afdd4b4fdccef367be01534667189f4fd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d97/_local_classes_8h.html#afdd4b4fdccef367be01534667189f4fd">sendMessage</a> (NSString *message)</td></tr>
-<tr class="separator:afdd4b4fdccef367be01534667189f4fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8583f26ca0bb017e67cf5cf6dfe160c1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d97/_local_classes_8h.html#a8583f26ca0bb017e67cf5cf6dfe160c1">logger</a> (NSString *text, SInt32 code)</td></tr>
 <tr class="separator:a8583f26ca0bb017e67cf5cf6dfe160c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -161,55 +157,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="../../d6/d41/_local_classes_8m_source.html#l00881">CoreMidiSample1::deviceData</a>, <a class="el" href="../../d6/d41/_local_classes_8m_source.html#l01097">CoreMidiSample1::endpointData</a>, <a class="el" href="../../d6/d41/_local_classes_8m_source.html#l00994">CoreMidiSample1::entityData</a>, and <a class="el" href="../../d6/d41/_local_classes_8m_source.html#l01051">CoreMidiSample1::objectDictionary</a>.</p>
-
-</div>
-</div>
-<a id="afdd4b4fdccef367be01534667189f4fd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afdd4b4fdccef367be01534667189f4fd">&#9670;&nbsp;</a></span>sendMessage()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void sendMessage </td>
-          <td>(</td>
-          <td class="paramtype">NSString *&#160;</td>
-          <td class="paramname"><em>message</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="reference">Referenced by <a class="el" href="../../d6/d41/_local_classes_8m_source.html#l00881">CoreMidiSample1::deviceData</a>, <a class="el" href="../../d6/d41/_local_classes_8m_source.html#l00816">CoreMidiSample1::elapsed(void)</a>, <a class="el" href="../../d6/d41/_local_classes_8m_source.html#l01097">CoreMidiSample1::endpointData</a>, <a class="el" href="../../d6/d41/_local_classes_8m_source.html#l00994">CoreMidiSample1::entityData</a>, and <a class="el" href="../../d6/d41/_local_classes_8m_source.html#l00835">CoreMidiSample1::logger</a>.</p>
-
-</div>
-</div>
-<a id="a1b23c047fd4dd39f27894e49b55c2ddd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1b23c047fd4dd39f27894e49b55c2ddd">&#9670;&nbsp;</a></span>sendMessage2()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void sendMessage2 </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="../../d0/d85/interface_b_ross_tools_text_window.html">BRossToolsTextWindow</a> *&#160;</td>
-          <td class="paramname"><em>window</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">NSString *&#160;</td>
-          <td class="paramname"><em>message</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
+<p class="reference">Referenced by <a class="el" href="../../d6/d41/_local_classes_8m_source.html#l00880">CoreMidiSample1::deviceData</a>, <a class="el" href="../../d6/d41/_local_classes_8m_source.html#l01096">CoreMidiSample1::endpointData</a>, <a class="el" href="../../d6/d41/_local_classes_8m_source.html#l00993">CoreMidiSample1::entityData</a>, and <a class="el" href="../../d6/d41/_local_classes_8m_source.html#l01050">CoreMidiSample1::objectDictionary</a>.</p>
 
 </div>
 </div>

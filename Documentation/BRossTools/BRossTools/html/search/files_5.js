@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['testcases_2emd_281',['TestCases.md',['../dc/d41/_test_cases_8md.html',1,'']]]
+  ['variadicarguments_2emd_285',['VariadicArguments.md',['../d5/d1b/_variadic_arguments_8md.html',1,'']]]
 ];

@@ -68,7 +68,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Read the contents of a MIDIPacketList.  
+<p>Reads a MIDIPacketList Sources of information on MIDI 1.0 Detailed Specifications.  
  <a href="../../da/d9d/interface_b_ross_tools_m_i_d_i_packet_list_read.html#details">More...</a></p>
 
 <p><code>#import &lt;<a class="el" href="../../d9/d63/_b_ross_tools_m_i_d_i_8h_source.html">BRossToolsMIDI.h</a>&gt;</code></p>
@@ -97,10 +97,17 @@ Instance Methods</h2></td></tr>
 <tr class="separator:a4bfa893a2c4978f6b4fdffde347e3eeb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Read the contents of a MIDIPacketList. </p>
-<p>Parse a MIDIPacketList. </p>
+<div class="textblock"><p>Reads a MIDIPacketList Sources of information on MIDI 1.0 Detailed Specifications. </p>
+<ul>
+<li><a href="https://www.midi.org/specifications/midi1-specifications">MIDI Association Documents</a></li>
+<li>MIDI 1.0 Depetailed Specifications</li>
+<li>MIDI Machine Control</li>
+<li>MIDI Show Control</li>
+</ul>
+<dl class="todo"><dt><b><a class="el" href="../../dd/da0/todo.html#_todo000005">Todo:</a></b></dt><dd>should have instancetype for methods beginning with init - test change below</dd></dl>
+<p>Will each MIDIPacketList generated list have a data structure that is sized large enough for the entire data structure and that exists util ARC marks it for garbage removal? </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d9/d63/_b_ross_tools_m_i_d_i_8h_source.html#l00179">179</a> of file <a class="el" href="../../d9/d63/_b_ross_tools_m_i_d_i_8h_source.html">BRossToolsMIDI.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/d63/_b_ross_tools_m_i_d_i_8h_source.html#l00194">194</a> of file <a class="el" href="../../d9/d63/_b_ross_tools_m_i_d_i_8h_source.html">BRossToolsMIDI.h</a>.</p>
 </div><h2 class="groupheader">Method Documentation</h2>
 <a id="a9e489f81d81a1b8a60f276972e151747"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a9e489f81d81a1b8a60f276972e151747">&#9670;&nbsp;</a></span>initWithWindow:</h2>
@@ -111,15 +118,14 @@ Instance Methods</h2></td></tr>
         <tr>
           <td class="memname">- (instancetype) initWithWindow: </td>
           <td></td>
-          <td class="paramtype">(<a class="el" href="../../d0/d85/interface_b_ross_tools_text_window.html">BRossToolsTextWindow</a> *)&#160;</td>
+          <td class="paramtype">(<a class="el" href="../../d8/d10/class_b_ross_tools_text_window.html">BRossToolsTextWindow</a> *)&#160;</td>
           <td class="paramname"><em>window</em></td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="todo"><dt><b><a class="el" href="../../dd/da0/todo.html#_todo000006">Todo:</a></b></dt><dd>should have instancetype for methods beginning with init - test change below </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../db/dde/_b_ross_tools_m_i_d_i_packet_list_read_8m_source.html#l00047">47</a> of file <a class="el" href="../../db/dde/_b_ross_tools_m_i_d_i_packet_list_read_8m_source.html">BRossToolsMIDIPacketListRead.m</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/dde/_b_ross_tools_m_i_d_i_packet_list_read_8m_source.html#l00045">45</a> of file <a class="el" href="../../db/dde/_b_ross_tools_m_i_d_i_packet_list_read_8m_source.html">BRossToolsMIDIPacketListRead.m</a>.</p>
 
 </div>
 </div>
@@ -141,7 +147,7 @@ Instance Methods</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">(<a class="el" href="../../d0/d85/interface_b_ross_tools_text_window.html">BRossToolsTextWindow</a> *)&#160;</td>
+          <td class="paramtype">(<a class="el" href="../../d8/d10/class_b_ross_tools_text_window.html">BRossToolsTextWindow</a> *)&#160;</td>
           <td class="paramname"><em>window</em>&#160;</td>
         </tr>
         <tr>
@@ -158,16 +164,16 @@ Instance Methods</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Display message. </p>
-<p>The message will be displayed via NSLog or <a class="el" href="../../d0/d85/interface_b_ross_tools_text_window.html" title="Creates a scrolling window for handling text.">BRossToolsTextWindow</a> depending on the value of window</p>
+<p>The message will be displayed via NSLog or <a class="el" href="../../d8/d10/class_b_ross_tools_text_window.html" title="Creates a scrolling window for handling text.">BRossToolsTextWindow</a> depending on the value of window</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">message</td><td>Messsage to be displayed </td></tr>
-    <tr><td class="paramname">window</td><td><a class="el" href="../../d0/d85/interface_b_ross_tools_text_window.html" title="Creates a scrolling window for handling text.">BRossToolsTextWindow</a> object to be used </td></tr>
+    <tr><td class="paramname">window</td><td><a class="el" href="../../d8/d10/class_b_ross_tools_text_window.html" title="Creates a scrolling window for handling text.">BRossToolsTextWindow</a> object to be used </td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../db/dde/_b_ross_tools_m_i_d_i_packet_list_read_8m_source.html#l00197">197</a> of file <a class="el" href="../../db/dde/_b_ross_tools_m_i_d_i_packet_list_read_8m_source.html">BRossToolsMIDIPacketListRead.m</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/dde/_b_ross_tools_m_i_d_i_packet_list_read_8m_source.html#l00199">199</a> of file <a class="el" href="../../db/dde/_b_ross_tools_m_i_d_i_packet_list_read_8m_source.html">BRossToolsMIDIPacketListRead.m</a>.</p>
 
 </div>
 </div>
@@ -198,7 +204,7 @@ Instance Methods</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../db/dde/_b_ross_tools_m_i_d_i_packet_list_read_8m_source.html#l00047">47</a> of file <a class="el" href="../../db/dde/_b_ross_tools_m_i_d_i_packet_list_read_8m_source.html">BRossToolsMIDIPacketListRead.m</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/dde/_b_ross_tools_m_i_d_i_packet_list_read_8m_source.html#l00045">45</a> of file <a class="el" href="../../db/dde/_b_ross_tools_m_i_d_i_packet_list_read_8m_source.html">BRossToolsMIDIPacketListRead.m</a>.</p>
 
 </div>
 </div>
@@ -220,6 +226,7 @@ Instance Methods</h2></td></tr>
 
 <p>Parse a MIDIPacketList object. </p>
 <p>When used with processPacket method, this method will parse a MIDIPacketList and the MIDIPacket objects contained within it.</p>
+<p>This code should handle multiple messages per packet. Some SysEx commands should be processed even it they are contained in the packet with other types of commands. However, there should be warnings since that would be an illegal format.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">packetListIn</td><td>MIDIPacketList object to be parsed. </td></tr>
@@ -227,7 +234,7 @@ Instance Methods</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../db/dde/_b_ross_tools_m_i_d_i_packet_list_read_8m_source.html#l00047">47</a> of file <a class="el" href="../../db/dde/_b_ross_tools_m_i_d_i_packet_list_read_8m_source.html">BRossToolsMIDIPacketListRead.m</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/dde/_b_ross_tools_m_i_d_i_packet_list_read_8m_source.html#l00045">45</a> of file <a class="el" href="../../db/dde/_b_ross_tools_m_i_d_i_packet_list_read_8m_source.html">BRossToolsMIDIPacketListRead.m</a>.</p>
 
 </div>
 </div>
