@@ -10,7 +10,7 @@
 <h1>Architecture Topics</h1>
 <p>The following are some related pages.</p>
 <ul>
-<li><a href="CoreMidi.html" target="CoreMidi">CoreMidi Frameowrk</a> A list of functiouns, 
+<li><a href="CoreMidi.html" target="CoreMidi">CoreMidi Framework</a> A list of functiouns, 
     classes, and data structures. This
     page also contains some information on parts of the Core Foundation Framework used with CoreMIDI.</li>
 <li><a href="CoreMIDI/html/index.html">CoreMIDI header information</a> This section used 
@@ -24,7 +24,9 @@
 <h2>MIDI 2.0</h2>
 <p>In order to support MIDI 2.0, there had to be a number of changes 
    to the <a href="CoreMidi.html" target="CoreMidi">CoreMIDI</a> library.  In the table below, 
-   <i>Old Architecture</i> refers to the software items associated with MIDI 1.0 while 
+   <i>Original Architecture</i> refers to the architecture before
+      blocks were introduced,  such as the functions making use of MIDINotifyProc and MIDIReadProc,   
+   <i>Old Architecture</i> refers to the software items associated with MIDI 1.0, and  
    <i>New Architecture</i> refers to the functions that can support 
    both MIDI 1.0 and MIDI 2.0 systems.  The term Universal MIDI Packet (UMP) refers 
    to a method for encoding data for use both MIDI 1.0 and MIDI 2.0, 
@@ -32,44 +34,64 @@
    to and received from the MIDI devices.</p>
 
 <table class="sized">
-<tr><td>Function</td><td>Old Architecture</td><td>New Architecture</td></tr>
-
+<tr><td>Function</td><td>Original Architecture</td><td>Old Architecture</td><td>New Architecture</td></tr>
+<tr><td>Create a client</td>
+    <td><a href="CoreMidi.html#MIDIClientCreate" target="CoreMidi">MIDIClientCreate</a></td>
+    <td><a href="CoreMidi.html#MIDIClientCreateWithBlock" target="CoreMidi">MIDIClientCreateWithBlock</a></td>
+    <td><a href="CoreMidi.html#MIDIClientCreateWithBlock" target="CoreMidi">MIDIClientCreateWithBlock</a></td>
+    </tr>
+<tr><td>Call-back for client</td>
+    <td><a href="CoreMidi.html#MIDINotifyProc" target="CoreMidi">MIDINotifyProc</a></td>
+    <td><a href="CoreMidi.html#MIDINotifyBlock" target="CoreMidi">MIDINotifyBlock</a></td>
+    <td><a href="CoreMidi.html#MIDINotifyBlock" target="CoreMidi">MIDINotifyBlock</a></td>
+    </tr>
 <tr><td>Creates a virtual destination to a client.</td>
+    <td><a href="CoreMidi.html#MIDIDestinationCreate" target="CoreMidi">MIDIDestinationCreate</a></td>
     <td><a href="CoreMidi.html#MIDIDestinationCreateWithBlock" target="CoreMidi">MIDIDestinationCreateWithBlock</a></td>
     <td><a href="CoreMidi.html#MIDIDestinationCreateWithProtocol" target="CoreMidi">MIDIDestinationCreateWithProtocol</a></td></tr>
 <tr><td>Creates a virtual source for a client.</td>
     <td><a href="CoreMidi.html#MIDISourceCreate" target="CoreMidi">MIDISourceCreate</a></td>
+    <td><a href="CoreMidi.html#MIDISourceCreate" target="CoreMidi">MIDISourceCreate</a></td>
     <td><a href="CoreMidi.html#MIDISourceCreateWithProtocol" target="CoreMidi">MIDISourceCreateWithProtocol</a></td><tr>
 <tr><td>Creates an input port for a client through which the client can receive incoming MIDI messages from any MIDI source.</td>
+    <td><a href="CoreMidi.html#MIDIInputPortCreate" target="CoreMidi">MIDIInputPortCreate</a></td>
     <td><a href="CoreMidi.html#MIDIInputPortCreateWithBlock" target="CoreMidi">MIDIInputPortCreateWithBlock</a></td>
     <td><a href="CoreMidi.html#MIDIInputPortCreateWithProtocol" target="CoreMidi">MIDIInputPortCreateWithProtocol</a></td><tr>
 <tr><td>Creates an output port through which a client sends outgoing MIDI messages to any MIDI destination.</td>
     <td><a href="CoreMidi.html#MIDIOutputPortCreate" target="CoreMidi">MIDIOutputPortCreate</a></td>
+    <td><a href="CoreMidi.html#MIDIOutputPortCreate" target="CoreMidi">MIDIOutputPortCreate</a></td>
     <td><a href="CoreMidi.html#MIDIOutputPortCreateWithProtocol" target="CoreMidi">MIDIOutputPortCreateWithProtocol</a></td><tr>
 <tr><td>Send a MIDIPacketList (legacy) or MIDIEventList (UMP) to a destination.</td>
+    <td><a href="CoreMidi.html#MIDISend" target="CoreMidi">MIDISend</a></td>
     <td><a href="CoreMidi.html#MIDISend" target="CoreMidi">MIDISend</a></td>
     <td><a href="CoreMidi.html#MIDISendEventList" target="CoreMidi">MIDISendEventList</a></td></tr>
 <tr><td>A set of packets.</td>
     <td><a href="CoreMidi.html#MIDIPacketList" target="CoreMidi">MIDIPacketList</a></td>
+    <td><a href="CoreMidi.html#MIDIPacketList" target="CoreMidi">MIDIPacketList</a></td>
     <td><a href="CoreMidi.html#MIDIEventList" target="CoreMidi">MIDIEventList</a></td></tr>
 <tr><td>Initialize the packet list structure.</td>
+    <td><a href="CoreMidi.html#MIDIPacketListInit" target="CoreMidi">MIDIPacketListInit</a></td>
     <td><a href="CoreMidi.html#MIDIPacketListInit" target="CoreMidi">MIDIPacketListInit</a></td>
     <td><a href="CoreMidi.html#MIDIEventListInit" target="CoreMidi">MIDIEventListInit</a></td></tr>
 <tr><td>Add a MIDI packet or event packet to the packet list or event packet list.</td>
     <td><a href="CoreMidi.html#MIDIPacketListAdd" target="CoreMidi">MIDIPacketListAdd</a></td>
+    <td><a href="CoreMidi.html#MIDIPacketListAdd" target="CoreMidi">MIDIPacketListAdd</a></td>
     <td><a href="CoreMidi.html#MIDIEventListAdd" target="CoreMidi">MIDIEventListAdd</a></td></tr>
 <tr><td>A group of MIDI commands with the same time stamp.</td>
+    <td><a href="CoreMidi.html#MIDIPacket" target="CoreMidi">MIDIPacket</a></td>
     <td><a href="CoreMidi.html#MIDIPacket" target="CoreMidi">MIDIPacket</a></td>
     <td><a href="CoreMidi.html#MIDIEventPacket" target="CoreMidi">MIDIEventPacket</a></td></tr>
 <tr><td>Move the pointer to the packet or event packet to the next one in the list.</td>
     <td><a href="CoreMidi.html#MIDIPacketNext" target="CoreMidi">MIDIPacketNext</a></td>
+    <td><a href="CoreMidi.html#MIDIPacketNext" target="CoreMidi">MIDIPacketNext</a></td>
     <td><a href="CoreMidi.html#MIDIEventPacketNext" target="CoreMidi">MIDIEventPacketNext</a></td></tr>
 <tr><td>Structure presenting incoming MIDI information.</td>
+    <td><a href="CoreMidi.html#MIDIReadProc" target="CoreMidi">MIDIReadProc</a></td>
     <td><a href="CoreMidi.html#MIDIReadBlock" target="CoreMidi">MIDIReadBlock</a></td>
     <td><a href="CoreMidi.html#MIDIReceiveBlock" target="CoreMidi">MIDIReceiveBlock</a></td></tr>
 
 </table>
-
+<p>The items MIDIClientCreate, MIDINotifyProc, MIDIDestinationCreate, MIDIInputPortCreate, and MIDIReadProc should not be used because of potential interference between threads.</p>
 <h2>Devices with USB Drivers</h2>
 <p>When a piece of hardware is connected via a USB (Universal Serial Bus) cable to a computer, it initiates a process known as "handshaking".  In this process the device shares information with the computer and the computer connects the device using the most appropriate driver the operating system looks for an associated piece of software known as a <i>driver</i>.  Some types of devices such as mice, keyboards, ethernet connections, and telephone connections, there are default drivers that are part of the operating system and will be used unless a more appropriate driver is found.  These drivers are usually supplied by the vendor on their website and will provide additional capability for the vendor's products.  As part of the <i>handshake</i>, the device sends some information about itself.  The result is that the CoreMIDI software always knows how to exchange
 information with the MIDI devices.</p>
