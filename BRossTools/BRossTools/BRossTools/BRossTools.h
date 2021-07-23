@@ -44,7 +44,7 @@
  This is the class for NSGridView object to be created.
  */
 @interface BRossToolsSimpleGridMenu : NSGridView
-@property int*labelCount;
+@property int *labelCount;
 /**
     Creates a new grid menu and attaches it to a window or panel
  */
