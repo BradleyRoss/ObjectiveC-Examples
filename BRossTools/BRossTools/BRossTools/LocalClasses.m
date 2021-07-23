@@ -106,7 +106,7 @@ static BRossToolsMIDIListenForInput *listener;
                 BRossToolsTextWindow *sendWindow = [BRossToolsTextWindow newWindow];
                 [[TestSendDummy alloc] runtestWithWindow:sendWindow];
             } else if ([message isEqualToString:@"temp"]) {
-                [tempTest runtest:4];
+                [tempTest runtest:5];
             } else {
                 NSLog(@"invalid code");
             }
@@ -203,8 +203,34 @@ static BRossToolsMIDIListenForInput *listener;
         NSLog(@"VirtualSynthesizer test1");
         VirtualSynthesizer *instance = [[VirtualSynthesizer alloc] init];
         [instance test1];
-    
+    } else if (testNumber == 5) {
+        NSLog(@"Starting tempTest runTest:5");
+        NSWindow *newPanel;
+        CGPoint origin;
+            CGRect rectangle;
+            origin.x = 100.0;
+            origin.y = 250.0;
+            // Parameters are width followed by height
+            NSSize newSize = NSMakeSize(500.0, 500.0);
+            rectangle.origin = origin;
+            rectangle.size = newSize;
+            /*
+                NSBorderlessWindowMask deprecated
+                but appears in developer documentation
+                for [NSWindow initWithContentRect:styleMask:backing:defer ]
+             */
+        NSWindowStyleMask style = NSWindowStyleMaskTitled + NSWindowStyleMaskClosable + NSWindowStyleMaskResizable + NSWindowStyleMaskMiniaturizable;
+            newPanel = [[NSWindow alloc] initWithContentRect:rectangle
+                    styleMask: style
+                    backing:NSBackingStoreBuffered
+                    defer:YES];
+        [newPanel orderFront:self];
+        NSView *topView;
+        // NSView *demoView;
+        topView = newPanel.contentView;
+        [BRossToolsSimpleGridMenu createMainMenuForWindow:newPanel];
     }
+    
 }
 @end
 @implementation test1
