@@ -17,7 +17,7 @@
 #import <AVFoundation/AVFoundation.h>
 #import <AVFAudio/AVFAudio.h>
 // #import "BRossToolsControls.h"
-// #import "LocalClasses.h" 
+#import "LocalClasses.h" 
 // #import "BRossToolsMIDI.h"
  /**
   *
@@ -42,6 +42,11 @@
 /**
  * @brief Creates a grid based menu
  This is the class for NSGridView object to be created.
+ *
+ * I had an interface section for BRossToolsSimpleGridMenu and a call
+ * to the class in LocalClasses.m, but I couldn't find an implemenation
+ * section.  I commented out the call to BRossToolsSimpleGridMenu
+ * in LocalClasses.m.
  */
 @interface BRossToolsSimpleGridMenu : NSGridView
 @property int *labelCount;

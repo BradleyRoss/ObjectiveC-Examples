@@ -4,6 +4,13 @@
 //
 //  Created by Bradley Ross on 3/18/21.
 //
+
+// #import "LocalClasses.h"
+// #import "BRossToolsMIDI.h"
+
+// #import "CoreMidiSamples.h"
+#ifndef BRossToolsMIDI_h
+#define BRossToolsMIDI_h
 #import <Foundation/Foundation.h>
 #import <AVFoundation/AVFoundation.h>
 
@@ -12,12 +19,6 @@
 #import <AVFAudio/AVFAudio.h>
 
 #import "BRossTools.h"
-// #import "LocalClasses.h"
-// #import "BRossToolsMIDI.h"
-
-// #import "CoreMidiSamples.h"
-#ifndef BRossToolsMIDI_h
-#define BRossToolsMIDI_h
 
 //  *****  *****  *****  *****  *****  *****
 //  *****  *****  *****  *****  *****  *****

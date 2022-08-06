@@ -11,10 +11,10 @@
  Implementation code for LocalClasses.
  */
 #import <Foundation/Foundation.h>
-
-# import "LocalClasses.h"
+#import "BRossTools.h"
+#import "LocalClasses.h"
 // import "MIKMIDIsamples.h"
-# import "BRossToolsSynthesizer.h"
+#import "BRossToolsSynthesizer.h"
 
 
 //  *****  *****  *****  *****  *****
@@ -228,7 +228,11 @@ static BRossToolsMIDIListenForInput *listener;
         NSView *topView;
         // NSView *demoView;
         topView = newPanel.contentView;
-        [BRossToolsSimpleGridMenu createMainMenuForWindow:newPanel];
+        /*
+         Commented this out because I couldn't find an implementation
+         section for BRossToolsSimpleGridMenu.
+         */
+        // [BRossToolsSimpleGridMenu createMainMenuForWindow:newPanel];
     }
     
 }
@@ -787,7 +791,7 @@ NSString *getDisplayName(MIDIObjectRef object)
             }
         }
         elapsed();
-            buildMessage = [[NSString alloc] initWithFormat:@"CLOCKS_PER_SEC: %d", CLOCKS_PER_SEC];
+            buildMessage = [[NSString alloc] initWithFormat:@"CLOCKS_PER_SEC: %ld", CLOCKS_PER_SEC];
             sendMessage(buildMessage);
             buildMessage = [[NSString alloc] initWithFormat:@"End of pass  %d", j];
             sendMessage(buildMessage);

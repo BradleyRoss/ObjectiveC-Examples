@@ -33,14 +33,22 @@ void initialize(void);
 - (void) startDemo:(NSInteger)number;
 @end
 /**
- *  @brief Runs example of NSStackView.
+ *  @brief Runs example of NSStackView object.
+ *  
+ *  [Apple documentation for NSButton buttonWithTitle] (https://developer.apple.com/documentation/appkit/nsbutton/1644256-buttonwithtitle?language=objc)
  */
 @interface StackDemo:NSStackView
+/**
+ * @brief Generate NSStackView object
+ * @return NSStackView object
+ */
 + (NSStackView*)  runDemo;
 
 @end
 /**
- * @brief Runs example og NSGridView
+ * @brief Runs example of NSGridView object.
+ *
+ *  [see lucasderraugh/AppleProg-Cocoa-Tutorials/Lesson 72](https://github.com/lucasderraugh/AppleProg-Cocoa-Tutorials/tree/master/Lesson%2072)
  */
 @interface GridDemo:NSGridView
 + (NSGridView*)  runDemo;
@@ -48,6 +56,7 @@ void initialize(void);
 @end
 /**
   *  @brief Runs example of NSTabView.
+  * [NSTabView documentation]()
  */
 @interface TabDemo:NSTabView
 + (NSTabView*)  runDemo;

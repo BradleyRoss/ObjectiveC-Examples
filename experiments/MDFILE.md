@@ -4,7 +4,7 @@
 
 ### Stack Overflow
 
-[How do I create a Cocoa window programmqtically](https://stackoverflow.com/questions/314256/how-do-i-create-a-cocoa-window-programmatically) 24-November-2008
+[How do I create a Cocoa window programmatically](https://stackoverflow.com/questions/314256/how-do-i-create-a-cocoa-window-programmatically) 24-November-2008
 
 [NSGridView difficulties](https://stackoverflow.com/questions/52045470/nsgridview-difficulties) 27-August-2018  Uses Swift but is applicable to Objective-C.
 
