@@ -11,11 +11,14 @@
  */
 #ifndef BRossTools_h
 #define BRossTools_h
+#import "BRossToolsTextWindow.h"
 #import <Foundation/Foundation.h>
 #import <AppKit/AppKit.h>
 #import <AVFoundation/AVFoundation.h>
 #import <AVFAudio/AVFAudio.h>
- 
+// #import "BRossToolsControls.h"
+#import "LocalClasses.h" 
+// #import "BRossToolsMIDI.h"
  /**
   *
   * @brief Receives identifying string from a responder
@@ -33,12 +36,20 @@
 //  *****  *****  *****  *****
 //  *****  *****  *****  *****
 //  *****  *****  *****  *****
+
+
+
 /**
  * @brief Creates a grid based menu
  This is the class for NSGridView object to be created.
+ *
+ * I had an interface section for BRossToolsSimpleGridMenu and a call
+ * to the class in LocalClasses.m, but I couldn't find an implemenation
+ * section.  I commented out the call to BRossToolsSimpleGridMenu
+ * in LocalClasses.m.
  */
 @interface BRossToolsSimpleGridMenu : NSGridView
-@property int*labelCount;
+@property int *labelCount;
 /**
     Creates a new grid menu and attaches it to a window or panel
  */
@@ -102,7 +113,7 @@
  
       @param ident character string identifying instance.  This is an instance variable.
  */
-- (void)setIdent:(NSString *)ident;
+- (void) setIdent:(NSString *)ident;
 @end
 
 //  *****  *****  *****  *****  *****
@@ -131,65 +142,6 @@
 //  *****  *****  *****  *****  *****
 //  *****  *****  *****  *****  *****
 
-/**
- * @brief Creates a scrolling window for handling text.
- */
-
-@interface BRossToolsTextWindow:NSTextView {
-    @protected
-    /**
-     @brief pointer to the object for the instance.
-     */
-    BRossToolsTextWindow *pointer;
-    /**
-       @brief Instance variable containing the storqge object for the window.
-     */
-    NSTextStorage *stringContents;
-    /**
-    @brief Instance variable containing scroll view for the text window.
-     */
-    NSScrollView *scrollview;
-    /**
-       @brief   Instance variable pointing to NSTextView object for window.
-     */
-    NSTextView *theTextView;
-    
-    /**
-    @brief Instance variable pointing to NSViewController for window.
-     */
-    NSViewController *viewController;
-    /**
-   @brief  Window layer containing NSText object.
-     */
-    NSWindow *newPanel;
-    /**
-    @brief  Window actually visible to user.
-     */
-    NSWindow *displayPanel;
-}
-/**
-      Allocates a new text window and then calls initTextWindow to finish the initialization..
-    @returns identifier for text window
- */
-+(id)newWindow;
-- (void)initTextWindow;
-- (NSString *) getTitle;
-- (void) setTitle:(NSString *)title;
-/**
-      Append an NSString object to the panel/window created by the class.
- 
-      @param string     character string to be appended to window
- */
-- (void)appendString:(NSString *)string;
-/**
-       Append a formatted string to the display window where the first parameter is the
-              format to be used and the following fields are the items to be formatted.
- 
-        @param format --  format string folllowed by items to be formatted.  The resulting
-                                formatted string is suffixed to the text window.
- */
-- (void)appendFormat:(NSString *)format, ...;
-@end
 
 
 #endif /* BRossTools_h */

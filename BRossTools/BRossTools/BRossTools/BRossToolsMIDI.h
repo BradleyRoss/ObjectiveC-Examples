@@ -1,20 +1,24 @@
 //
-//  CoreMIDIsamples.h
+//  BRossToolsMIDI.h
 //  BRossTools
 //
 //  Created by Bradley Ross on 3/18/21.
 //
+
+// #import "LocalClasses.h"
+// #import "BRossToolsMIDI.h"
+
+// #import "CoreMidiSamples.h"
+#ifndef BRossToolsMIDI_h
+#define BRossToolsMIDI_h
 #import <Foundation/Foundation.h>
 #import <AVFoundation/AVFoundation.h>
 
 #import <AppKit/AppKit.h>
 #import <CoreMIDI/CoreMIDI.h>
 #import <AVFAudio/AVFAudio.h>
+
 #import "BRossTools.h"
-// import "BRossToolsMIDI.h"
-#import "LocalClasses.h"
-#ifndef BRossToolsMIDI_h
-#define BRossToolsMIDI_h
 
 //  *****  *****  *****  *****  *****  *****
 //  *****  *****  *****  *****  *****  *****
@@ -42,7 +46,7 @@
  
  @todo Running this version resulted in the following message being sent to the log.  I don't know if this is a problem.  2021-03-31 20:59:33.847954-0400 BRossTools[12359:542211] [plugin] AddInstanceForFactory: No factory registered for id <CFUUID 0x60000398e400> F8BB1C28-BAE8-11D6-9C31-00039315CD46
  */
-@interface BRossToolsMIDIListenForInput2:NSObject
+@interface BRossToolsMIDIListenForInput:NSObject
 - (instancetype) init;
 - (void) runtest;
 - (void) runtestWithWindow:(BRossToolsTextWindow *)window;
@@ -173,13 +177,23 @@
 //  *****  *****  *****  *****  *****  *****
 //  *****  *****  *****  *****  *****  *****
 //  *****  *****  *****  *****  *****  *****
-/**
- @brief Read the contents of a MIDIPacketList
- */
+
+ /**
+  *   @brief  Reads a MIDIPacketList
+  *  Sources of information on MIDI 1.0 Detailed Specifications
+  *    * [MIDI Association Documents](https://www.midi.org/specifications/midi1-specifications)
+  *    * MIDI 1.0 Depetailed Specifications
+  *    * MIDI Machine Control
+  *    * MIDI Show Control
+  *
+  * @todo should have instancetype for methods beginning with init - test change below
+  *
+  *   Will each MIDIPacketList generated list have a data structure that is sized large enough for the
+  *   entire data structure and that exists util ARC marks it for garbage removal?
+  */
+ 
 @interface BRossToolsMIDIPacketListRead:NSObject
-/**
- @todo should have instancetype for methods beginning with init - test change below
- */
+
 - (instancetype) initWithWindow:(BRossToolsTextWindow *) window;
 
 - (void) processPacketList:(MIDIPacketList *) packetList;

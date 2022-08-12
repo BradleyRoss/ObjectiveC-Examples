@@ -12,9 +12,7 @@ MIDIPacketList *buildDummy(void);
 float getSeconds(UInt64 ticks);
 MIDITimeStamp getTicks(float seconds);
 void printMessage(NSString* message, BRossToolsTextWindow *window);
-/**
- * @brief Parse a MIDIPacketList
- */
+
 @implementation BRossToolsMIDIPacketListRead {
     /**
      Pointer to window for displaying text.
@@ -58,6 +56,10 @@ uint32_t numer = 0;
  
  When used with processPacket method, this method will parse a MIDIPacketList and the
  MIDIPacket objects contained within it.
+ 
+ This code should handle multiple messages per packet.  Some SysEx commands should be processed
+ even it they are contained in the packet with other types of commands.  However, there should be
+ warnings since that would be an illegal format.
  
  
  @param packetListIn MIDIPacketList object to be parsed.
@@ -128,7 +130,7 @@ uint32_t numer = 0;
                  * @see https://ccrma.stanford.edu/~craig/articles/linuxmidi/misc/essenmidi.html
                  */
                 if (channel == 0) {
-                    length = 1000;
+                    length = packetBytes + 1000;
                     message = @"MIDI System Exclusive message (start)\n";
                 } else if (channel == 1) {
                     length = 2;
@@ -140,13 +142,13 @@ uint32_t numer = 0;
                     length = 2;
                     message = @"MIDI Song Request message\n";
                 } else if (channel == 4 || channel == 5 || channel == 9) {
-                    length = 1000;
+                    length = packetBytes + 1000;
                     message = @"Unknown command\n";
                 } else if (channel == 6) {
                     length = 1;
                     message = @"MIDI Tune Request message";
                 } else if (channel == 7) {
-                    length = 5000;
+                    length = packetBytes + 1000;
                     message = @"SysEx Continuation";
                 } else if (channel == 8) {
                     length = 1;
@@ -161,7 +163,7 @@ uint32_t numer = 0;
                     length = 1;
                     message = @"MIDI Stop message\n";
                 } else if (channel == 13) {
-                    length = 5000;
+                    length = packetBytes + 1000;
                     message = [[NSString alloc] initWithFormat:@"Unknown command - channel nibble is %xd \n", channel];
                 } else if (channel == 14) {
                     length = 1;
@@ -170,13 +172,13 @@ uint32_t numer = 0;
                     length = 1;
                     message = @"MIDI Reset message\n";
                 } else {
-                    NSLog(@"This point should never be reached - abortng");
+                    NSLog(@"This point should never be reached - aborting");
                     length = 1;
                 }
                 break;
             default:
                 NSLog(@"Unrecognized command code %d - Should never be reached\n",command);
-                length = 5000;
+                length = packetBytes + 1000;
         }
         printMessage(message, textWindow);
         commandStart = commandStart + length;
@@ -259,6 +261,9 @@ void printMessage(NSString* message, BRossToolsTextWindow *window) {
                         initWithFormat:@"Name of destination is *%@* \n", destinationName];
                 
                 [window appendString:message];
+                [window appendString:@"Destination must be capable of playing MIDIPacketList\n"];
+                [window appendString:@"      must be turned on\n"];
+                [window appendString:@"      must have volume turned up\n"];
                 NSLog(@"%@", message);
                 }
             } else {
@@ -335,7 +340,7 @@ void printMessage(NSString* message, BRossToolsTextWindow *window) {
     NSLog(@"Number of Packets: %d", packetList->numPackets);
     NSLog(@"Port name: %@     Destination name: %@", portName2,  destName2);
     result = MIDISend(portRef, destinationRef, packetList);
-    NSLog(@"Packet sent: %d", result);
+    NSLog(@"Packet sent, error code is: %d", result);
     if (result != noErr) {
         if (window == NULL) {
             NSLog(@"MIDISend failed with code of %d \n ", result);

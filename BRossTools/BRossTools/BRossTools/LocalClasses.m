@@ -11,12 +11,10 @@
  Implementation code for LocalClasses.
  */
 #import <Foundation/Foundation.h>
-# import "BRossTools.h"
-
-# import "BRossToolsMIDI.h"
-# import "LocalClasses.h"
+#import "BRossTools.h"
+#import "LocalClasses.h"
 // import "MIKMIDIsamples.h"
-# import "BRossToolsSynthesizer.h"
+#import "BRossToolsSynthesizer.h"
 
 
 //  *****  *****  *****  *****  *****
@@ -30,14 +28,14 @@
  <tr><th>code</th> <th> Caption<br />Action</th><th>ObjectiveC Method </th></tr>
  <tr><td>temp</td><td>Placeholder for temporary code</td><td>[tempTest runtest]</td></tr>
  <tr><td> m3 </td><td>Listen for keystrokes using CoreMIDI (Ver 2)<br />
-    listener  = [BRossToolsMIDIListenForInput2 alloc]<br />
+    listener  = [BRossToolsMIDIListenForInput alloc]<br />
     [listener runtestWithWindow:window]</td>
-    <td> [BRossToolsMIDIListenForinput2 runTestWithWindow] </td></tr>
+    <td> [BRossToolsMIDIListenForinput runTestWithWindow] </td></tr>
  <tr><td>m3a</td><td>Send keystrokes to virtual synthesizer</td>
-        <td>[BRossToolsMIDIListenForInput2 initWithsynthesizer]</td>,/tr>
+        <td>[BRossToolsMIDIListenForInput initWithsynthesizer]</td>,/tr>
  <tr><td>m4</td>  <td>Kill CoreMIDI Client (Ver 2)<br />
     m3 is run first<br />
-    [listener killClient]</td><td> [BRossToolsMIDIListenForInput2 killClient]   </td></tr>
+    [listener killClient]</td><td> [BRossToolsMIDIListenForInput killClient]   </td></tr>
  <tr><td>m1a</td><td>Select and play MIDI song</td>
         <td></td></tr>
  <tr><td>m5 </td><td>Read a dummy MIDIPacketList </td><td> [TestReadDummy runtest]
@@ -59,7 +57,7 @@
  */
 @implementation mainMenu
 static BRossToolsTextWindow *window;
-static BRossToolsMIDIListenForInput2 *listener;
+static BRossToolsMIDIListenForInput *listener;
 
 + (void)bleep:(id)sender {
 
@@ -98,7 +96,7 @@ static BRossToolsMIDIListenForInput2 *listener;
             } else if ([message isEqualToString:@"m3"]){
                 window = [BRossToolsTextWindow newWindow];
                 window.title=@"Listen for notes";
-                 listener = [BRossToolsMIDIListenForInput2 alloc];
+                 listener = [BRossToolsMIDIListenForInput alloc];
                   [listener    runtestWithWindow:window];
             } else if ([message isEqualToString:@"m4"]) {
                 [listener killClient];
@@ -108,7 +106,7 @@ static BRossToolsMIDIListenForInput2 *listener;
                 BRossToolsTextWindow *sendWindow = [BRossToolsTextWindow newWindow];
                 [[TestSendDummy alloc] runtestWithWindow:sendWindow];
             } else if ([message isEqualToString:@"temp"]) {
-                [tempTest runtest:4];
+                [tempTest runtest:5];
             } else {
                 NSLog(@"invalid code");
             }
@@ -205,8 +203,38 @@ static BRossToolsMIDIListenForInput2 *listener;
         NSLog(@"VirtualSynthesizer test1");
         VirtualSynthesizer *instance = [[VirtualSynthesizer alloc] init];
         [instance test1];
-    
+    } else if (testNumber == 5) {
+        NSLog(@"Starting tempTest runTest:5");
+        NSWindow *newPanel;
+        CGPoint origin;
+            CGRect rectangle;
+            origin.x = 100.0;
+            origin.y = 250.0;
+            // Parameters are width followed by height
+            NSSize newSize = NSMakeSize(500.0, 500.0);
+            rectangle.origin = origin;
+            rectangle.size = newSize;
+            /*
+                NSBorderlessWindowMask deprecated
+                but appears in developer documentation
+                for [NSWindow initWithContentRect:styleMask:backing:defer ]
+             */
+        NSWindowStyleMask style = NSWindowStyleMaskTitled + NSWindowStyleMaskClosable + NSWindowStyleMaskResizable + NSWindowStyleMaskMiniaturizable;
+            newPanel = [[NSWindow alloc] initWithContentRect:rectangle
+                    styleMask: style
+                    backing:NSBackingStoreBuffered
+                    defer:YES];
+        [newPanel orderFront:self];
+        NSView *topView;
+        // NSView *demoView;
+        topView = newPanel.contentView;
+        /*
+         Commented this out because I couldn't find an implementation
+         section for BRossToolsSimpleGridMenu.
+         */
+        // [BRossToolsSimpleGridMenu createMainMenuForWindow:newPanel];
     }
+    
 }
 @end
 @implementation test1
@@ -606,6 +634,7 @@ static BRossToolsTextWindow *textWindowStorage = nil;
     // BRossToolsTextWindow *textWindow;
     // textWindow = [BRossToolsTextWindow newWindow];
     [[self textWindow] setTitle:@"test4 -- MIDI Configuration"];
+    [[self textWindow] setAutoscroll:YES];
     // [self setTextWindow:textWindow];
     buildMessage = [NSString alloc];
     [[self textWindow] appendString:@"Starting CoreMidiSample1"] ;
@@ -762,7 +791,7 @@ NSString *getDisplayName(MIDIObjectRef object)
             }
         }
         elapsed();
-            buildMessage = [[NSString alloc] initWithFormat:@"CLOCKS_PER_SEC: %d", CLOCKS_PER_SEC];
+            buildMessage = [[NSString alloc] initWithFormat:@"CLOCKS_PER_SEC: %ld", CLOCKS_PER_SEC];
             sendMessage(buildMessage);
             buildMessage = [[NSString alloc] initWithFormat:@"End of pass  %d", j];
             sendMessage(buildMessage);

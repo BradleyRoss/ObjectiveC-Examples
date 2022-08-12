@@ -12,15 +12,19 @@
  */
 #ifndef LocalClasses_h
 #define LocalClasses_h
-#import "BRossToolsMIDI.h"
+
 // import "MIKMIDIsamples.h"
-#import "BRossTools.h"
+
 #import <Foundation/Foundation.h>
 #import <CoreMIDI/CoreMIDI.h>
 #import <stdio.h>
 #import <time.h>
-void sendMessage2(BRossToolsTextWindow *window, NSString *message);
-void sendMessage(NSString *message);
+#import "BRossToolsTextWindow.h"
+#import "BRossTools.h"
+// #import "BRossToolsMIDI.h"
+
+// void sendMessage2(BRossToolsTextWindow *window, NSString *message);
+// void sendMessage(NSString *message);
 void logger(NSString* text, SInt32 code);
 //  *****  *****  *****  *****
 //  *****  *****  *****  *****

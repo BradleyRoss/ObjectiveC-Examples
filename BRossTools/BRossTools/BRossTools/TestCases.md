@@ -20,7 +20,7 @@ The code attached to m3 is
 
 * window = [BRossToolsTextWindow newWindow];
 * window.title=@"Listen for notes";
-* listener = [BRossToolsMIDIListenForInput2 alloc];
+* listener = [BRossToolsMIDIListenForInput alloc];
 * [listener runtestWithWindow:window];
 
 The code attached to m4 is
