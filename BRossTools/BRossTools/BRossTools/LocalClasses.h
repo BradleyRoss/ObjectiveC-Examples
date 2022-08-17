@@ -209,7 +209,10 @@ actually belongs to NSStackView which is a subclass of NSView.
 + (void)logSizePositionOf:(NSRect *)object title:(NSString *)titleString;
 /**
 Messages from button clicks are sent to this method.
- @param sender This indicates the object that sent the message.
+ 
+ @param sender This indicates the object that sent the message, which belongs to the class BRossToolsButton,
+     which in turn is a subclass of NSTools.
+ 
  */
 + (void)bleep:(id)sender;
 @end
@@ -310,3 +313,6 @@ Messages from button clicks are sent to this method.
 //  *****  *****  *****
 //  *****  *****  *****
 #endif /* LocalClasses_h */
+/*
+ /Users/bradleyross/Documents/GitHub/Reload/Untitled/ObjectiveC-Examples/BRossTools/BRossTools/BRossTools/BRossToolsTextWindow.h
+ */

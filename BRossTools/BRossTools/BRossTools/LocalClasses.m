@@ -27,15 +27,16 @@
  <table>
  <tr><th>code</th> <th> Caption<br />Action</th><th>ObjectiveC Method </th></tr>
  <tr><td>temp</td><td>Placeholder for temporary code</td><td>[tempTest runtest]</td></tr>
- <tr><td> m3 </td><td>Listen for keystrokes using CoreMIDI (Ver 2)<br />
+ <tr><td> m3 </td><td>Listen for keystrokes using CoreMIDI<br />
     listener  = [BRossToolsMIDIListenForInput alloc]<br />
     [listener runtestWithWindow:window]</td>
     <td> [BRossToolsMIDIListenForinput runTestWithWindow] </td></tr>
  <tr><td>m3a</td><td>Send keystrokes to virtual synthesizer</td>
-        <td>[BRossToolsMIDIListenForInput initWithsynthesizer]</td>,/tr>
+        <td>[BRossToolsMIDIListenForInput initWithsynthesizer]</td></tr>
  <tr><td>m4</td>  <td>Kill CoreMIDI Client (Ver 2)<br />
     m3 is run first<br />
     [listener killClient]</td><td> [BRossToolsMIDIListenForInput killClient]   </td></tr>
+ 
  <tr><td>m1a</td><td>Select and play MIDI song</td>
         <td></td></tr>
  <tr><td>m5 </td><td>Read a dummy MIDIPacketList </td><td> [TestReadDummy runtest]
@@ -58,7 +59,7 @@
 @implementation mainMenu
 static BRossToolsTextWindow *window;
 static BRossToolsMIDIListenForInput *listener;
-
+static BRossToolsMIDIListenForInputUMP *listenerUMP;
 + (void)bleep:(id)sender {
 
     NSString *message = [sender getIdent];
@@ -96,10 +97,17 @@ static BRossToolsMIDIListenForInput *listener;
             } else if ([message isEqualToString:@"m3"]){
                 window = [BRossToolsTextWindow newWindow];
                 window.title=@"Listen for notes";
-                 listener = [BRossToolsMIDIListenForInput alloc];
-                  [listener    runtestWithWindow:window];
+                 listenerUMP = [BRossToolsMIDIListenForInputUMP alloc];
+                  [listenerUMP    runtestWithWindow:window];
             } else if ([message isEqualToString:@"m4"]) {
-                [listener killClient];
+                [listenerUMP killClient];
+            } else if ([message isEqualToString:@"m3ump"]){
+                window = [BRossToolsTextWindow newWindow];
+                window.title=@"Listen for notes  UMP";
+                 listenerUMP = [BRossToolsMIDIListenForInputUMP alloc];
+                  [listenerUMP    runtestWithWindow:window];
+            } else if ([message isEqualToString:@"m4ump"]) {
+                [listenerUMP killClient];
             } else if ([message isEqualToString:@"m5"]) {
                 [[TestReadDummy alloc] runtest];
             } else if ([message isEqualToString:@"m6"]) {
@@ -149,6 +157,12 @@ static BRossToolsMIDIListenForInput *listener;
     BRossToolsButton *m4 = [BRossToolsButton initUsingObjectIdent:self selector:@selector(bleep:)
         caption:@"Stop listening to Keystrokes "
         ident:@"m4"];
+    BRossToolsButton *m3UMP = [BRossToolsButton initUsingObjectIdent:self selector:@selector(bleep:)
+        caption:@"Start listening for keystrokes UMP"
+        ident:@"m3ump"];
+    BRossToolsButton *m4UMP = [BRossToolsButton initUsingObjectIdent:self selector:@selector(bleep:)
+        caption:@"Stop listening to Keystrokes UMP"
+        ident:@"m4ump"];
     BRossToolsButton *m5 = [BRossToolsButton initUsingObjectIdent:self
         selector:@selector(bleep:)
         caption:@"Read a dummy MIDIPacketList"
@@ -158,7 +172,7 @@ static BRossToolsMIDIListenForInput *listener;
         caption:@"Send a dummy MIDIPacketList"
         ident:@"m6"];
     NSStackView *stackView = [NSStackView
-        stackViewWithViews:@[ temp, m3, m4, m1a, m5, m6, b5, b6, b1, b2, b3, b4, b7, b8]];
+        stackViewWithViews:@[ temp, m3, m4, m3UMP, m4UMP, m1a, m5, m6, b5, b6, b1, b2, b3, b4, b7, b8]];
     stackView.orientation = NSUserInterfaceLayoutOrientationVertical;
     return stackView;
 }

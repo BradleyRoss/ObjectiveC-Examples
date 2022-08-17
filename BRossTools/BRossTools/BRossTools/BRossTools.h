@@ -82,7 +82,7 @@
 @private NSString* identValue;
 }
 /**
- Creates an object contaning a view of a button to insert in view.
+ Creates an object containing a view of a button to insert in view.
  
  @param targetObject id for object that will receive action from button
  @param select character string that will identify button to target object
@@ -92,7 +92,7 @@
  */
 + (instancetype)initUsingObjectIdent:(id)targetObject  selector:(SEL)select caption:(NSString *)label ident:(NSString *) ident;
 /**
- Creates an object contaning a view of a button to insert in view.
+ Creates an object containing a view of a button to insert in view.
  
  @param targetObject id for object that will receive action from button
  @param select character string that will identify button to target object
@@ -126,11 +126,13 @@
  */
 @interface BRossToolsButtonView : NSView
 /**
- Creates an object contaning view of a button to insert in grid view
+ Creates an object containing view of a button to insert in grid view
  
  @param targetObject id for object that will receive action from button
  @param selector character string that will identify button to target object
  @param label caption for button
+ 
+ @todo Is this used?  Should it be removed.
  */
 
 + (id)CreateButtonViewUsingObject:(id)targetObject  selector:(NSString *)selector caption:(NSString *)label;

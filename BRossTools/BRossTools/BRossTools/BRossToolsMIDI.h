@@ -56,7 +56,28 @@
 - (void) playMidiFile;
 - (void) recordMidiFile;
 @end
-
+/**
+ @brief Class for reading keystrokes using UMP packets
+ */
+@interface BRossToolsMIDIListenForInputUMP:NSObject
+- (instancetype) init;
+- (void) runtest;
+- (void) runtestWithWindow:(BRossToolsTextWindow *)window;
+- (BRossToolsTextWindow *) getTextWindow;
+- (void) setTextWindow:(BRossToolsTextWindow *) window;
+- (void) killClient;
+- (void) playMidiFile;
+- (void) recordMidiFile;
+@end
+/**
+ @brief Process a MIDIEventList.
+ */
+@interface BRossToolsMIDIProcessEventList:NSObject
+- (BRossToolsMIDIProcessEventList *)  initWithEventList:(MIDIEventList *) list;
+- (BRossToolsTextWindow *) getTextWindow;
+- (void) setTextWindow:(BRossToolsTextWindow *) window;
+- (void) displayList;
+@end
 //  *****  *****  *****  *****  *****  *****
 //  *****  *****  *****  *****  *****  *****
 //  *****  *****  *****  *****  *****  *****

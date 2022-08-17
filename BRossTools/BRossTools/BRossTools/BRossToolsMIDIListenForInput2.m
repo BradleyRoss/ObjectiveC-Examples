@@ -30,7 +30,7 @@
      @brief A pointer to information passed through the client.
      
      The MIDIPortConnectSource passes
-     pass this information in the argument list.
+     this information in the argument list.
      
      */
     void **clientRef;
@@ -298,11 +298,11 @@ if (numberOfSources == 0) {
     /**
      --- Start of block/closure/lamda side runTestWithWindow ---
      
-     This is the MIDINotifyBlock notifyBlock2 that will execute whenever there have been changes to the system.
+     This is the MIDINotifyBlock notifyBlock that will execute whenever there have been changes to the system.
      
      * message  MIDINotification struct describing change to system
      */
-    MIDINotifyBlock notifyBlock2 = ^(const MIDINotification *message) {
+    MIDINotifyBlock notifyBlock = ^(const MIDINotification *message) {
         if (self->textWindow != NULL) {
                 NSLog(@"MIDINotifyBlock notifyBlock has been called ");
         } else {
@@ -575,7 +575,7 @@ if (numberOfSources == 0) {
      */
 
         NSLog(@"Using MIDIClientCreateWithBlock with MIDINotifyBlock");
-        result = MIDIClientCreateWithBlock((CFStringRef)@"MIDI Client", &midiClient, notifyBlock2);
+        result = MIDIClientCreateWithBlock((CFStringRef)@"MIDI Client", &midiClient, notifyBlock);
   
     if (result != noErr) {
         NSString *message = [[NSString alloc]initWithFormat:@"BRossToolsMIDIListenForInput2 MIDIClientCreate failed with code of %d \n ", result];
@@ -654,8 +654,299 @@ if (numberOfSources == 0) {
 // *****  *****  *****  *****  *****  *****
 
 @end
+/**
+ @brief read MIDI packets using UMP functions.
+ 
+ The function names are the same as for
+ BRossToolsMIDIListenForInput.  However, this uses the UMP
+ classes from CoreMidi instead of the older legacy cases.
+ */
+@implementation BRossToolsMIDIListenForInputUMP
+{
+    
+    BOOL extraLogMessages;
+
+    /**
+ 
+     @brief A pointer to information passed through the client.
+     The MIDIPortConnectSource passes
+     this information in the argument list.
+     */
+    void **clientRef;
+    /**
+     @brief object encapsulates synthesizer.
+     
+     This object encapsulates an AVAudioUnitSampler instance together with
+     other functions.
+     */
+    VirtualSynthesizer *virtual;
+    /**
+     @brief Synthesizer used to play notes from keyboard.
+     */
+    AVAudioUnitSampler *synth;
+    
+    OSStatus result;
+    /**
+    @brief Identifier for MIDI client software.
+     */
+    MIDIClientRef midiClient;
+    /**
+    @brief Identifier for external MIDI device (keyboard)
+     */
+    MIDIEndpointRef sourceRef;
+    /**
+     @brief MIDIObjectRef for Input Port.
+     
+     The Input Port receives information from the
+     external source indicated by sourceRef
+     so that it can be processed by the client
+     indicated by midiClient.
+     */
+    MIDIPortRef inputPort;
+ 
+
+        
+    /**
+     @brief name of source device (keyboard)
+     */
+    CFStringRef sourceName;
+    /**
+     @brief name of client
+     */
+    CFStringRef clientName;
+    /**
+     @brief name of input port
+     */
+    CFStringRef portName;
+    /**
+    @brief Pointer to BRossToolsTextWindow.
+     */
+     BRossToolsTextWindow *textWindow;
+     BRossToolsTextWindow *windowValue;
+    
+}
+
+    - (instancetype) init {
+       
+        return self;
+    }
+    - (void) runtest {
+        [self runtestWithWindow:NULL];
+    }
+- (void) runtestWithWindow:window {
+    extraLogMessages = NO;
+    windowValue = window;
+    textWindow = window;
+    [textWindow setAutoscroll:YES];
+    /*
+    if (textWindow == NULL) {
+        textWindow = [BRossToolsTextWindow newWindow];
+        textWindow.title = @"CoreMIDI Operations";
+    
+    }*/
+    // NSLog(@"BRossToolsMIDIListenForInputUMP");
+   
+    BOOL success;
+    NSLog(@"starting BRossToolsMIDIListenForInputUMP init");
+    virtual = [[VirtualSynthesizer alloc] init];
+    synth = [virtual getSynthesizer];
+    success = [virtual startEngine];
+    // AVAudioUnitSampler *synth2 = [instance getSynthesizer];
+    if (success) {
+        NSLog(@"Engine started");
+    } else {
+        NSLog(@"Failure in starting engine");
+    }
+    success = [virtual loadSoundbankAndInstrument];
+    if (!success) {
+        NSString *message = @"Aborting - can't start synthesizer \n";
+        if (textWindow != NULL) {
+            [textWindow appendString:message];
+        } else {
+            NSLog(@"%@", message);
+        }
+    } else {
+        NSString *message = @"Play Middle C for 0.25 seconds \n";
+        if (textWindow != NULL) {
+            [textWindow appendString:message];
+        } else {
+            NSLog(@"%@", message);
+        }
+    [synth startNote:60 withVelocity:100 onChannel:0];
+    [NSThread sleepForTimeInterval:0.25];
+    [synth stopNote:60 onChannel:0];
+    }
+    /*
+    NSThread *mainThread = NSThread.mainThread ;
+    NSThread *currentThread = NSThread.currentThread;
+    NSLog(@"Current thread is %@", currentThread);
+    NSLog(@"Main thread is %@", mainThread);
+     */
+    [textWindow appendString:@"BRossToolsMIDIListenForInputUMP\n"];
+    ItemCount numberOfSources = MIDIGetNumberOfSources();
+
+if (numberOfSources == 0) {
+    [textWindow appendString:@"No sources found -- aborting \n"];
+    return;
+}
+    if (numberOfSources > 1) {
+        [textWindow appendString:@"Multiple sources found - Using first source found \n"];
+        return;
+    }
+/*
+ @todo If there is more than one source, a panel should be displayed to pick the source rather than simply picking the first.
+ */
+    sourceRef = MIDIGetSource(0);
+
+    result = MIDIObjectGetStringProperty(sourceRef, kMIDIPropertyName, &sourceName);
+    if (result == noErr) {
+        NSString *message = [[NSString alloc]
+                initWithFormat:@"Name of source is *%@* \n", sourceName];
+        if (textWindow != NULL) {
+            [textWindow appendString:message];
+        } else {
+            NSLog(@"%@", message);
+        }
+    } else {
+        NSString *message = [[NSString alloc]
+            initWithFormat:@"Error obtaining source name - code: %d \n", result];
+        if (textWindow != NULL) {
+            [textWindow appendString:message];
+        } else {
+            NSLog(@"%@",message);
+        }
+    }
+    /**
+     --- Start of block/closure/lamda side runTestWithWindow ---
+     
+     This is the MIDINotifyBlock notifyBlock that will execute whenever there have been changes to the system.
+     
+     * message  MIDINotification struct describing change to system
+     */
+    MIDINotifyBlock notifyBlock = ^(const MIDINotification *message) {
+        if (self->textWindow != NULL) {
+                NSLog(@"MIDINotifyBlock notifyBlock has been called ");
+        } else {
+            [self->textWindow appendString:@"MIDINotifyBlock notifyBlock has been called \n"];
+        }
+    };
+    MIDIReceiveBlock receiveBlock = ^(const MIDIEventList *evtList, void *srcConnRefCon ) {
+        /*
+         * Code will be placed here to transfer control to a process running in another
+         * thread that will process the event list.
+         */
+        MIDIEventPacket * currentPacket;
+        NSLog( @"MIDIReceiveBlock called");
+        NSLog(@"numPackets = %d", evtList->numPackets);
+        currentPacket = MIDIEventListInit(evtList, kMIDIProtocol_1_0);
+        NSLog(@"wordCount,   %d",currentPacket->wordCount);
+        NSLog(@"words[0],   %x",currentPacket->words[0]);
+        /*
+         currentPacket->words is string of words
+         UInt32 words[64]
+        currentPacket = evtList->packet;
+
+        // packet = [evtList MIDIEventPacketNext];
+        BRossToolsMIDIProcessEventList *  list = [[BRossToolsMIDIProcessEventList alloc]  initWithEventList: evtList];
+        [list displayList];
+         */
+    };
+    /*
+     * Creating UMP client
+     */
+    
+    NSLog(@"Using MIDIClientCreateWithBlock with MIDINotifyBlock");
+    result = MIDIClientCreateWithBlock((CFStringRef)@"MIDI Client", &midiClient, notifyBlock);
+
+if (result != noErr) {
+    NSString *message = [[NSString alloc]initWithFormat:@"BRossToolsMIDIListenForInput2 MIDIClientCreate failed with code of %d \n ", result];
+    [textWindow appendString:message];
+} else {
+    result = MIDIObjectGetStringProperty(midiClient, kMIDIPropertyName, &clientName);
+    NSString *message = [[NSString alloc]
+        initWithFormat:@"Client created: name is *%@* \n", clientName];
+    NSLog(@"Client created with name of *%@* \n", clientName);
+    [textWindow appendString:message];
+}
+/*
+ *  create input port
+ */
+MIDIPortRef inputPort;
+    NSLog(@"Using MIDIInputPortCreateWithProtocol");
+    result = MIDIInputPortCreateWithProtocol(midiClient, (CFStringRef)@"Input", kMIDIProtocol_1_0, &inputPort,  receiveBlock);
+if (result != noErr) {
+    NSString *message = [[NSString alloc]
+        initWithFormat:@"Creating input port failed: code is %d \n ", result];
+    [textWindow appendString:message];
+} else {
+    result = MIDIObjectGetStringProperty(inputPort, kMIDIPropertyName, &portName);
+    NSString *message = [[NSString alloc]
+        initWithFormat:@"Input port created: name is *%@* \n", portName];
+    [textWindow appendString:message];
+    NSLog(@"%@", message);
+}
+/*
+ *  Connect input port to keyboard.
+ */
+void *connRefCon = (__bridge void *)windowValue;
+result = MIDIPortConnectSource(inputPort, sourceRef, connRefCon);
+if (result != noErr) {
+    NSString *message = [[NSString alloc]
+        initWithFormat:@"MIDIPortConnectSource failed with code of %d \n ", result];
+    [textWindow appendString:message];
+} else {
+    [textWindow appendString:@"Port connected to source\n"];
+}
+    };
+
+- (BRossToolsTextWindow *) getTextWindow {
+    return textWindow;
+}
+- (void) setTextWindow:(BRossToolsTextWindow *) value {
+    textWindow = value;
+}
+    
+    
+- (void) killClient {
+    OSStatus result;
+    NSLog(@"Entering killClient for BRossToolsMIDIListenForInputUMP \n");
+    result = MIDIClientDispose(midiClient);
+    [[virtual getAudioEngine] stop];
+    NSString *message = [[NSString alloc] initWithFormat:@"Running  killClient %d", result];
+    NSLog(@"%@", message);
+    // [textWindow appendString:message];
+}
+    
+- (void) playMidiFile {
+    // @todo not used at this time
+}
+    
+    - (void) recordMidiFile {
+        // @todo not used at this time
+    }
+
+@end
 // *****  *****  *****  *****  *****  *****
 // *****  *****  *****  *****  *****  *****
 // *****  *****  *****  *****  *****  *****
 // *****  *****  *****  *****  *****  *****
+@implementation BRossToolsMIDIProcessEventList {
+    BRossToolsTextWindow *textWindow;
+    MIDIEventList *eventList;
+}
+- (BRossToolsMIDIProcessEventList *) initWithEventList:( MIDIEventList *)  list {
+    BRossToolsMIDIProcessEventList *instance = [BRossToolsMIDIProcessEventList alloc];
+    eventList = list;
+    return instance;
+}
+- (BRossToolsTextWindow *) getTextWindow {
+    return textWindow;
+}
+- (void) setTextWindow:(BRossToolsTextWindow *) window {
+    textWindow = window;
+}
+- (void) displayList {
+    NSLog(@"Entering method displayList - number of packets is %d", eventList->numPackets);
+}
+@end
 
