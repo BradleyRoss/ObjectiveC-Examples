@@ -745,6 +745,10 @@ if (numberOfSources == 0) {
     
     }*/
     // NSLog(@"BRossToolsMIDIListenForInputUMP");
+    for (UInt8 i = 0; i<120; i++)
+    {
+        NSLog(@"%d %@",i, [BRossToolsMIDIProcessEventList showNote:i]);
+    }
    
     BOOL success;
     NSLog(@"starting BRossToolsMIDIListenForInputUMP init");
@@ -947,6 +951,60 @@ if (result != noErr) {
 }
 - (void) displayList {
     NSLog(@"Entering method displayList - number of packets is %d", eventList->numPackets);
+}
++ (NSString *) showNote:(UInt8) note {
+    SInt16 octave = (note / 12) - 1;
+    UInt8 key = note %  12;
+    /*  '
+     Sharp is unicode U+266F
+     Flat is U+266D
+     */
+    switch (key) {
+        case 0:
+            
+            return ([NSString stringWithFormat:@"C %d", octave]);
+            break;
+        case 1:
+            return ([NSString stringWithFormat:@"C\u266F %d", octave]);
+            break;
+        case 2:
+            return ([NSString stringWithFormat:@"D %d", octave]);
+            break;
+        case 3:
+            return ([NSString stringWithFormat:@"D\u266F %d", octave]);
+            break;
+        case 4:
+            return ([NSString stringWithFormat:@"E %d", octave]);
+            break;
+        case 5:
+            return ([NSString stringWithFormat:@"F %d", octave]);
+            break;
+        case 6:
+            return ([NSString stringWithFormat:@"F\u266F %d", octave]);
+            break;
+        case 7:
+            return ([NSString stringWithFormat:@"G %d", octave]);
+            break;
+        case 8:
+            return ([NSString stringWithFormat:@"G\u266F %d", octave]);
+            break;
+        case 9:
+            return ([NSString stringWithFormat:@"A %d", octave]);
+            break;
+        case 10:
+            return ([NSString stringWithFormat:@"A\u266F %d", octave]);
+            break;
+        case 11:
+            return ([NSString stringWithFormat:@"B %d", octave]);
+            break;
+        case 12:
+            return ([NSString stringWithFormat:@"B\u266F %d", octave]);
+            break;
+        default:
+            return ([NSString stringWithFormat:@"Unknown %d", octave]);
+    }
+    
+    
 }
 @end
 

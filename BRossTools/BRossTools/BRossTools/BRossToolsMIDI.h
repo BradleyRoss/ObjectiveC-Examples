@@ -77,6 +77,12 @@
 - (BRossToolsTextWindow *) getTextWindow;
 - (void) setTextWindow:(BRossToolsTextWindow *) window;
 - (void) displayList;
+/**
+ Converts a MIDI note number (60 = C5 = middle C ) to string name.
+ @param note number representing MIDI codd for note.
+ @return string containing description of note.
+ */
++ (NSString *) showNote:(UInt8) note;
 @end
 //  *****  *****  *****  *****  *****  *****
 //  *****  *****  *****  *****  *****  *****
