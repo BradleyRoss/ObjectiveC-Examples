@@ -7,8 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9017327E28BAB24600FE19F5 /* restart.m in Sources */ = {isa = PBXBuildFile; fileRef = 9017327D28BAB24600FE19F5 /* restart.m */; };
+		907C3DD728B6EF2A0031F5A7 /* machTiming.m in Sources */ = {isa = PBXBuildFile; fileRef = 907C3DD628B6EF2A0031F5A7 /* machTiming.m */; };
 		90E7CBDE28AFFE410053E93F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 90E7CBDD28AFFE410053E93F /* main.m */; };
 		90E7CBE628B0050E0053E93F /* CoreMIDI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90E7CBE528B0050E0053E93F /* CoreMIDI.framework */; };
+		90E7CBE828B6C3740053E93F /* BRossToolsMIDIUP.m in Sources */ = {isa = PBXBuildFile; fileRef = 90E7CBE728B6C3740053E93F /* BRossToolsMIDIUP.m */; };
+		90F3C4A128CA739600F8F2F6 /* configuration.c in Sources */ = {isa = PBXBuildFile; fileRef = 90F3C4A028CA739600F8F2F6 /* configuration.c */; };
+		90F98AFB28BAD8BF006709D8 /* sourceListener.m in Sources */ = {isa = PBXBuildFile; fileRef = 90F98AFA28BAD8BF006709D8 /* sourceListener.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -24,9 +29,21 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		9017327A28B851FF00FE19F5 /* restart.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = restart.h; sourceTree = "<group>"; };
+		9017327D28BAB24600FE19F5 /* restart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = restart.m; sourceTree = "<group>"; };
+		907C3DD628B6EF2A0031F5A7 /* machTiming.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = machTiming.m; sourceTree = "<group>"; };
+		907C3DD828B6EF590031F5A7 /* machTiming.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = machTiming.h; sourceTree = "<group>"; };
 		90E7CBDA28AFFE410053E93F /* Experiments2 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Experiments2; sourceTree = BUILT_PRODUCTS_DIR; };
 		90E7CBDD28AFFE410053E93F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		90E7CBE528B0050E0053E93F /* CoreMIDI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMIDI.framework; path = System/Library/Frameworks/CoreMIDI.framework; sourceTree = SDKROOT; };
+		90E7CBE728B6C3740053E93F /* BRossToolsMIDIUP.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BRossToolsMIDIUP.m; sourceTree = "<group>"; };
+		90E7CBE928B6C3C00053E93F /* BRossToolsMIDIUP.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BRossToolsMIDIUP.h; sourceTree = "<group>"; };
+		90F3C49F28CA739600F8F2F6 /* configuration.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = configuration.h; sourceTree = "<group>"; };
+		90F3C4A028CA739600F8F2F6 /* configuration.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = configuration.c; sourceTree = "<group>"; };
+		90F98AF928BAD893006709D8 /* sourceListener.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = sourceListener.h; sourceTree = "<group>"; };
+		90F98AFA28BAD8BF006709D8 /* sourceListener.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = sourceListener.m; sourceTree = "<group>"; };
+		90F98AFC28BEFCC4006709D8 /* Experiments2.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Experiments2.md; sourceTree = "<group>"; };
+		90F98AFD28C1B1C4006709D8 /* threads.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = threads.md; path = Experiments2/threads.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,6 +61,7 @@
 		90E7CBD128AFFE410053E93F = {
 			isa = PBXGroup;
 			children = (
+				90F98AFD28C1B1C4006709D8 /* threads.md */,
 				90E7CBDC28AFFE410053E93F /* Experiments2 */,
 				90E7CBDB28AFFE410053E93F /* Products */,
 				90E7CBE428B0050E0053E93F /* Frameworks */,
@@ -61,7 +79,18 @@
 		90E7CBDC28AFFE410053E93F /* Experiments2 */ = {
 			isa = PBXGroup;
 			children = (
+				9017327D28BAB24600FE19F5 /* restart.m */,
+				90F98AF928BAD893006709D8 /* sourceListener.h */,
+				90F98AFA28BAD8BF006709D8 /* sourceListener.m */,
+				9017327A28B851FF00FE19F5 /* restart.h */,
 				90E7CBDD28AFFE410053E93F /* main.m */,
+				907C3DD828B6EF590031F5A7 /* machTiming.h */,
+				907C3DD628B6EF2A0031F5A7 /* machTiming.m */,
+				90E7CBE728B6C3740053E93F /* BRossToolsMIDIUP.m */,
+				90E7CBE928B6C3C00053E93F /* BRossToolsMIDIUP.h */,
+				90F98AFC28BEFCC4006709D8 /* Experiments2.md */,
+				90F3C49F28CA739600F8F2F6 /* configuration.h */,
+				90F3C4A028CA739600F8F2F6 /* configuration.c */,
 			);
 			path = Experiments2;
 			sourceTree = "<group>";
@@ -132,6 +161,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				90E7CBDE28AFFE410053E93F /* main.m in Sources */,
+				9017327E28BAB24600FE19F5 /* restart.m in Sources */,
+				907C3DD728B6EF2A0031F5A7 /* machTiming.m in Sources */,
+				90F98AFB28BAD8BF006709D8 /* sourceListener.m in Sources */,
+				90F3C4A128CA739600F8F2F6 /* configuration.c in Sources */,
+				90E7CBE828B6C3740053E93F /* BRossToolsMIDIUP.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

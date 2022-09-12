@@ -745,6 +745,10 @@ if (numberOfSources == 0) {
     
     }*/
     // NSLog(@"BRossToolsMIDIListenForInputUMP");
+    /*
+     * This code shows the mapping between the MIDI numbers for the notes
+     * to the name of the note.
+     */
     for (UInt8 i = 0; i<120; i++)
     {
         NSLog(@"%d %@",i, [BRossToolsMIDIProcessEventList showNote:i]);
@@ -842,13 +846,14 @@ if (numberOfSources == 0) {
         MIDIEventPacket * currentPacket;
         NSLog( @"MIDIReceiveBlock called");
         NSLog(@"numPackets = %d", evtList->numPackets);
-        currentPacket = MIDIEventListInit(evtList, kMIDIProtocol_1_0);
+        // currentPacket = MIDIEventListInit( evtList, kMIDIProtocol_1_0);
+        currentPacket = &evtList->packet[0];
         NSLog(@"wordCount,   %d",currentPacket->wordCount);
         NSLog(@"words[0],   %x",currentPacket->words[0]);
         /*
          currentPacket->words is string of words
          UInt32 words[64]
-        currentPacket = evtList->packet;
+
 
         // packet = [evtList MIDIEventPacketNext];
         BRossToolsMIDIProcessEventList *  list = [[BRossToolsMIDIProcessEventList alloc]  initWithEventList: evtList];
